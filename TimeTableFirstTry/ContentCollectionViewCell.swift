@@ -1,0 +1,9 @@
+//
+//  DateCollectionViewCell.swift
+//  TimeTableFirstTry
+//
+//  Created by Aurel Feer on 25.10.15.
+//  Copyright © 2015 Aurel Feer. All rights reserved.
+//
+
+import Foundation

@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A01BDD56710026F2AE /* AppDelegate.swift */; };
-		74EBE6A31BDD56710026F2AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A21BDD56710026F2AE /* ViewController.swift */; };
+		74EBE6A31BDD56710026F2AE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A21BDD56710026F2AE /* CollectionViewController.swift */; };
 		74EBE6A61BDD56710026F2AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74EBE6A41BDD56710026F2AE /* Main.storyboard */; };
 		74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A71BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld */; };
 		74EBE6AB1BDD56710026F2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74EBE6AA1BDD56710026F2AE /* Assets.xcassets */; };
 		74EBE6AE1BDD56710026F2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74EBE6AC1BDD56710026F2AE /* LaunchScreen.storyboard */; };
 		74EBE6B91BDD56710026F2AE /* TimeTableFirstTryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6B81BDD56710026F2AE /* TimeTableFirstTryTests.swift */; };
 		74EBE6C41BDD56720026F2AE /* TimeTableFirstTryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6C31BDD56720026F2AE /* TimeTableFirstTryUITests.swift */; };
+		74EBE6D91BDD59580026F2AE /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6D81BDD59580026F2AE /* CustomCollectionViewLayout.swift */; settings = {ASSET_TAGS = (); }; };
+		74EBE6DB1BDD598A0026F2AE /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DA1BDD598A0026F2AE /* ContentCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		74EBE6DF1BDD59F00026F2AE /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DE1BDD59F00026F2AE /* DateCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +40,7 @@
 /* Begin PBXFileReference section */
 		74EBE69D1BDD56710026F2AE /* TimeTableFirstTry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTableFirstTry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EBE6A01BDD56710026F2AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		74EBE6A21BDD56710026F2AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		74EBE6A21BDD56710026F2AE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		74EBE6A51BDD56710026F2AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74EBE6A81BDD56710026F2AE /* TimeTableFirstTry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeTableFirstTry.xcdatamodel; sourceTree = "<group>"; };
 		74EBE6AA1BDD56710026F2AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +52,9 @@
 		74EBE6BF1BDD56720026F2AE /* TimeTableFirstTryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeTableFirstTryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EBE6C31BDD56720026F2AE /* TimeTableFirstTryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableFirstTryUITests.swift; sourceTree = "<group>"; };
 		74EBE6C51BDD56720026F2AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74EBE6D81BDD59580026F2AE /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
+		74EBE6DA1BDD598A0026F2AE /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
+		74EBE6DE1BDD59F00026F2AE /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +105,10 @@
 		74EBE69F1BDD56710026F2AE /* TimeTableFirstTry */ = {
 			isa = PBXGroup;
 			children = (
+				74EBE6D11BDD582A0026F2AE /* Views */,
+				74EBE6D41BDD586E0026F2AE /* Classes */,
+				74EBE6D71BDD58CA0026F2AE /* Controllers */,
 				74EBE6A01BDD56710026F2AE /* AppDelegate.swift */,
-				74EBE6A21BDD56710026F2AE /* ViewController.swift */,
 				74EBE6A41BDD56710026F2AE /* Main.storyboard */,
 				74EBE6AA1BDD56710026F2AE /* Assets.xcassets */,
 				74EBE6AC1BDD56710026F2AE /* LaunchScreen.storyboard */,
@@ -126,6 +134,63 @@
 				74EBE6C51BDD56720026F2AE /* Info.plist */,
 			);
 			path = TimeTableFirstTryUITests;
+			sourceTree = "<group>";
+		};
+		74EBE6D11BDD582A0026F2AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				74EBE6D31BDD584D0026F2AE /* Date Cell */,
+				74EBE6D21BDD583D0026F2AE /* Content Cell */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		74EBE6D21BDD583D0026F2AE /* Content Cell */ = {
+			isa = PBXGroup;
+			children = (
+				74EBE6DA1BDD598A0026F2AE /* ContentCollectionViewCell.swift */,
+			);
+			name = "Content Cell";
+			sourceTree = "<group>";
+		};
+		74EBE6D31BDD584D0026F2AE /* Date Cell */ = {
+			isa = PBXGroup;
+			children = (
+				74EBE6DE1BDD59F00026F2AE /* DateCollectionViewCell.swift */,
+			);
+			name = "Date Cell";
+			sourceTree = "<group>";
+		};
+		74EBE6D41BDD586E0026F2AE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				74EBE6D51BDD58920026F2AE /* CustomCollectionViewLayout */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		74EBE6D51BDD58920026F2AE /* CustomCollectionViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				74EBE6D61BDD58B80026F2AE /* Swift */,
+			);
+			name = CustomCollectionViewLayout;
+			sourceTree = "<group>";
+		};
+		74EBE6D61BDD58B80026F2AE /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				74EBE6D81BDD59580026F2AE /* CustomCollectionViewLayout.swift */,
+			);
+			name = Swift;
+			sourceTree = "<group>";
+		};
+		74EBE6D71BDD58CA0026F2AE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				74EBE6A21BDD56710026F2AE /* CollectionViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +323,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74EBE6A31BDD56710026F2AE /* ViewController.swift in Sources */,
+				74EBE6A31BDD56710026F2AE /* CollectionViewController.swift in Sources */,
 				74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */,
+				74EBE6D91BDD59580026F2AE /* CustomCollectionViewLayout.swift in Sources */,
 				74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */,
+				74EBE6DF1BDD59F00026F2AE /* DateCollectionViewCell.swift in Sources */,
+				74EBE6DB1BDD598A0026F2AE /* ContentCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
