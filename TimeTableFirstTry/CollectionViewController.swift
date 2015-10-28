@@ -9,6 +9,8 @@
 import UIKit
 
 class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    let dateCellIdentifier = "DateCellIdentifier"
+    let contentCellIdentifier = "ContentCellIdentifier"
 
     override func viewDidLoad() {
         super.viewDidLoad()
