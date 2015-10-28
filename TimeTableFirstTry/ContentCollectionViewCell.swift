@@ -1,9 +1,19 @@
 //
 //  DateCollectionViewCell.swift
-//  TimeTableFirstTry
+//  CustomCollectionLayout
 //
-//  Created by Aurel Feer on 25.10.15.
-//  Copyright © 2015 Aurel Feer. All rights reserved.
+//  Created by JOSE MARTINEZ on 09/01/2015.
+//  Copyright (c) 2015 brightec. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class DateCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+}
