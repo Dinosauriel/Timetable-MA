@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		749588271BE144E5006710B2 /* ContentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588261BE144E5006710B2 /* ContentCollectionViewCell.xib */; };
+		749588291BE144F7006710B2 /* DateCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588281BE144F7006710B2 /* DateCollectionViewCell.xib */; };
 		74BD1E7C1BE1298200C3C3C4 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74BD1E7B1BE1298200C3C3C4 /* CollectionViewController.xib */; };
 		74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A01BDD56710026F2AE /* AppDelegate.swift */; };
 		74EBE6A31BDD56710026F2AE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A21BDD56710026F2AE /* CollectionViewController.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		749588261BE144E5006710B2 /* ContentCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentCollectionViewCell.xib; sourceTree = "<group>"; };
+		749588281BE144F7006710B2 /* DateCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateCollectionViewCell.xib; sourceTree = "<group>"; };
 		74BD1E7B1BE1298200C3C3C4 /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 		74EBE69D1BDD56710026F2AE /* TimeTableFirstTry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTableFirstTry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EBE6A01BDD56710026F2AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				74EBE6DA1BDD598A0026F2AE /* ContentCollectionViewCell.swift */,
+				749588261BE144E5006710B2 /* ContentCollectionViewCell.xib */,
 			);
 			name = "Content Cell";
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				74EBE6DE1BDD59F00026F2AE /* DateCollectionViewCell.swift */,
+				749588281BE144F7006710B2 /* DateCollectionViewCell.xib */,
 			);
 			name = "Date Cell";
 			sourceTree = "<group>";
@@ -296,8 +302,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				749588271BE144E5006710B2 /* ContentCollectionViewCell.xib in Resources */,
 				74BD1E7C1BE1298200C3C3C4 /* CollectionViewController.xib in Resources */,
 				74EBE6AE1BDD56710026F2AE /* LaunchScreen.storyboard in Resources */,
+				749588291BE144F7006710B2 /* DateCollectionViewCell.xib in Resources */,
 				74EBE6AB1BDD56710026F2AE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
