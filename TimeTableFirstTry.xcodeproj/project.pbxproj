@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		744925EA1BE7D840006EFFC7 /* TimetableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744925E91BE7D840006EFFC7 /* TimetableTime.swift */; };
 		749588271BE144E5006710B2 /* ContentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588261BE144E5006710B2 /* ContentCollectionViewCell.xib */; };
 		749588291BE144F7006710B2 /* DateCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588281BE144F7006710B2 /* DateCollectionViewCell.xib */; };
 		74BD1E7C1BE1298200C3C3C4 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74BD1E7B1BE1298200C3C3C4 /* CollectionViewController.xib */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		744925E91BE7D840006EFFC7 /* TimetableTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableTime.swift; sourceTree = "<group>"; };
 		749588261BE144E5006710B2 /* ContentCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentCollectionViewCell.xib; sourceTree = "<group>"; };
 		749588281BE144F7006710B2 /* DateCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateCollectionViewCell.xib; sourceTree = "<group>"; };
 		74BD1E7B1BE1298200C3C3C4 /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		744925E81BE7D81F006EFFC7 /* Time */ = {
+			isa = PBXGroup;
+			children = (
+				744925E91BE7D840006EFFC7 /* TimetableTime.swift */,
+			);
+			name = Time;
+			sourceTree = "<group>";
+		};
 		74EBE6941BDD56710026F2AE = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +179,7 @@
 		74EBE6D41BDD586E0026F2AE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				744925E81BE7D81F006EFFC7 /* Time */,
 				74EBE6D51BDD58920026F2AE /* CustomCollectionViewLayout */,
 			);
 			name = Classes;
@@ -177,17 +188,9 @@
 		74EBE6D51BDD58920026F2AE /* CustomCollectionViewLayout */ = {
 			isa = PBXGroup;
 			children = (
-				74EBE6D61BDD58B80026F2AE /* Swift */,
-			);
-			name = CustomCollectionViewLayout;
-			sourceTree = "<group>";
-		};
-		74EBE6D61BDD58B80026F2AE /* Swift */ = {
-			isa = PBXGroup;
-			children = (
 				74EBE6D81BDD59580026F2AE /* CustomCollectionViewLayout.swift */,
 			);
-			name = Swift;
+			name = CustomCollectionViewLayout;
 			sourceTree = "<group>";
 		};
 		74EBE6D71BDD58CA0026F2AE /* Controllers */ = {
@@ -332,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74EBE6A31BDD56710026F2AE /* CollectionViewController.swift in Sources */,
+				744925EA1BE7D840006EFFC7 /* TimetableTime.swift in Sources */,
 				74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */,
 				74EBE6D91BDD59580026F2AE /* CustomCollectionViewLayout.swift in Sources */,
 				74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */,

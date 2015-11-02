@@ -11,6 +11,9 @@ import UIKit
 class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     let dateCellIdentifier = "DateCellIdentifier"
     let contentCellIdentifier = "ContentCellIdentifier"
+    
+    let myTime = TimetableTime()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     
@@ -19,7 +22,12 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         
         self.collectionView .registerNib(UINib(nibName: "DateCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: dateCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "ContentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: contentCellIdentifier)
-    }
+        
+        print(myTime.getLessonTime(1, when: "start"))
+        print(myTime.getLessonTime(1, when: "end"))
+        
+        print(myTime.getLessonTimeAsString(1, when: "start"))
+        }
     
     
     // MARK - UICollectionViewDataSource
