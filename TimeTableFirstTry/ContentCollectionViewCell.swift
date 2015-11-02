@@ -2,8 +2,8 @@
 //  DateCollectionViewCell.swift
 //  CustomCollectionLayout
 //
-//  Created by JOSE MARTINEZ on 09/01/2015.
-//  Copyright (c) 2015 brightec. All rights reserved.
+//  Created by Aurel Feer on 25/10/2015.
+//  Copyright © 2015 Aurel Feer. All rights reserved.
 //
 
 import UIKit

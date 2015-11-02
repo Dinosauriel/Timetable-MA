@@ -2,8 +2,8 @@
 //  CustomCollectionViewLayout.swift
 //  CustomCollectionLayout
 //
-//  Created by JOSE MARTINEZ on 15/12/2014.
-//  Copyright (c) 2014 brightec. All rights reserved.
+//  Created by Aurel Feer on 25/10/2015.
+//  Copyright © 2015 Aurel Feer. All rights reserved.
 //
 
 import UIKit
