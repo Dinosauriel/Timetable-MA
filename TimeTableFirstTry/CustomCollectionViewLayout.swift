@@ -1,6 +1,6 @@
 //
 //  CustomCollectionViewLayout.swift
-//  CustomCollectionLayout
+//  TimeTableFirstTry
 //
 //  Created by Aurel Feer on 25/10/2015.
 //  Copyright © 2015 Aurel Feer. All rights reserved.
@@ -21,14 +21,16 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         }
         
         if (self.itemAttributes != nil && self.itemAttributes.count > 0) {
+            
+            print("FUNCTION A")
             for section in 0..<self.collectionView!.numberOfSections() {
-                var numberOfItems : Int = self.collectionView!.numberOfItemsInSection(section)
+                let numberOfItems : Int = self.collectionView!.numberOfItemsInSection(section)
                 for index in 0..<numberOfItems {
                     if section != 0 && index != 0 {
                         continue
                     }
                     
-                    var attributes : UICollectionViewLayoutAttributes = self.layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: index, inSection: section))
+                    let attributes : UICollectionViewLayoutAttributes = self.layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: index, inSection: section))
                     if section == 0 {
                         var frame = attributes.frame
                         frame.origin.y = self.collectionView!.contentOffset.y
@@ -47,6 +49,7 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         
         if (self.itemsSize == nil || self.itemsSize.count != numberOfColumns) {
             self.calculateItemsSize()
+            print("FUNCTION B")
         }
         
         var column = 0
@@ -56,26 +59,30 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         var contentHeight : CGFloat = 0
         
         for section in 0..<self.collectionView!.numberOfSections() {
-            var sectionAttributes = NSMutableArray()
+            let sectionAttributes = NSMutableArray()
             
             for index in 0..<numberOfColumns {
-                var itemSize = self.itemsSize[index].CGSizeValue()
-                var indexPath = NSIndexPath(forItem: index, inSection: section)
-                var attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
+                let itemSize = self.itemsSize[index].CGSizeValue()
+                let indexPath = NSIndexPath(forItem: index, inSection: section)
+                let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
                 attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemSize.width, itemSize.height))
                 
                 if section == 0 && index == 0 {
+                    print("FUNCTION C.1")
                     attributes.zIndex = 1024;
                 } else  if section == 0 || index == 0 {
+                    print("FUNCTION C.2")
                     attributes.zIndex = 1023
                 }
                 
                 if section == 0 {
+                    print("FUNCTION D")
                     var frame = attributes.frame
                     frame.origin.y = self.collectionView!.contentOffset.y
                     attributes.frame = frame
                 }
                 if index == 0 {
+                    print("FUNCTION E")
                     var frame = attributes.frame
                     frame.origin.x = self.collectionView!.contentOffset.x
                     attributes.frame = frame
@@ -89,6 +96,7 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
                 if column == numberOfColumns {
                     if xOffset > contentWidth {
                         contentWidth = xOffset
+                        print("FUNCTION F")
                     }
                     
                     column = 0
@@ -97,12 +105,13 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
                 }
             }
             if (self.itemAttributes == nil) {
+                print("FUNCTION G")
                 self.itemAttributes = NSMutableArray(capacity: self.collectionView!.numberOfSections())
             }
             self.itemAttributes .addObject(sectionAttributes)
         }
         
-        var attributes : UICollectionViewLayoutAttributes = self.itemAttributes.lastObject?.lastObject as! UICollectionViewLayoutAttributes
+        let attributes : UICollectionViewLayoutAttributes = self.itemAttributes.lastObject?.lastObject as! UICollectionViewLayoutAttributes
         contentHeight = attributes.frame.origin.y + attributes.frame.size.height
         self.contentSize = CGSizeMake(contentWidth, contentHeight)
     }
