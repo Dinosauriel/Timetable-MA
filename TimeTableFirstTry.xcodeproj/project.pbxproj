@@ -334,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				744925ED1BE7EC37006EFFC7 /* TimetableTime.swift in Sources */,
 				74EBE6A31BDD56710026F2AE /* CollectionViewController.swift in Sources */,
 				74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */,
 				74EBE6D91BDD59580026F2AE /* CustomCollectionViewLayout.swift in Sources */,

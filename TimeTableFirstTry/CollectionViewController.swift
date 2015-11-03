@@ -1,6 +1,6 @@
 //
 //  CollectionViewController.swift
-//  CustomCollectionLayout
+//  TimeTableFirstTry
 //
 //  Created by Aurel Feer on 25/10/2015.
 //  Copyright © 2015 Aurel Feer. All rights reserved.
@@ -23,10 +23,10 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         self.collectionView .registerNib(UINib(nibName: "DateCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: dateCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "ContentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: contentCellIdentifier)
         
-        print(myTime.getLessonTime(1, when: "start"))
-        print(myTime.getLessonTime(1, when: "end"))
+        print(myTime.getLessonTime(5, when: "start"))
+        print(myTime.getLessonTime(5, when: "end"))
         
-        print(myTime.getLessonTimeAsString(1, when: "start"))
+        print(myTime.getLessonTimeAsString(5, when: "end"))
         }
     
     
