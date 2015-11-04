@@ -11,6 +11,7 @@ import UIKit
 class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     let timetitleCellIdentifier = "TimetitleCellIdentifier"
     let dayCellIdentifier = "DayCellIdentifier"
+    let timeCellIdentifier = "TimeCellIdentifier"
     
     let myTime = TimetableTime()
     
@@ -22,6 +23,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         
         self.collectionView .registerNib(UINib(nibName: "TimetitleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timetitleCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: dayCellIdentifier)
+        self.collectionView .registerNib(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timeCellIdentifier)
         
         print(myTime.getLessonTime(5, when: "start"))
         print(myTime.getLessonTime(5, when: "end"))
@@ -84,17 +86,21 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
             }
         } else {
             if indexPath.row == 0 {
-                let timetitleCell: TimetitleCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(timetitleCellIdentifier, forIndexPath: indexPath) as! TimetitleCollectionViewCell
-                timetitleCell.timetitleLabel.font = UIFont.systemFontOfSize(13)
-                timetitleCell.timetitleLabel.textColor = UIColor.blackColor()
-                timetitleCell.timetitleLabel.text = String(indexPath.section)
+                let timegetter = TimetableTime()
+                let timeCell: TimeCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(timeCellIdentifier, forIndexPath: indexPath) as! TimeCollectionViewCell
+                timeCell.starttimeLabel.font = UIFont.systemFontOfSize(13)
+                timeCell.endtimeLabel.font = UIFont.systemFontOfSize(13)
+                timeCell.starttimeLabel.textColor = UIColor.blackColor()
+                timeCell.endtimeLabel.textColor = UIColor.blackColor()
+                timeCell.starttimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section, when: "start")
+                timeCell.endtimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section, when: "end")
                 if indexPath.section % 2 != 0 {
-                    timetitleCell.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
+                    timeCell.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
                 } else {
-                    timetitleCell.backgroundColor = UIColor.whiteColor()
+                    timeCell.backgroundColor = UIColor.whiteColor()
                 }
                 
-                return timetitleCell
+                return timeCell
             } else {
                 let dayCell : DayCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
                 dayCell.dayLabel.font = UIFont.systemFontOfSize(13)

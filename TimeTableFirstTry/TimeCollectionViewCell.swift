@@ -9,9 +9,8 @@
 import UIKit
 
 class TimeCollectionViewCell: UICollectionViewCell {
-        @IBOutlet weak var starttimeLabel: UILabel!
-        @IBOutlet weak var endtimeLabel: UILabel!
-    
+    @IBOutlet weak var starttimeLabel: UILabel!
+    @IBOutlet weak var endtimeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
