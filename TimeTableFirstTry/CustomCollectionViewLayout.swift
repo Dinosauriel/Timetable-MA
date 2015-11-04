@@ -10,7 +10,7 @@ import UIKit
 
 class CustomCollectionViewLayout: UICollectionViewLayout {
     
-    let numberOfColumns = 8
+    let numberOfColumns = 6
     var itemAttributes : NSMutableArray!
     var itemsSize : NSMutableArray!
     var contentSize : CGSize!
@@ -172,7 +172,7 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         
         let size : CGSize = (text as NSString).sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(17.0)])
         let width : CGFloat = size.width + 25
-        return CGSizeMake(width, 30)
+        return CGSizeMake(width, 60)
     }
     
     func calculateItemsSize() {

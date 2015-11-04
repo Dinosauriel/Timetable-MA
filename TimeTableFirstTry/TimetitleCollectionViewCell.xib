@@ -7,15 +7,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContentCellIdentifier" id="2na-Zw-E6N" customClass="ContentCollectionViewCell" customModule="TimeTableFirstTry" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="201" height="50"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimetitleCellIdentifier" id="KiH-D0-bfb" customClass="TimetitleCollectionViewCell" customModule="TimeTableFirstTry" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="249" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="201" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="249" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsf-4D-0Xw" userLabel="Content Label">
-                        <rect key="frame" x="0.0" y="0.0" width="201" height="50"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWN-kn-a8e" userLabel="Date Label">
+                        <rect key="frame" x="0.0" y="0.0" width="249" height="50"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -27,16 +27,16 @@
             </view>
             <animations/>
             <constraints>
-                <constraint firstItem="jsf-4D-0Xw" firstAttribute="leading" secondItem="2na-Zw-E6N" secondAttribute="leading" id="mny-rv-QEV"/>
-                <constraint firstItem="jsf-4D-0Xw" firstAttribute="top" secondItem="2na-Zw-E6N" secondAttribute="top" id="o9C-AV-Cwu"/>
-                <constraint firstAttribute="bottom" secondItem="jsf-4D-0Xw" secondAttribute="bottom" id="omP-YK-4Wq"/>
-                <constraint firstAttribute="trailing" secondItem="jsf-4D-0Xw" secondAttribute="trailing" id="vog-GV-xzF"/>
+                <constraint firstItem="aWN-kn-a8e" firstAttribute="top" secondItem="KiH-D0-bfb" secondAttribute="top" id="Foq-aQ-2Wy"/>
+                <constraint firstItem="aWN-kn-a8e" firstAttribute="leading" secondItem="KiH-D0-bfb" secondAttribute="leading" id="PR1-FD-Uym"/>
+                <constraint firstAttribute="trailing" secondItem="aWN-kn-a8e" secondAttribute="trailing" id="gWZ-jv-Z39"/>
+                <constraint firstAttribute="bottom" secondItem="aWN-kn-a8e" secondAttribute="bottom" id="wIb-W2-l2V"/>
             </constraints>
-            <size key="customSize" width="201" height="50"/>
+            <size key="customSize" width="249" height="50"/>
             <connections>
-                <outlet property="contentLabel" destination="jsf-4D-0Xw" id="dmv-lX-bCK"/>
+                <outlet property="timetitleLabel" destination="aWN-kn-a8e" id="nRa-dJ-Zmr"/>
             </connections>
-            <point key="canvasLocation" x="337.5" y="228"/>
+            <point key="canvasLocation" x="408.5" y="206"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -9,8 +9,8 @@
 import UIKit
 
 class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    let dateCellIdentifier = "DateCellIdentifier"
-    let contentCellIdentifier = "ContentCellIdentifier"
+    let timetitleCellIdentifier = "TimetitleCellIdentifier"
+    let dayCellIdentifier = "DayCellIdentifier"
     
     let myTime = TimetableTime()
     
@@ -20,8 +20,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView .registerNib(UINib(nibName: "DateCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: dateCellIdentifier)
-        self.collectionView .registerNib(UINib(nibName: "ContentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: contentCellIdentifier)
+        self.collectionView .registerNib(UINib(nibName: "TimetitleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timetitleCellIdentifier)
+        self.collectionView .registerNib(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: dayCellIdentifier)
         
         print(myTime.getLessonTime(5, when: "start"))
         print(myTime.getLessonTime(5, when: "end"))
@@ -33,12 +33,12 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     // MARK - UICollectionViewDataSource
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 50
+        return 13
     }
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return 6
     }
     
     
@@ -46,52 +46,67 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                let dateCell : DateCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(dateCellIdentifier, forIndexPath: indexPath) as! DateCollectionViewCell
-                dateCell.backgroundColor = UIColor.whiteColor()
-                dateCell.dateLabel.font = UIFont.systemFontOfSize(13)
-                dateCell.dateLabel.textColor = UIColor.blackColor()
-                dateCell.dateLabel.text = "Date"
+                    let timetitleCell : TimetitleCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(timetitleCellIdentifier, forIndexPath: indexPath) as! TimetitleCollectionViewCell
+                    timetitleCell.backgroundColor = UIColor.whiteColor()
+                    timetitleCell.timetitleLabel.font = UIFont.systemFontOfSize(13)
+                    timetitleCell.timetitleLabel.textColor = UIColor.blackColor()
+                    timetitleCell.timetitleLabel.text = "Zeit"
                 
-                return dateCell
+                    return timetitleCell
+                
             } else {
-                let contentCell : ContentCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(contentCellIdentifier, forIndexPath: indexPath) as! ContentCollectionViewCell
-                contentCell.contentLabel.font = UIFont.systemFontOfSize(13)
-                contentCell.contentLabel.textColor = UIColor.blackColor()
-                contentCell.contentLabel.text = "Section"
-                
-                if indexPath.section % 2 != 0 {
-                    contentCell.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
-                } else {
-                    contentCell.backgroundColor = UIColor.whiteColor()
+                    let dayCell : DayCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
+                    dayCell.dayLabel.font = UIFont.systemFontOfSize(13)
+                    dayCell.dayLabel.textColor = UIColor.blackColor()
+                switch indexPath.row {
+                    case 1:
+                        dayCell.dayLabel.text = "Montag"
+                    case 2:
+                        dayCell.dayLabel.text = "Dienstag"
+                    case 3:
+                        dayCell.dayLabel.text = "Mittwoch"
+                    case 4:
+                        dayCell.dayLabel.text = "Donnerstag"
+                    case 5:
+                        dayCell.dayLabel.text = "Freitag"
+                    default:
+                        dayCell.dayLabel.text = "nil"
                 }
                 
-                return contentCell
+                if indexPath.section % 2 != 0 {
+                    dayCell.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
+                } else {
+                    dayCell.backgroundColor = UIColor.whiteColor()
+                }
+                
+                return dayCell
+                
             }
         } else {
             if indexPath.row == 0 {
-                let dateCell : DateCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(dateCellIdentifier, forIndexPath: indexPath) as! DateCollectionViewCell
-                dateCell.dateLabel.font = UIFont.systemFontOfSize(13)
-                dateCell.dateLabel.textColor = UIColor.blackColor()
-                dateCell.dateLabel.text = String(indexPath.section)
+                let timetitleCell: TimetitleCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(timetitleCellIdentifier, forIndexPath: indexPath) as! TimetitleCollectionViewCell
+                timetitleCell.timetitleLabel.font = UIFont.systemFontOfSize(13)
+                timetitleCell.timetitleLabel.textColor = UIColor.blackColor()
+                timetitleCell.timetitleLabel.text = String(indexPath.section)
                 if indexPath.section % 2 != 0 {
-                    dateCell.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
+                    timetitleCell.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
                 } else {
-                    dateCell.backgroundColor = UIColor.whiteColor()
+                    timetitleCell.backgroundColor = UIColor.whiteColor()
                 }
                 
-                return dateCell
+                return timetitleCell
             } else {
-                let contentCell : ContentCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(contentCellIdentifier, forIndexPath: indexPath) as! ContentCollectionViewCell
-                contentCell.contentLabel.font = UIFont.systemFontOfSize(13)
-                contentCell.contentLabel.textColor = UIColor.blackColor()
-                contentCell.contentLabel.text = "Content"
+                let dayCell : DayCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
+                dayCell.dayLabel.font = UIFont.systemFontOfSize(13)
+                dayCell.dayLabel.textColor = UIColor.blackColor()
+                dayCell.dayLabel.text = "Content"
                 if indexPath.section % 2 != 0 {
-                    contentCell.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
+                    dayCell.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
                 } else {
-                    contentCell.backgroundColor = UIColor.whiteColor()
+                    dayCell.backgroundColor = UIColor.whiteColor()
                 }
                 
-                return contentCell
+                return dayCell
             }
         }
     }

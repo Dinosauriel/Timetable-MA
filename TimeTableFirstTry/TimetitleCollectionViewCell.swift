@@ -1,5 +1,5 @@
 //
-//  DateCollectionViewCell.swift
+//  ContentCollectionViewCell.swift
 //  CustomCollectionLayout
 //
 //  Created by Aurel Feer on 25/10/2015.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class DateCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var dateLabel: UILabel!
+class TimetitleCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var timetitleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
