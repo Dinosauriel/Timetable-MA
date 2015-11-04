@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */; };
 		4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8600701BE8D8B700FA53AD /* TimetableTime.swift */; };
+		741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
+		741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */; };
 		749588271BE144E5006710B2 /* DayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588261BE144E5006710B2 /* DayCollectionViewCell.xib */; };
 		749588291BE144F7006710B2 /* TimetitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588281BE144F7006710B2 /* TimetitleCollectionViewCell.xib */; };
 		74BD1E7C1BE1298200C3C3C4 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74BD1E7B1BE1298200C3C3C4 /* CollectionViewController.xib */; };
@@ -44,6 +46,8 @@
 /* Begin PBXFileReference section */
 		4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAPIData.swift; sourceTree = "<group>"; };
 		4F8600701BE8D8B700FA53AD /* TimetableTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableTime.swift; sourceTree = "<group>"; };
+		741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
+		741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
 		749588261BE144E5006710B2 /* DayCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCollectionViewCell.xib; sourceTree = "<group>"; };
 		749588281BE144F7006710B2 /* TimetitleCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimetitleCollectionViewCell.xib; sourceTree = "<group>"; };
 		74BD1E7B1BE1298200C3C3C4 /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
@@ -106,6 +110,15 @@
 			name = Time;
 			sourceTree = "<group>";
 		};
+		741008901BEA8833009FB899 /* Time Cell */ = {
+			isa = PBXGroup;
+			children = (
+				741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */,
+				741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */,
+			);
+			name = "Time Cell";
+			sourceTree = "<group>";
+		};
 		74EBE6941BDD56710026F2AE = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +175,7 @@
 		74EBE6D11BDD582A0026F2AE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				741008901BEA8833009FB899 /* Time Cell */,
 				74EBE6D31BDD584D0026F2AE /* TimeTitle Cell */,
 				74EBE6D21BDD583D0026F2AE /* Content Cell */,
 			);
@@ -317,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				749588271BE144E5006710B2 /* DayCollectionViewCell.xib in Resources */,
+				741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */,
 				74BD1E7C1BE1298200C3C3C4 /* CollectionViewController.xib in Resources */,
 				74EBE6AE1BDD56710026F2AE /* LaunchScreen.storyboard in Resources */,
 				749588291BE144F7006710B2 /* TimetitleCollectionViewCell.xib in Resources */,
@@ -349,6 +364,7 @@
 				74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */,
 				74EBE6D91BDD59580026F2AE /* CustomCollectionViewLayout.swift in Sources */,
 				74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */,
+				741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */,
 				4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */,
 				4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */,
 				74EBE6DF1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift in Sources */,
