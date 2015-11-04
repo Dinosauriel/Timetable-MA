@@ -104,12 +104,27 @@ public class TimetableTime {
     
     func getLessonTimeAsString(let lessonposition:Int, let when:String) -> String {
         var timeasString: String
-        
         let timeasNSDateComponent = getLessonTime(lessonposition, when: when)
-        timeasString = timeasNSDateComponent.hour.description
+        var hourAsString = timeasNSDateComponent.hour.description
+        var minuteAsString = timeasNSDateComponent.minute.description
+        
+        if hourAsString.characters.count == 1 {
+            hourAsString = addZero(hourAsString)
+        }
+        if minuteAsString.characters.count == 1 {
+            minuteAsString = addZero(minuteAsString)
+        }
+        
+        timeasString = hourAsString
         timeasString.appendContentsOf(":")
-        timeasString.appendContentsOf(timeasNSDateComponent.minute.description)
+        timeasString.appendContentsOf(minuteAsString)
         
         return timeasString
+    }
+    
+    func addZero(let inputString:String) -> String {
+        var zerostring = "0"
+        zerostring.appendContentsOf(inputString)
+        return zerostring
     }
 }
