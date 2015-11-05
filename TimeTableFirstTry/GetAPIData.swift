@@ -8,25 +8,29 @@
 
 import Foundation
 import WebKit
+import CoreData
 
 class GetAPIData {
     
     var token:NSString!
     
+let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
     func requestAuthToken() {
         UIApplication.sharedApplication().openURL(NSURL(string: "https://oauth.tam.ch/signin/klw-stupla-app?response_type=token&client_id=0Wv69s7vyidj3cKzNckhiSulA5on8uFM&redirect_uri=uniapp%3A%2F%2Fklw-stupla-app&_blank&scope=all")!)
     }
     
-    func handleTokenResponse(url : NSURL) -> NSString {
+    func handleTokenResponse(url : NSURL) {
         
         let URLstring = String(url)
         let stringArr = URLstring.componentsSeparatedByString("&")
         let tokenArr = stringArr[0].componentsSeparatedByString("=")
         
         token = tokenArr[1]
-        
-        return token
-        
+
+        if let moc = self.managedObjectContext {
+            Token.createInManagedObjectContext(moc, tokenVar: tokenArr[1])
+        }
     }
     
     func getDataWithToken(token : NSString) -> NSString {
@@ -52,6 +56,27 @@ class GetAPIData {
             return contents
         } else {
             return ""
+        }
+    }
+    
+    func getTokenFromData() -> Bool {
+        
+        let fetchRequest = NSFetchRequest(entityName: "Token")
+        
+        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [Token] {
+            
+            if fetchResults.count != 0 {
+                print(fetchResults[0])
+            
+                token = fetchResults[0].tokenVar
+            
+                return true
+            } else {
+                return false
+            }
+            
+        } else {
+            return false
         }
     }
 }
