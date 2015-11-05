@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeCellIdentifier" id="j8L-eC-1Hi" customClass="TimeCollectionViewCell" customModule="TimeTableFirstTry" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDJ-2Q-nM5" userLabel="Starttime Label">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAO-Kv-E6b" userLabel="Endtime Label">
+                        <rect key="frame" x="0.0" y="79.5" width="300" height="20.5"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <animations/>
+            <constraints>
+                <constraint firstItem="sDJ-2Q-nM5" firstAttribute="leading" secondItem="j8L-eC-1Hi" secondAttribute="leading" id="3ao-do-eRu"/>
+                <constraint firstAttribute="trailing" secondItem="eAO-Kv-E6b" secondAttribute="trailing" id="9YS-QH-0iA"/>
+                <constraint firstItem="sDJ-2Q-nM5" firstAttribute="top" secondItem="j8L-eC-1Hi" secondAttribute="top" id="CZJ-0m-gSz"/>
+                <constraint firstItem="eAO-Kv-E6b" firstAttribute="leading" secondItem="j8L-eC-1Hi" secondAttribute="leading" id="DTh-mU-uEl"/>
+                <constraint firstAttribute="trailing" secondItem="sDJ-2Q-nM5" secondAttribute="trailing" id="e5p-eR-SI4"/>
+                <constraint firstItem="eAO-Kv-E6b" firstAttribute="height" secondItem="sDJ-2Q-nM5" secondAttribute="height" id="qHm-Ns-oDC"/>
+                <constraint firstAttribute="bottom" secondItem="eAO-Kv-E6b" secondAttribute="bottom" id="x8u-bn-Qxw"/>
+            </constraints>
+            <size key="customSize" width="266" height="88.5"/>
+            <connections>
+                <outlet property="endtimeLabel" destination="eAO-Kv-E6b" id="t3A-4o-YeV"/>
+                <outlet property="starttimeLabel" destination="sDJ-2Q-nM5" id="CwD-Lp-2tV"/>
+            </connections>
+            <point key="canvasLocation" x="194" y="72.75"/>
+        </collectionViewCell>
+    </objects>
+</document>

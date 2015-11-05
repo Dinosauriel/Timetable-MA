@@ -7,14 +7,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DateCellIdentifier" id="KiH-D0-bfb" customClass="DateCollectionViewCell" customModule="TimeTableFirstTry" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimetitleCellIdentifier" id="KiH-D0-bfb" customClass="TimetitleCollectionViewCell" customModule="TimeTableFirstTry" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="249" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="249" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWN-kn-a8e" userLabel="Date Label">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWN-kn-a8e" userLabel="Timetitle Label">
                         <rect key="frame" x="0.0" y="0.0" width="249" height="50"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -34,7 +34,7 @@
             </constraints>
             <size key="customSize" width="249" height="50"/>
             <connections>
-                <outlet property="dateLabel" destination="aWN-kn-a8e" id="JcM-BV-mTx"/>
+                <outlet property="timetitleLabel" destination="aWN-kn-a8e" id="nRa-dJ-Zmr"/>
             </connections>
             <point key="canvasLocation" x="408.5" y="206"/>
         </collectionViewCell>
