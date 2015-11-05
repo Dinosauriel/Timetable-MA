@@ -105,8 +105,8 @@
 		4F6402DC1BE8BEFB00A611F6 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */,
 				4FBEFFEB1BEB7A78007C4647 /* Token.swift */,
+				4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";

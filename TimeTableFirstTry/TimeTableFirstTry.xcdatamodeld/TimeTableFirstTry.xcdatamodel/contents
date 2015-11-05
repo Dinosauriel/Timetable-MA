@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15A279b" minimumToolsVersion="Automatic">
-    <entity name="Token" syncable="YES">
+    <entity name="Token" representedClassName=".Token" syncable="YES">
         <attribute name="tokenVar" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
