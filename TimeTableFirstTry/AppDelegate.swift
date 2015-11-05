@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    var token: NSString?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -25,6 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window!.rootViewController = mainController
         self.window!.makeKeyAndVisible()
+        
+        return true
+    }
+    
+    func application(_ application: UIApplication, openURL url: NSURL, sourceApplication sourceApplication: String?, annotation annotation: AnyObject) -> Bool {
+        
+        token = handleTokenResponse(url)
         
         return true
     }
