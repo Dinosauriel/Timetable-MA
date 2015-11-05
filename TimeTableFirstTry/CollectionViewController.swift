@@ -25,10 +25,9 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         self.collectionView .registerNib(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: dayCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timeCellIdentifier)
         
-        print(myTime.getLessonTime(5, when: "start"))
-        print(myTime.getLessonTime(5, when: "end"))
-        
-        print(myTime.getLessonTimeAsString(5, when: "end"))
+        print(myTime.timeAsStringToNSDateComponents("15:55"))
+        print(myTime.timeAsStringToLessonposition("15:55"))
+        print(myTime.timeAsStringToWhen("15:55"))
         }
     
     
