@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let APIData = GetAPIData()
         
-        if APIData.getTokenFromData(){
+        if APIData.getTokenFromData() {
             
         } else {
             APIData.requestAuthToken()

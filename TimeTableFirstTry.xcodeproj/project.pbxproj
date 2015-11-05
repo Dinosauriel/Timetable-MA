@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */; };
 		4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8600701BE8D8B700FA53AD /* TimetableTime.swift */; };
+		4F988F3C1BEBD00000F8F0DA /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F988F3B1BEBD00000F8F0DA /* CustomErrors.swift */; };
 		4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEFFEB1BEB7A78007C4647 /* Token.swift */; };
 		741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
 		741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAPIData.swift; sourceTree = "<group>"; };
 		4F8600701BE8D8B700FA53AD /* TimetableTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableTime.swift; sourceTree = "<group>"; };
+		4F988F3B1BEBD00000F8F0DA /* CustomErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 		4FBEFFEB1BEB7A78007C4647 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 				4F8600701BE8D8B700FA53AD /* TimetableTime.swift */,
 			);
 			name = Time;
+			sourceTree = "<group>";
+		};
+		4F988F381BEBCFAC00F8F0DA /* miscellaneous */ = {
+			isa = PBXGroup;
+			children = (
+				4F988F3B1BEBD00000F8F0DA /* CustomErrors.swift */,
+			);
+			name = miscellaneous;
 			sourceTree = "<group>";
 		};
 		741008901BEA8833009FB899 /* Time Cell */ = {
@@ -206,6 +216,7 @@
 		74EBE6D41BDD586E0026F2AE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4F988F381BEBCFAC00F8F0DA /* miscellaneous */,
 				4F86006F1BE8D8AA00FA53AD /* Time */,
 				4F6402DC1BE8BEFB00A611F6 /* API */,
 				74EBE6D51BDD58920026F2AE /* CustomCollectionViewLayout */,
@@ -372,6 +383,7 @@
 				4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */,
 				4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */,
 				74EBE6DF1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift in Sources */,
+				4F988F3C1BEBD00000F8F0DA /* CustomErrors.swift in Sources */,
 				74EBE6DB1BDD598A0026F2AE /* DayCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
