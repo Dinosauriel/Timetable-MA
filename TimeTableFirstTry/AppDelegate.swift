@@ -29,12 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.rootViewController = mainController
         self.window!.makeKeyAndVisible()
         
-        let APIData = GetAPIData()
+        APIData = GetAPIData()
         
-        if APIData.getTokenFromData() {
+        if APIData!.getTokenFromData() {
             
         } else {
-            APIData.requestAuthToken()
+            APIData!.requestAuthToken()
         }
         
           return true
@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        APIData?.handleTokenResponse(url)
+        APIData!.handleTokenResponse(url)
         
         return true
     }
