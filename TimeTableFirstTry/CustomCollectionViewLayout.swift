@@ -150,28 +150,34 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
     }
     
     func sizeForItemWithColumnIndex(columnIndex: Int) -> CGSize {
-        var text : String = ""
-        switch (columnIndex) {
-        case 0:
-            text = "Col 0"
-        case 1:
-            text = "Col 1"
-        case 2:
-            text = "Col 2"
-        case 3:
-            text = "Col 3"
-        case 4:
-            text = "Col 4"
-        case 5:
-            text = "Col 5"
-        case 6:
-            text = "Col 6"
-        default:
-            text = "Col 7"
-        }
+//        var text : String = ""
+//        switch (columnIndex) {
+//        case 0:
+//            text = "Col 0"
+//        case 1:
+//            text = "Col 1"
+//        case 2:
+//            text = "Col 2"
+//        case 3:
+//            text = "Col 3"
+//        case 4:
+//            text = "Col 4"
+//        case 5:
+//            text = "Col 5"
+//        case 6:
+//            text = "Col 6"
+//        default:
+//            text = "Col 7"
+//        }
+//        
+//        let size : CGSize = (text as NSString).sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(17.0)])
+//        let width : CGFloat = size.width + 25
+        let timeTitle = "Zeit"
+        let timeColumnSize: CGSize = (timeTitle as NSString).sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(17.0)])
+        let timeColumnWidth: CGFloat = timeColumnSize.width
         
-        let size : CGSize = (text as NSString).sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(17.0)])
-        let width : CGFloat = size.width + 25
+        let size: CGRect = UIScreen.mainScreen().bounds
+        let width: CGFloat = size.width - 100
         return CGSizeMake(width, 60)
     }
     
