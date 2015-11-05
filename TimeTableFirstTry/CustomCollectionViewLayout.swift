@@ -174,11 +174,17 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
 //        let width : CGFloat = size.width + 25
         let timeTitle = "Zeit"
         let timeColumnSize: CGSize = (timeTitle as NSString).sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(17.0)])
-        let timeColumnWidth: CGFloat = timeColumnSize.width
+        let timeColumnWidth: CGFloat = timeColumnSize.width + 50
         
-        let size: CGRect = UIScreen.mainScreen().bounds
-        let width: CGFloat = size.width - 100
-        return CGSizeMake(width, 60)
+        if columnIndex != 0 {
+
+        
+            let size: CGRect = UIScreen.mainScreen().bounds
+            let width: CGFloat = size.width - timeColumnWidth
+            return CGSizeMake(width, 60)
+        } else {
+            return CGSizeMake(timeColumnWidth, 60)
+        }
     }
     
     func calculateItemsSize() {

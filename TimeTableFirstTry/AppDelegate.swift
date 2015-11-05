@@ -31,11 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         APIData = GetAPIData()
         
-        if APIData!.getTokenFromData() {
-            
-        } else {
-            APIData!.requestAuthToken()
-        }
+//        if APIData!.getTokenFromData() {
+//            
+//        } else {
+//            APIData!.requestAuthToken()
+//        }
         
           return true
     }
