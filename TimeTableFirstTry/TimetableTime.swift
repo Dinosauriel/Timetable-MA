@@ -19,8 +19,6 @@ import Foundation
 
     
 public class TimetableTime {
-
-    //GITHUB BUG: FILE CANT COMMIT
     
     func getLessonTime(let lessonposition:Int, let when:String) -> NSDateComponents {
             
@@ -127,4 +125,63 @@ public class TimetableTime {
         zerostring.appendContentsOf(inputString)
         return zerostring
     }
+    
+    func timeAsStringToLessonposition(let time:String) -> Int {
+        switch time {
+            case "07:45":
+                return 1
+            case "08:25":
+                return 1
+            case "08:35":
+                return 2
+            case "09:15":
+                return 2
+            case "09:25":
+                return 3
+            case "10:05":
+                return 3
+            case "10:20":
+                return 4
+            case "11:00":
+                return 4
+            case "11:10":
+                return 5
+            case "11:50":
+                return 5
+            case "12:00":
+                return 6
+            case "12:40":
+                return 6
+            case "12:45":
+                return 7
+            case "13:25":
+                return 7
+            case "13:35":
+                return 8
+            case "14:15":
+                return 8
+            case "14:25":
+                return 9
+            case "15:05":
+                return 9
+            case "15:15":
+                return 10
+            case "15:55":
+                return 10
+            case "16:05":
+                return 11
+            case "16:45":
+                return 11
+            case "16:55":
+                return 12
+            case "17:35":
+                return 12
+            default:
+                return 0
+        }
+    }
+    
+//    func timeAsStringToNSDateComponents(let time:String) -> NSDateComponents {
+//        let lessonposition = timeAsStringToLessonposition(time)
+//    }
 }
