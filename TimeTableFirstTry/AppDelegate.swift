@@ -32,7 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, openURL url: NSURL, sourceApplication sourceApplication: String?, annotation annotation: AnyObject) -> Bool {
         
-        token = handleTokenResponse(url)
+        let apiData = GetAPIData()
+        
+        token = apiData.handleTokenResponse(url)
         
         return true
     }
