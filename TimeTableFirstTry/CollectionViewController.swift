@@ -13,6 +13,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     let dayCellIdentifier = "DayCellIdentifier"
     let timeCellIdentifier = "TimeCellIdentifier"
     let lessonCellIdentifier = "LessonCellIdentifier"
+    let replacedlessonCellIdentifier = "ReplacedLessonCellIdentifier"
     
     let lessonsubjectycon = "yForSubjectCon"
     let lessonteacherycon = "yForTeacherCon"
@@ -30,6 +31,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         self.collectionView .registerNib(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: dayCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timeCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "LessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: lessonCellIdentifier)
+        self.collectionView .registerNib(UINib(nibName: "ReplacedLessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: replacedlessonCellIdentifier)
         
         print(timegetter.timeAsStringToNSDateComponents("15:55"))
         print(timegetter.timeAsStringToLessonposition("15:55"))
@@ -106,7 +108,12 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                 
                 return timeCell
             } else {
-                let lessonCell : LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                let celltoreturn: UICollectionViewCell
+                
+                let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                
+                let replacedlessonCell: ReplacedLessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(replacedlessonCellIdentifier, forIndexPath: indexPath) as! ReplacedLessonCollectionViewCell
+                
                 let alesson = declarelesson.getNewLesson(indexPath.row, pos: indexPath.section)
                 print(alesson.status)
                 switch alesson.status {
@@ -124,6 +131,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         lessonCell.roomLabel.textColor = UIColor.blackColor()
                         lessonCell.roomLabel.text = alesson.room
                     
+                        celltoreturn = lessonCell
+                    
                     case .Cancelled:
                         // Declaring subjectLabel appearance
                         lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
@@ -138,40 +147,51 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         lessonCell.roomLabel.textColor = UIColor.redColor()
                         lessonCell.roomLabel.text = alesson.room
                     
+                        celltoreturn = lessonCell
+                    
                     case .Replaced:
-                        let newSubConstraint: NSLayoutConstraint = NSLayoutConstraint(item: lessonCell.subjectLabel, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: lessonCell, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: -15)
-                        let newTeConstraint: NSLayoutConstraint = NSLayoutConstraint(item: lessonCell.teacherLabel, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: lessonCell, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: -15)
-                        let newRoomConstraint: NSLayoutConstraint = NSLayoutConstraint(item: lessonCell.roomLabel, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: lessonCell, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: -15)
                         // Declaring subjectLabel appearance
-                        lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
-                        lessonCell.subjectLabel.textColor = UIColor.blueColor()
-                        lessonCell.subjectLabel.text = alesson.subject
+                        replacedlessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
+                        replacedlessonCell.subjectLabel.textColor = UIColor.blueColor()
+                        replacedlessonCell.subjectLabel.text = alesson.subject
                         // Declaring teacherLabel appearance
-                        lessonCell.teacherLabel.font = UIFont.systemFontOfSize(13)
-                        lessonCell.teacherLabel.textColor = UIColor.blueColor()
-                        lessonCell.teacherLabel.text = alesson.teacher
+                        replacedlessonCell.teacherLabel.font = UIFont.systemFontOfSize(13)
+                        replacedlessonCell.teacherLabel.textColor = UIColor.blueColor()
+                        replacedlessonCell.teacherLabel.text = alesson.teacher
                         // Declaring roomLabel appearance
-                        lessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
-                        lessonCell.roomLabel.textColor = UIColor.blueColor()
-                        lessonCell.roomLabel.text = alesson.room
-                        // Moving the existing Labels up
-                        lessonCell.addConstraint(newSubConstraint)
-                        lessonCell.addConstraint(newTeConstraint)
-                        lessonCell.addConstraint(newRoomConstraint)
+                        replacedlessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
+                        replacedlessonCell.roomLabel.textColor = UIColor.blueColor()
+                        replacedlessonCell.roomLabel.text = alesson.room
+                        // Declaring subsubjectLabel appearance
+                        replacedlessonCell.subsubjectLabel.font = UIFont.systemFontOfSize(13)
+                        replacedlessonCell.subsubjectLabel.textColor = UIColor.blueColor()
+                        replacedlessonCell.subsubjectLabel.text = alesson.subsubject
+                        // Declaring subteacherLabel appearance
+                        replacedlessonCell.subteacherLabel.font = UIFont.systemFontOfSize(13)
+                        replacedlessonCell.subteacherLabel.textColor = UIColor.blueColor()
+                        replacedlessonCell.subteacherLabel.text = alesson.subteacher
+                        // Declaring subroomLabel appearance
+                        replacedlessonCell.subroomLabel.font = UIFont.systemFontOfSize(13)
+                        replacedlessonCell.subroomLabel.textColor = UIColor.blueColor()
+                        replacedlessonCell.subroomLabel.text = alesson.subroom
+                    
+                        celltoreturn = replacedlessonCell
                     
                     case .Empty:
                         // Declaring empty Lesson
                         lessonCell.subjectLabel.text = ""
                         lessonCell.teacherLabel.text = ""
                         lessonCell.roomLabel.text = ""
+                        
+                        celltoreturn = lessonCell
                 }
                 if indexPath.section % 2 != 0 {
-                    lessonCell.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
+                    celltoreturn.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
                 } else {
-                    lessonCell.backgroundColor = UIColor.whiteColor()
+                    celltoreturn.backgroundColor = UIColor.whiteColor()
                 }
                 
-                return lessonCell
+                return celltoreturn
             }
         }
     }

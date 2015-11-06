@@ -18,5 +18,5 @@ class ReplacedLessonCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var subsubjectLabel: UILabel!
     @IBOutlet weak var subteacherLabel: UILabel!
-    @IBOutlet weak var subroomTeacher: UILabel!
+    @IBOutlet weak var subroomLabel: UILabel!
 }

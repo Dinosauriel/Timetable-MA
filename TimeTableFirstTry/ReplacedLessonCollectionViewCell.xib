@@ -87,7 +87,7 @@
             <connections>
                 <outlet property="roomLabel" destination="J14-s7-HlY" id="xDm-ah-bch"/>
                 <outlet property="subjectLabel" destination="JOl-qc-wW6" id="qxr-e1-b9E"/>
-                <outlet property="subroomTeacher" destination="WmG-yc-ZA1" id="xvv-Yu-k3j"/>
+                <outlet property="subroomLabel" destination="WmG-yc-ZA1" id="Gj3-0P-9ye"/>
                 <outlet property="subsubjectLabel" destination="YkA-a7-R7V" id="Ue2-rt-fXH"/>
                 <outlet property="subteacherLabel" destination="4yB-Pn-BP8" id="MGY-Ef-56g"/>
                 <outlet property="teacherLabel" destination="FD8-EH-Yam" id="bw4-zv-oGP"/>

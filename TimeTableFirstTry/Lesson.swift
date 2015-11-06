@@ -13,14 +13,25 @@ class Lesson {
     let subject: String
     let teacher: String
     let room: String
+    
+    let subsubject: String
+    let subteacher: String
+    let subroom: String
+    
     let status: Status
     let day: Day
     let lessonposition: Int
+
     
-    init(subject:String, teacher:String, room:String, status: Status, day: Day, lessonposition: Int) {
+    init(subject:String, teacher:String, room:String, status: Status, day: Day, lessonposition: Int, subsubject: String, subteacher: String, subroom: String) {
         self.room = room
         self.teacher = teacher
         self.subject = subject
+        
+        self.subsubject = subsubject
+        self.subteacher = subteacher
+        self.subroom = subroom
+        
         self.status = status
         self.day = day
         self.lessonposition = lessonposition
