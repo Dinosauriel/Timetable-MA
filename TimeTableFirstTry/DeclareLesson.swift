@@ -9,8 +9,9 @@
 import Foundation
 
 class DeclareLesson {
-    var lesson = Lesson(subject: "M", teacher: "Kl", room: "8D", status: Lesson.Status.Default, day: Lesson.Day.Monday, lessonposition: 1)
-    
-    
-    
+    func getNewLesson(let day: Int,let pos: Int) -> Lesson {
+        let alesson = Lesson(subject: "M", teacher: "Kl", room: "8D", status: .Cancelled, day: Lesson.Day.Monday, lessonposition: 1)
+        return alesson
+    }
+
 }

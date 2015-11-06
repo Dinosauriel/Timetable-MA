@@ -21,8 +21,8 @@ class Lesson {
         self.room = room
         self.teacher = teacher
         self.subject = subject
-        self.status = Status.Default
-        self.day = Day.Monday
+        self.status = status
+        self.day = day
         self.lessonposition = lessonposition
     }
     

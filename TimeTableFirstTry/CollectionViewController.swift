@@ -12,8 +12,10 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     let timetitleCellIdentifier = "TimetitleCellIdentifier"
     let dayCellIdentifier = "DayCellIdentifier"
     let timeCellIdentifier = "TimeCellIdentifier"
+    let lessonCellIdentifier = "LessonCellIdentifier"
     
-    let myTime = TimetableTime()
+    let timegetter = TimetableTime()
+    let declarelesson = DeclareLesson()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -24,10 +26,11 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         self.collectionView .registerNib(UINib(nibName: "TimetitleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timetitleCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: dayCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timeCellIdentifier)
+        self.collectionView .registerNib(UINib(nibName: "LessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: lessonCellIdentifier)
         
-        print(myTime.timeAsStringToNSDateComponents("15:55"))
-        print(myTime.timeAsStringToLessonposition("15:55"))
-        print(myTime.timeAsStringToWhen("15:55"))
+        print(timegetter.timeAsStringToNSDateComponents("15:55"))
+        print(timegetter.timeAsStringToLessonposition("15:55"))
+        print(timegetter.timeAsStringToWhen("15:55"))
         }
     
     
@@ -85,7 +88,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
             }
         } else {
             if indexPath.row == 0 {
-                let timegetter = TimetableTime()
                 let timeCell: TimeCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(timeCellIdentifier, forIndexPath: indexPath) as! TimeCollectionViewCell
                 timeCell.starttimeLabel.font = UIFont.systemFontOfSize(13)
                 timeCell.endtimeLabel.font = UIFont.systemFontOfSize(13)
@@ -101,17 +103,51 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                 
                 return timeCell
             } else {
-                let dayCell : DayCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
-                dayCell.dayLabel.font = UIFont.systemFontOfSize(13)
-                dayCell.dayLabel.textColor = UIColor.blackColor()
-                dayCell.dayLabel.text = "Content"
+                let lessonCell : LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                let alesson = declarelesson.getNewLesson(indexPath.row, pos: indexPath.section)
+                print(alesson.status)
+                switch alesson.status {
+                    case .Default:
+                        // Declaring subjectLabel appearance
+                        lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
+                        lessonCell.subjectLabel.textColor = UIColor.blackColor()
+                        lessonCell.subjectLabel.text = alesson.subject
+                        // Declaring teacherLabel appearance
+                        lessonCell.teacherLabel.font = UIFont.systemFontOfSize(13)
+                        lessonCell.teacherLabel.textColor = UIColor.blackColor()
+                        lessonCell.teacherLabel.text = alesson.teacher
+                        // Declaring roomLabel appearance
+                        lessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
+                        lessonCell.roomLabel.textColor = UIColor.blackColor()
+                        lessonCell.roomLabel.text = alesson.room
+                    
+                    case .Cancelled:
+                        // Declaring subjectLabel appearance
+                        lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
+                        lessonCell.subjectLabel.textColor = UIColor.redColor()
+                        //lessonCell.subjectLabel.
+                        lessonCell.subjectLabel.text = alesson.subject
+                        // Declaring teacherLabel appearance
+                        lessonCell.teacherLabel.font = UIFont.systemFontOfSize(13)
+                        lessonCell.teacherLabel.textColor = UIColor.redColor()
+                        lessonCell.teacherLabel.text = alesson.teacher
+                        // Declaring roomLabel appearance
+                        lessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
+                        lessonCell.roomLabel.textColor = UIColor.redColor()
+                        lessonCell.roomLabel.text = alesson.teacher
+                    
+                    default:
+                        lessonCell.subjectLabel.text = ""
+                        lessonCell.teacherLabel.text = ""
+                        lessonCell.roomLabel.text = ""
+                }
                 if indexPath.section % 2 != 0 {
-                    dayCell.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
+                    lessonCell.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
                 } else {
-                    dayCell.backgroundColor = UIColor.whiteColor()
+                    lessonCell.backgroundColor = UIColor.whiteColor()
                 }
                 
-                return dayCell
+                return lessonCell
             }
         }
     }
