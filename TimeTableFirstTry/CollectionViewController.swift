@@ -139,7 +139,9 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         lessonCell.roomLabel.text = alesson.room
                     
                     case .Replaced:
-                        let subycon = lessonCell.constraints.count
+                        let newSubConstraint: NSLayoutConstraint = NSLayoutConstraint(item: lessonCell.subjectLabel, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: lessonCell, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: -15)
+                        let newTeConstraint: NSLayoutConstraint = NSLayoutConstraint(item: lessonCell.teacherLabel, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: lessonCell, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: -15)
+                        let newRoomConstraint: NSLayoutConstraint = NSLayoutConstraint(item: lessonCell.roomLabel, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: lessonCell, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: -15)
                         // Declaring subjectLabel appearance
                         lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
                         lessonCell.subjectLabel.textColor = UIColor.blueColor()
@@ -152,6 +154,10 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         lessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
                         lessonCell.roomLabel.textColor = UIColor.blueColor()
                         lessonCell.roomLabel.text = alesson.room
+                        // Moving the existing Labels up
+                        lessonCell.addConstraint(newSubConstraint)
+                        lessonCell.addConstraint(newTeConstraint)
+                        lessonCell.addConstraint(newRoomConstraint)
                     
                     case .Empty:
                         // Declaring empty Lesson

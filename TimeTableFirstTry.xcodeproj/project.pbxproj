@@ -13,6 +13,8 @@
 		4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEFFEB1BEB7A78007C4647 /* Token.swift */; };
 		741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
 		741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */; };
+		7443BE121BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7443BE111BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib */; };
+		7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */; };
 		74866B071BEBE5570030FA95 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B061BEBE5570030FA95 /* Lesson.swift */; };
 		74866B091BEBE9BA0030FA95 /* DeclareLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */; };
 		74866B0C1BEBF10A0030FA95 /* LessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */; };
@@ -56,6 +58,8 @@
 		4FBEFFEB1BEB7A78007C4647 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
+		7443BE111BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReplacedLessonCollectionViewCell.xib; sourceTree = "<group>"; };
+		7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplacedLessonCollectionViewCell.swift; sourceTree = "<group>"; };
 		74866B061BEBE5570030FA95 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeclareLesson.swift; sourceTree = "<group>"; };
 		74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -140,6 +144,15 @@
 			name = "Time Cell";
 			sourceTree = "<group>";
 		};
+		7443BE101BED2E34007E6807 /* ReplacedLesson Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7443BE111BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib */,
+				7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */,
+			);
+			name = "ReplacedLesson Cell";
+			sourceTree = "<group>";
+		};
 		74866B051BEBE5400030FA95 /* Lesson */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +227,7 @@
 		74EBE6D11BDD582A0026F2AE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7443BE101BED2E34007E6807 /* ReplacedLesson Cell */,
 				74866B0A1BEBF0A70030FA95 /* Lesson Cell */,
 				741008901BEA8833009FB899 /* Time Cell */,
 				74EBE6D31BDD584D0026F2AE /* TimeTitle Cell */,
@@ -372,6 +386,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7443BE121BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib in Resources */,
 				749588271BE144E5006710B2 /* DayCollectionViewCell.xib in Resources */,
 				741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */,
 				74866B0E1BEBF1370030FA95 /* LessonCollectionViewCell.xib in Resources */,
@@ -405,6 +420,7 @@
 			files = (
 				74EBE6A31BDD56710026F2AE /* CollectionViewController.swift in Sources */,
 				4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */,
+				7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */,
 				74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */,
 				74866B071BEBE5570030FA95 /* Lesson.swift in Sources */,
 				74EBE6D91BDD59580026F2AE /* CustomCollectionViewLayout.swift in Sources */,
