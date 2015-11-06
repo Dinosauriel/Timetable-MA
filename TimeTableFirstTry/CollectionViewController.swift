@@ -14,11 +14,14 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     let timeCellIdentifier = "TimeCellIdentifier"
     let lessonCellIdentifier = "LessonCellIdentifier"
     
+    let lessonsubjectycon = "yForSubjectCon"
+    let lessonteacherycon = "yForTeacherCon"
+    let lessonroomycon = "yForRoomCon"
+    
     let timegetter = TimetableTime()
     let declarelesson = DeclareLesson()
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,7 +128,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         // Declaring subjectLabel appearance
                         lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
                         lessonCell.subjectLabel.textColor = UIColor.redColor()
-                        //lessonCell.subjectLabel.
                         lessonCell.subjectLabel.text = alesson.subject
                         // Declaring teacherLabel appearance
                         lessonCell.teacherLabel.font = UIFont.systemFontOfSize(13)
@@ -134,9 +136,25 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         // Declaring roomLabel appearance
                         lessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
                         lessonCell.roomLabel.textColor = UIColor.redColor()
-                        lessonCell.roomLabel.text = alesson.teacher
+                        lessonCell.roomLabel.text = alesson.room
                     
-                    default:
+                    case .Replaced:
+                        let subycon = lessonCell.constraints.count
+                        // Declaring subjectLabel appearance
+                        lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
+                        lessonCell.subjectLabel.textColor = UIColor.blueColor()
+                        lessonCell.subjectLabel.text = alesson.subject
+                        // Declaring teacherLabel appearance
+                        lessonCell.teacherLabel.font = UIFont.systemFontOfSize(13)
+                        lessonCell.teacherLabel.textColor = UIColor.blueColor()
+                        lessonCell.teacherLabel.text = alesson.teacher
+                        // Declaring roomLabel appearance
+                        lessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
+                        lessonCell.roomLabel.textColor = UIColor.blueColor()
+                        lessonCell.roomLabel.text = alesson.room
+                    
+                    case .Empty:
+                        // Declaring empty Lesson
                         lessonCell.subjectLabel.text = ""
                         lessonCell.teacherLabel.text = ""
                         lessonCell.roomLabel.text = ""

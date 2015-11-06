@@ -28,8 +28,9 @@ class Lesson {
     
     enum Status {
         case Default
-        case Moved
+        case Replaced
         case Cancelled
+        case Empty
     }
     
     enum Day {

@@ -15,21 +15,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SC4-CG-GJf">
-                        <rect key="frame" x="0.0" y="40" width="100" height="20"/>
+                        <rect key="frame" x="0.0" y="40" width="100" height="20.5"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYZ-by-zNo">
-                        <rect key="frame" x="100" y="39" width="100" height="21"/>
+                        <rect key="frame" x="100" y="40" width="100" height="20.5"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vt-mp-sUQ">
-                        <rect key="frame" x="200" y="39" width="100" height="21"/>
+                        <rect key="frame" x="200" y="39.5" width="100" height="20.5"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -43,15 +43,15 @@
             <constraints>
                 <constraint firstItem="hYZ-by-zNo" firstAttribute="leading" secondItem="SC4-CG-GJf" secondAttribute="trailing" id="0YH-QI-aam"/>
                 <constraint firstItem="8vt-mp-sUQ" firstAttribute="leading" secondItem="hYZ-by-zNo" secondAttribute="trailing" id="2Ks-cA-sja"/>
-                <constraint firstItem="8vt-mp-sUQ" firstAttribute="centerY" secondItem="nf3-wa-lOk" secondAttribute="centerY" id="JyZ-Cm-DoE"/>
-                <constraint firstItem="hYZ-by-zNo" firstAttribute="centerY" secondItem="nf3-wa-lOk" secondAttribute="centerY" id="LZY-zA-0kM"/>
+                <constraint firstItem="8vt-mp-sUQ" firstAttribute="centerY" secondItem="nf3-wa-lOk" secondAttribute="centerY" identifier="yForRoomCon" id="JyZ-Cm-DoE"/>
+                <constraint firstItem="hYZ-by-zNo" firstAttribute="centerY" secondItem="nf3-wa-lOk" secondAttribute="centerY" identifier="yForTeacherCon" id="LZY-zA-0kM"/>
                 <constraint firstItem="8vt-mp-sUQ" firstAttribute="leading" secondItem="hYZ-by-zNo" secondAttribute="trailing" id="Q65-QJ-SEK"/>
                 <constraint firstItem="hYZ-by-zNo" firstAttribute="leading" secondItem="SC4-CG-GJf" secondAttribute="trailing" id="TJl-sa-bFe"/>
                 <constraint firstItem="hYZ-by-zNo" firstAttribute="width" secondItem="SC4-CG-GJf" secondAttribute="width" id="eI0-jj-3id"/>
                 <constraint firstItem="8vt-mp-sUQ" firstAttribute="width" secondItem="SC4-CG-GJf" secondAttribute="width" id="erZ-0a-OTo"/>
                 <constraint firstAttribute="trailing" secondItem="8vt-mp-sUQ" secondAttribute="trailing" id="tPR-cU-oWM"/>
                 <constraint firstItem="SC4-CG-GJf" firstAttribute="leading" secondItem="nf3-wa-lOk" secondAttribute="leading" id="wUG-pe-j6j"/>
-                <constraint firstItem="SC4-CG-GJf" firstAttribute="centerY" secondItem="nf3-wa-lOk" secondAttribute="centerY" id="xQY-Df-vBa"/>
+                <constraint firstItem="SC4-CG-GJf" firstAttribute="centerY" secondItem="nf3-wa-lOk" secondAttribute="centerY" identifier="yForSubjectCon" id="xQY-Df-vBa"/>
             </constraints>
             <size key="customSize" width="307" height="93"/>
             <connections>
