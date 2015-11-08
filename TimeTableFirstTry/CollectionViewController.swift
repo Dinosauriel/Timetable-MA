@@ -134,6 +134,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         celltoreturn = lessonCell
                     
                     case .Cancelled:
+                        
                         // Declaring subjectLabel appearance
                         lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
                         lessonCell.subjectLabel.textColor = UIColor.redColor()
@@ -146,6 +147,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         lessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
                         lessonCell.roomLabel.textColor = UIColor.redColor()
                         lessonCell.roomLabel.text = alesson.room
+                        //Crossing out View
+                        lessonCell.crossOutView.backgroundColor = UIColor.redColor()
                     
                         celltoreturn = lessonCell
                     

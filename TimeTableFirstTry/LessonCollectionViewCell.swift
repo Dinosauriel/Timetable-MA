@@ -12,6 +12,9 @@ class LessonCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var teacherLabel: UILabel!
     @IBOutlet weak var roomLabel: UILabel!
+    
+    @IBOutlet weak var crossOutView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

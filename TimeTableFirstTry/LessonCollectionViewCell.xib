@@ -15,26 +15,44 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SC4-CG-GJf">
-                        <rect key="frame" x="0.0" y="40" width="100" height="20.5"/>
+                        <rect key="frame" x="20" y="40" width="130" height="20.5"/>
                         <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="130" id="Nu6-0N-d7I"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYZ-by-zNo">
-                        <rect key="frame" x="100" y="40" width="100" height="20.5"/>
+                        <rect key="frame" x="150" y="40" width="75" height="20.5"/>
                         <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="75" id="97P-WF-c2N"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vt-mp-sUQ">
-                        <rect key="frame" x="200" y="39.5" width="100" height="20.5"/>
+                        <rect key="frame" x="225" y="39" width="75" height="20.5"/>
                         <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="75" id="cHz-mx-5qX"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" restorationIdentifier="crossOutView" translatesAutoresizingMaskIntoConstraints="NO" id="lt0-nl-iAy" userLabel="crossOutView">
+                        <rect key="frame" x="15" y="50" width="270" height="1"/>
+                        <animations/>
+                        <accessibility key="accessibilityConfiguration" identifier=""/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="270" id="Owz-s6-qCF"/>
+                            <constraint firstAttribute="height" constant="1" id="Qak-av-mZX"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -43,18 +61,20 @@
             <constraints>
                 <constraint firstItem="hYZ-by-zNo" firstAttribute="leading" secondItem="SC4-CG-GJf" secondAttribute="trailing" id="0YH-QI-aam"/>
                 <constraint firstItem="8vt-mp-sUQ" firstAttribute="leading" secondItem="hYZ-by-zNo" secondAttribute="trailing" id="2Ks-cA-sja"/>
+                <constraint firstItem="lt0-nl-iAy" firstAttribute="centerY" secondItem="nf3-wa-lOk" secondAttribute="centerY" id="9rN-4O-yS5"/>
+                <constraint firstAttribute="trailing" secondItem="lt0-nl-iAy" secondAttribute="trailing" constant="15" id="F4l-oP-eSG"/>
                 <constraint firstItem="8vt-mp-sUQ" firstAttribute="centerY" secondItem="nf3-wa-lOk" secondAttribute="centerY" identifier="yForRoomCon" id="JyZ-Cm-DoE"/>
                 <constraint firstItem="hYZ-by-zNo" firstAttribute="centerY" secondItem="nf3-wa-lOk" secondAttribute="centerY" identifier="yForTeacherCon" id="LZY-zA-0kM"/>
                 <constraint firstItem="8vt-mp-sUQ" firstAttribute="leading" secondItem="hYZ-by-zNo" secondAttribute="trailing" id="Q65-QJ-SEK"/>
                 <constraint firstItem="hYZ-by-zNo" firstAttribute="leading" secondItem="SC4-CG-GJf" secondAttribute="trailing" id="TJl-sa-bFe"/>
-                <constraint firstItem="hYZ-by-zNo" firstAttribute="width" secondItem="SC4-CG-GJf" secondAttribute="width" id="eI0-jj-3id"/>
-                <constraint firstItem="8vt-mp-sUQ" firstAttribute="width" secondItem="SC4-CG-GJf" secondAttribute="width" id="erZ-0a-OTo"/>
+                <constraint firstItem="lt0-nl-iAy" firstAttribute="leading" secondItem="nf3-wa-lOk" secondAttribute="leading" constant="15" id="afv-pt-jcT"/>
                 <constraint firstAttribute="trailing" secondItem="8vt-mp-sUQ" secondAttribute="trailing" id="tPR-cU-oWM"/>
-                <constraint firstItem="SC4-CG-GJf" firstAttribute="leading" secondItem="nf3-wa-lOk" secondAttribute="leading" id="wUG-pe-j6j"/>
+                <constraint firstItem="SC4-CG-GJf" firstAttribute="leading" secondItem="nf3-wa-lOk" secondAttribute="leading" constant="20" id="wUG-pe-j6j"/>
                 <constraint firstItem="SC4-CG-GJf" firstAttribute="centerY" secondItem="nf3-wa-lOk" secondAttribute="centerY" identifier="yForSubjectCon" id="xQY-Df-vBa"/>
             </constraints>
             <size key="customSize" width="307" height="93"/>
             <connections>
+                <outlet property="crossOutView" destination="lt0-nl-iAy" id="z93-hg-F64"/>
                 <outlet property="roomLabel" destination="8vt-mp-sUQ" id="e84-JL-PCP"/>
                 <outlet property="subjectLabel" destination="SC4-CG-GJf" id="sLK-TX-ni5"/>
                 <outlet property="teacherLabel" destination="hYZ-by-zNo" id="sO4-sw-DX4"/>
