@@ -15,48 +15,62 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOl-qc-wW6">
-                        <rect key="frame" x="0.0" y="25" width="100" height="20.5"/>
+                        <rect key="frame" x="20" y="25" width="130" height="20.5"/>
                         <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="130" id="bB2-sd-KaA"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FD8-EH-Yam">
-                        <rect key="frame" x="100" y="25" width="100" height="20.5"/>
+                        <rect key="frame" x="150" y="25" width="75" height="20.5"/>
                         <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="75" id="7QU-oh-GFI"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J14-s7-HlY">
-                        <rect key="frame" x="200" y="25" width="100" height="20.5"/>
-                        <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkA-a7-R7V" userLabel="SubSubject Label">
-                        <rect key="frame" x="0.0" y="55" width="100" height="20.5"/>
+                        <rect key="frame" x="225" y="25" width="75" height="20.5"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="184-Fw-LQ4"/>
+                            <constraint firstAttribute="width" constant="75" id="zOb-oJ-ah0"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yB-Pn-BP8" userLabel="SubTeacher Label">
-                        <rect key="frame" x="100" y="55" width="100" height="20.5"/>
+                        <rect key="frame" x="150" y="55" width="75" height="20.5"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmG-yc-ZA1" userLabel="SubRoom Label">
-                        <rect key="frame" x="200" y="55" width="100" height="20.5"/>
+                        <rect key="frame" x="225" y="55" width="75" height="20.5"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DzM-wb-y7Q">
+                        <rect key="frame" x="15" y="35" width="270" height="1"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="z5G-u8-I2H"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkA-a7-R7V" userLabel="SubSubject Label">
+                        <rect key="frame" x="20" y="54" width="130" height="20.5"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -67,20 +81,22 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="J14-s7-HlY" secondAttribute="trailing" id="5Oo-Sy-2do"/>
                 <constraint firstItem="WmG-yc-ZA1" firstAttribute="centerY" secondItem="Wej-N9-kWF" secondAttribute="centerY" constant="15" id="5ef-U3-81c"/>
+                <constraint firstItem="WmG-yc-ZA1" firstAttribute="width" secondItem="J14-s7-HlY" secondAttribute="width" id="8UT-s9-YQw"/>
                 <constraint firstItem="YkA-a7-R7V" firstAttribute="centerY" secondItem="Wej-N9-kWF" secondAttribute="centerY" constant="15" id="Cjn-Cd-zER"/>
                 <constraint firstItem="J14-s7-HlY" firstAttribute="centerY" secondItem="Wej-N9-kWF" secondAttribute="centerY" constant="-15" identifier="yForRoomCon" id="Djv-hh-CVS"/>
                 <constraint firstItem="FD8-EH-Yam" firstAttribute="leading" secondItem="JOl-qc-wW6" secondAttribute="trailing" id="EBl-Z3-T5v"/>
                 <constraint firstItem="4yB-Pn-BP8" firstAttribute="leading" secondItem="YkA-a7-R7V" secondAttribute="trailing" id="ESb-Vt-Onj"/>
                 <constraint firstItem="WmG-yc-ZA1" firstAttribute="leading" secondItem="4yB-Pn-BP8" secondAttribute="trailing" id="M0H-Sf-ipg"/>
+                <constraint firstItem="DzM-wb-y7Q" firstAttribute="leading" secondItem="Wej-N9-kWF" secondAttribute="leading" constant="15" id="McV-1B-GJg"/>
                 <constraint firstItem="4yB-Pn-BP8" firstAttribute="centerY" secondItem="Wej-N9-kWF" secondAttribute="centerY" constant="15" id="OL6-ID-VBM"/>
+                <constraint firstItem="YkA-a7-R7V" firstAttribute="width" secondItem="JOl-qc-wW6" secondAttribute="width" id="Uvz-zL-0LT"/>
                 <constraint firstItem="FD8-EH-Yam" firstAttribute="centerY" secondItem="Wej-N9-kWF" secondAttribute="centerY" constant="-15" identifier="yForTeacherCon" id="bPp-pc-yQa"/>
-                <constraint firstItem="J14-s7-HlY" firstAttribute="width" secondItem="JOl-qc-wW6" secondAttribute="width" id="dhL-ET-jlk"/>
                 <constraint firstItem="JOl-qc-wW6" firstAttribute="centerY" secondItem="Wej-N9-kWF" secondAttribute="centerY" constant="-15" identifier="yForSubjectCon" id="egg-kK-Qrg"/>
-                <constraint firstItem="4yB-Pn-BP8" firstAttribute="width" secondItem="YkA-a7-R7V" secondAttribute="width" id="gch-j0-DbE"/>
-                <constraint firstItem="WmG-yc-ZA1" firstAttribute="width" secondItem="YkA-a7-R7V" secondAttribute="width" id="jiH-pM-TTU"/>
-                <constraint firstItem="FD8-EH-Yam" firstAttribute="width" secondItem="JOl-qc-wW6" secondAttribute="width" id="pKa-ae-5y1"/>
-                <constraint firstItem="YkA-a7-R7V" firstAttribute="leading" secondItem="Wej-N9-kWF" secondAttribute="leading" id="yux-gh-wnN"/>
-                <constraint firstItem="JOl-qc-wW6" firstAttribute="leading" secondItem="Wej-N9-kWF" secondAttribute="leading" id="zH7-rB-ShO"/>
+                <constraint firstItem="DzM-wb-y7Q" firstAttribute="centerY" secondItem="Wej-N9-kWF" secondAttribute="centerY" constant="-15" id="isP-jz-tzw"/>
+                <constraint firstItem="4yB-Pn-BP8" firstAttribute="width" secondItem="FD8-EH-Yam" secondAttribute="width" id="l6M-ot-u4g"/>
+                <constraint firstAttribute="trailing" secondItem="DzM-wb-y7Q" secondAttribute="trailing" constant="15" id="tbv-Jv-hDb"/>
+                <constraint firstItem="YkA-a7-R7V" firstAttribute="leading" secondItem="Wej-N9-kWF" secondAttribute="leading" constant="20" id="yux-gh-wnN"/>
+                <constraint firstItem="JOl-qc-wW6" firstAttribute="leading" secondItem="Wej-N9-kWF" secondAttribute="leading" constant="20" id="zH7-rB-ShO"/>
                 <constraint firstItem="J14-s7-HlY" firstAttribute="leading" secondItem="FD8-EH-Yam" secondAttribute="trailing" id="zw6-J0-XH5"/>
             </constraints>
             <size key="customSize" width="307" height="93"/>
@@ -92,7 +108,7 @@
                 <outlet property="subteacherLabel" destination="4yB-Pn-BP8" id="MGY-Ef-56g"/>
                 <outlet property="teacherLabel" destination="FD8-EH-Yam" id="bw4-zv-oGP"/>
             </connections>
-            <point key="canvasLocation" x="302.5" y="206.5"/>
+            <point key="canvasLocation" x="302" y="206"/>
         </collectionViewCell>
     </objects>
 </document>
