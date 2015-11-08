@@ -17,6 +17,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     
     let timegetter = TimetableTime()
     let declarelesson = DeclareLesson()
+    let layout = CustomCollectionViewLayout()
+    let day = Day()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -32,6 +34,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         print(timegetter.timeAsStringToNSDateComponents("15:55"))
         print(timegetter.timeAsStringToLessonposition("15:55"))
         print(timegetter.timeAsStringToWhen("15:55"))
+        
+        day.generateDayArray()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -62,23 +66,12 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                     return timetitleCell
                 
             } else {
-                    let dayCell : DayCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
-                    dayCell.dayLabel.font = UIFont.systemFontOfSize(13)
-                    dayCell.dayLabel.textColor = UIColor.blackColor()
-                switch indexPath.row {
-                    case 1:
-                        dayCell.dayLabel.text = "Montag"
-                    case 2:
-                        dayCell.dayLabel.text = "Dienstag"
-                    case 3:
-                        dayCell.dayLabel.text = "Mittwoch"
-                    case 4:
-                        dayCell.dayLabel.text = "Donnerstag"
-                    case 5:
-                        dayCell.dayLabel.text = "Freitag"
-                    default:
-                        dayCell.dayLabel.text = "nil"
-                }
+                let dayCell : DayCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
+                let dayArray = day.generateDayArray()
+                print(dayArray)
+                dayCell.dayLabel.font = UIFont.systemFontOfSize(13)
+                dayCell.dayLabel.textColor = UIColor.blackColor()
+                //dayCell.dayLabel.text = dayArray[1]
                 
                 if indexPath.section % 2 != 0 {
                     dayCell.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
@@ -109,14 +102,11 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                 
                 let celltoreturn: UICollectionViewCell
                 
-                let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
-                
-                let replacedlessonCell: ReplacedLessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(replacedlessonCellIdentifier, forIndexPath: indexPath) as! ReplacedLessonCollectionViewCell
-                
                 let alesson = declarelesson.getNewLessonForUI(indexPath.row, pos: indexPath.section)
                 print(alesson.status)
                 switch alesson.status {
                     case .Default:
+                        let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
                         // Declaring subjectLabel appearance
                         lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
                         lessonCell.subjectLabel.textColor = UIColor.blackColor()
@@ -133,7 +123,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         celltoreturn = lessonCell
                     
                     case .Cancelled:
-                        
+                        let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
                         // Declaring subjectLabel appearance
                         lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
                         lessonCell.subjectLabel.textColor = UIColor.redColor()
@@ -152,6 +142,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         celltoreturn = lessonCell
                     
                     case .Replaced:
+                        let replacedlessonCell: ReplacedLessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(replacedlessonCellIdentifier, forIndexPath: indexPath) as! ReplacedLessonCollectionViewCell
                         // Declaring subjectLabel appearance
                         replacedlessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
                         replacedlessonCell.subjectLabel.textColor = UIColor.blueColor()
@@ -180,6 +171,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         celltoreturn = replacedlessonCell
                     
                     case .Empty:
+                        let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
                         // Declaring empty Lesson
                         lessonCell.subjectLabel.text = ""
                         lessonCell.teacherLabel.text = ""

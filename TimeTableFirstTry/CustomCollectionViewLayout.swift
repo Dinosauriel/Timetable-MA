@@ -14,9 +14,14 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
     var itemsSize: NSMutableArray!
     var contentSize: CGSize!
     var numberOfColumns = 6
+
     
     override func prepareLayout() {
 
+        //if (UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
+        //    numberOfColumns = 2
+        //}
+        
         if self.collectionView?.numberOfSections() == 0 {
             return
         }
@@ -145,6 +150,7 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         return true
     }
     
+    
     func sizeForItemWithColumnIndex(columnIndex: Int) -> CGSize {
 
         let timeTitle = "Zeit"
@@ -154,7 +160,11 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         if columnIndex != 0 {
         
             let screenSize: CGRect = UIScreen.mainScreen().bounds
-            let width: CGFloat = screenSize.width - timeColumnWidth
+            var width: CGFloat = screenSize.width - timeColumnWidth
+            
+            if (UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
+                width = (screenSize.height - timeColumnWidth) / 5
+            }
 
             return CGSizeMake(width, 60)
             

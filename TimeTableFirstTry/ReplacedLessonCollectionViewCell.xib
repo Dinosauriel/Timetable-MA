@@ -27,9 +27,6 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FD8-EH-Yam">
                         <rect key="frame" x="150" y="25" width="75" height="20.5"/>
                         <animations/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="75" id="7QU-oh-GFI"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -37,9 +34,6 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J14-s7-HlY">
                         <rect key="frame" x="225" y="25" width="75" height="20.5"/>
                         <animations/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="75" id="zOb-oJ-ah0"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -79,6 +73,7 @@
             </view>
             <animations/>
             <constraints>
+                <constraint firstItem="J14-s7-HlY" firstAttribute="width" secondItem="FD8-EH-Yam" secondAttribute="width" id="3FX-uV-3Kz"/>
                 <constraint firstAttribute="trailing" secondItem="J14-s7-HlY" secondAttribute="trailing" id="5Oo-Sy-2do"/>
                 <constraint firstItem="WmG-yc-ZA1" firstAttribute="centerY" secondItem="Wej-N9-kWF" secondAttribute="centerY" constant="15" id="5ef-U3-81c"/>
                 <constraint firstItem="WmG-yc-ZA1" firstAttribute="width" secondItem="J14-s7-HlY" secondAttribute="width" id="8UT-s9-YQw"/>

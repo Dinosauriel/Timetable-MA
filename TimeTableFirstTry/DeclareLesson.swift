@@ -10,7 +10,7 @@ import Foundation
 
 class DeclareLesson {
     func getNewLessonForUI(let day: Int,let pos: Int) -> Lesson {
-        let alesson = Lesson(subject: "Mathematik", teacher: "Kl", room: "8D", status: .Default, day: .Monday, lessonposition: 1, subsubject: "Sport Herren", subteacher: "Sc", subroom: "C")
+        let alesson = Lesson(subject: "Mathematik", teacher: "Kl", room: "8D", status: .Replaced, day: .Monday, lessonposition: 1, subsubject: "Sport Herren", subteacher: "Sc", subroom: "C")
         return alesson
     }
 
