@@ -10,12 +10,13 @@ import UIKit
 
 class CustomCollectionViewLayout: UICollectionViewLayout {
     
-    let numberOfColumns = 6
-    var itemAttributes : NSMutableArray!
-    var itemsSize : NSMutableArray!
-    var contentSize : CGSize!
+    var itemAttributes: NSMutableArray!
+    var itemsSize: NSMutableArray!
+    var contentSize: CGSize!
+    var numberOfColumns = 6
     
     override func prepareLayout() {
+
         if self.collectionView?.numberOfSections() == 0 {
             return
         }
@@ -68,10 +69,8 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
                 attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemSize.width, itemSize.height))
                 
                 if section == 0 && index == 0 {
-                    print("FUNCTION C.1")
                     attributes.zIndex = 1024;
                 } else  if section == 0 || index == 0 {
-                    print("FUNCTION C.2")
                     attributes.zIndex = 1023
                 }
                 
@@ -96,7 +95,6 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
                 if column == numberOfColumns {
                     if xOffset > contentWidth {
                         contentWidth = xOffset
-                        print("FUNCTION F")
                     }
                     
                     column = 0
@@ -105,7 +103,6 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
                 }
             }
             if (self.itemAttributes == nil) {
-                print("FUNCTION G")
                 self.itemAttributes = NSMutableArray(capacity: self.collectionView!.numberOfSections())
             }
             self.itemAttributes .addObject(sectionAttributes)
@@ -136,7 +133,6 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
                     })
                     ) as! [UICollectionViewLayoutAttributes]
                 
-                
                 attributes.appendContentsOf(filteredArray)
                 
             }
@@ -157,10 +153,13 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         
         if columnIndex != 0 {
         
-            let size: CGRect = UIScreen.mainScreen().bounds
-            let width: CGFloat = size.width - timeColumnWidth
+            let screenSize: CGRect = UIScreen.mainScreen().bounds
+            let width: CGFloat = screenSize.width - timeColumnWidth
+
             return CGSizeMake(width, 60)
+            
         } else {
+            
             return CGSizeMake(timeColumnWidth, 60)
         }
     }

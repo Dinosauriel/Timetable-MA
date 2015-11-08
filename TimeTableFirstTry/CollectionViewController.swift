@@ -15,10 +15,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     let lessonCellIdentifier = "LessonCellIdentifier"
     let replacedlessonCellIdentifier = "ReplacedLessonCellIdentifier"
     
-    let lessonsubjectycon = "yForSubjectCon"
-    let lessonteacherycon = "yForTeacherCon"
-    let lessonroomycon = "yForRoomCon"
-    
     let timegetter = TimetableTime()
     let declarelesson = DeclareLesson()
     
@@ -36,8 +32,10 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         print(timegetter.timeAsStringToNSDateComponents("15:55"))
         print(timegetter.timeAsStringToLessonposition("15:55"))
         print(timegetter.timeAsStringToWhen("15:55"))
-        }
+    }
     
+    override func viewWillAppear(animated: Bool) {
+    }
     
     // MARK - UICollectionViewDataSource
     
@@ -108,13 +106,14 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                 
                 return timeCell
             } else {
+                
                 let celltoreturn: UICollectionViewCell
                 
                 let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
                 
                 let replacedlessonCell: ReplacedLessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(replacedlessonCellIdentifier, forIndexPath: indexPath) as! ReplacedLessonCollectionViewCell
                 
-                let alesson = declarelesson.getNewLesson(indexPath.row, pos: indexPath.section)
+                let alesson = declarelesson.getNewLessonForUI(indexPath.row, pos: indexPath.section)
                 print(alesson.status)
                 switch alesson.status {
                     case .Default:
@@ -147,7 +146,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         lessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
                         lessonCell.roomLabel.textColor = UIColor.redColor()
                         lessonCell.roomLabel.text = alesson.room
-                        //Crossing out View
+                        //Crossing out Lesson
                         lessonCell.crossOutView.backgroundColor = UIColor.redColor()
                     
                         celltoreturn = lessonCell
