@@ -10,13 +10,13 @@ import Foundation
 
 class Day {
     func generateDayArray() -> NSArray {
-        let monday = "Montag"
-        let tuesday = "Dienstag"
-        let wednesday = "Mittwoch"
-        let thursday = "Donnerstag"
-        let friday = "Freitag"
+        let monday: String = "Montag"
+        let tuesday: String = "Dienstag"
+        let wednesday: String = "Mittwoch"
+        let thursday: String = "Donnerstag"
+        let friday: String = "Freitag"
         
-        let week = [monday, tuesday, wednesday, thursday, friday]
+        let week: [String] = [monday, tuesday, wednesday, thursday, friday]
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
         let currentDate = calendar.components(.Weekday, fromDate: date)

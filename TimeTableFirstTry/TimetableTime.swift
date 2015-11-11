@@ -13,6 +13,12 @@ public class TimetableTime {
     let startTimes = ["07:45","08:35","09:25","10:20","11:10","12:00","12:45","13:35","14:25","15:15","16:05","16:55"]
     let endTimes = ["08:25","09:15","10:05","11:00","11:50","12:40","13:25","14:15","15:05","15:55","16:45","17:35"]
     
+    enum relpos {
+        case earlier
+        case later
+        case equal
+    }
+    
     func getLessonTime(let lessonposition:Int, let when:String) -> NSDateComponents {
         
         let starttime = NSDateComponents()
@@ -123,68 +129,13 @@ public class TimetableTime {
         if endTimes.contains(time) {
             
             return endTimes.indexOf(time)! + 1
-            
         } else if startTimes.contains(time) {
             
             return startTimes.indexOf(time)! + 1
-            
         } else {
             
             return 0
-            
         }
-        //        switch time {
-        //            case "07:45":
-        //                return 1
-        //            case "08:25":
-        //                return 1
-        //            case "08:35":
-        //                return 2
-        //            case "09:15":
-        //                return 2
-        //            case "09:25":
-        //                return 3
-        //            case "10:05":
-        //                return 3
-        //            case "10:20":
-        //                return 4
-        //            case "11:00":
-        //                return 4
-        //            case "11:10":
-        //                return 5
-        //            case "11:50":
-        //                return 5
-        //            case "12:00":
-        //                return 6
-        //            case "12:40":
-        //                return 6
-        //            case "12:45":
-        //                return 7
-        //            case "13:25":
-        //                return 7
-        //            case "13:35":
-        //                return 8
-        //            case "14:15":
-        //                return 8
-        //            case "14:25":
-        //                return 9
-        //            case "15:05":
-        //                return 9
-        //            case "15:15":
-        //                return 10
-        //            case "15:55":
-        //                return 10
-        //            case "16:05":
-        //                return 11
-        //            case "16:45":
-        //                return 11
-        //            case "16:55":
-        //                return 12
-        //            case "17:35":
-        //                return 12
-        //            default:
-        //                return 0
-        //        }
     }
     
     func timeAsStringToWhen(let time: String) -> String {
@@ -201,5 +152,46 @@ public class TimetableTime {
         let lessonposition = timeAsStringToLessonposition(time)
         let lessonwhen = timeAsStringToWhen(time)
         return getLessonTime(lessonposition, when: lessonwhen)
+    }
+    
+    func compareNSDateComponentsAtoB(a: NSDateComponents, b: NSDateComponents) -> relpos {
+
+        if a.hour < b.hour {
+            
+            return .earlier
+            
+        } else if a.hour > b.hour {
+            
+            return .later
+            
+        } else {
+            
+            if a.minute < b.hour {
+                
+                return .earlier
+                
+            } else if a.minute > b.hour {
+                
+                return .later
+                
+            } else {
+                
+                return .equal
+                
+            }
+        }
+    }
+    
+    func getCurrentHourAndMinute() -> NSDateComponents {
+        
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let currentHourCal = calendar.components(.Hour, fromDate: date)
+        let currentMinCal = calendar.components(.Minute, fromDate: date)
+        let currentTime = NSDateComponents()
+        currentTime.hour = currentHourCal.hour
+        currentTime.minute = currentMinCal.minute
+        
+        return currentTime
     }
 }

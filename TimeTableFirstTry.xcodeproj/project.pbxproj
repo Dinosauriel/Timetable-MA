@@ -14,13 +14,13 @@
 		741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
 		741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */; };
 		74382ED91BEFBE13007A28C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
+		74382EDC1BF12903007A28C4 /* WidgetLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382EDB1BF12903007A28C4 /* WidgetLesson.swift */; };
 		7443BE121BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7443BE111BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib */; };
 		7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */; };
 		74866B071BEBE5570030FA95 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B061BEBE5570030FA95 /* Lesson.swift */; };
 		74866B091BEBE9BA0030FA95 /* DeclareLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */; };
 		74866B0C1BEBF10A0030FA95 /* LessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */; };
 		74866B0E1BEBF1370030FA95 /* LessonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74866B0D1BEBF1370030FA95 /* LessonCollectionViewCell.xib */; };
-		7490B64C1BEF77E30030B427 /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7490B64B1BEF77E30030B427 /* Rotation.swift */; };
 		749588271BE144E5006710B2 /* DayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588261BE144E5006710B2 /* DayCollectionViewCell.xib */; };
 		749588291BE144F7006710B2 /* TimetitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588281BE144F7006710B2 /* TimetitleCollectionViewCell.xib */; };
 		74BD1E7C1BE1298200C3C3C4 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74BD1E7B1BE1298200C3C3C4 /* CollectionViewController.xib */; };
@@ -61,13 +61,13 @@
 		741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
 		74382ED81BEFBE13007A28C4 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		74382EDB1BF12903007A28C4 /* WidgetLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetLesson.swift; sourceTree = "<group>"; };
 		7443BE111BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReplacedLessonCollectionViewCell.xib; sourceTree = "<group>"; };
 		7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplacedLessonCollectionViewCell.swift; sourceTree = "<group>"; };
 		74866B061BEBE5570030FA95 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeclareLesson.swift; sourceTree = "<group>"; };
 		74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCollectionViewCell.swift; sourceTree = "<group>"; };
 		74866B0D1BEBF1370030FA95 /* LessonCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LessonCollectionViewCell.xib; sourceTree = "<group>"; };
-		7490B64B1BEF77E30030B427 /* Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotation.swift; sourceTree = "<group>"; };
 		749588261BE144E5006710B2 /* DayCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCollectionViewCell.xib; sourceTree = "<group>"; };
 		749588281BE144F7006710B2 /* TimetitleCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimetitleCollectionViewCell.xib; sourceTree = "<group>"; };
 		74BD1E7B1BE1298200C3C3C4 /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
@@ -148,6 +148,14 @@
 			name = "Time Cell";
 			sourceTree = "<group>";
 		};
+		74382EDA1BF128ED007A28C4 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				74382EDB1BF12903007A28C4 /* WidgetLesson.swift */,
+			);
+			name = Widget;
+			sourceTree = "<group>";
+		};
 		7443BE101BED2E34007E6807 /* ReplacedLesson Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,14 +182,6 @@
 				74866B0D1BEBF1370030FA95 /* LessonCollectionViewCell.xib */,
 			);
 			name = "Lesson Cell";
-			sourceTree = "<group>";
-		};
-		7490B64A1BEF77B50030B427 /* Rotation */ = {
-			isa = PBXGroup;
-			children = (
-				7490B64B1BEF77E30030B427 /* Rotation.swift */,
-			);
-			name = Rotation;
 			sourceTree = "<group>";
 		};
 		74EBE6941BDD56710026F2AE = {
@@ -270,7 +270,7 @@
 		74EBE6D41BDD586E0026F2AE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7490B64A1BEF77B50030B427 /* Rotation */,
+				74382EDA1BF128ED007A28C4 /* Widget */,
 				74866B051BEBE5400030FA95 /* Lesson */,
 				4F988F381BEBCFAC00F8F0DA /* miscellaneous */,
 				4F86006F1BE8D8AA00FA53AD /* Time */,
@@ -435,13 +435,13 @@
 				74EBE6A31BDD56710026F2AE /* CollectionViewController.swift in Sources */,
 				4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */,
 				7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */,
+				74382EDC1BF12903007A28C4 /* WidgetLesson.swift in Sources */,
 				74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */,
 				74866B071BEBE5570030FA95 /* Lesson.swift in Sources */,
 				74EBE6D91BDD59580026F2AE /* CustomCollectionViewLayout.swift in Sources */,
 				74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */,
 				741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */,
 				4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */,
-				7490B64C1BEF77E30030B427 /* Rotation.swift in Sources */,
 				74866B091BEBE9BA0030FA95 /* DeclareLesson.swift in Sources */,
 				74382ED91BEFBE13007A28C4 /* Day.swift in Sources */,
 				4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */,

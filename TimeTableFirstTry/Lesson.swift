@@ -42,6 +42,7 @@ class Lesson {
         case Replaced
         case Cancelled
         case Empty
+        case Special
     }
     
     enum Day {

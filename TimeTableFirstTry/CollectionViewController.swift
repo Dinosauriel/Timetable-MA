@@ -19,6 +19,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     let declarelesson = DeclareLesson()
     let layout = CustomCollectionViewLayout()
     let day = Day()
+    let widget = WidgetLesson()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -36,6 +37,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         print(timegetter.timeAsStringToWhen("15:55"))
         
         day.generateDayArray()
+        print("getCurrentLessonPos: \(widget.getCurrentLessonPos())")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -68,10 +70,9 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
             } else {
                 let dayCell : DayCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
                 let dayArray = day.generateDayArray()
-                print(dayArray)
                 dayCell.dayLabel.font = UIFont.systemFontOfSize(13)
                 dayCell.dayLabel.textColor = UIColor.blackColor()
-                //dayCell.dayLabel.text = dayArray[1]
+                dayCell.dayLabel.text = dayArray[indexPath.row - 1] as? String
                 
                 if indexPath.section % 2 != 0 {
                     dayCell.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
@@ -104,6 +105,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                 
                 let alesson = declarelesson.getNewLessonForUI(indexPath.row, pos: indexPath.section)
                 print(alesson.status)
+                
+                let yellow = UIColor(hue: 0.125, saturation: 1, brightness: 0.97, alpha: 1.0)
                 switch alesson.status {
                     case .Default:
                         let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
@@ -178,13 +181,41 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         lessonCell.roomLabel.text = ""
                         
                         celltoreturn = lessonCell
-                }
-                if indexPath.section % 2 != 0 {
-                    celltoreturn.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
-                } else {
-                    celltoreturn.backgroundColor = UIColor.whiteColor()
+                    
+                    case .Special:
+                        let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+ 
+                        let previousSection = (indexPath.section - 1)
+
+                        print("previousSection\(previousSection)")
+                        let previousIndexPath = NSIndexPath(forRow: indexPath.row, inSection: previousSection)
+
+                                
+                        var previousCell = LessonCollectionViewCell()
+                        if previousSection > 1 {
+                            previousCell = collectionView.cellForItemAtIndexPath(previousIndexPath) as! LessonCollectionViewCell
+                        }
+
+                        lessonCell.teacherLabel.text = ""
+                        lessonCell.roomLabel.text = ""
+                        lessonCell.subjectLabel.textColor = UIColor.whiteColor()
+                        lessonCell.backgroundColor = yellow
+                        
+                        if previousCell.backgroundColor == yellow && previousCell.subjectLabel.text == alesson.subject {
+                            lessonCell.subjectLabel.text = ""
+                        } else {
+                            lessonCell.subjectLabel.text = alesson.subject
+                        }
+                        celltoreturn = lessonCell
                 }
                 
+                if celltoreturn.backgroundColor != yellow {
+                    if indexPath.section % 2 != 0{
+                        celltoreturn.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
+                    } else {
+                        celltoreturn.backgroundColor = UIColor.whiteColor()
+                    }
+                }
                 return celltoreturn
             }
         }
