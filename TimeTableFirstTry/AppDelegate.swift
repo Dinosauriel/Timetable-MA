@@ -18,10 +18,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var APIData: GetAPIData?
     
+    var UserDefaults = NSUserDefaults.standardUserDefaults()
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         NSNotificationCenter.defaultCenter().addObserver(CustomCollectionViewLayout(), selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(CollectionViewController(), selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
-
+        
+        // DEFINING INITIAL VIEWCONTROLLER
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let initialViewController = storyboard.instantiateViewControllerWithIdentifier("TimeTableVC")// as! UIViewController
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+        
+        // DETECTING FIRST LAUNCH
+        if UserDefaults.objectForKey("HasLaunchedOnce") == nil {
+            UserDefaults.setBool(false, forKey: "HasLaunchedOnce")
+        }
+        
+        if UserDefaults.boolForKey("HasLaunchedOnce") == false {
+            UserDefaults.setBool(true, forKey: "HasLaunchedOnce")
+            print("First Launch!")
+        }
+        
+        //API
+        
         APIData = GetAPIData()
         
 //        if APIData!.getTokenFromData() {

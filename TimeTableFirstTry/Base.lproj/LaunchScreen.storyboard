@@ -28,21 +28,21 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eine Maturitätsarbeit von Lukas Boner und Aurel Feer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdQ-yj-eHh">
-                                <rect key="frame" x="100" y="480" width="399.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eine Maturitätsarbeit von Lukas Boner und Aurel Feer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdQ-yj-eHh">
+                                <rect key="frame" x="5" y="480" width="590" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Betreut durch Rolf Kleiner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqV-0M-xGm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Betreut durch Rolf Kleiner" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqV-0M-xGm">
                                 <rect key="frame" x="203" y="508" width="193.5" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="©Lukas Boner und Aurel Feer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUm-Pn-YtY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="©Lukas Boner und Aurel Feer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUm-Pn-YtY">
                                 <rect key="frame" x="212" y="536" width="176" height="16"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="13"/>
@@ -51,17 +51,19 @@
                             </label>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.79215686269999996" green="0.81568627449999997" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hdQ-yj-eHh" secondAttribute="trailing" constant="5" id="1oG-Ak-2Fa"/>
                             <constraint firstItem="FV2-7v-eow" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-50" id="CLW-Kd-lJC"/>
                             <constraint firstItem="DUm-Pn-YtY" firstAttribute="top" secondItem="SqV-0M-xGm" secondAttribute="bottom" constant="7.5" id="D5I-vx-7ul"/>
                             <constraint firstItem="bdD-6K-Iqo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="DPD-iH-KPS"/>
                             <constraint firstItem="SqV-0M-xGm" firstAttribute="top" secondItem="hdQ-yj-eHh" secondAttribute="bottom" constant="7.5" id="Iqx-Dg-GEJ"/>
                             <constraint firstItem="FV2-7v-eow" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Jez-e5-UQR"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="hdQ-yj-eHh" secondAttribute="bottom" constant="100" id="K9P-KP-RMT"/>
                             <constraint firstItem="SqV-0M-xGm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Lhb-ab-sla"/>
+                            <constraint firstItem="hdQ-yj-eHh" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="5" id="YZy-hG-n0U"/>
                             <constraint firstItem="hdQ-yj-eHh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="YgO-mG-vTW"/>
                             <constraint firstItem="DUm-Pn-YtY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jAh-ra-3Kb"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="hdQ-yj-eHh" secondAttribute="bottom" constant="100" id="m3H-EI-fHe"/>
                             <constraint firstItem="bdD-6K-Iqo" firstAttribute="top" secondItem="FV2-7v-eow" secondAttribute="bottom" constant="10" id="ogR-9W-ekc"/>
                         </constraints>
                     </view>

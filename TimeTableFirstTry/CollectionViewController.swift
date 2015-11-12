@@ -104,7 +104,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                 let celltoreturn: UICollectionViewCell
                 
                 let alesson = declarelesson.getNewLessonForUI(indexPath.row, pos: indexPath.section)
-                print(alesson.status)
                 
                 let yellow = UIColor(hue: 0.125, saturation: 1, brightness: 0.97, alpha: 1.0)
                 switch alesson.status {
