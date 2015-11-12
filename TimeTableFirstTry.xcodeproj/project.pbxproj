@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */; };
 		4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8600701BE8D8B700FA53AD /* TimetableTime.swift */; };
-		4F988F3C1BEBD00000F8F0DA /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F988F3B1BEBD00000F8F0DA /* CustomErrors.swift */; };
 		4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEFFEB1BEB7A78007C4647 /* Token.swift */; };
 		741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
 		741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */; };
+		74285B821BF4960C00446CBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74285B811BF4960C00446CBF /* Main.storyboard */; };
 		74382ED91BEFBE13007A28C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
 		74382EDC1BF12903007A28C4 /* WidgetLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382EDB1BF12903007A28C4 /* WidgetLesson.swift */; };
 		7443BE121BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7443BE111BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib */; };
@@ -23,7 +23,6 @@
 		74866B0E1BEBF1370030FA95 /* LessonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74866B0D1BEBF1370030FA95 /* LessonCollectionViewCell.xib */; };
 		749588271BE144E5006710B2 /* DayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588261BE144E5006710B2 /* DayCollectionViewCell.xib */; };
 		749588291BE144F7006710B2 /* TimetitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588281BE144F7006710B2 /* TimetitleCollectionViewCell.xib */; };
-		74BD1E7C1BE1298200C3C3C4 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74BD1E7B1BE1298200C3C3C4 /* CollectionViewController.xib */; };
 		74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A01BDD56710026F2AE /* AppDelegate.swift */; };
 		74EBE6A31BDD56710026F2AE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A21BDD56710026F2AE /* CollectionViewController.swift */; };
 		74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A71BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld */; };
@@ -56,10 +55,10 @@
 /* Begin PBXFileReference section */
 		4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAPIData.swift; sourceTree = "<group>"; };
 		4F8600701BE8D8B700FA53AD /* TimetableTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableTime.swift; sourceTree = "<group>"; };
-		4F988F3B1BEBD00000F8F0DA /* CustomErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 		4FBEFFEB1BEB7A78007C4647 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
+		74285B811BF4960C00446CBF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		74382ED81BEFBE13007A28C4 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		74382EDB1BF12903007A28C4 /* WidgetLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetLesson.swift; sourceTree = "<group>"; };
 		7443BE111BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReplacedLessonCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -70,7 +69,6 @@
 		74866B0D1BEBF1370030FA95 /* LessonCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LessonCollectionViewCell.xib; sourceTree = "<group>"; };
 		749588261BE144E5006710B2 /* DayCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCollectionViewCell.xib; sourceTree = "<group>"; };
 		749588281BE144F7006710B2 /* TimetitleCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimetitleCollectionViewCell.xib; sourceTree = "<group>"; };
-		74BD1E7B1BE1298200C3C3C4 /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 		74EBE69D1BDD56710026F2AE /* TimeTableFirstTry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTableFirstTry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EBE6A01BDD56710026F2AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74EBE6A21BDD56710026F2AE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -131,14 +129,6 @@
 			name = Time;
 			sourceTree = "<group>";
 		};
-		4F988F381BEBCFAC00F8F0DA /* miscellaneous */ = {
-			isa = PBXGroup;
-			children = (
-				4F988F3B1BEBD00000F8F0DA /* CustomErrors.swift */,
-			);
-			name = miscellaneous;
-			sourceTree = "<group>";
-		};
 		741008901BEA8833009FB899 /* Time Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +153,21 @@
 				7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */,
 			);
 			name = "ReplacedLesson Cell";
+			sourceTree = "<group>";
+		};
+		746D982E1BF47DFB00240CAC /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				74EBE6A21BDD56710026F2AE /* CollectionViewController.swift */,
+			);
+			name = CollectionView;
+			sourceTree = "<group>";
+		};
+		746D982F1BF47E1200240CAC /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TabView;
 			sourceTree = "<group>";
 		};
 		74866B051BEBE5400030FA95 /* Lesson */ = {
@@ -211,6 +216,7 @@
 				74EBE6D41BDD586E0026F2AE /* Classes */,
 				74EBE6D71BDD58CA0026F2AE /* Controllers */,
 				74EBE6A01BDD56710026F2AE /* AppDelegate.swift */,
+				74285B811BF4960C00446CBF /* Main.storyboard */,
 				74EBE6AA1BDD56710026F2AE /* Assets.xcassets */,
 				74EBE6AC1BDD56710026F2AE /* LaunchScreen.storyboard */,
 				74EBE6AF1BDD56710026F2AE /* Info.plist */,
@@ -272,7 +278,6 @@
 			children = (
 				74382EDA1BF128ED007A28C4 /* Widget */,
 				74866B051BEBE5400030FA95 /* Lesson */,
-				4F988F381BEBCFAC00F8F0DA /* miscellaneous */,
 				4F86006F1BE8D8AA00FA53AD /* Time */,
 				4F6402DC1BE8BEFB00A611F6 /* API */,
 				74EBE6D51BDD58920026F2AE /* CustomCollectionViewLayout */,
@@ -291,8 +296,8 @@
 		74EBE6D71BDD58CA0026F2AE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				74EBE6A21BDD56710026F2AE /* CollectionViewController.swift */,
-				74BD1E7B1BE1298200C3C3C4 /* CollectionViewController.xib */,
+				746D982F1BF47E1200240CAC /* TabView */,
+				746D982E1BF47DFB00240CAC /* CollectionView */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -404,8 +409,8 @@
 				749588271BE144E5006710B2 /* DayCollectionViewCell.xib in Resources */,
 				741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */,
 				74866B0E1BEBF1370030FA95 /* LessonCollectionViewCell.xib in Resources */,
-				74BD1E7C1BE1298200C3C3C4 /* CollectionViewController.xib in Resources */,
 				74EBE6AE1BDD56710026F2AE /* LaunchScreen.storyboard in Resources */,
+				74285B821BF4960C00446CBF /* Main.storyboard in Resources */,
 				749588291BE144F7006710B2 /* TimetitleCollectionViewCell.xib in Resources */,
 				74EBE6AB1BDD56710026F2AE /* Assets.xcassets in Resources */,
 			);
@@ -447,7 +452,6 @@
 				4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */,
 				74866B0C1BEBF10A0030FA95 /* LessonCollectionViewCell.swift in Sources */,
 				74EBE6DF1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift in Sources */,
-				4F988F3C1BEBD00000F8F0DA /* CustomErrors.swift in Sources */,
 				74EBE6DB1BDD598A0026F2AE /* DayCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

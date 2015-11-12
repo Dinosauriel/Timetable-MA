@@ -17,10 +17,6 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
 
     
     override func prepareLayout() {
-
-        //if (UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
-        //    numberOfColumns = 2
-        //}
         
         if self.collectionView?.numberOfSections() == 0 {
             return
@@ -28,7 +24,6 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         
         if (self.itemAttributes != nil && self.itemAttributes.count > 0) {
             
-            print("FUNCTION A")
             for section in 0..<self.collectionView!.numberOfSections() {
                 let numberOfItems : Int = self.collectionView!.numberOfItemsInSection(section)
                 for index in 0..<numberOfItems {
@@ -55,7 +50,6 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         
         if (self.itemsSize == nil || self.itemsSize.count != numberOfColumns) {
             self.calculateItemsSize()
-            print("FUNCTION B")
         }
         
         var column = 0
@@ -80,13 +74,11 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
                 }
                 
                 if section == 0 {
-                    print("FUNCTION D")
                     var frame = attributes.frame
                     frame.origin.y = self.collectionView!.contentOffset.y
                     attributes.frame = frame
                 }
                 if index == 0 {
-                    print("FUNCTION E")
                     var frame = attributes.frame
                     frame.origin.x = self.collectionView!.contentOffset.x
                     attributes.frame = frame

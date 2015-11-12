@@ -184,23 +184,17 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                     
                     case .Special:
                         let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
- 
                         let previousSection = (indexPath.section - 1)
-
                         print("previousSection\(previousSection)")
                         let previousIndexPath = NSIndexPath(forRow: indexPath.row, inSection: previousSection)
-
-                                
                         var previousCell = LessonCollectionViewCell()
                         if previousSection > 1 {
                             previousCell = collectionView.cellForItemAtIndexPath(previousIndexPath) as! LessonCollectionViewCell
                         }
-
                         lessonCell.teacherLabel.text = ""
                         lessonCell.roomLabel.text = ""
                         lessonCell.subjectLabel.textColor = UIColor.whiteColor()
                         lessonCell.backgroundColor = yellow
-                        
                         if previousCell.backgroundColor == yellow && previousCell.subjectLabel.text == alesson.subject {
                             lessonCell.subjectLabel.text = ""
                         } else {

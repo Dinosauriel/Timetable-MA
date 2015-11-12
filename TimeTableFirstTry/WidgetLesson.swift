@@ -36,7 +36,7 @@ class WidgetLesson {
         
         for (var i = 1; i <= 12; i++) {
             if (time.compareNSDateComponentsAtoB(currentTime, b: time.getLessonTime(i - 1, when: "end")) == .later || time.compareNSDateComponentsAtoB(currentTime, b: time.getLessonTime(i - 1, when: "end")) == .equal) && time.compareNSDateComponentsAtoB(currentTime, b: time.getLessonTime(i, when: "end")) == .earlier {
-                pos = 1
+                pos = i
             } else {
                 continue
             }
