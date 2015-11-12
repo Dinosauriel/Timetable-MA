@@ -29,20 +29,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let initialViewController = storyboard.instantiateViewControllerWithIdentifier("TimeTableVC")// as! UIViewController
-        
-        self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
-        
         // DETECTING FIRST LAUNCH
         if UserDefaults.objectForKey("HasLaunchedOnce") == nil {
             UserDefaults.setBool(false, forKey: "HasLaunchedOnce")
         }
         
+        var initialViewController = storyboard.instantiateViewControllerWithIdentifier("TimeTableVCID")// as! UIViewController
+        
         if UserDefaults.boolForKey("HasLaunchedOnce") == false {
             UserDefaults.setBool(true, forKey: "HasLaunchedOnce")
             print("First Launch!")
+            initialViewController = storyboard.instantiateViewControllerWithIdentifier("FirstLaunchVCID")
         }
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+
+        
+
         
         //API
         

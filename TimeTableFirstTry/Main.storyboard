@@ -5,10 +5,43 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="auV-Vk-nsX">
+            <objects>
+                <viewController storyboardIdentifier="FirstLaunchVCID" id="LmL-QU-A8K" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dwn-py-Bqj"/>
+                        <viewControllerLayoutGuide type="bottom" id="ilc-u7-0DD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yKu-I7-c7j">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJl-4g-Qji">
+                                <rect key="frame" x="254" y="285" width="93" height="30"/>
+                                <animations/>
+                                <state key="normal" title="First Launch!!"/>
+                                <connections>
+                                    <segue destination="fip-kO-Yn2" kind="show" id="cNH-tp-xVW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qJl-4g-Qji" firstAttribute="centerY" secondItem="yKu-I7-c7j" secondAttribute="centerY" id="ZRq-JK-B3f"/>
+                            <constraint firstItem="qJl-4g-Qji" firstAttribute="centerX" secondItem="yKu-I7-c7j" secondAttribute="centerX" id="l7U-yS-q7j"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bUS-Jk-wk1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-429" y="-1950"/>
+        </scene>
         <!--Collection View Controller-->
         <scene sceneID="pK3-lO-gfa">
             <objects>
-                <viewController storyboardIdentifier="TimeTableVC" id="fip-kO-Yn2" customClass="CollectionViewController" customModule="TimeTableFirstTry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimeTableVCID" id="fip-kO-Yn2" customClass="CollectionViewController" customModule="TimeTableFirstTry" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rXk-af-SKc"/>
                         <viewControllerLayoutGuide type="bottom" id="X57-oV-eID"/>
