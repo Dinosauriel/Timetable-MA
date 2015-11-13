@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodayLayout: UICollectionViewLayout {
+class TodayLayout: UICollectionViewFlowLayout {
     
     var itemAttributes: NSMutableArray!
     var itemsSize: NSMutableArray!
@@ -68,9 +68,9 @@ class TodayLayout: UICollectionViewLayout {
                 attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemSize.width, itemSize.height))
                 
                 if section == 0 && index == 0 {
-                    attributes.zIndex = 1024;
+                    attributes.zIndex = 2024
                 } else  if section == 0 || index == 0 {
-                    attributes.zIndex = 1023
+                    attributes.zIndex = 2023
                 }
                 
                 if section == 0 {
@@ -145,18 +145,17 @@ class TodayLayout: UICollectionViewLayout {
     
     func sizeForItemWithColumnIndex(columnIndex: Int) -> CGSize {
         
-        let timeTitle = "Zeit"
+        let timeTitle = "05:05"
         let timeColumnSize: CGSize = (timeTitle as NSString).sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(17.0)])
-        let timeColumnWidth: CGFloat = timeColumnSize.width + 50
+        let timeColumnWidth: CGFloat = timeColumnSize.width + 15
         
         if columnIndex != 0 {
             
-            let screenSize: CGRect = UIScreen.mainScreen().bounds
-            var width: CGFloat = screenSize.width - timeColumnWidth
+            let superViewSize: CGRect = collectionView!.superview!.bounds
+            //let screenSize: CGRect = UIScreen.mainScreen().bounds
+            let width: CGFloat = superViewSize.width - timeColumnWidth
             
-            if (UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
-                width = (screenSize.height - timeColumnWidth) / 5
-            }
+            print(width)
             
             return CGSizeMake(width, 60)
             
@@ -168,8 +167,8 @@ class TodayLayout: UICollectionViewLayout {
     
     func calculateItemsSize() {
         self.itemsSize = NSMutableArray(capacity: numberOfColumns)
-        for index in 0..<numberOfColumns {
-            self.itemsSize.addObject(NSValue(CGSize: self.sizeForItemWithColumnIndex(index)))
+        for column in 0..<numberOfColumns {
+            self.itemsSize.addObject(NSValue(CGSize: self.sizeForItemWithColumnIndex(column)))
         }
     }
 }

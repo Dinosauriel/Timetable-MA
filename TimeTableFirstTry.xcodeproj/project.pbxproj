@@ -13,6 +13,8 @@
 		741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
 		741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */; };
 		74285B821BF4960C00446CBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74285B811BF4960C00446CBF /* Main.storyboard */; };
+		742889E81BF6A7620018EAE4 /* TodayLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743ED8981BF6363900DA2E46 /* TodayLayout.swift */; };
+		742889E91BF6A76F0018EAE4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */; };
 		74382ED91BEFBE13007A28C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
 		743ED8891BF6339A00DA2E46 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */; };
 		743ED88C1BF6339A00DA2E46 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743ED88B1BF6339A00DA2E46 /* TodayViewController.swift */; };
@@ -504,6 +506,7 @@
 				749588271BE144E5006710B2 /* DayCollectionViewCell.xib in Resources */,
 				741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */,
 				74866B0E1BEBF1370030FA95 /* LessonCollectionViewCell.xib in Resources */,
+				742889E91BF6A76F0018EAE4 /* MainInterface.storyboard in Resources */,
 				74EBE6AE1BDD56710026F2AE /* LaunchScreen.storyboard in Resources */,
 				74285B821BF4960C00446CBF /* Main.storyboard in Resources */,
 				749588291BE144F7006710B2 /* TimetitleCollectionViewCell.xib in Resources */,
@@ -561,6 +564,7 @@
 				4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */,
 				74866B091BEBE9BA0030FA95 /* DeclareLesson.swift in Sources */,
 				74382ED91BEFBE13007A28C4 /* Day.swift in Sources */,
+				742889E81BF6A7620018EAE4 /* TodayLayout.swift in Sources */,
 				4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */,
 				74866B0C1BEBF10A0030FA95 /* LessonCollectionViewCell.swift in Sources */,
 				74EBE6DF1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift in Sources */,
@@ -809,6 +813,7 @@
 				743ED8951BF6339A00DA2E46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		74EBE6981BDD56710026F2AE /* Build configuration list for PBXProject "TimeTableFirstTry" */ = {
 			isa = XCConfigurationList;
