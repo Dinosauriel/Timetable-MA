@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var initialViewController = storyboard.instantiateViewControllerWithIdentifier("TimeTableVCID")// as! UIViewController
         
         if UserDefaults.boolForKey("HasLaunchedOnce") == false {
+            //The Boolean needs to be set to true in another function in case the App is closed before the initial setup.
             UserDefaults.setBool(true, forKey: "HasLaunchedOnce")
             print("First Launch!")
             initialViewController = storyboard.instantiateViewControllerWithIdentifier("FirstLaunchVCID")

@@ -14,7 +14,25 @@
 		741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */; };
 		74285B821BF4960C00446CBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74285B811BF4960C00446CBF /* Main.storyboard */; };
 		74382ED91BEFBE13007A28C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
-		74382EDC1BF12903007A28C4 /* WidgetLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382EDB1BF12903007A28C4 /* WidgetLesson.swift */; };
+		743ED8891BF6339A00DA2E46 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */; };
+		743ED88C1BF6339A00DA2E46 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743ED88B1BF6339A00DA2E46 /* TodayViewController.swift */; };
+		743ED88F1BF6339A00DA2E46 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */; };
+		743ED8931BF6339A00DA2E46 /* WidgetLesson.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 743ED8861BF6339A00DA2E46 /* WidgetLesson.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		743ED8991BF6363900DA2E46 /* TodayLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743ED8981BF6363900DA2E46 /* TodayLayout.swift */; };
+		743ED89C1BF63FA700DA2E46 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
+		743ED89D1BF63FD000DA2E46 /* DeclareLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */; };
+		743ED89E1BF63FDC00DA2E46 /* TimetableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8600701BE8D8B700FA53AD /* TimetableTime.swift */; };
+		743ED89F1BF6400B00DA2E46 /* ReplacedLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */; };
+		743ED8A01BF6401200DA2E46 /* LessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */; };
+		743ED8A11BF6401600DA2E46 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
+		743ED8A21BF6402400DA2E46 /* TimetitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DE1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift */; };
+		743ED8A31BF6402A00DA2E46 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DA1BDD598A0026F2AE /* DayCollectionViewCell.swift */; };
+		743ED8A51BF640D600DA2E46 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B061BEBE5570030FA95 /* Lesson.swift */; };
+		743ED8A61BF646FA00DA2E46 /* TimetitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588281BE144F7006710B2 /* TimetitleCollectionViewCell.xib */; };
+		743ED8A71BF6470000DA2E46 /* DayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588261BE144E5006710B2 /* DayCollectionViewCell.xib */; };
+		743ED8A81BF6470500DA2E46 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */; };
+		743ED8A91BF6470A00DA2E46 /* LessonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74866B0D1BEBF1370030FA95 /* LessonCollectionViewCell.xib */; };
+		743ED8AA1BF6471000DA2E46 /* ReplacedLessonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7443BE111BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib */; };
 		7443BE121BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7443BE111BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib */; };
 		7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */; };
 		74866B071BEBE5570030FA95 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B061BEBE5570030FA95 /* Lesson.swift */; };
@@ -36,6 +54,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		743ED8911BF6339A00DA2E46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74EBE6951BDD56710026F2AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 743ED8851BF6339A00DA2E46;
+			remoteInfo = WidgetLesson;
+		};
 		74EBE6B51BDD56710026F2AE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 74EBE6951BDD56710026F2AE /* Project object */;
@@ -52,6 +77,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		743ED8971BF6339A00DA2E46 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				743ED8931BF6339A00DA2E46 /* WidgetLesson.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAPIData.swift; sourceTree = "<group>"; };
 		4F8600701BE8D8B700FA53AD /* TimetableTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableTime.swift; sourceTree = "<group>"; };
@@ -60,7 +99,12 @@
 		741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
 		74285B811BF4960C00446CBF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		74382ED81BEFBE13007A28C4 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
-		74382EDB1BF12903007A28C4 /* WidgetLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetLesson.swift; sourceTree = "<group>"; };
+		743ED8861BF6339A00DA2E46 /* WidgetLesson.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetLesson.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		743ED88B1BF6339A00DA2E46 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		743ED88E1BF6339A00DA2E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		743ED8901BF6339A00DA2E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		743ED8981BF6363900DA2E46 /* TodayLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayLayout.swift; sourceTree = "<group>"; };
 		7443BE111BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReplacedLessonCollectionViewCell.xib; sourceTree = "<group>"; };
 		7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplacedLessonCollectionViewCell.swift; sourceTree = "<group>"; };
 		74866B061BEBE5570030FA95 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
@@ -88,6 +132,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		743ED8831BF6339A00DA2E46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				743ED8891BF6339A00DA2E46 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74EBE69A1BDD56710026F2AE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -147,26 +199,49 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
-		74285B841BF4B9E500446CBF /* FirstOpening */ = {
+		743ED8871BF6339A00DA2E46 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */,
 			);
-			name = FirstOpening;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		74382EDA1BF128ED007A28C4 /* Widget */ = {
+		743ED88A1BF6339A00DA2E46 /* WidgetLesson */ = {
 			isa = PBXGroup;
 			children = (
-				74382EDB1BF12903007A28C4 /* WidgetLesson.swift */,
+				743ED88B1BF6339A00DA2E46 /* TodayViewController.swift */,
+				743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */,
+				743ED8901BF6339A00DA2E46 /* Info.plist */,
+				743ED8981BF6363900DA2E46 /* TodayLayout.swift */,
 			);
-			name = Widget;
+			name = WidgetLesson;
+			path = ../WidgetLesson;
+			sourceTree = "<group>";
+		};
+		743ED89A1BF63E5900DA2E46 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				74EBE6D11BDD582A0026F2AE /* Cells */,
+				74EBE6D41BDD586E0026F2AE /* Classes */,
+				74866B051BEBE5400030FA95 /* Lesson */,
+				4F86006F1BE8D8AA00FA53AD /* Time */,
+				4F6402DC1BE8BEFB00A611F6 /* API */,
+				746D982E1BF47DFB00240CAC /* CollectionView */,
+				74285B831BF4B58200446CBF /* Storyboards */,
+				74EBE6A01BDD56710026F2AE /* AppDelegate.swift */,
+				74EBE6AA1BDD56710026F2AE /* Assets.xcassets */,
+				74EBE6AF1BDD56710026F2AE /* Info.plist */,
+				74EBE6A71BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld */,
+			);
+			name = App;
 			sourceTree = "<group>";
 		};
 		7443BE101BED2E34007E6807 /* ReplacedLesson Cell */ = {
 			isa = PBXGroup;
 			children = (
-				7443BE111BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib */,
 				7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */,
+				7443BE111BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib */,
 			);
 			name = "ReplacedLesson Cell";
 			sourceTree = "<group>";
@@ -178,13 +253,6 @@
 				74EBE6A21BDD56710026F2AE /* CollectionViewController.swift */,
 			);
 			name = CollectionView;
-			sourceTree = "<group>";
-		};
-		746D982F1BF47E1200240CAC /* TabView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = TabView;
 			sourceTree = "<group>";
 		};
 		74866B051BEBE5400030FA95 /* Lesson */ = {
@@ -212,6 +280,7 @@
 				74EBE69F1BDD56710026F2AE /* TimeTableFirstTry */,
 				74EBE6B71BDD56710026F2AE /* TimeTableFirstTryTests */,
 				74EBE6C21BDD56720026F2AE /* TimeTableFirstTryUITests */,
+				743ED8871BF6339A00DA2E46 /* Frameworks */,
 				74EBE69E1BDD56710026F2AE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -222,6 +291,7 @@
 				74EBE69D1BDD56710026F2AE /* TimeTableFirstTry.app */,
 				74EBE6B41BDD56710026F2AE /* TimeTableFirstTryTests.xctest */,
 				74EBE6BF1BDD56720026F2AE /* TimeTableFirstTryUITests.xctest */,
+				743ED8861BF6339A00DA2E46 /* WidgetLesson.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,14 +299,8 @@
 		74EBE69F1BDD56710026F2AE /* TimeTableFirstTry */ = {
 			isa = PBXGroup;
 			children = (
-				74EBE6D11BDD582A0026F2AE /* Views */,
-				74EBE6D41BDD586E0026F2AE /* Classes */,
-				74EBE6D71BDD58CA0026F2AE /* Controllers */,
-				74285B831BF4B58200446CBF /* Storyboards */,
-				74EBE6A01BDD56710026F2AE /* AppDelegate.swift */,
-				74EBE6AA1BDD56710026F2AE /* Assets.xcassets */,
-				74EBE6AF1BDD56710026F2AE /* Info.plist */,
-				74EBE6A71BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld */,
+				743ED89A1BF63E5900DA2E46 /* App */,
+				743ED88A1BF6339A00DA2E46 /* WidgetLesson */,
 			);
 			path = TimeTableFirstTry;
 			sourceTree = "<group>";
@@ -259,7 +323,7 @@
 			path = TimeTableFirstTryUITests;
 			sourceTree = "<group>";
 		};
-		74EBE6D11BDD582A0026F2AE /* Views */ = {
+		74EBE6D11BDD582A0026F2AE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				7443BE101BED2E34007E6807 /* ReplacedLesson Cell */,
@@ -268,7 +332,7 @@
 				74EBE6D31BDD584D0026F2AE /* TimeTitle Cell */,
 				74EBE6D21BDD583D0026F2AE /* Content Cell */,
 			);
-			name = Views;
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		74EBE6D21BDD583D0026F2AE /* Content Cell */ = {
@@ -292,27 +356,30 @@
 		74EBE6D41BDD586E0026F2AE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				74382EDA1BF128ED007A28C4 /* Widget */,
-				74866B051BEBE5400030FA95 /* Lesson */,
-				4F86006F1BE8D8AA00FA53AD /* Time */,
-				4F6402DC1BE8BEFB00A611F6 /* API */,
 			);
 			name = Classes;
-			sourceTree = "<group>";
-		};
-		74EBE6D71BDD58CA0026F2AE /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				74285B841BF4B9E500446CBF /* FirstOpening */,
-				746D982F1BF47E1200240CAC /* TabView */,
-				746D982E1BF47DFB00240CAC /* CollectionView */,
-			);
-			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		743ED8851BF6339A00DA2E46 /* WidgetLesson */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 743ED8961BF6339A00DA2E46 /* Build configuration list for PBXNativeTarget "WidgetLesson" */;
+			buildPhases = (
+				743ED8821BF6339A00DA2E46 /* Sources */,
+				743ED8831BF6339A00DA2E46 /* Frameworks */,
+				743ED8841BF6339A00DA2E46 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WidgetLesson;
+			productName = WidgetLesson;
+			productReference = 743ED8861BF6339A00DA2E46 /* WidgetLesson.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		74EBE69C1BDD56710026F2AE /* TimeTableFirstTry */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74EBE6C81BDD56720026F2AE /* Build configuration list for PBXNativeTarget "TimeTableFirstTry" */;
@@ -320,10 +387,12 @@
 				74EBE6991BDD56710026F2AE /* Sources */,
 				74EBE69A1BDD56710026F2AE /* Frameworks */,
 				74EBE69B1BDD56710026F2AE /* Resources */,
+				743ED8971BF6339A00DA2E46 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				743ED8921BF6339A00DA2E46 /* PBXTargetDependency */,
 			);
 			name = TimeTableFirstTry;
 			productName = TimeTableFirstTry;
@@ -372,9 +441,13 @@
 		74EBE6951BDD56710026F2AE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Aurel Feer";
 				TargetAttributes = {
+					743ED8851BF6339A00DA2E46 = {
+						CreatedOnToolsVersion = 7.1;
+					};
 					74EBE69C1BDD56710026F2AE = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
@@ -404,11 +477,25 @@
 				74EBE69C1BDD56710026F2AE /* TimeTableFirstTry */,
 				74EBE6B31BDD56710026F2AE /* TimeTableFirstTryTests */,
 				74EBE6BE1BDD56710026F2AE /* TimeTableFirstTryUITests */,
+				743ED8851BF6339A00DA2E46 /* WidgetLesson */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		743ED8841BF6339A00DA2E46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				743ED8A71BF6470000DA2E46 /* DayCollectionViewCell.xib in Resources */,
+				743ED8A91BF6470A00DA2E46 /* LessonCollectionViewCell.xib in Resources */,
+				743ED8A81BF6470500DA2E46 /* TimeCollectionViewCell.xib in Resources */,
+				743ED8A61BF646FA00DA2E46 /* TimetitleCollectionViewCell.xib in Resources */,
+				743ED8AA1BF6471000DA2E46 /* ReplacedLessonCollectionViewCell.xib in Resources */,
+				743ED88F1BF6339A00DA2E46 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74EBE69B1BDD56710026F2AE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -441,6 +528,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		743ED8821BF6339A00DA2E46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				743ED88C1BF6339A00DA2E46 /* TodayViewController.swift in Sources */,
+				743ED8991BF6363900DA2E46 /* TodayLayout.swift in Sources */,
+				743ED89F1BF6400B00DA2E46 /* ReplacedLessonCollectionViewCell.swift in Sources */,
+				743ED8A31BF6402A00DA2E46 /* DayCollectionViewCell.swift in Sources */,
+				743ED8A01BF6401200DA2E46 /* LessonCollectionViewCell.swift in Sources */,
+				743ED89D1BF63FD000DA2E46 /* DeclareLesson.swift in Sources */,
+				743ED8A11BF6401600DA2E46 /* TimeCollectionViewCell.swift in Sources */,
+				743ED8A21BF6402400DA2E46 /* TimetitleCollectionViewCell.swift in Sources */,
+				743ED89C1BF63FA700DA2E46 /* Day.swift in Sources */,
+				743ED89E1BF63FDC00DA2E46 /* TimetableTime.swift in Sources */,
+				743ED8A51BF640D600DA2E46 /* Lesson.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74EBE6991BDD56710026F2AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -448,7 +553,6 @@
 				74EBE6A31BDD56710026F2AE /* CollectionViewController.swift in Sources */,
 				4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */,
 				7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */,
-				74382EDC1BF12903007A28C4 /* WidgetLesson.swift in Sources */,
 				74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */,
 				74866B071BEBE5570030FA95 /* Lesson.swift in Sources */,
 				74EBE6D91BDD59580026F2AE /* CustomCollectionViewLayout.swift in Sources */,
@@ -483,6 +587,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		743ED8921BF6339A00DA2E46 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 743ED8851BF6339A00DA2E46 /* WidgetLesson */;
+			targetProxy = 743ED8911BF6339A00DA2E46 /* PBXContainerItemProxy */;
+		};
 		74EBE6B61BDD56710026F2AE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 74EBE69C1BDD56710026F2AE /* TimeTableFirstTry */;
@@ -496,6 +605,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				743ED88E1BF6339A00DA2E46 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		74EBE6AC1BDD56710026F2AE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -507,6 +624,28 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		743ED8941BF6339A00DA2E46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = WidgetLesson/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = labf.TimeTableFirstTry.WidgetLesson;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		743ED8951BF6339A00DA2E46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = WidgetLesson/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = labf.TimeTableFirstTry.WidgetLesson;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		74EBE6C61BDD56720026F2AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -592,6 +731,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = TimeTableFirstTry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = labf.TimeTableFirstTry;
@@ -603,6 +743,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = TimeTableFirstTry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = labf.TimeTableFirstTry;
@@ -661,6 +802,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		743ED8961BF6339A00DA2E46 /* Build configuration list for PBXNativeTarget "WidgetLesson" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				743ED8941BF6339A00DA2E46 /* Debug */,
+				743ED8951BF6339A00DA2E46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		74EBE6981BDD56710026F2AE /* Build configuration list for PBXProject "TimeTableFirstTry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

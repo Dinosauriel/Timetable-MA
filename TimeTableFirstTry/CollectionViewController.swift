@@ -19,7 +19,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     let declarelesson = DeclareLesson()
     let layout = CustomCollectionViewLayout()
     let day = Day()
-    let widget = WidgetLesson()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -37,7 +36,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         print(timegetter.timeAsStringToWhen("15:55"))
         
         day.generateDayArray()
-        print("getCurrentLessonPos: \(widget.getCurrentLessonPos())")
     }
     
     override func viewWillAppear(animated: Bool) {
