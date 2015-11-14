@@ -5,10 +5,10 @@
   Created by Aurel Feer on 14.11.15.
   Copyright © 2015 Aurel Feer. All rights reserved.
 */
-
-m = "Mathematics";
-d = "German";
-sh = "Sports";
+/*
+m = "Mathematics"
+d = "German"
+sh = "Sports"
 a
 
 A& Astronomie Freifach                                      KC°+& Kammerchor Schwerpunkt-, Ergänzungs-, Wahl- oder Freifach
@@ -67,3 +67,4 @@ GS Staatskunde Sp4& Spanisch Freifach Semester 4 (in Sem 5)
 ICT% Informations- und Kommunikationstechnologie (in Halbklasse) Sp5& Spanisch Freifach Semester 5 (in Sem 6)
 I+ Informatik Ergänzungs- oder Wahlfach T& Technologien der Zukunft Freifach
 I& Informatik Freifach WR+ Wirtschaft und Recht Ergänzungs- oder Wahlfach
+*/
