@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  TimeTableFirstTry
+
+  Created by Aurel Feer on 14.11.15.
+  Copyright © 2015 Aurel Feer. All rights reserved.
+*/
+
+monday = "Montag";
+tuesday = "Dienstag";
+wednesday = "Mittwoch";
+thursday = "Donnerstag";
+friday = "Freitag";
+
+time = "Zeit";

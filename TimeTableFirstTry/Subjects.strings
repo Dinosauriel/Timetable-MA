@@ -1,0 +1,69 @@
+/* 
+  Subjects.strings
+  TimeTableFirstTry
+
+  Created by Aurel Feer on 14.11.15.
+  Copyright © 2015 Aurel Feer. All rights reserved.
+*/
+
+m = "Mathematics";
+d = "German";
+sh = "Sports";
+a
+
+A& Astronomie Freifach                                      KC°+& Kammerchor Schwerpunkt-, Ergänzungs-, Wahl- oder Freifach
+AM° Anwendungen der Mathematik Schwerpunktfach              KG& Kunstgeschichte Freifach
+AM+ Anwendungen der Mathematik Ergänzungs- oder Wahlfach    KS Klassenlehrerstunde
+B Biologie                                                  L Latein
+B- Biologie immersiv (englisch)                             L§ Lateinisch profilspezifisch
+B° Biologie Schwerpunktfach                                 L° Latein Schwerpunktfach
+B+ Biologie Ergänzungs- oder Wahlfach                       L+ Latein Wahlfach
+BG Bildnerisches Gestalten                                  L1& Latein Freifach Semester 1 (in Sem 2)
+BG1 Bildnerisches Gestalten, Gruppe 1                       L2& Latein Freifach Semester 2 (in Sem 3)
+BG2 Bildnerisches Gestalten, Gruppe 2                       L3& Latein Freifach Semester 3 (in Sem 4)
+BG# Bildnerisches Gestalten musisches Wahlpflichtfach       L4& Latein Freifach Semester 4 (in Sem 5)
+BG#m Bildnerisches Gestalten musisches Wahlpflichtfach      L5& Latein Freifach Semester 5 (in Sem 6)
+für 3. Klässler mit Musik-Schwerpunkt                       L6& Latein Freifach Semester 6 (in Sem 7)
+BG§ Bildnerisches Gestalten profilspezifisch                L7& Latein Freifach Semester 7 (in Sem 8)
+BG§# Bildnerisches Gestalten profilspezifisch oder Wahlpflichtfach M Mathematik
+BG° Bildnerisches Gestalten Schwerpunktfach M- Mathematik immersiv (englisch)
+BG+ Bildnerisches Gestalten Ergänzungs- oder Wahlfach M§ Mathematik profilspezifisch
+BP% Biologie Praktikum (in Halbklasse) MA Maturitätsarbeit
+BP%- Biologie Praktikum (in Halbklasse) immersiv (englisch) Mu Musik
+BWS& Band-Workshop Freifach Mu# Musik musisches Wahlpflichtfach
+C Chemie Mu§ Musik profilspezifisch
+C- Chemie immersiv (englisch) Mu§# Musik profilspezifisch oder Wahlpflichtfach
+C° Chemie Schwerpunktfach Mu° Musik Schwerpunktfach
+C+ Chemie Ergänzungs- oder Wahlfach Mu+ Musik Ergänzungs- oder Wahlfach
+CAE& Certificate in Advanced English Freifach P Physik
+Ch& Chor (1. und 2. Klasse) Freifach P- Physik immersiv (englisch)
+Ch°# Chor Wahlpflicht- oder Schwerpunkt-Fach 3. Kl P° Physik Schwerpunktfach
+CP% Chemie Praktikum (in Halbklasse) P+ Physik Ergänzungs- oder Wahlfach
+CP%- Chemie Praktikum (in Halbklasse) immersiv (englisch) Ph Philosophie
+CPE& Certificate of Proficiency in English Freifach Ph& Philosophie Freifach
+D Deutsch Ph+ Philosophie Ergänzungs- oder Wahlfach
+D+ Deutsch Wahlfach PP% Physik Praktikum (in Halbklasse)
+DaF Deutsch als Fremdsprache PP%- Physik Praktikum (in Halbklasse) immersiv (englisch)
+DB Deutsch Besprechungsstunde PP+ Pädagogik & Psychologie Ergänzungs- oder Wahlfach
+E Englisch Ru Russisch
+E% Englisch in Halbklasse Ru§ Russisch profilspezifisch
+E° Englisch Schwerpunktfach Ru° Russisch Schwerpunktfach
+E+ Englisch Wahlfach Ru1& Russisch Freifach Semester 1 (in Sem 2)
+EWR Einführung in Wirtschaft und Recht Ru2& Russisch Freifach Semester 2 (in Sem 3)
+F Französisch Ru3& Russisch Freifach Semester 3 (in Sem 4)
+F% Französisch in Halbklasse Ru4& Russisch Freifach Semester 4(in Sem 5)
+F+ Französisch Wahlfach Ru5& Russisch Freifach Semester 5 (in Sem 6)
+F& Französisch DELF (Diplôme d'études en langue française) Freifach S+ Sport Ergänzungs- oder Wahlfach
+F&A Französisch DELF (Diplôme d'études en langue française) Freifach, Gruppe A S& Sport Freifach
+F&B Französisch DELF (Diplôme d'études en langue française) Freifach, Gruppe B SD Sport Damen
+FCE& First Certificate in Englisch Freifach SH Sport Herren
+G Geschichte Sp Spanisch
+G- Geschichte immersiv (englisch) Sp§ Spanisch profilspezifisch
+G+ Geschichte Ergänzungs- oder Wahlfach Sp° Spanisch Schwerpunktfach
+Gg Geographie Sp1& Spanisch Freifach Semester 1 (in Sem 2)
+Gg- Geographie immersiv (englisch) Sp2& Spanisch Freifach Semester 2 (in Sem 3)
+Gg+ Geographie Ergänzungs- oder Wahlfach Sp3& Spanisch Freifach Semester 3 (in Sem 4)
+GS Staatskunde Sp4& Spanisch Freifach Semester 4 (in Sem 5)
+ICT% Informations- und Kommunikationstechnologie (in Halbklasse) Sp5& Spanisch Freifach Semester 5 (in Sem 6)
+I+ Informatik Ergänzungs- oder Wahlfach T& Technologien der Zukunft Freifach
+I& Informatik Freifach WR+ Wirtschaft und Recht Ergänzungs- oder Wahlfach

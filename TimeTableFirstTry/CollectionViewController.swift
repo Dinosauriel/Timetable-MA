@@ -61,7 +61,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                     timetitleCell.backgroundColor = UIColor.whiteColor()
                     timetitleCell.timetitleLabel.font = UIFont.systemFontOfSize(13)
                     timetitleCell.timetitleLabel.textColor = UIColor.blackColor()
-                    timetitleCell.timetitleLabel.text = "Zeit"
+                    timetitleCell.timetitleLabel.text = NSLocalizedString("time", comment: "TransForTime")
                 
                     return timetitleCell
                 

@@ -12,9 +12,9 @@
 		4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEFFEB1BEB7A78007C4647 /* Token.swift */; };
 		741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
 		741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */; };
-		74285B821BF4960C00446CBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74285B811BF4960C00446CBF /* Main.storyboard */; };
-		742889E81BF6A7620018EAE4 /* TodayLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743ED8981BF6363900DA2E46 /* TodayLayout.swift */; };
-		742889E91BF6A76F0018EAE4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */; };
+		742889EE1BF736240018EAE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 742889F01BF736240018EAE4 /* Main.storyboard */; };
+		742889F81BF73A870018EAE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 742889FA1BF73A870018EAE4 /* Localizable.strings */; };
+		742889FD1BF73E110018EAE4 /* Subjects.strings in Resources */ = {isa = PBXBuildFile; fileRef = 742889FC1BF73E110018EAE4 /* Subjects.strings */; };
 		74382ED91BEFBE13007A28C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
 		743ED8891BF6339A00DA2E46 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */; };
 		743ED88C1BF6339A00DA2E46 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743ED88B1BF6339A00DA2E46 /* TodayViewController.swift */; };
@@ -99,7 +99,13 @@
 		4FBEFFEB1BEB7A78007C4647 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
-		74285B811BF4960C00446CBF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		742889ED1BF735AD0018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		742889EF1BF736240018EAE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		742889F21BF736270018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		742889F41BF737900018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		742889F91BF73A870018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		742889FB1BF73A8A0018EAE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		742889FC1BF73E110018EAE4 /* Subjects.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Subjects.strings; sourceTree = "<group>"; };
 		74382ED81BEFBE13007A28C4 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		743ED8861BF6339A00DA2E46 /* WidgetLesson.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetLesson.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -195,10 +201,19 @@
 		74285B831BF4B58200446CBF /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				74285B811BF4960C00446CBF /* Main.storyboard */,
+				742889F01BF736240018EAE4 /* Main.storyboard */,
 				74EBE6AC1BDD56710026F2AE /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		742889F51BF739E50018EAE4 /* Lang */ = {
+			isa = PBXGroup;
+			children = (
+				742889FA1BF73A870018EAE4 /* Localizable.strings */,
+				742889FC1BF73E110018EAE4 /* Subjects.strings */,
+			);
+			name = Lang;
 			sourceTree = "<group>";
 		};
 		743ED8871BF6339A00DA2E46 /* Frameworks */ = {
@@ -224,8 +239,8 @@
 		743ED89A1BF63E5900DA2E46 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				742889F51BF739E50018EAE4 /* Lang */,
 				74EBE6D11BDD582A0026F2AE /* Cells */,
-				74EBE6D41BDD586E0026F2AE /* Classes */,
 				74866B051BEBE5400030FA95 /* Lesson */,
 				4F86006F1BE8D8AA00FA53AD /* Time */,
 				4F6402DC1BE8BEFB00A611F6 /* API */,
@@ -355,13 +370,6 @@
 			name = "TimeTitle Cell";
 			sourceTree = "<group>";
 		};
-		74EBE6D41BDD586E0026F2AE /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Classes;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -470,6 +478,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 74EBE6941BDD56710026F2AE;
 			productRefGroup = 74EBE69E1BDD56710026F2AE /* Products */;
@@ -506,9 +515,10 @@
 				749588271BE144E5006710B2 /* DayCollectionViewCell.xib in Resources */,
 				741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */,
 				74866B0E1BEBF1370030FA95 /* LessonCollectionViewCell.xib in Resources */,
-				742889E91BF6A76F0018EAE4 /* MainInterface.storyboard in Resources */,
+				742889F81BF73A870018EAE4 /* Localizable.strings in Resources */,
+				742889FD1BF73E110018EAE4 /* Subjects.strings in Resources */,
 				74EBE6AE1BDD56710026F2AE /* LaunchScreen.storyboard in Resources */,
-				74285B821BF4960C00446CBF /* Main.storyboard in Resources */,
+				742889EE1BF736240018EAE4 /* Main.storyboard in Resources */,
 				749588291BE144F7006710B2 /* TimetitleCollectionViewCell.xib in Resources */,
 				74EBE6AB1BDD56710026F2AE /* Assets.xcassets in Resources */,
 			);
@@ -564,7 +574,6 @@
 				4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */,
 				74866B091BEBE9BA0030FA95 /* DeclareLesson.swift in Sources */,
 				74382ED91BEFBE13007A28C4 /* Day.swift in Sources */,
-				742889E81BF6A7620018EAE4 /* TodayLayout.swift in Sources */,
 				4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */,
 				74866B0C1BEBF10A0030FA95 /* LessonCollectionViewCell.swift in Sources */,
 				74EBE6DF1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift in Sources */,
@@ -609,10 +618,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		742889F01BF736240018EAE4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				742889EF1BF736240018EAE4 /* Base */,
+				742889F21BF736270018EAE4 /* de */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		742889FA1BF73A870018EAE4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				742889F91BF73A870018EAE4 /* de */,
+				742889FB1BF73A8A0018EAE4 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				743ED88E1BF6339A00DA2E46 /* Base */,
+				742889ED1BF735AD0018EAE4 /* de */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -621,6 +649,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				74EBE6AD1BDD56710026F2AE /* Base */,
+				742889F41BF737900018EAE4 /* de */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

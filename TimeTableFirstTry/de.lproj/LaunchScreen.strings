@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "©Lukas Boner and Aurel Feer"; ObjectID = "DUm-Pn-YtY"; */
+"DUm-Pn-YtY.text" = "©Lukas Boner und Aurel Feer";
+
+/* Class = "UILabel"; text = "Supervised by Rolf Kleiner"; ObjectID = "SqV-0M-xGm"; */
+"SqV-0M-xGm.text" = "Betreut durch Rolf Kleiner";
+
+/* Class = "UILabel"; text = "Timetable"; ObjectID = "bdD-6K-Iqo"; */
+"bdD-6K-Iqo.text" = "Stundenplan";
+
+/* Class = "UILabel"; text = "A \"Maturarbeit\" by Lukas Boner and Aurel Feer"; ObjectID = "hdQ-yj-eHh"; */
+"hdQ-yj-eHh.text" = "Eine Maturarbeit von Lukas Boner und Aurel Feer";

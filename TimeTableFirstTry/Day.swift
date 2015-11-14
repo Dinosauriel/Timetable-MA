@@ -10,17 +10,17 @@ import Foundation
 
 class Day {
     func generateDayArray() -> NSArray {
-        let monday: String = "Montag"
-        let tuesday: String = "Dienstag"
-        let wednesday: String = "Mittwoch"
-        let thursday: String = "Donnerstag"
-        let friday: String = "Freitag"
+        let monday = NSLocalizedString("monday", comment: "TransForMon")
+        let tuesday = NSLocalizedString("tuesday", comment: "TransForTue")
+        let wednesday = NSLocalizedString("wednesday", comment: "TransForWed")
+        let thursday = NSLocalizedString("thursday", comment: "TransForThu")
+        let friday = NSLocalizedString("friday", comment: "TransForFri")
         
         let week: [String] = [monday, tuesday, wednesday, thursday, friday]
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
-        let currentDate = calendar.components(.Weekday, fromDate: date)
-        let currentDay = currentDate.weekday
+        let currentWeekDay = calendar.components(.Weekday, fromDate: date)
+        let currentDay = currentWeekDay.weekday
 
         print("Day \(currentDay)")
         

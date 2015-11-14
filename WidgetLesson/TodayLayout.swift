@@ -151,9 +151,9 @@ class TodayLayout: UICollectionViewFlowLayout {
         
         if columnIndex != 0 {
             
-            let superViewSize: CGRect = collectionView!.superview!.bounds
+            let colViewSize: CGRect = collectionView!.bounds
             //let screenSize: CGRect = UIScreen.mainScreen().bounds
-            let width: CGFloat = superViewSize.width - timeColumnWidth
+            let width: CGFloat = colViewSize.width - timeColumnWidth
             
             print(width)
             
