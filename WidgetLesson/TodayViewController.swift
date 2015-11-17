@@ -33,6 +33,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
         self.collectionView .registerNib(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timeCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "LessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: lessonCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "ReplacedLessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: replacedlessonCellIdentifier)
+        
+        self.preferredContentSize = CGSizeMake(0, 230)
     }
     
     override func didReceiveMemoryWarning() {

@@ -12,7 +12,6 @@
 		4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEFFEB1BEB7A78007C4647 /* Token.swift */; };
 		741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
 		741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */; };
-		742889EE1BF736240018EAE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 742889F01BF736240018EAE4 /* Main.storyboard */; };
 		742889F81BF73A870018EAE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 742889FA1BF73A870018EAE4 /* Localizable.strings */; };
 		742889FD1BF73E110018EAE4 /* Subjects.strings in Resources */ = {isa = PBXBuildFile; fileRef = 742889FC1BF73E110018EAE4 /* Subjects.strings */; };
 		74382ED91BEFBE13007A28C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
@@ -43,6 +42,7 @@
 		74866B0E1BEBF1370030FA95 /* LessonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74866B0D1BEBF1370030FA95 /* LessonCollectionViewCell.xib */; };
 		749588271BE144E5006710B2 /* DayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588261BE144E5006710B2 /* DayCollectionViewCell.xib */; };
 		749588291BE144F7006710B2 /* TimetitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588281BE144F7006710B2 /* TimetitleCollectionViewCell.xib */; };
+		74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */; };
 		74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A01BDD56710026F2AE /* AppDelegate.swift */; };
 		74EBE6A31BDD56710026F2AE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A21BDD56710026F2AE /* CollectionViewController.swift */; };
 		74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A71BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld */; };
@@ -53,6 +53,7 @@
 		74EBE6D91BDD59580026F2AE /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6D81BDD59580026F2AE /* CustomCollectionViewLayout.swift */; };
 		74EBE6DB1BDD598A0026F2AE /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DA1BDD598A0026F2AE /* DayCollectionViewCell.swift */; };
 		74EBE6DF1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DE1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift */; };
+		74F88ABB1BFBC58200E65B34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74F88ABD1BFBC58200E65B34 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,8 +101,6 @@
 		741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
 		742889ED1BF735AD0018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		742889EF1BF736240018EAE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		742889F21BF736270018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		742889F41BF737900018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		742889F91BF73A870018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		742889FB1BF73A8A0018EAE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -121,6 +120,7 @@
 		74866B0D1BEBF1370030FA95 /* LessonCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LessonCollectionViewCell.xib; sourceTree = "<group>"; };
 		749588261BE144E5006710B2 /* DayCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCollectionViewCell.xib; sourceTree = "<group>"; };
 		749588281BE144F7006710B2 /* TimetitleCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimetitleCollectionViewCell.xib; sourceTree = "<group>"; };
+		74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		74EBE69D1BDD56710026F2AE /* TimeTableFirstTry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTableFirstTry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EBE6A01BDD56710026F2AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74EBE6A21BDD56710026F2AE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +137,8 @@
 		74EBE6D81BDD59580026F2AE /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		74EBE6DA1BDD598A0026F2AE /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
 		74EBE6DE1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		74F88AC01BFBC5CA00E65B34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		74F88AC21BFBC5F300E65B34 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,8 +203,8 @@
 		74285B831BF4B58200446CBF /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				742889F01BF736240018EAE4 /* Main.storyboard */,
 				74EBE6AC1BDD56710026F2AE /* LaunchScreen.storyboard */,
+				74F88ABD1BFBC58200E65B34 /* Main.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -243,8 +245,10 @@
 				74EBE6D11BDD582A0026F2AE /* Cells */,
 				74866B051BEBE5400030FA95 /* Lesson */,
 				4F86006F1BE8D8AA00FA53AD /* Time */,
+				74AD297D1BF759D7001382F5 /* Settings */,
 				4F6402DC1BE8BEFB00A611F6 /* API */,
 				746D982E1BF47DFB00240CAC /* CollectionView */,
+				743ED88A1BF6339A00DA2E46 /* WidgetLesson */,
 				74285B831BF4B58200446CBF /* Storyboards */,
 				74EBE6A01BDD56710026F2AE /* AppDelegate.swift */,
 				74EBE6AA1BDD56710026F2AE /* Assets.xcassets */,
@@ -291,6 +295,14 @@
 			name = "Lesson Cell";
 			sourceTree = "<group>";
 		};
+		74AD297D1BF759D7001382F5 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		74EBE6941BDD56710026F2AE = {
 			isa = PBXGroup;
 			children = (
@@ -317,7 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				743ED89A1BF63E5900DA2E46 /* App */,
-				743ED88A1BF6339A00DA2E46 /* WidgetLesson */,
 			);
 			path = TimeTableFirstTry;
 			sourceTree = "<group>";
@@ -512,13 +523,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7443BE121BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib in Resources */,
+				74F88ABB1BFBC58200E65B34 /* Main.storyboard in Resources */,
 				749588271BE144E5006710B2 /* DayCollectionViewCell.xib in Resources */,
 				741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */,
 				74866B0E1BEBF1370030FA95 /* LessonCollectionViewCell.xib in Resources */,
 				742889F81BF73A870018EAE4 /* Localizable.strings in Resources */,
 				742889FD1BF73E110018EAE4 /* Subjects.strings in Resources */,
 				74EBE6AE1BDD56710026F2AE /* LaunchScreen.storyboard in Resources */,
-				742889EE1BF736240018EAE4 /* Main.storyboard in Resources */,
 				749588291BE144F7006710B2 /* TimetitleCollectionViewCell.xib in Resources */,
 				74EBE6AB1BDD56710026F2AE /* Assets.xcassets in Resources */,
 			);
@@ -575,6 +586,7 @@
 				74866B091BEBE9BA0030FA95 /* DeclareLesson.swift in Sources */,
 				74382ED91BEFBE13007A28C4 /* Day.swift in Sources */,
 				4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */,
+				74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */,
 				74866B0C1BEBF10A0030FA95 /* LessonCollectionViewCell.swift in Sources */,
 				74EBE6DF1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift in Sources */,
 				74EBE6DB1BDD598A0026F2AE /* DayCollectionViewCell.swift in Sources */,
@@ -618,15 +630,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		742889F01BF736240018EAE4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				742889EF1BF736240018EAE4 /* Base */,
-				742889F21BF736270018EAE4 /* de */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		742889FA1BF73A870018EAE4 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -652,6 +655,15 @@
 				742889F41BF737900018EAE4 /* de */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		74F88ABD1BFBC58200E65B34 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74F88AC01BFBC5CA00E65B34 /* Base */,
+				74F88AC21BFBC5F300E65B34 /* de */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

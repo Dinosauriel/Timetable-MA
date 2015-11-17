@@ -13,3 +13,11 @@ thursday = "Donnerstag";
 friday = "Freitag";
 
 time = "Zeit";
+
+//SETTINGS
+login = "Login";
+notifications = "Mitteilungen";
+widget = "Widget";
+
+genral = "Allgemein";
+app = "App";

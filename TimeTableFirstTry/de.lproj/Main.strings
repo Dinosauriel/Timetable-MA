@@ -1,6 +1,18 @@
 
-/* Class = "UIButton"; normalTitle = "First Launch!!"; ObjectID = "qJl-4g-Qji"; */
-"qJl-4g-Qji.normalTitle" = "Erster Start!!";
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "5hE-TW-brL"; */
+"5hE-TW-brL.title" = "Item";
 
-/* Class = "UINavigationItem"; title = "Stundenplan"; ObjectID = "weN-pv-wV6"; */
-"weN-pv-wV6.title" = "Stundenplan";
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "Mcg-5O-F7t"; */
+"Mcg-5O-F7t.title" = "Item";
+
+/* Class = "UITableViewCell"; accessibilityIdentifier = "settingsMainMenuCellIdentifier"; ObjectID = "RHc-B9-c4A"; */
+"RHc-B9-c4A.accessibilityIdentifier" = "settingsMainMenuCellIdentifier";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "TKR-pd-LJq"; */
+"TKR-pd-LJq.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "First Launch!!"; ObjectID = "evo-0S-gnq"; */
+"evo-0S-gnq.normalTitle" = "Erster Start!!";
+
+/* Class = "UINavigationItem"; title = "Timetable"; ObjectID = "qPY-H0-XnS"; */
+"qPY-H0-XnS.title" = "Stundenplan";

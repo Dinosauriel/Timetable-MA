@@ -13,11 +13,8 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
     var token: NSString?
-    
     var APIData: GetAPIData?
-    
     var UserDefaults = NSUserDefaults.standardUserDefaults()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -27,14 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // DEFINING INITIAL VIEWCONTROLLER
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         // DETECTING FIRST LAUNCH
         if UserDefaults.objectForKey("HasLaunchedOnce") == nil {
             UserDefaults.setBool(false, forKey: "HasLaunchedOnce")
         }
         
-        var initialViewController = storyboard.instantiateViewControllerWithIdentifier("TimeTableVCID")// as! UIViewController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var initialViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarVCID")
         
         if UserDefaults.boolForKey("HasLaunchedOnce") == false {
             //The Boolean needs to be set to true in another function in case the App is closed before the initial setup.
@@ -45,9 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
-
-        
-
         
         //API
         
@@ -61,10 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
           return true
     }
-    
-    func application(_ application: UIApplication, openURL url: NSURL, sourceApplication sourceApplication: String?, annotation annotation: AnyObject) -> Bool {
-        
-        
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?,annotation: AnyObject) -> Bool {
         
         APIData!.handleTokenResponse(url)
         
@@ -167,6 +157,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
 }
 

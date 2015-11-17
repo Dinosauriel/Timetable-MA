@@ -59,7 +59,8 @@ class GetAPIData {
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         //Sends the request and gets the data returned
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.currentQueue()!) { response, maybeData, error in
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.currentQueue()!) {
+            response, maybeData, error in
             if let data = maybeData {
                 contents = NSString(data:data, encoding:NSUTF8StringEncoding)!
             } else {

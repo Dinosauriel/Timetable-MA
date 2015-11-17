@@ -14,7 +14,9 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
     var itemsSize: NSMutableArray!
     var contentSize: CGSize!
     var numberOfColumns = 6
-
+    
+    let marginForTimeColumn: CGFloat = 15
+    let heightForDayRow: CGFloat = 40
     
     override func prepareLayout() {
         
@@ -24,9 +26,9 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         
         if (self.itemAttributes != nil && self.itemAttributes.count > 0) {
             
-            for section in 0..<self.collectionView!.numberOfSections() {
+            for section in 0 ..< self.collectionView!.numberOfSections() {
                 let numberOfItems : Int = self.collectionView!.numberOfItemsInSection(section)
-                for index in 0..<numberOfItems {
+                for index in 0 ..< numberOfItems {
                     if section != 0 && index != 0 {
                         continue
                     }
@@ -53,22 +55,28 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         }
         
         var column = 0
-        var xOffset : CGFloat = 0
-        var yOffset : CGFloat = 0
-        var contentWidth : CGFloat = 0
-        var contentHeight : CGFloat = 0
+        var xOffset: CGFloat = 0
+        var yOffset: CGFloat = 0
+        var contentWidth: CGFloat = 0
+        var contentHeight: CGFloat = 0
         
-        for section in 0..<self.collectionView!.numberOfSections() {
+        for section in 0 ..< self.collectionView!.numberOfSections() {
             let sectionAttributes = NSMutableArray()
+            var itemHeight: CGFloat
+            if section == 0 {
+                itemHeight = 30
+            } else {
+                itemHeight = 60
+            }
             
-            for index in 0..<numberOfColumns {
+            for index in 0 ..< numberOfColumns {
                 let itemSize = self.itemsSize[index].CGSizeValue()
                 let indexPath = NSIndexPath(forItem: index, inSection: section)
                 let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
-                attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemSize.width, itemSize.height))
+                attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemSize.width, itemHeight))
                 
                 if section == 0 && index == 0 {
-                    attributes.zIndex = 1024;
+                    attributes.zIndex = 1024
                 } else  if section == 0 || index == 0 {
                     attributes.zIndex = 1023
                 }
@@ -96,16 +104,16 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
                     
                     column = 0
                     xOffset = 0
-                    yOffset += itemSize.height
+                    yOffset += itemHeight
                 }
             }
             if (self.itemAttributes == nil) {
                 self.itemAttributes = NSMutableArray(capacity: self.collectionView!.numberOfSections())
             }
-            self.itemAttributes .addObject(sectionAttributes)
+            self.itemAttributes.addObject(sectionAttributes)
         }
         
-        let attributes : UICollectionViewLayoutAttributes = self.itemAttributes.lastObject?.lastObject as! UICollectionViewLayoutAttributes
+        let attributes: UICollectionViewLayoutAttributes = self.itemAttributes.lastObject?.lastObject as! UICollectionViewLayoutAttributes
         contentHeight = attributes.frame.origin.y + attributes.frame.size.height
         self.contentSize = CGSizeMake(contentWidth, contentHeight)
     }
@@ -114,7 +122,8 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         return self.contentSize
     }
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes! {
+    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes {
+        
         return self.itemAttributes[indexPath.section][indexPath.row] as! UICollectionViewLayoutAttributes
     }
     
@@ -142,12 +151,14 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         return true
     }
     
+    
+    //MARK:  PAGING
     override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         if let collectionView = self.collectionView {
             
             let timeTitle = NSLocalizedString("time", comment: "TimeTransForSizeCalculation")
             let timeColumnSize: CGSize = (timeTitle as NSString).sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(17.0)])
-            let timeColumnWidth: CGFloat = timeColumnSize.width + 50
+            let timeColumnWidth: CGFloat = timeColumnSize.width + marginForTimeColumn
             
             let screenSize = UIScreen.mainScreen().bounds
             let width = screenSize.width - timeColumnWidth
@@ -186,30 +197,37 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         return super.targetContentOffsetForProposedContentOffset(proposedContentOffset)
     }
     
-    
-    func sizeForItemWithColumnIndex(columnIndex: Int) -> CGSize {
+    // MARK: CALCULATING SIZE FOR CELLS CALCULATIONS
+    func sizeForItemWithColumnIndex(sectionIndex: Int) -> CGSize {
 
         let timeTitle = NSLocalizedString("time", comment: "TimeTransForSizeCalculation")
         let timeColumnSize: CGSize = (timeTitle as NSString).sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(17.0)])
-        let timeColumnWidth: CGFloat = timeColumnSize.width + 50
+        let timeColumnWidth: CGFloat = timeColumnSize.width + marginForTimeColumn
         
-        if columnIndex != 0 {
-        
+        if sectionIndex != 0 {
             let screenSize: CGRect = UIScreen.mainScreen().bounds
             let width: CGFloat = screenSize.width - timeColumnWidth
             
-            return CGSizeMake(width, 60)
-            
+            //if rowIndex != 0 {
+                return CGSizeMake(width, 60)
+            //} else {
+            //    return CGSizeMake(width, 30)
+            //}
         } else {
-            
-            return CGSizeMake(timeColumnWidth, 60)
+            //if rowIndex != 0 {
+                return CGSizeMake(timeColumnWidth, 60)
+            //} else {
+            //    return CGSizeMake(timeColumnWidth, 30)
+            //}
         }
     }
     
     func calculateItemsSize() {
         self.itemsSize = NSMutableArray(capacity: numberOfColumns)
-        for index in 0..<numberOfColumns {
-            self.itemsSize.addObject(NSValue(CGSize: self.sizeForItemWithColumnIndex(index)))
+        for section in 0 ..< numberOfColumns {
+            //for row in 0 ..< 13 {
+                self.itemsSize.addObject(NSValue(CGSize: self.sizeForItemWithColumnIndex(section)))
+            //}
         }
     }
 }

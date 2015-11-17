@@ -21,6 +21,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     let day = Day()
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var topStatusbarConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +32,10 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         self.collectionView .registerNib(UINib(nibName: "LessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: lessonCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "ReplacedLessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: replacedlessonCellIdentifier)
         
-        print(timegetter.timeAsStringToNSDateComponents("15:55"))
-        print(timegetter.timeAsStringToLessonposition("15:55"))
-        print(timegetter.timeAsStringToWhen("15:55"))
-        
-        day.generateDayArray()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    func removeStatusBar() {
+        topStatusbarConstraint.constant = 0
     }
     
     // MARK - UICollectionViewDataSource

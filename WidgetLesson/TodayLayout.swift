@@ -158,9 +158,7 @@ class TodayLayout: UICollectionViewFlowLayout {
             print(width)
             
             return CGSizeMake(width, 60)
-            
         } else {
-            
             return CGSizeMake(timeColumnWidth, 60)
         }
     }
