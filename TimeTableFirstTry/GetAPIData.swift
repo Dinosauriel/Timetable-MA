@@ -61,12 +61,28 @@ class GetAPIData {
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
         
-        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
+        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) -> Void in
             contents = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            print(contents)
+            //print(contents)
+            
+            do {
+                let array:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
+                print(array)
+            } catch let myJSONError {
+                print(myJSONError)
+            }
         })
         
         task.resume()
+        
+    }
+    
+    func handleDataResponse(dataDict:NSDictionary) {
+        if let code = dataDict["code"] as? NSDictionary {
+            print(code)
+        }
+        
+        print(dataDict[0])
     }
     
     //Retrieves the stored token from the storage and returns false if it failed or in case of success true
@@ -77,7 +93,7 @@ class GetAPIData {
         //Tries to read the token from the storage and stores it in the "token"-variable if possible
         if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [Token] {
             if fetchResults.count != 0 {
-            
+                
                 token = fetchResults[0].tokenVar
                 return true
             } else {
