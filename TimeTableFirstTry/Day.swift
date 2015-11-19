@@ -19,22 +19,44 @@ class Day {
         let week: [String] = [monday, tuesday, wednesday, thursday, friday]
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
-        let currentWeekDay = calendar.components(.Weekday, fromDate: date)
-        let currentDay = currentWeekDay.weekday
-
-        print("Day \(currentDay)")
+        let currentWeekDayCal = calendar.components(.Weekday, fromDate: date)
+        let currentWeekDay = currentWeekDayCal.weekday
         
-        switch currentDay {
+        var weekToReturn: [String]
+        
+        switch currentWeekDay {
             case 3:
-                return [tuesday,wednesday,thursday,friday,monday]
+                weekToReturn = [tuesday,wednesday,thursday,friday,monday]
             case 4:
-                return [wednesday,thursday,friday,monday,tuesday]
+                weekToReturn = [wednesday,thursday,friday,monday,tuesday]
             case 5:
-                return [thursday,friday,monday,tuesday,wednesday]
+                weekToReturn = [thursday,friday,monday,tuesday,wednesday]
             case 6:
-                return [friday,monday,tuesday,wednesday,thursday]
+                weekToReturn = [friday,monday,tuesday,wednesday,thursday]
             default:
-                return week
+                weekToReturn = week
         }
+        
+        func getNextDay(distance: Int) -> String {
+            
+            let calendar = NSCalendar.currentCalendar()
+            
+            let day = calendar.dateByAddingUnit(.Day, value: distance, toDate: NSDate(), options: [])
+            
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "dd. MMMM yyyy"
+            
+            let DateString = formatter.stringFromDate(day!)
+            print(DateString)
+            return DateString
+            
+        }
+        
+        for var i = 0; i < weekToReturn.count; ++i {
+            weekToReturn[i].appendContentsOf(", ")
+            weekToReturn[i].appendContentsOf(getNextDay(i))
+        }
+        
+        return weekToReturn
     }
 }

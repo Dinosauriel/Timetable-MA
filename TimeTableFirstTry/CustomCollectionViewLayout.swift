@@ -153,49 +153,49 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
     
     
     //MARK:  PAGING
-    override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        if let collectionView = self.collectionView {
-            
-            let timeTitle = NSLocalizedString("time", comment: "TimeTransForSizeCalculation")
-            let timeColumnSize: CGSize = (timeTitle as NSString).sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(17.0)])
-            let timeColumnWidth: CGFloat = timeColumnSize.width + marginForTimeColumn
-            
-            let screenSize = UIScreen.mainScreen().bounds
-            let width = screenSize.width - timeColumnWidth
-            
-            
-            let bounds = collectionView.bounds
-            //let halfWidth = bounds.size.width * 0.5
-            let proposedContentOffsetCenterX = proposedContentOffset.x + width
-            
-            if let attributesForVisibleCells = self.layoutAttributesForElementsInRect(bounds) as [UICollectionViewLayoutAttributes]! {
-                
-                var candidateAttributes : UICollectionViewLayoutAttributes?
-                for attributes in attributesForVisibleCells {
-                    
-                    if attributes.representedElementCategory != UICollectionElementCategory.Cell {
-                        continue
-                    }
-                    
-                    if let candAttrs = candidateAttributes {
-                        
-                        let a = attributes.center.x - proposedContentOffsetCenterX
-                        let b = candAttrs.center.x - proposedContentOffsetCenterX
-                        
-                        if fabsf(Float(a)) < fabsf(Float(b)) {
-                            candidateAttributes = attributes
-                        }
-                        
-                    } else {
-                        candidateAttributes = attributes
-                        continue
-                    }
-                }
-                return CGPoint(x: round(candidateAttributes!.center.x - width), y: proposedContentOffset.y)
-            }
-        }
-        return super.targetContentOffsetForProposedContentOffset(proposedContentOffset)
-    }
+//    override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+//        if let collectionView = self.collectionView {
+//            
+//            let timeTitle = NSLocalizedString("time", comment: "TimeTransForSizeCalculation")
+//            let timeColumnSize: CGSize = (timeTitle as NSString).sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(17.0)])
+//            let timeColumnWidth: CGFloat = timeColumnSize.width + marginForTimeColumn
+//            
+//            let screenSize = UIScreen.mainScreen().bounds
+//            let width = screenSize.width - timeColumnWidth
+//            
+//            
+//            let bounds = collectionView.bounds
+//            //let halfWidth = bounds.size.width * 0.5
+//            let proposedContentOffsetCenterX = proposedContentOffset.x + width
+//            
+//            if let attributesForVisibleCells = self.layoutAttributesForElementsInRect(bounds) as [UICollectionViewLayoutAttributes]! {
+//                
+//                var candidateAttributes : UICollectionViewLayoutAttributes?
+//                for attributes in attributesForVisibleCells {
+//                    
+//                    if attributes.representedElementCategory != UICollectionElementCategory.Cell {
+//                        continue
+//                    }
+//                    
+//                    if let candAttrs = candidateAttributes {
+//                        
+//                        let a = attributes.center.x - proposedContentOffsetCenterX
+//                        let b = candAttrs.center.x - proposedContentOffsetCenterX
+//                        
+//                        if fabsf(Float(a)) < fabsf(Float(b)) {
+//                            candidateAttributes = attributes
+//                        }
+//                        
+//                    } else {
+//                        candidateAttributes = attributes
+//                        continue
+//                    }
+//                }
+//                return CGPoint(x: round(candidateAttributes!.center.x - width), y: proposedContentOffset.y)
+//            }
+//        }
+//        return super.targetContentOffsetForProposedContentOffset(proposedContentOffset)
+//    }
     
     // MARK: CALCULATING SIZE FOR CELLS CALCULATIONS
     func sizeForItemWithColumnIndex(sectionIndex: Int) -> CGSize {
@@ -208,26 +208,19 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
             let screenSize: CGRect = UIScreen.mainScreen().bounds
             let width: CGFloat = screenSize.width - timeColumnWidth
             
-            //if rowIndex != 0 {
-                return CGSizeMake(width, 60)
-            //} else {
-            //    return CGSizeMake(width, 30)
-            //}
+            return CGSizeMake(width, 60)
+            
         } else {
-            //if rowIndex != 0 {
-                return CGSizeMake(timeColumnWidth, 60)
-            //} else {
-            //    return CGSizeMake(timeColumnWidth, 30)
-            //}
+
+            return CGSizeMake(timeColumnWidth, 60)
         }
     }
     
     func calculateItemsSize() {
         self.itemsSize = NSMutableArray(capacity: numberOfColumns)
         for section in 0 ..< numberOfColumns {
-            //for row in 0 ..< 13 {
-                self.itemsSize.addObject(NSValue(CGSize: self.sizeForItemWithColumnIndex(section)))
-            //}
+            
+            self.itemsSize.addObject(NSValue(CGSize: self.sizeForItemWithColumnIndex(section)))
         }
     }
 }

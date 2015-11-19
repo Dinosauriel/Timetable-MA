@@ -192,6 +192,7 @@ public class TimetableTime {
         currentTime.hour = currentHourCal.hour
         currentTime.minute = currentMinCal.minute
         
+        
         return currentTime
     }
 }

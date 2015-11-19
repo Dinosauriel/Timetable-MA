@@ -70,15 +70,15 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         if indexPath.row == 0 {
-            let timeCell: TimeCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(timeCellIdentifier, forIndexPath: indexPath) as! TimeCollectionViewCell
+            let timeCell: TimeCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(timeCellIdentifier, forIndexPath: indexPath) as! TimeCollectionViewCell
             timeCell.starttimeLabel.font = UIFont.systemFontOfSize(13)
             timeCell.endtimeLabel.font = UIFont.systemFontOfSize(13)
             
             timeCell.starttimeLabel.textColor = UIColor.blackColor()
             timeCell.endtimeLabel.textColor = UIColor.blackColor()
             
-            timeCell.starttimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section + 1, when: "start")
-            timeCell.endtimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section + 1, when: "end")
+            timeCell.starttimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section - 1 + getCurrentLessonPos(), when: "start")
+            timeCell.endtimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section - 1 + getCurrentLessonPos(), when: "end")
             
             if indexPath.section % 2 != 0 {
                 timeCell.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
@@ -96,7 +96,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
             let yellow = UIColor(hue: 0.125, saturation: 1, brightness: 0.97, alpha: 1.0)
             switch alesson.status {
             case .Default:
-                let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
                 // Declaring subjectLabel appearance
                 lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
                 lessonCell.subjectLabel.textColor = UIColor.blackColor()
