@@ -31,11 +31,12 @@ class GetAPIData {
         
         //Stores the token in a seperate variable
         token = tokenArr[1]
-        
+        print(token)
         //Saves the token to the local storage for later use
         if let moc = self.managedObjectContext {
             Token.createInManagedObjectContext(moc, tokenVar: tokenArr[1])
         }
+        getDataWithToken()
     }
     
     //Requests the data with the token and returns it as a NSString
@@ -62,33 +63,10 @@ class GetAPIData {
         
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
             contents = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            print(data)
+            print(contents)
         })
         
-        print(contents)
-        
-        
-//        //Creates the request to the server and adds the token to it
-//        let request = NSMutableURLRequest(URL: tableURL!)
-//        request.HTTPMethod = "GET"
-//        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
-        //Sends the request and gets the data returned
-//        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.currentQueue()!) {
-//            response, maybeData, error in
-//            if let data = maybeData {
-//                contents = NSString(data:data, encoding:NSUTF8StringEncoding)!
-//                print(contents)
-//                do {
-//                    try arrayd = (NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) as? NSDictionary)!
-//                } catch {
-//                    print(error)
-//                }
-//                
-//            } else {
-//                print(error!.localizedDescription)
-//            }
-//        }
+        task.resume()
     }
     
     //Retrieves the stored token from the storage and returns false if it failed or in case of success true

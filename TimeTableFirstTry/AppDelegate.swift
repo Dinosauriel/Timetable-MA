@@ -48,7 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
             if self.APIData!.getTokenFromData() {
-                
+                self.APIData!.getDataWithToken()
+            } else {
+                self.APIData!.requestAuthToken()
             }
         }
         
