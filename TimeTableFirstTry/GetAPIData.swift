@@ -36,7 +36,17 @@ class GetAPIData {
         if let moc = self.managedObjectContext {
             Token.createInManagedObjectContext(moc, tokenVar: tokenArr[1])
         }
+        
+        //Writing to the file in case of interruption (XCode-Stop)
+        do {
+            try managedObjectContext?.save()
+        } catch let error {
+            print(error)
+        }
+        
+        
         getDataWithToken()
+        getTokenFromData()
     }
     
     //Requests the data with the token and returns it as a NSString
@@ -67,7 +77,7 @@ class GetAPIData {
             
             do {
                 let array:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
-                print(array)
+                self.handleDataResponse(array)
             } catch let myJSONError {
                 print(myJSONError)
             }
@@ -78,11 +88,9 @@ class GetAPIData {
     }
     
     func handleDataResponse(dataDict:NSDictionary) {
-        if let code = dataDict["code"] as? NSDictionary {
+        if let code = dataDict["code"] {
             print(code)
         }
-        
-        print(dataDict[0])
     }
     
     //Retrieves the stored token from the storage and returns false if it failed or in case of success true
@@ -93,13 +101,15 @@ class GetAPIData {
         //Tries to read the token from the storage and stores it in the "token"-variable if possible
         if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [Token] {
             if fetchResults.count != 0 {
-                
+                print("YEEEEEEEES")
                 token = fetchResults[0].tokenVar
                 return true
             } else {
+                print("NOOOOOOOO")
                 return false
             }
         } else {
+            print("ASDFASDF")
             return false
         }
     }
