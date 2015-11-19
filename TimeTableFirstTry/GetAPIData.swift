@@ -88,8 +88,12 @@ class GetAPIData {
     }
     
     func handleDataResponse(dataDict:NSDictionary) {
-        if let code = dataDict["code"] {
-            print(code)
+        if let code = dataDict["code"] as? Int {
+            switch Int(code) {
+            case 401: print("Not authenticated")
+            case 200: print("Ok")
+            default: print("default")
+            }
         }
     }
     
@@ -101,15 +105,12 @@ class GetAPIData {
         //Tries to read the token from the storage and stores it in the "token"-variable if possible
         if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [Token] {
             if fetchResults.count != 0 {
-                print("YEEEEEEEES")
                 token = fetchResults[0].tokenVar
                 return true
             } else {
-                print("NOOOOOOOO")
                 return false
             }
         } else {
-            print("ASDFASDF")
             return false
         }
     }
