@@ -149,7 +149,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="2yi-6H-8VH">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarVCID" automaticallyAdjustsScrollViewInsets="NO" id="RLx-gT-kvd" customClass="TabBarController" customModule="TimeTableFirstTry" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVCID" automaticallyAdjustsScrollViewInsets="NO" id="RLx-gT-kvd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="AHH-6q-lRk">
                         <autoresizingMask key="autoresizingMask"/>
