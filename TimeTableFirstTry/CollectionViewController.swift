@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     let timetitleCellIdentifier = "TimetitleCellIdentifier"
     let dayCellIdentifier = "DayCellIdentifier"
     let timeCellIdentifier = "TimeCellIdentifier"
@@ -33,7 +33,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         self.collectionView .registerNib(UINib(nibName: "ReplacedLessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: replacedlessonCellIdentifier)
         
     }
-    
+
     func removeStatusBar() {
         topStatusbarConstraint.constant = 0
     }
@@ -48,7 +48,17 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 6
     }
-    
+
+    func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+        let targetScrollingPos = UICollectionViewScrollPosition.Right
+        if scrollView == self.collectionView {
+            var currentCellOffset: CGPoint = self.collectionView.contentOffset
+            currentCellOffset.x += (self.collectionView.frame.size.width / 2)
+            let targetCellIndexPath = collectionView.indexPathForItemAtPoint(currentCellOffset)
+            collectionView.scrollToItemAtIndexPath(targetCellIndexPath!, atScrollPosition: targetScrollingPos, animated: true)
+        }
+    }
+
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
@@ -204,8 +214,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         celltoreturn.backgroundColor = UIColor.whiteColor()
                     }
                 }
-                celltoreturn.layer.borderColor = UIColor.blueColor().CGColor
-                celltoreturn.layer.borderWidth = 1.0
+                //celltoreturn.layer.borderColor = UIColor.blueColor().CGColor
+                //celltoreturn.layer.borderWidth = 1.0
                 return celltoreturn
             }
         }

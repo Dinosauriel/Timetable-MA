@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomCollectionViewLayout: UICollectionViewLayout {
+class CustomCollectionViewLayout: UICollectionViewFlowLayout {
     
     var itemAttributes: NSMutableArray!
     var itemsSize: NSMutableArray!
@@ -17,6 +17,7 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
     
     let marginForTimeColumn: CGFloat = 15
     let heightForDayRow: CGFloat = 40
+    
     
     override func prepareLayout() {
         
@@ -153,6 +154,12 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
     
     
     //MARK:  PAGING
+/*    override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint) -> CGPoint {
+        let x: CGFloat = proposedContentOffset.x + 100
+        let y: CGFloat = proposedContentOffset.y + 100
+        let point = CGPointMake(x, y)
+        return point
+    }*/
 //    override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
 //        if let collectionView = self.collectionView {
 //            
@@ -199,12 +206,11 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
     
     // MARK: CALCULATING SIZE FOR CELLS CALCULATIONS
     func sizeForItemWithColumnIndex(sectionIndex: Int) -> CGSize {
-
-        let timeTitle = NSLocalizedString("time", comment: "TimeTransForSizeCalculation")
-        let timeColumnSize: CGSize = (timeTitle as NSString).sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(17.0)])
-        let timeColumnWidth: CGFloat = timeColumnSize.width + marginForTimeColumn
+        
+        let timeColumnWidth = getTimeColumnWidth()
         
         if sectionIndex != 0 {
+            
             let screenSize: CGRect = UIScreen.mainScreen().bounds
             let width: CGFloat = screenSize.width - timeColumnWidth
             
@@ -222,5 +228,14 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
             
             self.itemsSize.addObject(NSValue(CGSize: self.sizeForItemWithColumnIndex(section)))
         }
+    }
+    
+    func getTimeColumnWidth() -> CGFloat {
+        
+        let timeTitle = NSLocalizedString("time", comment: "TimeTransForSizeCalculation")
+        let timeColumnSize: CGSize = (timeTitle as NSString).sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(17.0)])
+        let timeColumnWidth: CGFloat = timeColumnSize.width + marginForTimeColumn
+        
+        return timeColumnWidth
     }
 }

@@ -113,7 +113,7 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JqN-rn-afi">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -127,11 +127,11 @@
                         <animations/>
                         <color key="backgroundColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="JqN-rn-afi" secondAttribute="bottom" constant="49" id="4Ms-cY-2wc"/>
                             <constraint firstItem="JqN-rn-afi" firstAttribute="top" secondItem="5aI-MJ-p09" secondAttribute="bottom" id="9ls-8f-ySv"/>
                             <constraint firstItem="5aI-MJ-p09" firstAttribute="leading" secondItem="d4U-d8-XUs" secondAttribute="leading" id="LMO-Jn-X9s"/>
                             <constraint firstItem="5aI-MJ-p09" firstAttribute="top" secondItem="d4U-d8-XUs" secondAttribute="top" constant="20" identifier="StatusbarConstraint" id="Rhh-ZU-ywq"/>
                             <constraint firstAttribute="trailing" secondItem="JqN-rn-afi" secondAttribute="trailing" id="nPU-dY-Akv"/>
-                            <constraint firstAttribute="bottom" secondItem="JqN-rn-afi" secondAttribute="bottom" id="q83-4Z-D3s"/>
                             <constraint firstItem="JqN-rn-afi" firstAttribute="leading" secondItem="d4U-d8-XUs" secondAttribute="leading" id="tlg-73-9gh"/>
                             <constraint firstAttribute="trailing" secondItem="5aI-MJ-p09" secondAttribute="trailing" id="x6b-iw-d0h"/>
                         </constraints>
