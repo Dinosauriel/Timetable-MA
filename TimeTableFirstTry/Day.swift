@@ -39,22 +39,25 @@ class Day {
         
         func getNextDay(distance: Int) -> String {
             
-            let calendar = NSCalendar.currentCalendar()
-            
             let day = calendar.dateByAddingUnit(.Day, value: distance, toDate: NSDate(), options: [])
             
             let formatter = NSDateFormatter()
             formatter.dateFormat = "dd. MMMM yyyy"
             
             let DateString = formatter.stringFromDate(day!)
-            print(DateString)
             return DateString
-            
         }
-        
+        var a = 0
         for var i = 0; i < weekToReturn.count; ++i {
-            weekToReturn[i].appendContentsOf(", ")
-            weekToReturn[i].appendContentsOf(getNextDay(i))
+            if weekToReturn[i] == NSLocalizedString("friday", comment: "TransForFri") {
+                weekToReturn[i].appendContentsOf(", ")
+                weekToReturn[i].appendContentsOf(getNextDay(a))
+                a += 2
+            } else {
+                weekToReturn[i].appendContentsOf(", ")
+                weekToReturn[i].appendContentsOf(getNextDay(a))
+            }
+            a++
         }
         
         return weekToReturn

@@ -204,6 +204,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         celltoreturn.backgroundColor = UIColor.whiteColor()
                     }
                 }
+                celltoreturn.layer.borderColor = UIColor.blueColor().CGColor
+                celltoreturn.layer.borderWidth = 1.0
                 return celltoreturn
             }
         }
