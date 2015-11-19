@@ -26,20 +26,46 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // REGISTERING NIBS
         self.collectionView .registerNib(UINib(nibName: "TimetitleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timetitleCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: dayCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timeCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "LessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: lessonCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "ReplacedLessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: replacedlessonCellIdentifier)
-        
     }
 
+    
+    // MARK: STATUS BAR HANDLING
     func removeStatusBar() {
         topStatusbarConstraint.constant = 0
     }
     
-    // MARK - UICollectionViewDataSource
+    func addStatusBar() {
+        topStatusbarConstraint.constant = 20
+    }
     
+    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        if toInterfaceOrientation == UIInterfaceOrientation.Portrait || toInterfaceOrientation == UIInterfaceOrientation.PortraitUpsideDown {
+            addStatusBar()
+        } else {
+            removeStatusBar()
+        }
+    }
+    
+    // MARK: PAGING
+    func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+        if UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation) {
+            if scrollView == self.collectionView {
+                let targetScrollingPos = UICollectionViewScrollPosition.Right
+                var currentCellOffset: CGPoint = self.collectionView.contentOffset
+                currentCellOffset.x += (self.collectionView.frame.size.width / 2)
+                let targetCellIndexPath = collectionView.indexPathForItemAtPoint(currentCellOffset)
+                collectionView.scrollToItemAtIndexPath(targetCellIndexPath!, atScrollPosition: targetScrollingPos, animated: true)
+            }
+        }
+    }
+    
+    // MARK: UICollectionViewDataSource
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 13
     }
@@ -48,17 +74,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 6
     }
-
-    func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
-        let targetScrollingPos = UICollectionViewScrollPosition.Right
-        if scrollView == self.collectionView {
-            var currentCellOffset: CGPoint = self.collectionView.contentOffset
-            currentCellOffset.x += (self.collectionView.frame.size.width / 2)
-            let targetCellIndexPath = collectionView.indexPathForItemAtPoint(currentCellOffset)
-            collectionView.scrollToItemAtIndexPath(targetCellIndexPath!, atScrollPosition: targetScrollingPos, animated: true)
-        }
-    }
-
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         

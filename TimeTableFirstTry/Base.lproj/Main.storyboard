@@ -40,7 +40,7 @@
             </objects>
             <point key="canvasLocation" x="-407" y="-1950"/>
         </scene>
-        <!--Item-->
+        <!--Settings-->
         <scene sceneID="6Ku-KL-UFy">
             <objects>
                 <tableViewController storyboardIdentifier="SettingsVCID" id="Y6f-Xw-aOx" customClass="SettingsTableViewController" customModule="TimeTableFirstTry" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,7 +69,7 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
-                                <accessibility key="accessibilityConfiguration" identifier="settingsMainMenuCellIdentifier">
+                                <accessibility key="accessibilityConfiguration" identifier="">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </tableViewCell>
@@ -80,7 +80,7 @@
                             <outlet property="delegate" destination="Y6f-Xw-aOx" id="Wei-an-gIZ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="Mcg-5O-F7t"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="Mcg-5O-F7t"/>
                     <connections>
                         <outlet property="settingsTableView" destination="buZ-et-Ruz" id="6Fx-wn-Wc9"/>
                     </connections>
@@ -89,7 +89,7 @@
             </objects>
             <point key="canvasLocation" x="1168" y="-2323"/>
         </scene>
-        <!--Item-->
+        <!--Timetable-->
         <scene sceneID="rG2-y0-Cz8">
             <objects>
                 <viewController storyboardIdentifier="TimeTableVCID" id="m88-DH-tRX" customClass="CollectionViewController" customModule="TimeTableFirstTry" customModuleProvider="target" sceneMemberID="viewController">
@@ -112,7 +112,7 @@
                                     <navigationItem title="Timetable" id="qPY-H0-XnS"/>
                                 </items>
                             </navigationBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JqN-rn-afi">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JqN-rn-afi">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -136,7 +136,7 @@
                             <constraint firstAttribute="trailing" secondItem="5aI-MJ-p09" secondAttribute="trailing" id="x6b-iw-d0h"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="5hE-TW-brL"/>
+                    <tabBarItem key="tabBarItem" title="Timetable" id="5hE-TW-brL"/>
                     <connections>
                         <outlet property="collectionView" destination="JqN-rn-afi" id="MN9-EX-arh"/>
                         <outlet property="topStatusbarConstraint" destination="Rhh-ZU-ywq" id="Dy2-dG-qWB"/>
@@ -149,7 +149,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="2yi-6H-8VH">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarVCID" automaticallyAdjustsScrollViewInsets="NO" id="RLx-gT-kvd" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVCID" automaticallyAdjustsScrollViewInsets="NO" id="RLx-gT-kvd" customClass="TabBarController" customModule="TimeTableFirstTry" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="AHH-6q-lRk">
                         <autoresizingMask key="autoresizingMask"/>

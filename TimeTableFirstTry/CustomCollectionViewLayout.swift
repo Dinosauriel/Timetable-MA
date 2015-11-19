@@ -152,58 +152,6 @@ class CustomCollectionViewLayout: UICollectionViewFlowLayout {
         return true
     }
     
-    
-    //MARK:  PAGING
-/*    override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint) -> CGPoint {
-        let x: CGFloat = proposedContentOffset.x + 100
-        let y: CGFloat = proposedContentOffset.y + 100
-        let point = CGPointMake(x, y)
-        return point
-    }*/
-//    override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-//        if let collectionView = self.collectionView {
-//            
-//            let timeTitle = NSLocalizedString("time", comment: "TimeTransForSizeCalculation")
-//            let timeColumnSize: CGSize = (timeTitle as NSString).sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(17.0)])
-//            let timeColumnWidth: CGFloat = timeColumnSize.width + marginForTimeColumn
-//            
-//            let screenSize = UIScreen.mainScreen().bounds
-//            let width = screenSize.width - timeColumnWidth
-//            
-//            
-//            let bounds = collectionView.bounds
-//            //let halfWidth = bounds.size.width * 0.5
-//            let proposedContentOffsetCenterX = proposedContentOffset.x + width
-//            
-//            if let attributesForVisibleCells = self.layoutAttributesForElementsInRect(bounds) as [UICollectionViewLayoutAttributes]! {
-//                
-//                var candidateAttributes : UICollectionViewLayoutAttributes?
-//                for attributes in attributesForVisibleCells {
-//                    
-//                    if attributes.representedElementCategory != UICollectionElementCategory.Cell {
-//                        continue
-//                    }
-//                    
-//                    if let candAttrs = candidateAttributes {
-//                        
-//                        let a = attributes.center.x - proposedContentOffsetCenterX
-//                        let b = candAttrs.center.x - proposedContentOffsetCenterX
-//                        
-//                        if fabsf(Float(a)) < fabsf(Float(b)) {
-//                            candidateAttributes = attributes
-//                        }
-//                        
-//                    } else {
-//                        candidateAttributes = attributes
-//                        continue
-//                    }
-//                }
-//                return CGPoint(x: round(candidateAttributes!.center.x - width), y: proposedContentOffset.y)
-//            }
-//        }
-//        return super.targetContentOffsetForProposedContentOffset(proposedContentOffset)
-//    }
-    
     // MARK: CALCULATING SIZE FOR CELLS CALCULATIONS
     func sizeForItemWithColumnIndex(sectionIndex: Int) -> CGSize {
         

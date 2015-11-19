@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var token: NSString?
     var APIData: GetAPIData?
     var UserDefaults = NSUserDefaults.standardUserDefaults()
+    let collectionView = CollectionViewController()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         NSNotificationCenter.defaultCenter().addObserver(CustomCollectionViewLayout(), selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
