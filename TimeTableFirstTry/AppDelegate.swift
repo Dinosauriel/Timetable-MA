@@ -54,16 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-//        
-//        APIData = GetAPIData()
-//        
-//        if APIData!.getTokenFromData() {
-//            APIData!.getDataWithToken()
-//        } else {
-//            APIData!.requestAuthToken()
-//        }
-        
-          return true
+        return true
     }
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?,annotation: AnyObject) -> Bool {
         
