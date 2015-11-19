@@ -54,7 +54,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                    let timetitleCell : TimetitleCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(timetitleCellIdentifier, forIndexPath: indexPath) as! TimetitleCollectionViewCell
+                    let timetitleCell : TimetitleCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(timetitleCellIdentifier, forIndexPath: indexPath) as! TimetitleCollectionViewCell
                     timetitleCell.backgroundColor = UIColor.whiteColor()
                     timetitleCell.timetitleLabel.font = UIFont.systemFontOfSize(13)
                     timetitleCell.timetitleLabel.textColor = UIColor.blackColor()
@@ -204,6 +204,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         celltoreturn.backgroundColor = UIColor.whiteColor()
                     }
                 }
+                celltoreturn.layer.borderColor = UIColor.blueColor().CGColor
+                celltoreturn.layer.borderWidth = 1.0
                 return celltoreturn
             }
         }

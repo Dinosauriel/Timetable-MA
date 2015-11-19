@@ -248,7 +248,6 @@
 				74AD297D1BF759D7001382F5 /* Settings */,
 				4F6402DC1BE8BEFB00A611F6 /* API */,
 				746D982E1BF47DFB00240CAC /* CollectionView */,
-				743ED88A1BF6339A00DA2E46 /* WidgetLesson */,
 				74285B831BF4B58200446CBF /* Storyboards */,
 				74EBE6A01BDD56710026F2AE /* AppDelegate.swift */,
 				74EBE6AA1BDD56710026F2AE /* Assets.xcassets */,
@@ -329,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				743ED89A1BF63E5900DA2E46 /* App */,
+				743ED88A1BF6339A00DA2E46 /* WidgetLesson */,
 			);
 			path = TimeTableFirstTry;
 			sourceTree = "<group>";
