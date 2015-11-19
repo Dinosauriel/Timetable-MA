@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F4BE6881BFDEE3A001EDE35 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4F4BE6871BFDEE3A001EDE35 /* .gitignore */; };
 		4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */; };
 		4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8600701BE8D8B700FA53AD /* TimetableTime.swift */; };
 		4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEFFEB1BEB7A78007C4647 /* Token.swift */; };
@@ -96,6 +97,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4F4BE6871BFDEE3A001EDE35 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAPIData.swift; sourceTree = "<group>"; };
 		4F8600701BE8D8B700FA53AD /* TimetableTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableTime.swift; sourceTree = "<group>"; };
 		4FBEFFEB1BEB7A78007C4647 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 		74EBE6941BDD56710026F2AE = {
 			isa = PBXGroup;
 			children = (
+				4F4BE6871BFDEE3A001EDE35 /* .gitignore */,
 				74EBE69F1BDD56710026F2AE /* TimeTableFirstTry */,
 				74EBE6B71BDD56710026F2AE /* TimeTableFirstTryTests */,
 				74EBE6C21BDD56720026F2AE /* TimeTableFirstTryUITests */,
@@ -537,6 +540,7 @@
 				74F88ABB1BFBC58200E65B34 /* Main.storyboard in Resources */,
 				749588271BE144E5006710B2 /* DayCollectionViewCell.xib in Resources */,
 				741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */,
+				4F4BE6881BFDEE3A001EDE35 /* .gitignore in Resources */,
 				74866B0E1BEBF1370030FA95 /* LessonCollectionViewCell.xib in Resources */,
 				742889F81BF73A870018EAE4 /* Localizable.strings in Resources */,
 				742889FD1BF73E110018EAE4 /* Subjects.strings in Resources */,

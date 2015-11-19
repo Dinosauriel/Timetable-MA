@@ -31,15 +31,16 @@ class GetAPIData {
         
         //Stores the token in a seperate variable
         token = tokenArr[1]
-        
+        print(token)
         //Saves the token to the local storage for later use
         if let moc = self.managedObjectContext {
             Token.createInManagedObjectContext(moc, tokenVar: tokenArr[1])
         }
+        getDataWithToken()
     }
     
     //Requests the data with the token and returns it as a NSString
-    func getDataWithToken() -> NSString {
+    func getDataWithToken() {
         
         //Creates the variable in which the returned data is stored
         var contents:NSString
@@ -53,28 +54,19 @@ class GetAPIData {
         //Creates the NSURL pointing to the data on the server
         let tableURL = NSURL(string: "https://apistage.tam.ch/klw/data/source/timetable") //https://cloudfs.tam.ch/api/v1/collection/children
         
-        //Creates the request to the server and adds the token to it
         let request = NSMutableURLRequest(URL: tableURL!)
         request.HTTPMethod = "GET"
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
-        //Sends the request and gets the data returned
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.currentQueue()!) {
-            response, maybeData, error in
-            if let data = maybeData {
-                contents = NSString(data:data, encoding:NSUTF8StringEncoding)!
-            } else {
-                print(error!.localizedDescription)
-            }
-        }
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: config)
         
-        //Returns and prints the returned contents
-        if contents != "" {
+        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
+            contents = NSString(data: data!, encoding: NSUTF8StringEncoding)!
             print(contents)
-            return contents
-        } else {
-            return ""
-        }
+        })
+        
+        task.resume()
     }
     
     //Retrieves the stored token from the storage and returns false if it failed or in case of success true
@@ -84,9 +76,7 @@ class GetAPIData {
         
         //Tries to read the token from the storage and stores it in the "token"-variable if possible
         if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [Token] {
-            
             if fetchResults.count != 0 {
-                print(fetchResults[0])
             
                 token = fetchResults[0].tokenVar
                 return true

@@ -47,13 +47,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         APIData = GetAPIData()
         
-//        if APIData!.getTokenFromData() {
-//            
-//        } else {
-//            APIData!.requestAuthToken()
-//        }
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
+            if self.APIData!.getTokenFromData() {
+                self.APIData!.getDataWithToken()
+            } else {
+                self.APIData!.requestAuthToken()
+            }
+        }
         
-          return true
+        return true
     }
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?,annotation: AnyObject) -> Bool {
         
