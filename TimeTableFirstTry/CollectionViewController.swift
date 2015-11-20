@@ -20,6 +20,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     let layout = CustomCollectionViewLayout()
     let day = Day()
     
+    let scrollDelayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topStatusbarConstraint: NSLayoutConstraint!
     
@@ -44,9 +46,17 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         topStatusbarConstraint.constant = 20
     }
     
-    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         if toInterfaceOrientation == UIInterfaceOrientation.Portrait || toInterfaceOrientation == UIInterfaceOrientation.PortraitUpsideDown {
+            
             addStatusBar()
+            
+            dispatch_after(scrollDelayTime, dispatch_get_main_queue()) {
+                
+                self.scrollToOptimalSection(self.collectionView)
+                
+            }
+            
         } else {
             removeStatusBar()
         }
@@ -54,14 +64,20 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     
     // MARK: PAGING
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+        print("Scroll Will Begin Decelarating")
         if UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation) {
-            if scrollView == self.collectionView {
-                let targetScrollingPos = UICollectionViewScrollPosition.Right
-                var currentCellOffset: CGPoint = self.collectionView.contentOffset
-                currentCellOffset.x += (self.collectionView.frame.size.width / 2)
-                let targetCellIndexPath = collectionView.indexPathForItemAtPoint(currentCellOffset)
-                collectionView.scrollToItemAtIndexPath(targetCellIndexPath!, atScrollPosition: targetScrollingPos, animated: true)
-            }
+            scrollToOptimalSection(scrollView)
+        }
+    }
+    
+    func scrollToOptimalSection(scrollView: UIScrollView) {
+        if scrollView == self.collectionView {
+            let targetScrollingPos = UICollectionViewScrollPosition.Right
+            var currentCellOffset: CGPoint = self.collectionView.contentOffset
+            currentCellOffset.x += (self.collectionView.frame.size.width / 2)
+            let targetCellIndexPath = collectionView.indexPathForItemAtPoint(currentCellOffset)
+            collectionView.scrollToItemAtIndexPath(targetCellIndexPath!, atScrollPosition: targetScrollingPos, animated:  true)
+            print("Scrolling to optimal Section")
         }
     }
     

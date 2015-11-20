@@ -44,6 +44,7 @@
 		749588271BE144E5006710B2 /* DayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588261BE144E5006710B2 /* DayCollectionViewCell.xib */; };
 		749588291BE144F7006710B2 /* TimetitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588281BE144F7006710B2 /* TimetitleCollectionViewCell.xib */; };
 		74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */; };
+		74E18DAB1BFFA27900DE26AF /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E18DAA1BFFA27900DE26AF /* WebView.swift */; };
 		74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A01BDD56710026F2AE /* AppDelegate.swift */; };
 		74EBE6A31BDD56710026F2AE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A21BDD56710026F2AE /* CollectionViewController.swift */; };
 		74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A71BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld */; };
@@ -123,6 +124,7 @@
 		749588261BE144E5006710B2 /* DayCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCollectionViewCell.xib; sourceTree = "<group>"; };
 		749588281BE144F7006710B2 /* TimetitleCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimetitleCollectionViewCell.xib; sourceTree = "<group>"; };
 		74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		74E18DAA1BFFA27900DE26AF /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		74EBE69D1BDD56710026F2AE /* TimeTableFirstTry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTableFirstTry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EBE6A01BDD56710026F2AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74EBE6A21BDD56710026F2AE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 		743ED89A1BF63E5900DA2E46 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				74E18DA91BFFA24C00DE26AF /* First Launch */,
 				742889F51BF739E50018EAE4 /* Lang */,
 				74EBE6D11BDD582A0026F2AE /* Cells */,
 				74866B051BEBE5400030FA95 /* Lesson */,
@@ -302,6 +305,14 @@
 				74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		74E18DA91BFFA24C00DE26AF /* First Launch */ = {
+			isa = PBXGroup;
+			children = (
+				74E18DAA1BFFA27900DE26AF /* WebView.swift */,
+			);
+			name = "First Launch";
 			sourceTree = "<group>";
 		};
 		74EBE6941BDD56710026F2AE = {
@@ -589,6 +600,7 @@
 				4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */,
 				74866B091BEBE9BA0030FA95 /* DeclareLesson.swift in Sources */,
 				74382ED91BEFBE13007A28C4 /* Day.swift in Sources */,
+				74E18DAB1BFFA27900DE26AF /* WebView.swift in Sources */,
 				4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */,
 				74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */,
 				74866B0C1BEBF10A0030FA95 /* LessonCollectionViewCell.swift in Sources */,
