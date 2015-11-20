@@ -36,7 +36,17 @@ class GetAPIData {
         if let moc = self.managedObjectContext {
             Token.createInManagedObjectContext(moc, tokenVar: tokenArr[1])
         }
+        
+        //Writing to the file in case of interruption (XCode-Stop)
+        do {
+            try managedObjectContext?.save()
+        } catch let error {
+            print(error)
+        }
+        
+        
         getDataWithToken()
+        getTokenFromData()
     }
     
     //Requests the data with the token and returns it as a NSString
@@ -61,12 +71,47 @@ class GetAPIData {
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
         
-        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
+        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) -> Void in
             contents = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            print(contents)
+            //print(contents)
+            
+            do {
+                let array:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
+                self.handleDataResponse(array)
+            } catch let myJSONError {
+                print(myJSONError)
+            }
         })
         
         task.resume()
+        
+    }
+    // Fetch Background data
+    func fetchDataFromBackground(completion: () -> Void) {
+        print("YEYY")
+        
+        //Testing purpose
+        
+        var loca:UILocalNotification = UILocalNotification()
+        loca.timeZone = NSTimeZone.defaultTimeZone()
+        var datetime = NSDate()
+        loca.fireDate = datetime
+        loca.alertTitle = "Test"
+        loca.alertBody = "Testing"
+        loca.alertAction = nil
+        UIApplication.sharedApplication().scheduleLocalNotification(loca)
+        
+        completion()
+    }
+    
+    func handleDataResponse(dataDict:NSDictionary) {
+        if let code = dataDict["code"] as? Int {
+            switch Int(code) {
+            case 401: print("Not authenticated")
+            case 200: print("Ok")
+            default: print("default")
+            }
+        }
     }
     
     //Retrieves the stored token from the storage and returns false if it failed or in case of success true
@@ -77,7 +122,6 @@ class GetAPIData {
         //Tries to read the token from the storage and stores it in the "token"-variable if possible
         if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [Token] {
             if fetchResults.count != 0 {
-            
                 token = fetchResults[0].tokenVar
                 return true
             } else {
