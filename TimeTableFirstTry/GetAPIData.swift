@@ -87,6 +87,11 @@ class GetAPIData {
         
     }
     
+    func fetchDataFromBackground(completion: () -> Void) {
+        print("YEYY")
+        completion()
+    }
+    
     func handleDataResponse(dataDict:NSDictionary) {
         if let code = dataDict["code"] as? Int {
             switch Int(code) {

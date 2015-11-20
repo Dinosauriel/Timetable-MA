@@ -474,6 +474,11 @@
 					};
 					74EBE69C1BDD56710026F2AE = {
 						CreatedOnToolsVersion = 7.0.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					74EBE6B31BDD56710026F2AE = {
 						CreatedOnToolsVersion = 7.0.1;

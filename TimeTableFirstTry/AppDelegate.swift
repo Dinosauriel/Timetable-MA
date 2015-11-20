@@ -43,6 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
         
+        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(5)
+        
         //API
         
         APIData = GetAPIData()
@@ -62,6 +64,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         APIData!.handleTokenResponse(url)
         
         return true
+    }
+    
+    // Support for background fetch
+    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        APIData!.fetchDataFromBackground {
+            completionHandler(.NewData)
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
