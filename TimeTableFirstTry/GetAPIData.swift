@@ -86,9 +86,21 @@ class GetAPIData {
         task.resume()
         
     }
-    
+    // Fetch Background data
     func fetchDataFromBackground(completion: () -> Void) {
         print("YEYY")
+        
+        //Testing purpose
+        
+        var loca:UILocalNotification = UILocalNotification()
+        loca.timeZone = NSTimeZone.defaultTimeZone()
+        var datetime = NSDate()
+        loca.fireDate = datetime
+        loca.alertTitle = "Test"
+        loca.alertBody = "Testing"
+        loca.alertAction = nil
+        UIApplication.sharedApplication().scheduleLocalNotification(loca)
+        
         completion()
     }
     
