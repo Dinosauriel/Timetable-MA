@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -67,6 +67,13 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Hx-cr-EHd">
+                        <rect key="frame" x="0.0" y="99" width="300" height="1"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="FN8-Gh-i5U"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -75,12 +82,15 @@
             <constraints>
                 <constraint firstItem="J14-s7-HlY" firstAttribute="width" secondItem="FD8-EH-Yam" secondAttribute="width" id="3FX-uV-3Kz"/>
                 <constraint firstAttribute="trailing" secondItem="J14-s7-HlY" secondAttribute="trailing" id="5Oo-Sy-2do"/>
+                <constraint firstAttribute="bottom" secondItem="7Hx-cr-EHd" secondAttribute="bottom" id="5aw-Tg-Xqx"/>
                 <constraint firstItem="WmG-yc-ZA1" firstAttribute="centerY" secondItem="Wej-N9-kWF" secondAttribute="centerY" constant="15" id="5ef-U3-81c"/>
+                <constraint firstItem="7Hx-cr-EHd" firstAttribute="leading" secondItem="Wej-N9-kWF" secondAttribute="leading" id="7AS-a6-0lw"/>
                 <constraint firstItem="WmG-yc-ZA1" firstAttribute="width" secondItem="J14-s7-HlY" secondAttribute="width" id="8UT-s9-YQw"/>
                 <constraint firstItem="YkA-a7-R7V" firstAttribute="centerY" secondItem="Wej-N9-kWF" secondAttribute="centerY" constant="15" id="Cjn-Cd-zER"/>
                 <constraint firstItem="J14-s7-HlY" firstAttribute="centerY" secondItem="Wej-N9-kWF" secondAttribute="centerY" constant="-15" identifier="yForRoomCon" id="Djv-hh-CVS"/>
                 <constraint firstItem="FD8-EH-Yam" firstAttribute="leading" secondItem="JOl-qc-wW6" secondAttribute="trailing" id="EBl-Z3-T5v"/>
                 <constraint firstItem="4yB-Pn-BP8" firstAttribute="leading" secondItem="YkA-a7-R7V" secondAttribute="trailing" id="ESb-Vt-Onj"/>
+                <constraint firstAttribute="trailing" secondItem="7Hx-cr-EHd" secondAttribute="trailing" id="HSq-Dt-K9h"/>
                 <constraint firstItem="WmG-yc-ZA1" firstAttribute="leading" secondItem="4yB-Pn-BP8" secondAttribute="trailing" id="M0H-Sf-ipg"/>
                 <constraint firstItem="DzM-wb-y7Q" firstAttribute="leading" secondItem="Wej-N9-kWF" secondAttribute="leading" constant="15" id="McV-1B-GJg"/>
                 <constraint firstItem="4yB-Pn-BP8" firstAttribute="centerY" secondItem="Wej-N9-kWF" secondAttribute="centerY" constant="15" id="OL6-ID-VBM"/>
@@ -96,6 +106,7 @@
             </constraints>
             <size key="customSize" width="307" height="93"/>
             <connections>
+                <outlet property="dividingView" destination="7Hx-cr-EHd" id="vQr-Kc-fra"/>
                 <outlet property="roomLabel" destination="J14-s7-HlY" id="xDm-ah-bch"/>
                 <outlet property="subjectLabel" destination="JOl-qc-wW6" id="qxr-e1-b9E"/>
                 <outlet property="subroomLabel" destination="WmG-yc-ZA1" id="Gj3-0P-9ye"/>

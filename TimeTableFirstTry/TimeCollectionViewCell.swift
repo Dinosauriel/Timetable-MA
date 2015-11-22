@@ -12,6 +12,8 @@ class TimeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var starttimeLabel: UILabel!
     @IBOutlet weak var endtimeLabel: UILabel!
     
+    @IBOutlet weak var dividingView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

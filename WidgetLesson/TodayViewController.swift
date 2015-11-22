@@ -21,6 +21,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
     let layout = TodayLayout()
     let day = Day()
     
+    let numberOfSections = 3
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -34,6 +36,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
         self.collectionView .registerNib(UINib(nibName: "LessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: lessonCellIdentifier)
         self.collectionView .registerNib(UINib(nibName: "ReplacedLessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: replacedlessonCellIdentifier)
         
+        self.collectionView.backgroundColor = UIColor.clearColor()
         self.preferredContentSize = CGSizeMake(0, 230)
     }
     
@@ -58,7 +61,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
     // MARK - UICollectionViewDataSource
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 3
+        return numberOfSections
     }
     
     
@@ -74,17 +77,21 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
             timeCell.starttimeLabel.font = UIFont.systemFontOfSize(13)
             timeCell.endtimeLabel.font = UIFont.systemFontOfSize(13)
             
-            timeCell.starttimeLabel.textColor = UIColor.blackColor()
-            timeCell.endtimeLabel.textColor = UIColor.blackColor()
+            timeCell.starttimeLabel.textColor = UIColor.whiteColor()
+            timeCell.endtimeLabel.textColor = UIColor.whiteColor()
             
             timeCell.starttimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section - 1 + getCurrentLessonPos(), when: "start")
             timeCell.endtimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section - 1 + getCurrentLessonPos(), when: "end")
             
-            if indexPath.section % 2 != 0 {
+            if indexPath.section != (numberOfSections - 1) {
+                timeCell.dividingView.backgroundColor = UIColor.whiteColor()
+            }
+            
+            /*if indexPath.section % 2 != 0 {
                 timeCell.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
             } else {
                 timeCell.backgroundColor = UIColor.whiteColor()
-            }
+            }*/
             
             return timeCell
         } else {
@@ -99,16 +106,20 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
                 let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
                 // Declaring subjectLabel appearance
                 lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
-                lessonCell.subjectLabel.textColor = UIColor.blackColor()
+                lessonCell.subjectLabel.textColor = UIColor.whiteColor()
                 lessonCell.subjectLabel.text = alesson.subject
                 // Declaring teacherLabel appearance
                 lessonCell.teacherLabel.font = UIFont.systemFontOfSize(13)
-                lessonCell.teacherLabel.textColor = UIColor.blackColor()
+                lessonCell.teacherLabel.textColor = UIColor.whiteColor()
                 lessonCell.teacherLabel.text = alesson.teacher
                 // Declaring roomLabel appearance
                 lessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
-                lessonCell.roomLabel.textColor = UIColor.blackColor()
+                lessonCell.roomLabel.textColor = UIColor.whiteColor()
                 lessonCell.roomLabel.text = alesson.room
+                
+                if indexPath.section != (numberOfSections - 1) {
+                    lessonCell.dividingView.backgroundColor = UIColor.whiteColor()
+                }
                 
                 celltoreturn = lessonCell
                 
@@ -128,6 +139,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
                 lessonCell.roomLabel.text = alesson.room
                 //Crossing out Lesson
                 lessonCell.crossOutView.backgroundColor = UIColor.redColor()
+                
+                if indexPath.section != (numberOfSections - 1) {
+                    lessonCell.dividingView.backgroundColor = UIColor.whiteColor()
+                }
                 
                 celltoreturn = lessonCell
                 
@@ -158,6 +173,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
                 replacedlessonCell.subroomLabel.textColor = UIColor.blueColor()
                 replacedlessonCell.subroomLabel.text = alesson.subroom
                 
+                if indexPath.section != (numberOfSections - 1) {
+                    replacedlessonCell.dividingView.backgroundColor = UIColor.whiteColor()
+                }
+                
                 celltoreturn = replacedlessonCell
                 
             case .Empty:
@@ -166,6 +185,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
                 lessonCell.subjectLabel.text = ""
                 lessonCell.teacherLabel.text = ""
                 lessonCell.roomLabel.text = ""
+                
+                if indexPath.section != (numberOfSections - 1) {
+                    lessonCell.dividingView.backgroundColor = UIColor.whiteColor()
+                }
                 
                 celltoreturn = lessonCell
                 
@@ -187,16 +210,21 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
                 } else {
                     lessonCell.subjectLabel.text = alesson.subject
                 }
+                
+                if indexPath.section != (numberOfSections - 1) {
+                    lessonCell.dividingView.backgroundColor = UIColor.whiteColor()
+                }
+                
                 celltoreturn = lessonCell
             }
             
-            if celltoreturn.backgroundColor != yellow {
+            /*if celltoreturn.backgroundColor != yellow {
                 if indexPath.section % 2 != 0{
                     celltoreturn.backgroundColor = UIColor(white: 242/255.0, alpha: 1.0)
                 } else {
                     celltoreturn.backgroundColor = UIColor.whiteColor()
                 }
-            }
+            }*/
             return celltoreturn
         }
     }

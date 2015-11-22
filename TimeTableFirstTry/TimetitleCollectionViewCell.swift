@@ -11,6 +11,8 @@ import UIKit
 class TimetitleCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var timetitleLabel: UILabel!
     
+    @IBOutlet weak var dividingView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

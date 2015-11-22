@@ -15,6 +15,8 @@ class LessonCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var crossOutView: UIView!
     
+    @IBOutlet weak var dividingView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

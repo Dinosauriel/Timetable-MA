@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -46,6 +46,13 @@
                             <constraint firstAttribute="height" constant="1" id="Qak-av-mZX"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0u-nS-5nc">
+                        <rect key="frame" x="0.0" y="99" width="300" height="1"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="KCM-eB-qE8"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -60,7 +67,10 @@
                 <constraint firstItem="hYZ-by-zNo" firstAttribute="centerY" secondItem="nf3-wa-lOk" secondAttribute="centerY" identifier="yForTeacherCon" id="LZY-zA-0kM"/>
                 <constraint firstItem="hYZ-by-zNo" firstAttribute="leading" secondItem="SC4-CG-GJf" secondAttribute="trailing" id="TJl-sa-bFe"/>
                 <constraint firstItem="8vt-mp-sUQ" firstAttribute="width" secondItem="hYZ-by-zNo" secondAttribute="width" id="UsA-tI-Sao"/>
+                <constraint firstItem="L0u-nS-5nc" firstAttribute="leading" secondItem="nf3-wa-lOk" secondAttribute="leading" id="XDd-bO-N4d"/>
                 <constraint firstItem="lt0-nl-iAy" firstAttribute="leading" secondItem="nf3-wa-lOk" secondAttribute="leading" constant="15" id="afv-pt-jcT"/>
+                <constraint firstAttribute="bottom" secondItem="L0u-nS-5nc" secondAttribute="bottom" id="hi9-x8-IqK"/>
+                <constraint firstAttribute="trailing" secondItem="L0u-nS-5nc" secondAttribute="trailing" id="nKf-Yx-8IB"/>
                 <constraint firstAttribute="trailing" secondItem="8vt-mp-sUQ" secondAttribute="trailing" id="tPR-cU-oWM"/>
                 <constraint firstItem="SC4-CG-GJf" firstAttribute="leading" secondItem="nf3-wa-lOk" secondAttribute="leading" constant="20" id="wUG-pe-j6j"/>
                 <constraint firstItem="SC4-CG-GJf" firstAttribute="centerY" secondItem="nf3-wa-lOk" secondAttribute="centerY" identifier="yForSubjectCon" id="xQY-Df-vBa"/>
@@ -68,6 +78,7 @@
             <size key="customSize" width="307" height="93"/>
             <connections>
                 <outlet property="crossOutView" destination="lt0-nl-iAy" id="z93-hg-F64"/>
+                <outlet property="dividingView" destination="L0u-nS-5nc" id="O9X-fC-Hn4"/>
                 <outlet property="roomLabel" destination="8vt-mp-sUQ" id="e84-JL-PCP"/>
                 <outlet property="subjectLabel" destination="SC4-CG-GJf" id="sLK-TX-ni5"/>
                 <outlet property="teacherLabel" destination="hYZ-by-zNo" id="sO4-sw-DX4"/>
