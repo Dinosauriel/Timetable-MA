@@ -22,10 +22,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CA0-xc-F4d">
-                        <rect key="frame" x="0.0" y="50" width="201" height="0.0"/>
+                        <rect key="frame" x="0.0" y="49" width="201" height="1"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="height" id="j2z-pM-dJf"/>
+                            <constraint firstAttribute="height" constant="1" id="j2z-pM-dJf"/>
                         </constraints>
                     </view>
                 </subviews>
