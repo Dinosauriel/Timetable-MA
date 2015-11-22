@@ -13,6 +13,7 @@ import CoreData
 class GetAPIData {
     //Stores the token
     var token:NSString!
+    var timeData:NSArray!
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
@@ -32,6 +33,16 @@ class GetAPIData {
         //Stores the token in a seperate variable
         token = tokenArr[1]
         print(token)
+        
+        let fetchRequest = NSFetchRequest(entityName: "Token")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try managedObjectContext?.executeRequest(deleteRequest)
+        } catch let error as NSError {
+            // TODO: handle the error
+        }
+        
         //Saves the token to the local storage for later use
         if let moc = self.managedObjectContext {
             Token.createInManagedObjectContext(moc, tokenVar: tokenArr[1])
@@ -40,13 +51,13 @@ class GetAPIData {
         //Writing to the file in case of interruption (XCode-Stop)
         do {
             try managedObjectContext?.save()
+            print("Saved")
         } catch let error {
             print(error)
         }
         
         
         getDataWithToken()
-        getTokenFromData()
     }
     
     //Requests the data with the token and returns it as a NSString
@@ -78,6 +89,7 @@ class GetAPIData {
             do {
                 let array:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
                 self.handleDataResponse(array)
+//                print(array)
             } catch let myJSONError {
                 print(myJSONError)
             }
@@ -107,8 +119,8 @@ class GetAPIData {
     func handleDataResponse(dataDict:NSDictionary) {
         if let code = dataDict["code"] as? Int {
             switch Int(code) {
-            case 401: print("Not authenticated")
-            case 200: print("Ok")
+            case 401: print("Not authenticated"); requestAuthToken(); break;
+            case 200: print("Ok"); if let timeData = dataDict["body"]{}; break;
             default: print("default")
             }
         }
@@ -122,14 +134,27 @@ class GetAPIData {
         //Tries to read the token from the storage and stores it in the "token"-variable if possible
         if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [Token] {
             if fetchResults.count != 0 {
-                token = fetchResults[0].tokenVar
+                if fetchResults.count == 1 {
+                    token = fetchResults[0].tokenVar
+                    print("Got token from data")
+                    print(fetchResults.count)
+                    print(token)
+                } else {
+                    requestAuthToken()
+                }
                 return true
             } else {
+                print("No token")
                 return false
             }
         } else {
+            print("Error")
             return false
         }
+    }
+    
+    func getTimeData() -> NSArray {
+        return timeData
     }
     
     //Returns the token-variable
