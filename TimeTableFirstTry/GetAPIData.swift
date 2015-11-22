@@ -112,7 +112,7 @@ class GetAPIData {
         loca.alertBody = "Testing"
         loca.alertAction = nil
         UIApplication.sharedApplication().scheduleLocalNotification(loca)
-        
+        getDataWithToken()
         completion()
     }
     
@@ -137,7 +137,7 @@ class GetAPIData {
                 if fetchResults.count == 1 {
                     token = fetchResults[0].tokenVar
                     print("Got token from data")
-                    print(fetchResults.count)
+//                    print(fetchResults.count)
                     print(token)
                 } else {
                     requestAuthToken()
