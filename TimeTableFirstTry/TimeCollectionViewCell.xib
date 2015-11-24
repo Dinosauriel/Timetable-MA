@@ -28,6 +28,13 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPd-41-dWB">
+                        <rect key="frame" x="0.0" y="99" width="300" height="1"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="c3X-V1-r3w"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -35,19 +42,23 @@
             <animations/>
             <constraints>
                 <constraint firstItem="sDJ-2Q-nM5" firstAttribute="leading" secondItem="j8L-eC-1Hi" secondAttribute="leading" id="3ao-do-eRu"/>
+                <constraint firstAttribute="trailing" secondItem="EPd-41-dWB" secondAttribute="trailing" id="63t-62-4GN"/>
                 <constraint firstAttribute="trailing" secondItem="eAO-Kv-E6b" secondAttribute="trailing" id="9YS-QH-0iA"/>
                 <constraint firstItem="sDJ-2Q-nM5" firstAttribute="top" secondItem="j8L-eC-1Hi" secondAttribute="top" id="CZJ-0m-gSz"/>
                 <constraint firstItem="eAO-Kv-E6b" firstAttribute="leading" secondItem="j8L-eC-1Hi" secondAttribute="leading" id="DTh-mU-uEl"/>
                 <constraint firstAttribute="trailing" secondItem="sDJ-2Q-nM5" secondAttribute="trailing" id="e5p-eR-SI4"/>
                 <constraint firstItem="eAO-Kv-E6b" firstAttribute="height" secondItem="sDJ-2Q-nM5" secondAttribute="height" id="qHm-Ns-oDC"/>
+                <constraint firstItem="EPd-41-dWB" firstAttribute="leading" secondItem="j8L-eC-1Hi" secondAttribute="leading" id="rq0-Ik-iBM"/>
+                <constraint firstAttribute="bottom" secondItem="EPd-41-dWB" secondAttribute="bottom" id="uCH-e6-IUy"/>
                 <constraint firstAttribute="bottom" secondItem="eAO-Kv-E6b" secondAttribute="bottom" id="x8u-bn-Qxw"/>
             </constraints>
             <size key="customSize" width="266" height="88.5"/>
             <connections>
+                <outlet property="dividingView" destination="EPd-41-dWB" id="TY5-DO-RFx"/>
                 <outlet property="endtimeLabel" destination="eAO-Kv-E6b" id="t3A-4o-YeV"/>
                 <outlet property="starttimeLabel" destination="sDJ-2Q-nM5" id="CwD-Lp-2tV"/>
             </connections>
-            <point key="canvasLocation" x="194" y="72.75"/>
+            <point key="canvasLocation" x="194" y="72"/>
         </collectionViewCell>
     </objects>
 </document>

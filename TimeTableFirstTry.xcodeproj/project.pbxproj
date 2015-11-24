@@ -383,18 +383,18 @@
 				74866B0A1BEBF0A70030FA95 /* Lesson Cell */,
 				741008901BEA8833009FB899 /* Time Cell */,
 				74EBE6D31BDD584D0026F2AE /* TimeTitle Cell */,
-				74EBE6D21BDD583D0026F2AE /* Content Cell */,
+				74EBE6D21BDD583D0026F2AE /* Day Cell */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		74EBE6D21BDD583D0026F2AE /* Content Cell */ = {
+		74EBE6D21BDD583D0026F2AE /* Day Cell */ = {
 			isa = PBXGroup;
 			children = (
 				74EBE6DA1BDD598A0026F2AE /* DayCollectionViewCell.swift */,
 				749588261BE144E5006710B2 /* DayCollectionViewCell.xib */,
 			);
-			name = "Content Cell";
+			name = "Day Cell";
 			sourceTree = "<group>";
 		};
 		74EBE6D31BDD584D0026F2AE /* TimeTitle Cell */ = {

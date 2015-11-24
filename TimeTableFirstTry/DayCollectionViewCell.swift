@@ -11,6 +11,7 @@ import UIKit
 class DayCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dayLabel: UILabel!
     
+    @IBOutlet weak var dividingView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
