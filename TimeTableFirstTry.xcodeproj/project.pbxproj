@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F384F211C04E63B009DF8C0 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F384F201C04E63B009DF8C0 /* SwiftyJSON.swift */; };
 		4F4BE6881BFDEE3A001EDE35 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4F4BE6871BFDEE3A001EDE35 /* .gitignore */; };
 		4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */; };
 		4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8600701BE8D8B700FA53AD /* TimetableTime.swift */; };
@@ -97,6 +98,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4F384F201C04E63B009DF8C0 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		4F4BE6871BFDEE3A001EDE35 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAPIData.swift; sourceTree = "<group>"; };
 		4F8600701BE8D8B700FA53AD /* TimetableTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableTime.swift; sourceTree = "<group>"; };
@@ -178,6 +180,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F40DA9E1C04E51A00DF4525 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				4F384F201C04E63B009DF8C0 /* SwiftyJSON.swift */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
 		4F6402DC1BE8BEFB00A611F6 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +255,7 @@
 		743ED89A1BF63E5900DA2E46 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				4F40DA9E1C04E51A00DF4525 /* Library */,
 				74E18DA91BFFA24C00DE26AF /* First Launch */,
 				742889F51BF739E50018EAE4 /* Lang */,
 				74EBE6D11BDD582A0026F2AE /* Cells */,
@@ -613,6 +624,7 @@
 				4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */,
 				74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */,
 				74866B0C1BEBF10A0030FA95 /* LessonCollectionViewCell.swift in Sources */,
+				4F384F211C04E63B009DF8C0 /* SwiftyJSON.swift in Sources */,
 				74EBE6DF1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift in Sources */,
 				74EBE6DB1BDD598A0026F2AE /* DayCollectionViewCell.swift in Sources */,
 			);

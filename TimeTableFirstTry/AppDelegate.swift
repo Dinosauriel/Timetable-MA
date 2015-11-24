@@ -43,8 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
         
-        //UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
-        //UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(10)
+        print(UIApplicationBackgroundRefreshStatusDidChangeNotification)
         
         //Push-notifications
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge], categories: nil)
@@ -54,14 +53,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         APIData = GetAPIData()
         
-        /*dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
             if self.APIData!.getTokenFromData() {
                 self.APIData!.getDataWithToken()
                 print("Token loaded")
             } else {
                 self.APIData!.requestAuthToken()
             }
-        }*/
+        }
+        
+        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
         return true
     }
@@ -74,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Support for background fetch
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        
+        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(10)
         APIData!.fetchDataFromBackground {
             completionHandler(.NewData)
         }
