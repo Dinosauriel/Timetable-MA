@@ -43,11 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
         
-        print(UIApplicationBackgroundRefreshStatusDidChangeNotification)
-        
         //Push-notifications
-        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge], categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        //let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge], categories: nil)
+        //UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         
         //API
         
@@ -62,12 +60,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        //UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
         return true
     }
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?,annotation: AnyObject) -> Bool {
-        
+        print("Handling token...")
         APIData!.handleTokenResponse(url)
         
         return true
