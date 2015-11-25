@@ -38,16 +38,25 @@ class APIHandler {
         tokenStorage.storeTokenData(token)
     }
     
+    /**
+    Requests data from the API by using the token. If there's no token stored the function to request one will be called and this function terminates
+    */
     func getDataWithToken() {
+        //Loads the token from the data
         let token:String = tokenStorage.getTokenFromData()
         
+        //Checks if the app was able to retrieve a token from the data
         if token == "" {
             requestNewAuthToken()
             return
         }
+        //The resource-string for the unfiltered data
+        let URLBaseRequestString = "https://apistage.tam.ch/klw/data/source/timetable"
         
-        let URLRequestString = "https://apistage.tam.ch/klw/data/source/timetable"
+        //The resource-string for the data with filters
+        let URLRequestString = URLBaseRequestString
         
+        //The URL for the data
         let requestURL = NSURL(string: URLRequestString)
         
         let request = NSMutableURLRequest(URL: requestURL!)
