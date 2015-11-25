@@ -33,7 +33,6 @@ class GetAPIData {
         //Stores the token in a seperate variable
         token = tokenArr[1]
         print("Token: " + String(token))
-        print(String(url))
         let fetchRequest = NSFetchRequest(entityName: "Token")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
@@ -67,13 +66,28 @@ class GetAPIData {
             getTokenFromData()
         }
         
-        /*
-        let json: JSON = ["WHERE":["Class":"%3f", "Location":"3b"], "ORDER":["Day ASC", "Loaction DESC"]]
+        var array = [String : AnyObject]()
+        var arrayPartA = [String : String]()
+        arrayPartA["Class"] = "%4g"
+        arrayPartA["Location"] = "all"
+        array["ORDER"] = ["Day ASC", "Location DESC"]
+        array["WHERE"] = arrayPartA
         
-        let utf8Str = json.rawString()?.dataUsingEncoding(NSUTF8StringEncoding)
+        var teststring: String = ""
         
-        let encodedStr = utf8Str?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
-        print(json)
+        do {
+            let testdata = try NSJSONSerialization.dataWithJSONObject(array, options: .PrettyPrinted)
+            teststring = testdata.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        } catch let error {
+            print(error)
+        }
+        
+        
+        
+        //let utf8Str = json.rawString()?.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        //let encodedStr = utf8Str?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        //print(json)
         
         let str = "eyJXSEVSRSI6eyJDbGFzcyI6IiUzZiIsIkxvY2F0aW9uIjoiM2IifSwiT1JERVIiOlsiRGF5IEFTQyIsIkxvY2F0aW9uIERFU0MiXX0="
         
@@ -81,17 +95,20 @@ class GetAPIData {
         
         do {
             let result = try NSJSONSerialization.JSONObjectWithData(datad!, options: .AllowFragments)
-            print(result)
+            //print(result)
+            //print(result.debugDescription)
         } catch let error {
             print(error)
         }
         print("Own")
-        print(encodedStr)*/
+        //print(encodedStr)
+        
+        
         
         //{"WHERE":{"Class":"%3f","Location":"3b"},"ORDER":["Day ASC","Location DESC"]}
         //+ "/?mod=" + encodedStr!
         //Creates the NSURL pointing to the data on the server
-        let URLString = "https://api.tam.ch/klw/data/source/timetable" + "/?mod=eyJXSEVSRSI6eyJDbGFzcyI6IiUzZiIsIkxvY2F0aW9uIjoiM2IifSwiT1JERVIiOlsiRGF5IEFTQyIsIkxvY2F0aW9uIERFU0MiXX0="
+        let URLString = "https://apistage.tam.ch/klw/data/source/timetable" + "/?mod=" + teststring //+ "/?mod=eyJXSEVSRSI6eyJDbGFzcyI6IiUzZiIsIkxvY2F0aW9uIjoiM2IifSwiT1JERVIiOlsiRGF5IEFTQyIsIkxvY2F0aW9uIERFU0MiXX0="
         
         let tableURL = NSURL(string: URLString) //https://cloudfs.tam.ch/api/v1/collection/children https://apistage.tam.ch/klw/data/source/timetable
         
@@ -101,10 +118,13 @@ class GetAPIData {
         
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
-        
+        let start = NSDate()
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) -> Void in
             do {
                 let array:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
+                let end = NSDate()
+                let interval :Double = end.timeIntervalSinceDate(start)
+                print("TIME: " + String(interval))
                 self.handleDataResponse(array)
                 print("Contents:")
                 print(array)

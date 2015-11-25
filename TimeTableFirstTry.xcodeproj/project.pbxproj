@@ -11,6 +11,7 @@
 		4F4BE6881BFDEE3A001EDE35 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4F4BE6871BFDEE3A001EDE35 /* .gitignore */; };
 		4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */; };
 		4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8600701BE8D8B700FA53AD /* TimetableTime.swift */; };
+		4FB5A78F1C060013007977FB /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5A78E1C060013007977FB /* APIHandler.swift */; };
 		4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEFFEB1BEB7A78007C4647 /* Token.swift */; };
 		7402B3E61C031EB40048C5D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7402B3E51C031EB40048C5D7 /* Assets.xcassets */; };
 		741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
@@ -104,6 +105,7 @@
 		4F4BE6871BFDEE3A001EDE35 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAPIData.swift; sourceTree = "<group>"; };
 		4F8600701BE8D8B700FA53AD /* TimetableTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableTime.swift; sourceTree = "<group>"; };
+		4FB5A78E1C060013007977FB /* APIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		4FBEFFEB1BEB7A78007C4647 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		7402B3E51C031EB40048C5D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				4FBEFFEB1BEB7A78007C4647 /* Token.swift */,
 				4F6402DD1BE8CC7000A611F6 /* GetAPIData.swift */,
+				4FB5A78E1C060013007977FB /* APIHandler.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */,
 				74156C0E1C0225040050740D /* TodayLayout.swift in Sources */,
 				74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */,
+				4FB5A78F1C060013007977FB /* APIHandler.swift in Sources */,
 				74866B071BEBE5570030FA95 /* Lesson.swift in Sources */,
 				74EBE6D91BDD59580026F2AE /* CustomCollectionViewLayout.swift in Sources */,
 				74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */,
