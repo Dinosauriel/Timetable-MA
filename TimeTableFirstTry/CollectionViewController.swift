@@ -55,7 +55,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     
     
     @IBAction func refreshButton(sender: AnyObject) {
-        print("REFRESH!")
+        var api:GetAPIData = GetAPIData()
+        api.requestAuthToken()
     }
 
     // MARK: STATUS BAR HANDLING

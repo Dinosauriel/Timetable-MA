@@ -32,15 +32,15 @@ class GetAPIData {
         
         //Stores the token in a seperate variable
         token = tokenArr[1]
-        print(token)
-        
+        print("Token: " + String(token))
+        print(String(url))
         let fetchRequest = NSFetchRequest(entityName: "Token")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
         do {
             try managedObjectContext?.executeRequest(deleteRequest)
         } catch let error as NSError {
-            // TODO: handle the error
+            print(error)
         }
         
         //Saves the token to the local storage for later use
@@ -63,17 +63,38 @@ class GetAPIData {
     //Requests the data with the token and returns it as a NSString
     func getDataWithToken() {
         
-        //Creates the variable in which the returned data is stored
-        var contents:NSString
-        contents = ""
-        
         //Checks if the token is available and loaded
         if token == nil || token == "" {
             getTokenFromData()
         }
         
+        /*
+        let json: JSON = ["WHERE":["Class":"%3f", "Location":"3b"], "ORDER":["Day ASC", "Loaction DESC"]]
+        
+        let utf8Str = json.rawString()?.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let encodedStr = utf8Str?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        print(json)
+        
+        let str = "eyJXSEVSRSI6eyJDbGFzcyI6IiUzZiIsIkxvY2F0aW9uIjoiM2IifSwiT1JERVIiOlsiRGF5IEFTQyIsIkxvY2F0aW9uIERFU0MiXX0="
+        
+        let datad = NSData(base64EncodedString: str, options: NSDataBase64DecodingOptions(rawValue: 0))
+        
+        do {
+            let result = try NSJSONSerialization.JSONObjectWithData(datad!, options: .AllowFragments)
+            print(result)
+        } catch let error {
+            print(error)
+        }
+        print("Own")
+        print(encodedStr)*/
+        
+        //{"WHERE":{"Class":"%3f","Location":"3b"},"ORDER":["Day ASC","Location DESC"]}
+        //+ "/?mod=" + encodedStr!
         //Creates the NSURL pointing to the data on the server
-        let tableURL = NSURL(string: "https://apistage.tam.ch/klw/data/source/timetable") //https://cloudfs.tam.ch/api/v1/collection/children
+        let URLString = "https://api.tam.ch/klw/data/source/timetable" + "/?mod=eyJXSEVSRSI6eyJDbGFzcyI6IiUzZiIsIkxvY2F0aW9uIjoiM2IifSwiT1JERVIiOlsiRGF5IEFTQyIsIkxvY2F0aW9uIERFU0MiXX0="
+        
+        let tableURL = NSURL(string: URLString) //https://cloudfs.tam.ch/api/v1/collection/children https://apistage.tam.ch/klw/data/source/timetable
         
         let request = NSMutableURLRequest(URL: tableURL!)
         request.HTTPMethod = "GET"
@@ -83,13 +104,11 @@ class GetAPIData {
         let session = NSURLSession(configuration: config)
         
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) -> Void in
-            contents = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            //print(contents)
-            
             do {
                 let array:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
                 self.handleDataResponse(array)
-//                print(array)
+                print("Contents:")
+                print(array)
             } catch let myJSONError {
                 print(myJSONError)
             }
@@ -100,19 +119,19 @@ class GetAPIData {
     }
     // Fetch Background data
     func fetchDataFromBackground(completion: () -> Void) {
-        print("YEYY")
+        //print("YEYY")
         
         //Testing purpose
-        
+        /*
         var loca:UILocalNotification = UILocalNotification()
         loca.timeZone = NSTimeZone.defaultTimeZone()
         var datetime = NSDate()
         loca.fireDate = datetime
         loca.alertTitle = "Test"
-        loca.alertBody = "Testing"
+        loca.alertBody = "Testing" + String(NSDate())
         loca.alertAction = nil
-        UIApplication.sharedApplication().scheduleLocalNotification(loca)
-        
+        UIApplication.sharedApplication().scheduleLocalNotification(loca)*/
+        //getDataWithToken()
         completion()
     }
     
@@ -137,7 +156,7 @@ class GetAPIData {
                 if fetchResults.count == 1 {
                     token = fetchResults[0].tokenVar
                     print("Got token from data")
-                    print(fetchResults.count)
+//                    print(fetchResults.count)
                     print(token)
                 } else {
                     requestAuthToken()

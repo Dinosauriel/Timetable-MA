@@ -43,25 +43,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
         
-        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        //Push-notifications
+        //let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge], categories: nil)
+        //UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         
         //API
         
         APIData = GetAPIData()
         
-        /*dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
             if self.APIData!.getTokenFromData() {
                 self.APIData!.getDataWithToken()
                 print("Token loaded")
             } else {
                 self.APIData!.requestAuthToken()
             }
-        }*/
+        }
+        
+        //UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
         return true
     }
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?,annotation: AnyObject) -> Bool {
-        
+        print("Handling token...")
         APIData!.handleTokenResponse(url)
         
         return true
@@ -69,10 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Support for background fetch
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        //Push-notifications
-        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge], categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-        
+        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(10)
         APIData!.fetchDataFromBackground {
             completionHandler(.NewData)
         }
