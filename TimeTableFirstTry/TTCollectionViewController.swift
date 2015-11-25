@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class TTCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     //IDENTIFIERS
     let timetitleCellIdentifier = "TimetitleCellIdentifier"
@@ -20,7 +20,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     //CLASSES
     let timegetter = TimetableTime()
     let declarelesson = DeclareLesson()
-    let layout = CustomCollectionViewLayout()
+    let layout = TTCollectionViewLayout()
     let day = Day()
     
     //INTEGERS
