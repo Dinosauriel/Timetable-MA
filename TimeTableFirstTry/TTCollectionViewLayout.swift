@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomCollectionViewLayout: UICollectionViewFlowLayout {
+class TTCollectionViewLayout: UICollectionViewFlowLayout {
     
     var itemAttributes: NSMutableArray!
     var itemsSize: NSMutableArray!

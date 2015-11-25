@@ -15,7 +15,9 @@ class APIHandler {
     Requests a new AuthToken from the API-Authentication-Service by opening a webpage for the user to log in
     */
     func requestNewAuthToken() {
-        UIApplication.sharedApplication().openURL(NSURL(string: "https://oauth.tam.ch/signin/klw-stupla-app?response_type=token&client_id=0Wv69s7vyidj3cKzNckhiSulA5on8uFM&redirect_uri=uniapp%3A%2F%2Fklw-stupla-app&_blank&scope=all")!)
+        let URLforRequest = "https://oauth.tam.ch/signin/klw-stupla-app?response_type=token&client_id=0Wv69s7vyidj3cKzNckhiSulA5on8uFM&redirect_uri=uniapp%3A%2F%2Fklw-stupla-app&_blank&scope=all"
+        
+        UIApplication.sharedApplication().openURL(NSURL(string: URLforRequest)!)
     }
     
     func tes() {
