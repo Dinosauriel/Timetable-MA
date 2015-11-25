@@ -15,7 +15,7 @@ class TimeTableStorage {
     }
     
     func getTimeTableData() -> NSDictionary {
-        
+        return [:]
     }
     
 }
