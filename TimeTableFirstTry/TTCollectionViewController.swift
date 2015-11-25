@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TTCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class TTCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     //IDENTIFIERS
     let timetitleCellIdentifier = "TimetitleCellIdentifier"
@@ -23,6 +23,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let layout = TTCollectionViewLayout()
     let day = Day()
     
+    //CGPoints
+    var startScrollingPoint: CGPoint!
+
     //INTEGERS
     let numberOfSections = 13
     
@@ -35,7 +38,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let specialLessonBackgroundColor = UIColor(hue: 0.125, saturation: 1, brightness: 0.97, alpha: 1.0) //YELLOW
     
     //TIMES
-    let scrollDelayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
+    let rotationScrollDelayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
     
     //OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
@@ -53,11 +56,13 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         self.collectionView.registerNib(UINib(nibName: "ReplacedLessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: replacedlessonCellIdentifier)
     }
     
-    
+    //REFRESH BUTTON
     @IBAction func refreshButton(sender: AnyObject) {
-        let api = GetAPIData()
-        api.requestAuthToken()
+        //let api = GetAPIData()
+        //api.requestAuthToken()
         print("REFRESH!!")
+        let loginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVCID")
+        self.showViewController(loginVC!, sender: self)
     }
 
     // MARK: STATUS BAR HANDLING
@@ -74,10 +79,8 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             
             addStatusBar()
             
-            dispatch_after(scrollDelayTime, dispatch_get_main_queue()) {
-                
+            dispatch_after(rotationScrollDelayTime, dispatch_get_main_queue()) {
                 self.scrollToOptimalSection(self.collectionView)
-                
             }
             
         } else {
@@ -86,9 +89,15 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     // MARK: PAGING
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        startScrollingPoint = collectionView.contentOffset
+        startScrollingPoint.x += layout.getTimeColumnWidth()
+    }
+    
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
         print("Scroll Will Begin Decelarating")
         if UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation) {
+            print("Device is Portrait")
             scrollToOptimalSection(scrollView)
         }
     }
@@ -97,6 +106,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         if decelerate == false {
             print("Immediate stop!")
             if UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation) {
+                print("Device is Portrait")
                 scrollToOptimalSection(scrollView)
             }
         }
@@ -106,12 +116,24 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         print("ScrollingFuncExecuted")
         if scrollView == self.collectionView {
             print("scrollView == collectionView")
+            
             let targetScrollingPos = UICollectionViewScrollPosition.Right
             var currentCellOffset: CGPoint = self.collectionView.contentOffset
-            currentCellOffset.x += (self.collectionView.frame.size.width / 2)
+            let targetAddFactor: CGFloat = 0.5
+            
+            currentCellOffset.x += layout.getTimeColumnWidth()
+            
+            if self.startScrollingPoint.x < currentCellOffset.x {
+                currentCellOffset.x += ((self.collectionView.frame.size.width - layout.getTimeColumnWidth()) * targetAddFactor)
+            } else {
+                currentCellOffset.x -= ((self.collectionView.frame.size.width - layout.getTimeColumnWidth()) * targetAddFactor)
+            }
+            
             let targetCellIndexPath = collectionView.indexPathForItemAtPoint(currentCellOffset)
-            collectionView.scrollToItemAtIndexPath(targetCellIndexPath!, atScrollPosition: targetScrollingPos, animated:  true)
-            print("Scrolling to optimal Section")
+            if targetCellIndexPath != nil {
+                collectionView.scrollToItemAtIndexPath(targetCellIndexPath!, atScrollPosition: targetScrollingPos, animated:  true)
+                print("Scrolling to optimal Section")
+            }
         }
     }
     

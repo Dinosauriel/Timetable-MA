@@ -282,7 +282,7 @@
 				4F86006F1BE8D8AA00FA53AD /* Time */,
 				74AD297D1BF759D7001382F5 /* Settings */,
 				4F6402DC1BE8BEFB00A611F6 /* API */,
-				746D982E1BF47DFB00240CAC /* CollectionView */,
+				746D982E1BF47DFB00240CAC /* TTCollectionView */,
 				74285B831BF4B58200446CBF /* Storyboards */,
 				74EBE6A01BDD56710026F2AE /* AppDelegate.swift */,
 				74EBE6AF1BDD56710026F2AE /* Info.plist */,
@@ -301,13 +301,13 @@
 			name = "ReplacedLesson Cell";
 			sourceTree = "<group>";
 		};
-		746D982E1BF47DFB00240CAC /* CollectionView */ = {
+		746D982E1BF47DFB00240CAC /* TTCollectionView */ = {
 			isa = PBXGroup;
 			children = (
 				74EBE6D81BDD59580026F2AE /* TTCollectionViewLayout.swift */,
 				74EBE6A21BDD56710026F2AE /* TTCollectionViewController.swift */,
 			);
-			name = CollectionView;
+			name = TTCollectionView;
 			sourceTree = "<group>";
 		};
 		74866B051BEBE5400030FA95 /* Lesson */ = {
