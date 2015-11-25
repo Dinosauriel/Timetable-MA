@@ -22,7 +22,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     let declarelesson = DeclareLesson()
     let layout = CustomCollectionViewLayout()
     let day = Day()
-    let api = GetAPIData()
     
     //INTEGERS
     let numberOfSections = 13
@@ -56,6 +55,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     
     
     @IBAction func refreshButton(sender: AnyObject) {
+        let api = GetAPIData()
         api.requestAuthToken()
         print("REFRESH!!")
     }
