@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  TimeTableFirstTry
+
+  Created by Aurel Feer on 25.11.15.
+  Copyright © 2015 Aurel Feer. All rights reserved.
+*/
+
+"CFBundleDisplayName" = "Timetable";

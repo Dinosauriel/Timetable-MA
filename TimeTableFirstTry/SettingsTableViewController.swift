@@ -13,6 +13,8 @@ class SettingsTableViewController: UITableViewController {
     
     let settingsMainMenuCellIdentifier = "settingsMainMenuCellIdentifier"
     
+    let showHiSegueIdentifier = "showHiSegue"
+    
     let settingsMainMenu = [
         NSLocalizedString("login", comment: "loginTrans"),
         NSLocalizedString("notifications", comment: "noteTrans"),
@@ -22,6 +24,11 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 0 {
+            self.performSegueWithIdentifier(showHiSegueIdentifier, sender: self)
+        }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

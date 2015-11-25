@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Lesson {
+struct Lesson {
     
     let subject: String
     let teacher: String
@@ -21,9 +21,12 @@ class Lesson {
     let status: Status
     let day: Day
     let lessonposition: Int
+    
+    let starttime: String
+    let endtime: String
 
     
-    init(subject:String, teacher:String, room:String, status: Status, day: Day, lessonposition: Int, subsubject: String, subteacher: String, subroom: String) {
+    init(subject:String, teacher:String, room:String, status: Status, day: Day, lessonposition: Int, subsubject: String, subteacher: String, subroom: String, start: String, end: String) {
         self.room = room
         self.teacher = teacher
         self.subject = subject
@@ -35,6 +38,9 @@ class Lesson {
         self.status = status
         self.day = day
         self.lessonposition = lessonposition
+        
+        self.starttime = start
+        self.endtime = end
     }
     
     enum Status {

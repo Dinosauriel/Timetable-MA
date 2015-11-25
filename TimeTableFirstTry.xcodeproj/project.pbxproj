@@ -13,15 +13,18 @@
 		4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8600701BE8D8B700FA53AD /* TimetableTime.swift */; };
 		4FB5A78F1C060013007977FB /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5A78E1C060013007977FB /* APIHandler.swift */; };
 		4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEFFEB1BEB7A78007C4647 /* Token.swift */; };
+		7402B3E61C031EB40048C5D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7402B3E51C031EB40048C5D7 /* Assets.xcassets */; };
 		741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
 		741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */; };
+		74156C081C02240A0050740D /* WidgetLesson.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 743ED8861BF6339A00DA2E46 /* WidgetLesson.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		74156C0C1C0224F50050740D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */; };
+		74156C0E1C0225040050740D /* TodayLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743ED8981BF6363900DA2E46 /* TodayLayout.swift */; };
 		742889F81BF73A870018EAE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 742889FA1BF73A870018EAE4 /* Localizable.strings */; };
-		742889FD1BF73E110018EAE4 /* Subjects.strings in Resources */ = {isa = PBXBuildFile; fileRef = 742889FC1BF73E110018EAE4 /* Subjects.strings */; };
 		74382ED91BEFBE13007A28C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
+		743974071C06036300F47ED7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 743974091C06036300F47ED7 /* InfoPlist.strings */; };
 		743ED8891BF6339A00DA2E46 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */; };
 		743ED88C1BF6339A00DA2E46 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743ED88B1BF6339A00DA2E46 /* TodayViewController.swift */; };
 		743ED88F1BF6339A00DA2E46 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */; };
-		743ED8931BF6339A00DA2E46 /* WidgetLesson.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 743ED8861BF6339A00DA2E46 /* WidgetLesson.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		743ED8991BF6363900DA2E46 /* TodayLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743ED8981BF6363900DA2E46 /* TodayLayout.swift */; };
 		743ED89C1BF63FA700DA2E46 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
 		743ED89D1BF63FD000DA2E46 /* DeclareLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */; };
@@ -50,7 +53,6 @@
 		74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A01BDD56710026F2AE /* AppDelegate.swift */; };
 		74EBE6A31BDD56710026F2AE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A21BDD56710026F2AE /* CollectionViewController.swift */; };
 		74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A71BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld */; };
-		74EBE6AB1BDD56710026F2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74EBE6AA1BDD56710026F2AE /* Assets.xcassets */; };
 		74EBE6AE1BDD56710026F2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74EBE6AC1BDD56710026F2AE /* LaunchScreen.storyboard */; };
 		74EBE6B91BDD56710026F2AE /* TimeTableFirstTryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6B81BDD56710026F2AE /* TimeTableFirstTryTests.swift */; };
 		74EBE6C41BDD56720026F2AE /* TimeTableFirstTryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6C31BDD56720026F2AE /* TimeTableFirstTryUITests.swift */; };
@@ -61,7 +63,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		743ED8911BF6339A00DA2E46 /* PBXContainerItemProxy */ = {
+		74156C091C02240A0050740D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 74EBE6951BDD56710026F2AE /* Project object */;
 			proxyType = 1;
@@ -85,13 +87,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		743ED8971BF6339A00DA2E46 /* Embed App Extensions */ = {
+		74156C0B1C02240A0050740D /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				743ED8931BF6339A00DA2E46 /* WidgetLesson.appex in Embed App Extensions */,
+				74156C081C02240A0050740D /* WidgetLesson.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,14 +107,16 @@
 		4F8600701BE8D8B700FA53AD /* TimetableTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableTime.swift; sourceTree = "<group>"; };
 		4FB5A78E1C060013007977FB /* APIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		4FBEFFEB1BEB7A78007C4647 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		7402B3E51C031EB40048C5D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		741008931BEA889E009FB899 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
 		742889ED1BF735AD0018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		742889F41BF737900018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		742889F91BF73A870018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		742889FB1BF73A8A0018EAE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		742889FC1BF73E110018EAE4 /* Subjects.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Subjects.strings; sourceTree = "<group>"; };
 		74382ED81BEFBE13007A28C4 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		743974081C06036300F47ED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7439740A1C06036700F47ED7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		743ED8861BF6339A00DA2E46 /* WidgetLesson.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetLesson.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		743ED88B1BF6339A00DA2E46 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +137,6 @@
 		74EBE6A01BDD56710026F2AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74EBE6A21BDD56710026F2AE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		74EBE6A81BDD56710026F2AE /* TimeTableFirstTry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeTableFirstTry.xcdatamodel; sourceTree = "<group>"; };
-		74EBE6AA1BDD56710026F2AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74EBE6AD1BDD56710026F2AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74EBE6AF1BDD56710026F2AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74EBE6B41BDD56710026F2AE /* TimeTableFirstTryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeTableFirstTryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,7 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				742889FA1BF73A870018EAE4 /* Localizable.strings */,
-				742889FC1BF73E110018EAE4 /* Subjects.strings */,
+				743974091C06036300F47ED7 /* InfoPlist.strings */,
 			);
 			name = Lang;
 			sourceTree = "<group>";
@@ -269,9 +272,9 @@
 				746D982E1BF47DFB00240CAC /* CollectionView */,
 				74285B831BF4B58200446CBF /* Storyboards */,
 				74EBE6A01BDD56710026F2AE /* AppDelegate.swift */,
-				74EBE6AA1BDD56710026F2AE /* Assets.xcassets */,
 				74EBE6AF1BDD56710026F2AE /* Info.plist */,
 				74EBE6A71BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld */,
+				7402B3E51C031EB40048C5D7 /* Assets.xcassets */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -436,12 +439,12 @@
 				74EBE6991BDD56710026F2AE /* Sources */,
 				74EBE69A1BDD56710026F2AE /* Frameworks */,
 				74EBE69B1BDD56710026F2AE /* Resources */,
-				743ED8971BF6339A00DA2E46 /* Embed App Extensions */,
+				74156C0B1C02240A0050740D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				743ED8921BF6339A00DA2E46 /* PBXTargetDependency */,
+				74156C0A1C02240A0050740D /* PBXTargetDependency */,
 			);
 			name = TimeTableFirstTry;
 			productName = TimeTableFirstTry;
@@ -496,10 +499,11 @@
 				TargetAttributes = {
 					743ED8851BF6339A00DA2E46 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = LFNP3438N3;
 					};
 					74EBE69C1BDD56710026F2AE = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = HPX5V5LH79;
+						DevelopmentTeam = LFNP3438N3;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -560,16 +564,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				7443BE121BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib in Resources */,
+				743974071C06036300F47ED7 /* InfoPlist.strings in Resources */,
+				74156C0C1C0224F50050740D /* MainInterface.storyboard in Resources */,
 				74F88ABB1BFBC58200E65B34 /* Main.storyboard in Resources */,
 				749588271BE144E5006710B2 /* DayCollectionViewCell.xib in Resources */,
 				741008941BEA889E009FB899 /* TimeCollectionViewCell.xib in Resources */,
 				4F4BE6881BFDEE3A001EDE35 /* .gitignore in Resources */,
 				74866B0E1BEBF1370030FA95 /* LessonCollectionViewCell.xib in Resources */,
 				742889F81BF73A870018EAE4 /* Localizable.strings in Resources */,
-				742889FD1BF73E110018EAE4 /* Subjects.strings in Resources */,
 				74EBE6AE1BDD56710026F2AE /* LaunchScreen.storyboard in Resources */,
+				7402B3E61C031EB40048C5D7 /* Assets.xcassets in Resources */,
 				749588291BE144F7006710B2 /* TimetitleCollectionViewCell.xib in Resources */,
-				74EBE6AB1BDD56710026F2AE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +620,7 @@
 				74EBE6A31BDD56710026F2AE /* CollectionViewController.swift in Sources */,
 				4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */,
 				7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */,
+				74156C0E1C0225040050740D /* TodayLayout.swift in Sources */,
 				74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */,
 				4FB5A78F1C060013007977FB /* APIHandler.swift in Sources */,
 				74866B071BEBE5570030FA95 /* Lesson.swift in Sources */,
@@ -653,10 +659,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		743ED8921BF6339A00DA2E46 /* PBXTargetDependency */ = {
+		74156C0A1C02240A0050740D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 743ED8851BF6339A00DA2E46 /* WidgetLesson */;
-			targetProxy = 743ED8911BF6339A00DA2E46 /* PBXContainerItemProxy */;
+			targetProxy = 74156C091C02240A0050740D /* PBXContainerItemProxy */;
 		};
 		74EBE6B61BDD56710026F2AE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -678,6 +684,15 @@
 				742889FB1BF73A8A0018EAE4 /* Base */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		743974091C06036300F47ED7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				743974081C06036300F47ED7 /* Base */,
+				7439740A1C06036700F47ED7 /* de */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */ = {
@@ -713,9 +728,11 @@
 		743ED8941BF6339A00DA2E46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WidgetLesson/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = labf.TimeTableFirstTry.WidgetLesson;
+				PRODUCT_BUNDLE_IDENTIFIER = lee.labf.timetable.widgetlesson;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -724,9 +741,11 @@
 		743ED8951BF6339A00DA2E46 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WidgetLesson/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = labf.TimeTableFirstTry.WidgetLesson;
+				PRODUCT_BUNDLE_IDENTIFIER = lee.labf.timetable.widgetlesson;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -822,9 +841,10 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = TimeTableFirstTry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = labf.TimeTableFirstTry;
+				PRODUCT_BUNDLE_IDENTIFIER = lee.labf.timetable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -837,9 +857,10 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = TimeTableFirstTry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = labf.TimeTableFirstTry;
+				PRODUCT_BUNDLE_IDENTIFIER = lee.labf.timetable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
