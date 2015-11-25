@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //The Boolean needs to be set to true in another function in case the App is closed before the initial setup.
             UserDefaults.setBool(true, forKey: "HasLaunchedOnce")
             print("First Launch!")
-            initialViewController = storyboard.instantiateViewControllerWithIdentifier("FirstLaunchVCID")
+            initialViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVCID")
         }
         
         self.window?.rootViewController = initialViewController
@@ -51,14 +51,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         APIData = GetAPIData()
         
-        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
+        /*dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
             if self.APIData!.getTokenFromData() {
                 self.APIData!.getDataWithToken()
                 print("Token loaded")
             } else {
                 self.APIData!.requestAuthToken()
             }
-        }
+        }*/
         
         //UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         

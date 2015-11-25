@@ -26,7 +26,7 @@ struct Lesson {
     let endtime: String
 
     
-    init(subject:String, teacher:String, room:String, status: Status, day: Day, lessonposition: Int, subsubject: String, subteacher: String, subroom: String, start: String, end: String) {
+    init(subject: String, teacher: String, room: String, status: Status, day: Day, lessonposition: Int, subsubject: String, subteacher: String, subroom: String, start: String, end: String) {
         self.room = room
         self.teacher = teacher
         self.subject = subject
