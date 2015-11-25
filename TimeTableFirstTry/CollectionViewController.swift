@@ -10,7 +10,7 @@ import UIKit
 
 class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    //IDENIFIERS
+    //IDENTIFIERS
     let timetitleCellIdentifier = "TimetitleCellIdentifier"
     let dayCellIdentifier = "DayCellIdentifier"
     let timeCellIdentifier = "TimeCellIdentifier"
@@ -27,7 +27,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     let numberOfSections = 13
     
     //COLORS
-    let dividingLineColor = UIColor(hue: 0.8639, saturation: 0, brightness: 0.83, alpha: 1.0)
+    let dividingLineColor = UIColor(hue: 0.8639, saturation: 0, brightness: 0.83, alpha: 1.0) //GRAY
     let cellBackgroundColor = UIColor.whiteColor()
     let replacedLessonTextColor = UIColor.blueColor()
     let cancelledLessonTextColor = UIColor.redColor()
@@ -101,7 +101,9 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func scrollToOptimalSection(scrollView: UIScrollView) {
+        print("ScrollingFuncExecuted")
         if scrollView == self.collectionView {
+            print("scrollView == collectionView")
             let targetScrollingPos = UICollectionViewScrollPosition.Right
             var currentCellOffset: CGPoint = self.collectionView.contentOffset
             currentCellOffset.x += (self.collectionView.frame.size.width / 2)
@@ -282,22 +284,22 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                     
                     case .Special:
                         let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
-                        let previousSection = (indexPath.section - 1)
-                        print("previousSection\(previousSection)")
-                        let previousIndexPath = NSIndexPath(forRow: indexPath.row, inSection: previousSection)
-                        var previousCell = LessonCollectionViewCell()
-                        if previousSection > 1 {
-                            previousCell = collectionView.cellForItemAtIndexPath(previousIndexPath) as! LessonCollectionViewCell
-                        }
+                        //let previousSection = (indexPath.section - 1)
+                        //print("previousSection\(previousSection)")
+                        //let previousIndexPath = NSIndexPath(forRow: indexPath.row, inSection: previousSection)
+                        //var previousCell = LessonCollectionViewCell()
+                        //if previousSection > 1 {
+                        //    previousCell = collectionView.cellForItemAtIndexPath(previousIndexPath) as! LessonCollectionViewCell
+                        //}
                         lessonCell.teacherLabel.text = ""
                         lessonCell.roomLabel.text = ""
                         lessonCell.subjectLabel.textColor = cellBackgroundColor
                         lessonCell.backgroundColor = specialLessonBackgroundColor
-                        if previousCell.backgroundColor == specialLessonBackgroundColor && previousCell.subjectLabel.text == alesson.subject {
-                            lessonCell.subjectLabel.text = ""
-                        } else {
-                            lessonCell.subjectLabel.text = alesson.subject
-                        }
+                        //if previousCell.backgroundColor == specialLessonBackgroundColor && previousCell.subjectLabel.text == alesson.subject {
+                        //    lessonCell.subjectLabel.text = ""
+                        //} else {
+                        lessonCell.subjectLabel.text = alesson.subject
+                        //}
                         
                         if indexPath.section != numberOfSections - 1 {
                             lessonCell.dividingView.backgroundColor = dividingLineColor
