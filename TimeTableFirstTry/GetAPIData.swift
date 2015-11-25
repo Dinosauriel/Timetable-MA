@@ -56,7 +56,6 @@ class GetAPIData {
             print(error)
         }
         
-        
         getDataWithToken()
     }
     

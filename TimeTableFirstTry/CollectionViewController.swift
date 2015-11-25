@@ -22,8 +22,9 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     let declarelesson = DeclareLesson()
     let layout = CustomCollectionViewLayout()
     let day = Day()
+    let api = GetAPIData()
     
-    //INT
+    //INTEGERS
     let numberOfSections = 13
     
     //COLORS
@@ -46,17 +47,17 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         super.viewDidLoad()
         
         // REGISTERING NIBS
-        self.collectionView .registerNib(UINib(nibName: "TimetitleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timetitleCellIdentifier)
-        self.collectionView .registerNib(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: dayCellIdentifier)
-        self.collectionView .registerNib(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timeCellIdentifier)
-        self.collectionView .registerNib(UINib(nibName: "LessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: lessonCellIdentifier)
-        self.collectionView .registerNib(UINib(nibName: "ReplacedLessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: replacedlessonCellIdentifier)
+        self.collectionView.registerNib(UINib(nibName: "TimetitleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timetitleCellIdentifier)
+        self.collectionView.registerNib(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: dayCellIdentifier)
+        self.collectionView.registerNib(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timeCellIdentifier)
+        self.collectionView.registerNib(UINib(nibName: "LessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: lessonCellIdentifier)
+        self.collectionView.registerNib(UINib(nibName: "ReplacedLessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: replacedlessonCellIdentifier)
     }
     
     
     @IBAction func refreshButton(sender: AnyObject) {
-        var api:GetAPIData = GetAPIData()
         api.requestAuthToken()
+        print("REFRESH!!")
     }
 
     // MARK: STATUS BAR HANDLING
