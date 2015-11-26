@@ -10,13 +10,13 @@ import Foundation
 
 class Day {
     func generateDayArray() -> NSArray {
-        let monday = NSLocalizedString("monday", comment: "TransForMon")
-        let tuesday = NSLocalizedString("tuesday", comment: "TransForTue")
-        let wednesday = NSLocalizedString("wednesday", comment: "TransForWed")
-        let thursday = NSLocalizedString("thursday", comment: "TransForThu")
-        let friday = NSLocalizedString("friday", comment: "TransForFri")
+        //let monday = NSLocalizedString("monday", comment: "TransForMon")
+        //let tuesday = NSLocalizedString("tuesday", comment: "TransForTue")
+        //let wednesday = NSLocalizedString("wednesday", comment: "TransForWed")
+        //let thursday = NSLocalizedString("thursday", comment: "TransForThu")
+        //let friday = NSLocalizedString("friday", comment: "TransForFri")
         
-        let week: [String] = [monday, tuesday, wednesday, thursday, friday]
+        //let week: [String] = [monday, tuesday, wednesday, thursday, friday]
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
         let currentWeekDayCal = calendar.components(.Weekday, fromDate: date)
@@ -42,7 +42,7 @@ class Day {
             let day = calendar.dateByAddingUnit(.Day, value: distance, toDate: NSDate(), options: [])
             
             let formatter = NSDateFormatter()
-            formatter.dateFormat = "EEEE, dd. MMMM yyyy"
+            formatter.dateFormat = "EEE, dd. MMM yyyy"
             
             let DateString = formatter.stringFromDate(day!)
             return DateString
