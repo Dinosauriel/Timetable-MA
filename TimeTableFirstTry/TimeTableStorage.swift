@@ -10,12 +10,14 @@ import Foundation
 
 class TimeTableStorage {
     
-    func storeTimeTableData(data : NSDictionary) {
-        
+    var tableData:NSArray!
+    
+    func storeTimeTableData(data : NSArray) {
+        tableData = data
     }
     
-    func getTimeTableData() -> NSDictionary {
-        return [:]
+    func getTimeTableData() -> NSArray {
+        return tableData
     }
     
 }

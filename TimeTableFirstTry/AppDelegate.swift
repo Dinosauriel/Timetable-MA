@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var token: NSString?
     var APIData: GetAPIData?
+    var APIHandlerVar: APIHandler?
     var UserDefaults = NSUserDefaults.standardUserDefaults()
     let collectionView = TTCollectionViewController()
     
@@ -50,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //API
         
         APIData = GetAPIData()
+        APIHandlerVar = APIHandler()
         
         /*dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
             if self.APIData!.getTokenFromData() {
@@ -66,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?,annotation: AnyObject) -> Bool {
         print("Handling token...")
-        APIData!.handleTokenResponse(url)
+        APIHandlerVar?.handleTokenResponse(url)
         
         return true
     }
