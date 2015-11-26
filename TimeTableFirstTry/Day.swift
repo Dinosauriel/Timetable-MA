@@ -22,9 +22,9 @@ class Day {
         let currentWeekDayCal = calendar.components(.Weekday, fromDate: date)
         let currentWeekDay = currentWeekDayCal.weekday
         
-        var weekToReturn: [String]
+        var weekToReturn = [String](count: 5, repeatedValue: "")
         
-        switch currentWeekDay {
+        /*switch currentWeekDay {
             case 3:
                 weekToReturn = [tuesday,wednesday,thursday,friday,monday]
             case 4:
@@ -35,27 +35,24 @@ class Day {
                 weekToReturn = [friday,monday,tuesday,wednesday,thursday]
             default:
                 weekToReturn = week
-        }
+        }*/
         
         func getNextDay(distance: Int) -> String {
             
             let day = calendar.dateByAddingUnit(.Day, value: distance, toDate: NSDate(), options: [])
             
             let formatter = NSDateFormatter()
-            formatter.dateFormat = "dd. MMMM yyyy"
+            formatter.dateFormat = "EEEE, dd. MMMM yyyy"
             
             let DateString = formatter.stringFromDate(day!)
             return DateString
         }
+        
         var a = 0
         for var i = 0; i < weekToReturn.count; ++i {
-            if weekToReturn[i] == NSLocalizedString("friday", comment: "TransForFri") {
-                weekToReturn[i].appendContentsOf(", ")
-                weekToReturn[i].appendContentsOf(getNextDay(a))
+            weekToReturn[i] = getNextDay(a)
+            if currentWeekDay + i == 6 {
                 a += 2
-            } else {
-                weekToReturn[i].appendContentsOf(", ")
-                weekToReturn[i].appendContentsOf(getNextDay(a))
             }
             a++
         }

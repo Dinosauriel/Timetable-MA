@@ -121,7 +121,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             var currentCellOffset: CGPoint = self.collectionView.contentOffset
             currentCellOffset.x += layout.getTimeColumnWidth()
             
-            let rightTargetFactor: CGFloat = 0.75
+            let rightTargetFactor: CGFloat = 0.6
             let leftTargetFactor: CGFloat = 1 - rightTargetFactor
             if currentCellOffset.x > scrollStartContentOffset.x {
                 currentCellOffset.x += ((self.collectionView.frame.size.width - layout.getTimeColumnWidth()) * rightTargetFactor)
