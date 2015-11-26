@@ -28,7 +28,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let numberOfRows = 6
     
     //CGPoints
-    var scrollStartContentOffset: CGPoint!
+    var scrollStartContentOffset: CGPoint = CGPoint(x: 0, y: 0)
     
     //COLORS
     let dividingLineColor = UIColor(hue: 0.8639, saturation: 0, brightness: 0.83, alpha: 1.0) //GRAY
@@ -44,17 +44,11 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     //OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topStatusbarConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var bottomTabbarConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // REGISTERING NIBS
-//        self.collectionView.registerNib(UINib(nibName: "TimetitleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timetitleCellIdentifier)
-//        self.collectionView.registerNib(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: dayCellIdentifier)
-//        self.collectionView.registerNib(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timeCellIdentifier)
-//        self.collectionView.registerNib(UINib(nibName: "LessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: lessonCellIdentifier)
-//        self.collectionView.registerNib(UINib(nibName: "ReplacedLessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: replacedlessonCellIdentifier)
     }
     
     //REFRESH BUTTON
@@ -66,19 +60,28 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         self.showViewController(loginVC!, sender: self)
     }
 
-    // MARK: STATUS BAR HANDLING
+    // MARK: BAR HANDLING
     func removeStatusBar() {
         topStatusbarConstraint.constant = 0
+    }
+    
+    func removeTabBar() {
+        bottomTabbarConstraint.constant = 0
     }
     
     func addStatusBar() {
         topStatusbarConstraint.constant = 20
     }
     
+    func addTabBar() {
+        bottomTabbarConstraint.constant = 49
+    }
+    
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         if toInterfaceOrientation == UIInterfaceOrientation.Portrait || toInterfaceOrientation == UIInterfaceOrientation.PortraitUpsideDown {
             
             addStatusBar()
+            addTabBar()
             
             dispatch_after(rotationScrollDelayTime, dispatch_get_main_queue()) {
                 self.scrollToOptimalSection(self.collectionView)
@@ -86,6 +89,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             
         } else {
             removeStatusBar()
+            removeTabBar()
         }
     }
     
@@ -151,17 +155,18 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                    let timetitleCell: TimetitleCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(timetitleCellIdentifier, forIndexPath: indexPath) as! TimetitleCollectionViewCell
-                    timetitleCell.backgroundColor = cellBackgroundColor
-                    timetitleCell.timetitleLabel.font = UIFont.systemFontOfSize(13)
-                    timetitleCell.timetitleLabel.textColor = defaultTextColor
-                    timetitleCell.timetitleLabel.text = NSLocalizedString("time", comment: "TransForTime")
+                let timetitleCell: TimetitleCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(timetitleCellIdentifier, forIndexPath: indexPath) as! TimetitleCollectionViewCell
+                timetitleCell.backgroundColor = cellBackgroundColor
+                timetitleCell.timetitleLabel.font = UIFont.systemFontOfSize(13)
+                timetitleCell.timetitleLabel.textColor = defaultTextColor
+                timetitleCell.timetitleLabel.text = NSLocalizedString("time", comment: "TransForTime")
                 
-                    if indexPath.section != numberOfSections - 1 {
-                        timetitleCell.dividingView.backgroundColor = dividingLineColor
-                    }
+                if indexPath.section != (numberOfSections - 1) {
+                    timetitleCell.dividingView.backgroundColor = dividingLineColor
+                }
+                timetitleCell.vertDividingView.backgroundColor = dividingLineColor
                 
-                    return timetitleCell
+                return timetitleCell
                 
             } else {
                 let dayCell : DayCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
@@ -177,9 +182,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 }*/
                 dayCell.backgroundColor = cellBackgroundColor
                 
-                if indexPath.section != numberOfSections - 1 {
+                if indexPath.section != (numberOfSections - 1) {
                     dayCell.dividingView.backgroundColor = dividingLineColor
                 }
+                dayCell.vertDividingView.backgroundColor = dividingLineColor
                 
                 return dayCell
                 
@@ -200,9 +206,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 }*/
                 timeCell.backgroundColor = cellBackgroundColor
                 
-                if indexPath.section != numberOfSections - 1 {
+                if indexPath.section != (numberOfSections - 1) {
                     timeCell.dividingView.backgroundColor = dividingLineColor
                 }
+                timeCell.vertDividingView.backgroundColor = dividingLineColor
                 
                 return timeCell
             } else {
@@ -228,10 +235,11 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         lessonCell.roomLabel.text = alesson.room
                         
                         
-                        if indexPath.section != numberOfSections - 1 {
+                        if indexPath.section != (numberOfSections - 1) {
                             lessonCell.dividingView.backgroundColor = dividingLineColor
                         }
-                    
+                        lessonCell.vertDividingView.backgroundColor = dividingLineColor
+                        
                         celltoreturn = lessonCell
                     
                     case .Cancelled:
@@ -252,9 +260,11 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         lessonCell.crossOutView.backgroundColor = cancelledLessonTextColor
                         
                         
-                        if indexPath.section != numberOfSections - 1 {
+                        if indexPath.section != (numberOfSections - 1) {
                             lessonCell.dividingView.backgroundColor = dividingLineColor
                         }
+                        lessonCell.vertDividingView.backgroundColor = dividingLineColor
+
                     
                         celltoreturn = lessonCell
                     
@@ -286,9 +296,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         replacedlessonCell.subroomLabel.text = alesson.subroom
                         
                         
-                        if indexPath.section != numberOfSections - 1 {
+                        if indexPath.section != (numberOfSections - 1) {
                             replacedlessonCell.dividingView.backgroundColor = dividingLineColor
                         }
+                        replacedlessonCell.vertDividingView.backgroundColor = dividingLineColor
                     
                         celltoreturn = replacedlessonCell
                     
@@ -299,10 +310,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         lessonCell.teacherLabel.text = ""
                         lessonCell.roomLabel.text = ""
                         
-                        
-                        if indexPath.section != numberOfSections - 1 {
+                        if indexPath.section != (numberOfSections - 1) {
                             lessonCell.dividingView.backgroundColor = dividingLineColor
                         }
+                        lessonCell.vertDividingView.backgroundColor = dividingLineColor
                         
                         celltoreturn = lessonCell
                     
@@ -325,9 +336,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         lessonCell.subjectLabel.text = alesson.subject
                         //}
                         
-                        if indexPath.section != numberOfSections - 1 {
+                        if indexPath.section != (numberOfSections - 1) {
                             lessonCell.dividingView.backgroundColor = dividingLineColor
                         }
+                        lessonCell.vertDividingView.backgroundColor = dividingLineColor
                         
                         celltoreturn = lessonCell
                 }

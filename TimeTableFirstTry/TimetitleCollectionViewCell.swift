@@ -12,10 +12,10 @@ class TimetitleCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var timetitleLabel: UILabel!
     
     @IBOutlet weak var dividingView: UIView!
+    @IBOutlet weak var vertDividingView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
 }
