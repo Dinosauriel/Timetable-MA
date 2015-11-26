@@ -50,11 +50,11 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         super.viewDidLoad()
         
         // REGISTERING NIBS
-        self.collectionView.registerNib(UINib(nibName: "TimetitleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timetitleCellIdentifier)
-        self.collectionView.registerNib(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: dayCellIdentifier)
-        self.collectionView.registerNib(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timeCellIdentifier)
-        self.collectionView.registerNib(UINib(nibName: "LessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: lessonCellIdentifier)
-        self.collectionView.registerNib(UINib(nibName: "ReplacedLessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: replacedlessonCellIdentifier)
+//        self.collectionView.registerNib(UINib(nibName: "TimetitleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timetitleCellIdentifier)
+//        self.collectionView.registerNib(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: dayCellIdentifier)
+//        self.collectionView.registerNib(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: timeCellIdentifier)
+//        self.collectionView.registerNib(UINib(nibName: "LessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: lessonCellIdentifier)
+//        self.collectionView.registerNib(UINib(nibName: "ReplacedLessonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: replacedlessonCellIdentifier)
     }
     
     //REFRESH BUTTON
@@ -97,16 +97,16 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
         print("Scroll Will Begin Decelarating")
-        if UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation) {
+        if !UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
             print("Device is Portrait")
             scrollToOptimalSection(scrollView)
         }
     }
     
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if decelerate == false {
+        if !decelerate {
             print("Immediate stop!")
-            if UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation) {
+            if !UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
                 print("Device is Portrait")
                 scrollToOptimalSection(scrollView)
             }
@@ -151,7 +151,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                    let timetitleCell : TimetitleCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(timetitleCellIdentifier, forIndexPath: indexPath) as! TimetitleCollectionViewCell
+                    let timetitleCell: TimetitleCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(timetitleCellIdentifier, forIndexPath: indexPath) as! TimetitleCollectionViewCell
                     timetitleCell.backgroundColor = cellBackgroundColor
                     timetitleCell.timetitleLabel.font = UIFont.systemFontOfSize(13)
                     timetitleCell.timetitleLabel.textColor = defaultTextColor
