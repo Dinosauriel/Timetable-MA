@@ -65,7 +65,7 @@ class APIHandler {
         var array = [String : AnyObject]()
         var arrayPartA = [String : String]()
         arrayPartA["Class"] = "%4g"
-        //arrayPartA["Location"] = "3b"
+        arrayPartA["Location"] = "3b"
         array["ORDER"] = ["Day ASC", "Location DESC"]
         array["WHERE"] = arrayPartA
         
@@ -95,6 +95,7 @@ class APIHandler {
                 let array:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
                 print("Contents:")
                 print(array)
+                self.checkResponseCode(array)
             } catch let myJSONError {
                 print(myJSONError)
             }
@@ -115,7 +116,8 @@ class APIHandler {
                 if (timeTableStorage.getTimeTableData() != (dataDict["body"] as? NSArray)) && (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
                     
                 }
-                //timeTableStorage.storeTimeTableData((dataDict["body"] as? NSArray)!);
+                timeTableStorage.storeTimeTableData(dataDict);
+                print(dataDict["body"]![0])
                 break;
             default: print("default")
             }

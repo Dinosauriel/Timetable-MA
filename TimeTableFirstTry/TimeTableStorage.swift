@@ -15,7 +15,7 @@ class TimeTableStorage {
     var tableData:NSArray!
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    func storeTimeTableData(data : NSArray) {
+    func storeTimeTableData(data : AnyObject) {
         
         eraseAllData()
         
@@ -24,7 +24,11 @@ class TimeTableStorage {
         if let moc = self.managedObjectContext {
             //TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: lesson["Class"], StartTime: lesson["StartTime"], EndTime: lesson["EndTime"], Location: lesson["Location"])
             }
+            i++
         }
+        
+        //Saves the token to the local storage for later use
+
         //Writing to the file in case of interruption (XCode-Stop)
         do {
             try managedObjectContext?.save()
@@ -49,8 +53,9 @@ class TimeTableStorage {
                 print("No token")
                 return []
             }
+        } else {
+            return []
         }
-        return []
     }
     
     func eraseAllData() {
@@ -59,7 +64,7 @@ class TimeTableStorage {
         
         do {
             try managedObjectContext?.executeRequest(deleteRequest)
-        } catch let error as NSError {
+        } catch let error {
             print(error)
         }
         
