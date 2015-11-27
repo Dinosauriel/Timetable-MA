@@ -65,15 +65,15 @@ class APIHandler {
         var array = [String : AnyObject]()
         var arrayPartA = [String : String]()
         arrayPartA["Class"] = "%4g"
-        arrayPartA["Location"] = "3b"
+        //arrayPartA["Location"] = "3b"
         array["ORDER"] = ["Day ASC", "Location DESC"]
         array["WHERE"] = arrayPartA
         
-        var URLFilterString:String = "/?mod="
+        var URLFilterString:String = ""
         
         do {
             let filterData = try NSJSONSerialization.dataWithJSONObject(array, options: .PrettyPrinted)
-            URLFilterString += filterData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+            URLFilterString = filterData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         } catch let error {
             print(error)
         }
@@ -115,7 +115,7 @@ class APIHandler {
                 if (timeTableStorage.getTimeTableData() != (dataDict["body"] as? NSArray)) && (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
                     
                 }
-                timeTableStorage.storeTimeTableData((dataDict["body"] as? NSArray)!);
+                //timeTableStorage.storeTimeTableData((dataDict["body"] as? NSArray)!);
                 break;
             default: print("default")
             }

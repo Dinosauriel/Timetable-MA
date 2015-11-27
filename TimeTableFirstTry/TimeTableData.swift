@@ -15,13 +15,19 @@ class TimeTableData: NSManagedObject {
     @NSManaged var startTime:String
     @NSManaged var endTime:String
     @NSManaged var location:String
+    @NSManaged var subject:String
+    @NSManaged var teacher:String
+    @NSManaged var day:String
     
-    class func createInManagedObjectContext(ManagedObjectContext moc:NSManagedObjectContext, ClassName className:String, StartTime startTime:String, EndTime endTime:String, Location location:String) -> TimeTableData {
+    class func createInManagedObjectContext(ManagedObjectContext moc:NSManagedObjectContext, ClassName className:String, StartTime startTime:String, EndTime endTime:String, Location location:String, Subject subject:String, Teacher teacher:String, Day day:String) -> TimeTableData {
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("Token", inManagedObjectContext: moc) as! TimeTableData
         newItem.className = className
         newItem.startTime = startTime
         newItem.endTime = endTime
         newItem.location = location
+        newItem.subject = subject
+        newItem.teacher = teacher
+        newItem.day = day
         
         return newItem
     }
