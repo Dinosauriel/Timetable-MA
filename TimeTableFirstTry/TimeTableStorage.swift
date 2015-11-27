@@ -16,15 +16,41 @@ class TimeTableStorage {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     func storeTimeTableData(data : NSArray) {
-        tableData = data
+        
+        eraseAllData()
+        
+        //Saves the token to the local storage for later use
+        for lesson in data {
+        if let moc = self.managedObjectContext {
+            TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: lesson["Class"], StartTime: lesson["StartTime"], EndTime: lesson["EndTime"], Location: lesson["Location"])
+            }
+        }
+        //Writing to the file in case of interruption (XCode-Stop)
+        do {
+            try managedObjectContext?.save()
+            print("Saved")
+        } catch let error {
+            print(error)
+        }
     }
     
     func getTimeTableData() -> NSArray {
-        let fetchRequest = NSFetchRequest(entityName: TimeTableData)
+        let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
         
-        if let fetchResults = try managedObjectContext?.executeFetchRequest(fetchRequest) as? 
-        
-        return tableData
+        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
+            if fetchResults.count != 0 {
+                if fetchResults.count == 1 {
+                    tableData = fetchResults
+                    return tableData
+                } else {
+                    return []
+                }
+            } else {
+                print("No token")
+                return []
+            }
+        }
+        return []
     }
     
     func eraseAllData() {
