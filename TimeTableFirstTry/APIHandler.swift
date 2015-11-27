@@ -41,6 +41,7 @@ class APIHandler {
         print("Retrieved token " + token)
         
         tokenStorage.storeTokenData(token)
+        
     }
     
     /**
@@ -113,7 +114,8 @@ class APIHandler {
             switch Int(code) {
             case 401: print("Not authenticated")
             case 200: print("Ok")
-                if (timeTableStorage.getTimeTableData() != (dataDict["body"] as? NSArray)) && (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
+                let table = timeTableStorage.getTimeTableData()
+                if (table != (dataDict["body"] as? NSArray)) && (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) && (table != []) {
                     
                 }
                 timeTableStorage.storeTimeTableData(dataDict);

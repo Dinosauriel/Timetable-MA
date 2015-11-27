@@ -17,17 +17,17 @@ class TimeTableStorage {
     
     func storeTimeTableData(data : AnyObject) {
         
-        eraseAllData()
+        //eraseAllData()
         
         var i = 0
         let body = data["body"] as! NSArray
-        let endI = body.accessibilityElementCount()
+        let endI = body.count
         var lesson = [String : String]()
         
         while i != endI {
             lesson = try body[i] as! NSDictionary as! [String : String]
             if let moc = self.managedObjectContext {
-                TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: lesson["Class"]!, StartTime: lesson["StartTime"]!, EndTime: lesson["EndTime"]!, Location: lesson["Location"]!, Subject: lesson["Subject"]!, Teacher: lesson["Teacher"]!, Day: lesson["Day"]!)
+                TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["Class"]!), StartTime: String(lesson["StartTime"]!), EndTime: String(lesson["EndTime"]!), Location: String(lesson["Location"]!), Subject: String(lesson["Subject"]!), Teacher: String(lesson["Teacher"]!), Day: String(lesson["Day"]!))
             }
             i++
         }
@@ -43,24 +43,26 @@ class TimeTableStorage {
         }
     }
     
-    func getTimeTableData() -> NSArray {
+    func getTimeTableData() -> [TimeTableData] {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
-        
         if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
-            if fetchResults.count != 0 {
-                if fetchResults.count == 1 {
-                    tableData = fetchResults
-                    return tableData
-                } else {
-                    return []
-                }
-            } else {
-                print("No token")
-                return []
-            }
+            tableData = fetchResults
+            return tableData as! [TimeTableData]
         } else {
+            print("failed")
             return []
         }
+    }
+    
+    func getTimeTableDataWithDayInt(day:String) -> [TimeTableData] {
+        let tempArray = getTimeTableData()
+        var finalArray:NSMutableArray = [TimeTableData]
+        for tempLesson in tempArray {
+            if tempLesson.day == day {
+                finalArray.append(tempLesson)
+            }
+        }
+        return finalArray
     }
     
     func eraseAllData() {
