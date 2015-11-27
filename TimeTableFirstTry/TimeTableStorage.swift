@@ -19,10 +19,15 @@ class TimeTableStorage {
         
         eraseAllData()
         
-        //Saves the token to the local storage for later use
-        for lesson in data {
-        if let moc = self.managedObjectContext {
-            //TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: lesson["Class"], StartTime: lesson["StartTime"], EndTime: lesson["EndTime"], Location: lesson["Location"])
+        var i = 0
+        let body = data["body"] as! NSArray
+        let endI = body.accessibilityElementCount()
+        var lesson = [String : String]()
+        
+        while i != endI {
+            lesson = try body[i] as! NSDictionary as! [String : String]
+            if let moc = self.managedObjectContext {
+                TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: lesson["Class"]!, StartTime: lesson["StartTime"]!, EndTime: lesson["EndTime"]!, Location: lesson["Location"]!, Subject: lesson["Subject"]!, Teacher: lesson["Teacher"]!, Day: lesson["Day"]!)
             }
             i++
         }
