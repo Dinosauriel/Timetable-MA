@@ -22,7 +22,7 @@ class TimeTableStorage {
         //Saves the token to the local storage for later use
         for lesson in data {
         if let moc = self.managedObjectContext {
-            TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: lesson["Class"], StartTime: lesson["StartTime"], EndTime: lesson["EndTime"], Location: lesson["Location"])
+            //TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: lesson["Class"], StartTime: lesson["StartTime"], EndTime: lesson["EndTime"], Location: lesson["Location"])
             }
         }
         //Writing to the file in case of interruption (XCode-Stop)

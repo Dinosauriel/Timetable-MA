@@ -103,7 +103,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
         print("Scroll Will Begin Decelarating")
-        if !UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
+        if UIApplication.sharedApplication().statusBarOrientation == .Portrait || UIApplication.sharedApplication().statusBarOrientation == .PortraitUpsideDown  {
             print("Device is Portrait")
             scrollToOptimalSection(scrollView)
         }
@@ -112,7 +112,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             print("Immediate stop!")
-            if !UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
+            if UIApplication.sharedApplication().statusBarOrientation == .Portrait || UIApplication.sharedApplication().statusBarOrientation == .PortraitUpsideDown {
                 print("Device is Portrait")
                 scrollToOptimalSection(scrollView)
             }
@@ -120,25 +120,30 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     func scrollToOptimalSection(scrollView: UIScrollView) {
-        print("ScrollingFuncExecuted")
         if scrollView == self.collectionView {
-            print("scrollView == collectionView")
             let targetScrollingPos = UICollectionViewScrollPosition.Right
             var currentCellOffset: CGPoint = self.collectionView.contentOffset
+            print(currentCellOffset)
             currentCellOffset.x += layout.getTimeColumnWidth()
+            //print(currentCellOffset)
+            
+            let columnWidth = self.collectionView.bounds.width - layout.getTimeColumnWidth()
             
             let rightTargetFactor: CGFloat = 0.6
             let leftTargetFactor: CGFloat = 1 - rightTargetFactor
-            if currentCellOffset.x > scrollStartContentOffset.x {
-                currentCellOffset.x += ((self.collectionView.frame.size.width - layout.getTimeColumnWidth()) * rightTargetFactor)
-            } else if currentCellOffset.x < scrollStartContentOffset.x{
-                currentCellOffset.x += ((self.collectionView.frame.size.width - layout.getTimeColumnWidth()) * leftTargetFactor)
+            
+            print("\(currentCellOffset.x) - \(scrollStartContentOffset.x)")
+            if (currentCellOffset.x - scrollStartContentOffset.x) < 0 {
+                print("Scrolling Left")
+                currentCellOffset.x += (columnWidth * leftTargetFactor)
+            } else {
+                print("Scrolling Right")
+                currentCellOffset.x += (columnWidth * rightTargetFactor)
             }
             
             let targetCellIndexPath = collectionView.indexPathForItemAtPoint(currentCellOffset)
             if targetCellIndexPath != nil {
                 collectionView.scrollToItemAtIndexPath(targetCellIndexPath!, atScrollPosition: targetScrollingPos, animated:  true)
-                print("Scrolling to optimal Section")
             }
         }
     }

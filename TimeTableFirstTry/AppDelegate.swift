@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let collectionView = TTCollectionViewController()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        NSNotificationCenter.defaultCenter().addObserver(TTCollectionViewLayout(), selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(TTCollectionViewController(), selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        //NSNotificationCenter.defaultCenter().addObserver(TTCollectionViewLayout(), selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        //NSNotificationCenter.defaultCenter().addObserver(TTCollectionViewController(), selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
         
         // DEFINING INITIAL VIEWCONTROLLER
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)

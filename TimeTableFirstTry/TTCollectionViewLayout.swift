@@ -18,7 +18,6 @@ class TTCollectionViewLayout: UICollectionViewLayout {
     let marginForTimeColumn: CGFloat = 15
     let heightForDayRow: CGFloat = 40
     
-    
     override func prepareLayout() {
         
         if self.collectionView?.numberOfSections() == 0 {
@@ -160,8 +159,8 @@ class TTCollectionViewLayout: UICollectionViewLayout {
         
         if sectionIndex != 0 {
             
-            let screenSize: CGRect = (collectionView?.bounds)!
-            let width: CGFloat = (screenSize.width - timeColumnWidth) / 2
+            let screenSize: CGRect = UIScreen.mainScreen().bounds
+            let width: CGFloat = (screenSize.width - timeColumnWidth)
             
             return width
             
