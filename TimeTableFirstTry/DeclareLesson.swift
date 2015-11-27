@@ -9,9 +9,9 @@
 import Foundation
 
 class DeclareLesson {
-    let storage = TimeTableStorage()
     
     func getNewLessonForUI(let day: Int,let pos: Int) -> Lesson {
+        let storage = TimeTableStorage()
         let week = storage.getTimeTableData()
         var day: [TimeTableData] = []
         var start: String
