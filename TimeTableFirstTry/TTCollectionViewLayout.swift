@@ -160,7 +160,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
         
         if sectionIndex != 0 {
             
-            let screenSize: CGRect = UIScreen.mainScreen().bounds
+            let screenSize: CGRect = (collectionView?.bounds)!
             let width: CGFloat = (screenSize.width - timeColumnWidth) / 2
             
             return width
