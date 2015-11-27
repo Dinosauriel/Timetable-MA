@@ -22,12 +22,13 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let declarelesson = DeclareLesson()
     let layout = TTCollectionViewLayout()
     let day = Day()
-    
-    //CGPoints
-    var startScrollingPoint: CGPoint!
 
     //INTEGERS
     let numberOfSections = 13
+    let numberOfRows = 6
+    
+    //CGPoints
+    var scrollStartContentOffset: CGPoint!
     
     //COLORS
     let dividingLineColor = UIColor(hue: 0.8639, saturation: 0, brightness: 0.83, alpha: 1.0) //GRAY
@@ -90,8 +91,8 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     // MARK: PAGING
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        startScrollingPoint = collectionView.contentOffset
-        startScrollingPoint.x += layout.getTimeColumnWidth()
+        scrollStartContentOffset = collectionView.contentOffset
+        scrollStartContentOffset.x += layout.getTimeColumnWidth()
     }
     
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
@@ -116,17 +117,16 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         print("ScrollingFuncExecuted")
         if scrollView == self.collectionView {
             print("scrollView == collectionView")
-            
             let targetScrollingPos = UICollectionViewScrollPosition.Right
             var currentCellOffset: CGPoint = self.collectionView.contentOffset
-            let targetAddFactor: CGFloat = 0.5
-            
             currentCellOffset.x += layout.getTimeColumnWidth()
             
-            if self.startScrollingPoint.x < currentCellOffset.x {
-                currentCellOffset.x += ((self.collectionView.frame.size.width - layout.getTimeColumnWidth()) * targetAddFactor)
+            let rightTargetFactor: CGFloat = 0.6
+            let leftTargetFactor: CGFloat = 1 - rightTargetFactor
+            if currentCellOffset.x > scrollStartContentOffset.x {
+                currentCellOffset.x += ((self.collectionView.frame.size.width - layout.getTimeColumnWidth()) * rightTargetFactor)
             } else {
-                currentCellOffset.x -= ((self.collectionView.frame.size.width - layout.getTimeColumnWidth()) * targetAddFactor)
+                currentCellOffset.x += ((self.collectionView.frame.size.width - layout.getTimeColumnWidth()) * leftTargetFactor)
             }
             
             let targetCellIndexPath = collectionView.indexPathForItemAtPoint(currentCellOffset)
@@ -144,7 +144,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return numberOfRows
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

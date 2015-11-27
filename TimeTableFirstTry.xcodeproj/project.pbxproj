@@ -50,6 +50,7 @@
 		74866B0E1BEBF1370030FA95 /* LessonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74866B0D1BEBF1370030FA95 /* LessonCollectionViewCell.xib */; };
 		749588271BE144E5006710B2 /* DayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588261BE144E5006710B2 /* DayCollectionViewCell.xib */; };
 		749588291BE144F7006710B2 /* TimetitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749588281BE144F7006710B2 /* TimetitleCollectionViewCell.xib */; };
+		74AA07281C06E20B002AC075 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74AA072A1C06E20B002AC075 /* InfoPlist.strings */; };
 		74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */; };
 		74E18DAB1BFFA27900DE26AF /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E18DAA1BFFA27900DE26AF /* WebView.swift */; };
 		74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A01BDD56710026F2AE /* AppDelegate.swift */; };
@@ -134,6 +135,8 @@
 		74866B0D1BEBF1370030FA95 /* LessonCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LessonCollectionViewCell.xib; sourceTree = "<group>"; };
 		749588261BE144E5006710B2 /* DayCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCollectionViewCell.xib; sourceTree = "<group>"; };
 		749588281BE144F7006710B2 /* TimetitleCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimetitleCollectionViewCell.xib; sourceTree = "<group>"; };
+		74AA07291C06E20B002AC075 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		74AA072B1C06E210002AC075 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		74E18DAA1BFFA27900DE26AF /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		74EBE69D1BDD56710026F2AE /* TimeTableFirstTry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTableFirstTry.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				742889FA1BF73A870018EAE4 /* Localizable.strings */,
+				74AA072A1C06E20B002AC075 /* InfoPlist.strings */,
 			);
 			name = Lang;
 			sourceTree = "<group>";
@@ -577,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7443BE121BED2E74007E6807 /* ReplacedLessonCollectionViewCell.xib in Resources */,
+				74AA07281C06E20B002AC075 /* InfoPlist.strings in Resources */,
 				74156C0C1C0224F50050740D /* MainInterface.storyboard in Resources */,
 				74F88ABB1BFBC58200E65B34 /* Main.storyboard in Resources */,
 				749588271BE144E5006710B2 /* DayCollectionViewCell.xib in Resources */,
@@ -708,6 +713,15 @@
 				742889ED1BF735AD0018EAE4 /* de */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		74AA072A1C06E20B002AC075 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74AA07291C06E20B002AC075 /* Base */,
+				74AA072B1C06E210002AC075 /* de */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		74EBE6AC1BDD56710026F2AE /* LaunchScreen.storyboard */ = {
