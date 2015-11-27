@@ -54,7 +54,7 @@ class Day {
             if currentWeekDay + i == 6 {
                 a += 2
             }
-            a++
+            ++a
         }
         
         return weekToReturn

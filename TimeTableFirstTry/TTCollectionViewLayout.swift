@@ -11,7 +11,7 @@ import UIKit
 class TTCollectionViewLayout: UICollectionViewLayout {
     
     var itemAttributes: NSMutableArray!
-    var itemsSize: NSMutableArray!
+    var itemsWidth: NSMutableArray!
     var contentSize: CGSize!
     var numberOfColumns = 6
     
@@ -28,7 +28,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
         if (self.itemAttributes != nil && self.itemAttributes.count > 0) {
             
             for section in 0 ..< self.collectionView!.numberOfSections() {
-                let numberOfItems : Int = self.collectionView!.numberOfItemsInSection(section)
+                let numberOfItems :Int = self.collectionView!.numberOfItemsInSection(section)
                 for index in 0 ..< numberOfItems {
                     if section != 0 && index != 0 {
                         continue
@@ -51,7 +51,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
             return
         }
         
-        if (self.itemsSize == nil || self.itemsSize.count != numberOfColumns) {
+        if (self.itemsWidth == nil || self.itemsWidth.count != numberOfColumns) {
             self.calculateItemsSize()
         }
         
@@ -64,6 +64,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
         for section in 0 ..< self.collectionView!.numberOfSections() {
             let sectionAttributes = NSMutableArray()
             var itemHeight: CGFloat
+            
             if section == 0 {
                 itemHeight = 30
             } else {
@@ -71,15 +72,15 @@ class TTCollectionViewLayout: UICollectionViewLayout {
             }
             
             for index in 0 ..< numberOfColumns {
-                let itemSize = self.itemsSize[index].CGSizeValue()
+                let itemWidth = self.itemsWidth[index] as! CGFloat
                 let indexPath = NSIndexPath(forItem: index, inSection: section)
                 let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
-                attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemSize.width, itemHeight))
+                attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemWidth, itemHeight))
                 
                 if section == 0 && index == 0 {
-                    attributes.zIndex = 1024
+                    attributes.zIndex = 4
                 } else  if section == 0 || index == 0 {
-                    attributes.zIndex = 1023
+                    attributes.zIndex = 3
                 }
                 
                 if section == 0 {
@@ -95,7 +96,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                 
                 sectionAttributes.addObject(attributes)
                 
-                xOffset += itemSize.width
+                xOffset += itemWidth
                 column++
                 
                 if column == numberOfColumns {
@@ -152,29 +153,32 @@ class TTCollectionViewLayout: UICollectionViewLayout {
         return true
     }
     
-    // MARK: CALCULATING SIZE FOR CELLS CALCULATIONS
-    func sizeForItemWithColumnIndex(sectionIndex: Int) -> CGSize {
+    // MARK: CALCULATING SIZE FOR CELLS
+    func widthForItemWithColumnIndex(sectionIndex: Int) -> CGFloat {
         
-        let timeColumnWidth = getTimeColumnWidth()
+        let timeColumnWidth: CGFloat = getTimeColumnWidth()
         
         if sectionIndex != 0 {
             
             let screenSize: CGRect = UIScreen.mainScreen().bounds
             let width: CGFloat = (screenSize.width - timeColumnWidth) / 2
             
-            return CGSizeMake(width, 60)
+            return width
             
         } else {
 
-            return CGSizeMake(timeColumnWidth, 60)
+            return timeColumnWidth
         }
     }
     
+    /**
+    Appends for each Column a fitting Value to self.itemsize
+    */
     func calculateItemsSize() {
-        self.itemsSize = NSMutableArray(capacity: numberOfColumns)
-        for section in 0 ..< numberOfColumns {
+        self.itemsWidth = NSMutableArray(capacity: numberOfColumns)
+        for var section = 0; section < numberOfColumns; ++section {
             
-            self.itemsSize.addObject(NSValue(CGSize: self.sizeForItemWithColumnIndex(section)))
+            self.itemsWidth.addObject(self.widthForItemWithColumnIndex(section))
         }
     }
     
