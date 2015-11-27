@@ -173,6 +173,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cIw-UK-h7I">
                                                     <rect key="frame" x="248" y="0.0" width="1" height="50"/>
                                                     <animations/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="1" id="sKx-sZ-Kyq"/>
                                                     </constraints>
@@ -211,6 +212,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqS-cs-JlR">
                                                     <rect key="frame" x="265" y="0.0" width="1" height="88.5"/>
                                                     <animations/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="1" id="7Zx-jm-Hp8"/>
                                                     </constraints>
@@ -334,6 +336,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fkp-Ua-AXw">
                                                     <rect key="frame" x="306" y="0.0" width="1" height="93"/>
                                                     <animations/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="1" id="ued-42-pAP"/>
                                                     </constraints>
@@ -432,6 +435,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wGC-QF-44u">
                                                     <rect key="frame" x="306" y="0.0" width="1" height="93"/>
                                                     <animations/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="1" id="afs-w2-6SG"/>
                                                     </constraints>
@@ -495,6 +499,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kc1-v0-hle">
                                                     <rect key="frame" x="200" y="0.0" width="1" height="50"/>
                                                     <animations/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="1" id="Tif-Ku-vdN"/>
                                                     </constraints>
