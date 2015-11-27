@@ -7,8 +7,23 @@
 //
 
 import Foundation
+import CoreData
 
-class TimeTableData {
+class TimeTableData: NSManagedObject {
     
+    @NSManaged var className:String
+    @NSManaged var startTime:String
+    @NSManaged var endTime:String
+    @NSManaged var location:String
+    
+    class func createInManagedObjectContext(ManagedObjectContext moc:NSManagedObjectContext, ClassName className:String, StartTime startTime:String, EndTime endTime:String, Location location:String) -> TimeTableData {
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Token", inManagedObjectContext: moc) as! TimeTableData
+        newItem.className = className
+        newItem.startTime = startTime
+        newItem.endTime = endTime
+        newItem.location = location
+        
+        return newItem
+    }
     
 }

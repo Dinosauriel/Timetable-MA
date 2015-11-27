@@ -42,6 +42,7 @@ class APIHandler {
         }
         
         tokenStorage.storeTokenData(token)
+        getDataWithToken()
     }
     
     /**
@@ -62,8 +63,27 @@ class APIHandler {
         //The resource-string for the unfiltered data
         let URLBaseRequestString = "https://apistage.tam.ch/klw/data/source/timetable/?mod="
         
+        //Adding filters to the request
+        
+        //Building the array containing the filters
+        var array = [String : AnyObject]()
+        var arrayPartA = [String : String]()
+        arrayPartA["Class"] = "%4g"
+        arrayPartA["Location"] = "3b"
+        array["ORDER"] = ["Day ASC", "Location DESC"]
+        array["WHERE"] = arrayPartA
+        
+        var URLFilterString:String = "/?mod="
+        
+        do {
+            let filterData = try NSJSONSerialization.dataWithJSONObject(array, options: .PrettyPrinted)
+            URLFilterString += filterData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        } catch let error {
+            print(error)
+        }
+        
         //The resource-string for the data with filters
-        let URLRequestString = URLBaseRequestString
+        let URLRequestString = URLBaseRequestString + URLFilterString
         
         //The URL for the data
         let requestURL = NSURL(string: URLRequestString)
