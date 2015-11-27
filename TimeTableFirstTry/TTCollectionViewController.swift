@@ -17,6 +17,8 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let lessonCellIdentifier = "LessonCellIdentifier"
     let replacedlessonCellIdentifier = "ReplacedLessonCellIdentifier"
     
+    let loginSegueIdentifier = "showLogin"
+    
     //MARK: CLASSES
     let timegetter = TimetableTime()
     let declarelesson = DeclareLesson()
@@ -53,12 +55,12 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     //MARK: REFRESH BUTTON
     @IBAction func refreshButton(sender: AnyObject) {
-        //let api = GetAPIData()
-        //api.requestAuthToken()
+        let apiHandler = APIHandler()
+        apiHandler.getDataWithToken()
         print("REFRESH!!")
-        let loginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVCID")
-        self.showViewController(loginVC!, sender: self)
+        self.performSegueWithIdentifier(loginSegueIdentifier, sender: nil)
     }
+
 
     // MARK: BAR HANDLING
     func removeStatusBar() {

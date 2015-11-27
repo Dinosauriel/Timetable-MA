@@ -12,15 +12,18 @@ import WebKit
 class APIHandler {
     
     var token : String!
-    var tokenStorage:TokenStorage!
+    var tokenStorage = TokenStorage()
     
     /**
     Requests a new AuthToken from the API-Authentication-Service by opening a webpage for the user to log in
     */
     func requestNewAuthToken() {
-        let URLforRequest = "https://oauth.tam.ch/signin/klw-stupla-app?response_type=token&client_id=0Wv69s7vyidj3cKzNckhiSulA5on8uFM&redirect_uri=uniapp%3A%2F%2Fklw-stupla-app&_blank&scope=all"
+        print("GETTING NEW TOKEN!")
+        //let URLforRequest = "https://oauth.tam.ch/signin/klw-stupla-app?response_type=token&client_id=0Wv69s7vyidj3cKzNckhiSulA5on8uFM&redirect_uri=uniapp%3A%2F%2Fklw-stupla-app&_blank&scope=all"
         
-        UIApplication.sharedApplication().openURL(NSURL(string: URLforRequest)!)
+        //UIApplication.sharedApplication().openURL(NSURL(string: URLforRequest)!)
+        //let TTCVC = TTCollectionViewController()
+        //TTCVC.showLogin()
     }
     
     /**
@@ -37,21 +40,14 @@ class APIHandler {
         token = tokenArr[1]
         print("Retrieved token " + token)
         
-        if tokenStorage?.isInitialized() != true {
-            tokenStorage = TokenStorage(handler: self)
-        }
-        
         tokenStorage.storeTokenData(token)
-        getDataWithToken()
     }
     
     /**
     Requests data from the API by using the token. If there's no token stored the function to request one will be called and this function terminates
     */
     func getDataWithToken() {
-        if tokenStorage.isInitialized() != true {
-            tokenStorage = TokenStorage(handler: self)
-        }
+
         //Loads the token from the data
         let token:String = tokenStorage.getTokenFromData()
         
@@ -114,8 +110,8 @@ class APIHandler {
         
         if let code = dataDict["code"] as? Int {
             switch Int(code) {
-            case 401: print("Not authenticated"); break;
-            case 200: print("Ok");
+            case 401: print("Not authenticated")
+            case 200: print("Ok")
                 if (timeTableStorage.getTimeTableData() != (dataDict["body"] as? NSArray)) && (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
                     
                 }

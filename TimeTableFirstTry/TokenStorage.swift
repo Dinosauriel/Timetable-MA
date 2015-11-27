@@ -13,18 +13,6 @@ import CoreData
 class TokenStorage {
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    let apiHandler:APIHandler
-    
-    var isInit:Bool = false
-    
-    init(handler:APIHandler) {
-        isInit = true
-        apiHandler = handler
-    }
-    
-    func isInitialized() -> Bool {
-        return isInit
-    }
     
     func storeTokenData(token : String) {
         let fetchRequest = NSFetchRequest(entityName: "Token")
@@ -62,10 +50,10 @@ class TokenStorage {
                 if fetchResults.count == 1 {
                     token = fetchResults[0].tokenVar
                     print("Got token from data")
+                    return token
                 } else {
-                    apiHandler.requestNewAuthToken()
+                    return ""
                 }
-                return token
             } else {
                 print("No token")
                 return ""
