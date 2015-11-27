@@ -10,7 +10,7 @@ import Foundation
 import WebKit
 import CoreData
 
-class TimeTableStorage {
+public class TimeTableStorage {
     
     var tableData:NSArray!
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -56,7 +56,7 @@ class TimeTableStorage {
     
     func getTimeTableDataWithDayInt(day:String) -> [TimeTableData] {
         let tempArray = getTimeTableData()
-        var finalArray:NSMutableArray = [TimeTableData]
+        var finalArray = [TimeTableData]()
         for tempLesson in tempArray {
             if tempLesson.day == day {
                 finalArray.append(tempLesson)
