@@ -12,7 +12,7 @@ class DeclareLesson {
     let storage = TimeTableStorage()
     
     func getNewLessonForUI(let day: Int,let pos: Int) -> Lesson {
-        let week = storage.getTimeTableData() as! [TimeTableData]
+        let week = storage.getTimeTableData()
         var day: [TimeTableData] = []
         var start: String
         var UILesson = Lesson(subject: "", teacher: "", room: "", status: .Empty, day: .Monday, lessonposition: 1, subsubject: "", subteacher: "", subroom: "", start: "", end: "")
