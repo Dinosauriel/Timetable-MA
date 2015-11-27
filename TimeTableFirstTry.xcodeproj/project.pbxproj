@@ -16,25 +16,21 @@
 		4FC8F9DC1C06190E00D15752 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8F9DB1C06190E00D15752 /* TokenStorage.swift */; };
 		4FC8F9DE1C061F2000D15752 /* TimeTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8F9DD1C061F2000D15752 /* TimeTableData.swift */; };
 		4FC8F9E01C061F4700D15752 /* TimeTableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8F9DF1C061F4700D15752 /* TimeTableStorage.swift */; };
+		740173AF1C08B21C006F3880 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DA1BDD598A0026F2AE /* DayCollectionViewCell.swift */; };
+		740173B21C08B312006F3880 /* TodayLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743ED8981BF6363900DA2E46 /* TodayLayout.swift */; };
+		740173B31C08B317006F3880 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */; };
 		7402B3E61C031EB40048C5D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7402B3E51C031EB40048C5D7 /* Assets.xcassets */; };
 		741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
 		74156C081C02240A0050740D /* WidgetLesson.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 743ED8861BF6339A00DA2E46 /* WidgetLesson.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		74156C0C1C0224F50050740D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */; };
-		74156C0E1C0225040050740D /* TodayLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743ED8981BF6363900DA2E46 /* TodayLayout.swift */; };
 		742889F81BF73A870018EAE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 742889FA1BF73A870018EAE4 /* Localizable.strings */; };
 		74382ED91BEFBE13007A28C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
 		743ED8891BF6339A00DA2E46 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */; };
-		743ED88C1BF6339A00DA2E46 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743ED88B1BF6339A00DA2E46 /* TodayViewController.swift */; };
-		743ED88F1BF6339A00DA2E46 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */; };
-		743ED8991BF6363900DA2E46 /* TodayLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743ED8981BF6363900DA2E46 /* TodayLayout.swift */; };
 		743ED89C1BF63FA700DA2E46 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
-		743ED89D1BF63FD000DA2E46 /* DeclareLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */; };
 		743ED89E1BF63FDC00DA2E46 /* TimetableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8600701BE8D8B700FA53AD /* TimetableTime.swift */; };
 		743ED89F1BF6400B00DA2E46 /* ReplacedLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */; };
 		743ED8A01BF6401200DA2E46 /* LessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */; };
 		743ED8A11BF6401600DA2E46 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
 		743ED8A21BF6402400DA2E46 /* TimetitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DE1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift */; };
-		743ED8A31BF6402A00DA2E46 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DA1BDD598A0026F2AE /* DayCollectionViewCell.swift */; };
 		743ED8A51BF640D600DA2E46 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B061BEBE5570030FA95 /* Lesson.swift */; };
 		7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */; };
 		746AA7101C08915C009D317A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 746AA70F1C08915C009D317A /* Main.storyboard */; };
@@ -506,7 +502,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				743ED88F1BF6339A00DA2E46 /* MainInterface.storyboard in Resources */,
+				740173B31C08B317006F3880 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,7 +512,6 @@
 			files = (
 				746AA7101C08915C009D317A /* Main.storyboard in Resources */,
 				74AA07281C06E20B002AC075 /* InfoPlist.strings in Resources */,
-				74156C0C1C0224F50050740D /* MainInterface.storyboard in Resources */,
 				4F4BE6881BFDEE3A001EDE35 /* .gitignore in Resources */,
 				742889F81BF73A870018EAE4 /* Localizable.strings in Resources */,
 				74EBE6AE1BDD56710026F2AE /* LaunchScreen.storyboard in Resources */,
@@ -545,17 +540,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				743ED88C1BF6339A00DA2E46 /* TodayViewController.swift in Sources */,
-				743ED8991BF6363900DA2E46 /* TodayLayout.swift in Sources */,
 				743ED89F1BF6400B00DA2E46 /* ReplacedLessonCollectionViewCell.swift in Sources */,
-				743ED8A31BF6402A00DA2E46 /* DayCollectionViewCell.swift in Sources */,
 				743ED8A01BF6401200DA2E46 /* LessonCollectionViewCell.swift in Sources */,
-				743ED89D1BF63FD000DA2E46 /* DeclareLesson.swift in Sources */,
 				743ED8A11BF6401600DA2E46 /* TimeCollectionViewCell.swift in Sources */,
 				743ED8A21BF6402400DA2E46 /* TimetitleCollectionViewCell.swift in Sources */,
 				743ED89C1BF63FA700DA2E46 /* Day.swift in Sources */,
 				743ED89E1BF63FDC00DA2E46 /* TimetableTime.swift in Sources */,
+				740173AF1C08B21C006F3880 /* DayCollectionViewCell.swift in Sources */,
 				743ED8A51BF640D600DA2E46 /* Lesson.swift in Sources */,
+				740173B21C08B312006F3880 /* TodayLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,7 +559,6 @@
 				74EBE6A31BDD56710026F2AE /* TTCollectionViewController.swift in Sources */,
 				4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */,
 				7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */,
-				74156C0E1C0225040050740D /* TodayLayout.swift in Sources */,
 				4FC8F9E01C061F4700D15752 /* TimeTableStorage.swift in Sources */,
 				74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */,
 				4FC8F9DE1C061F2000D15752 /* TimeTableData.swift in Sources */,
