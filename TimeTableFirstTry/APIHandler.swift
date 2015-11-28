@@ -66,7 +66,7 @@ class APIHandler {
         var array = [String : AnyObject]()
         var arrayPartA = [String : String]()
         arrayPartA["Class"] = "%4g"
-        arrayPartA["Location"] = "3b"
+        //arrayPartA["Location"] = "3b"
         array["ORDER"] = ["Day ASC", "Location DESC"]
         array["WHERE"] = arrayPartA
         
@@ -94,8 +94,8 @@ class APIHandler {
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) -> Void in
             do {
                 let array:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
-                print("Contents:")
-                print(array)
+                //print("Contents:")
+                //print(array)
                 self.checkResponseCode(array)
             } catch let myJSONError {
                 print(myJSONError)

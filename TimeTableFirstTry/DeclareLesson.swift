@@ -23,6 +23,8 @@ class DeclareLesson {
             }
         }
         
+        //print(day)
+        
         switch pos {
             case 1:
                 start = "07:45:00"

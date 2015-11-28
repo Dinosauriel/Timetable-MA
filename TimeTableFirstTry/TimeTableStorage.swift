@@ -16,9 +16,9 @@ public class TimeTableStorage {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     func storeTimeTableData(data : AnyObject) {
-        
-        //eraseAllData()
-        
+        print("a")
+        eraseAllData()
+        print("c")
         var i = 0
         let body = data["body"] as! NSArray
         let endI = body.count
@@ -30,6 +30,7 @@ public class TimeTableStorage {
                 TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["Class"]!), StartTime: String(lesson["StartTime"]!), EndTime: String(lesson["EndTime"]!), Location: String(lesson["Location"]!), Subject: String(lesson["Subject"]!), Teacher: String(lesson["Teacher"]!), Day: String(lesson["Day"]!))
             }
             i++
+            print(lesson)
         }
         
         //Saves the token to the local storage for later use
@@ -65,7 +66,7 @@ public class TimeTableStorage {
         return finalArray
     }
     
-    func eraseAllData() {
+    func eraseAllData() -> Void {
         let fetchDeleteRequest = NSFetchRequest(entityName: "TimeTableData")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchDeleteRequest)
         
@@ -74,6 +75,7 @@ public class TimeTableStorage {
         } catch let error {
             print(error)
         }
+        print("b")
         
     }
     
