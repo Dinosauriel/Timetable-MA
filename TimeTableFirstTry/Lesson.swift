@@ -19,14 +19,12 @@ struct Lesson {
     let subroom: String
     
     let status: Status
-    let day: Day
-    let lessonposition: Int
     
     let starttime: String
     let endtime: String
 
     
-    init(subject: String, teacher: String, room: String, status: Status, day: Day, lessonposition: Int, subsubject: String, subteacher: String, subroom: String, start: String, end: String) {
+    init(subject: String, teacher: String, room: String, status: Status, subsubject: String, subteacher: String, subroom: String, start: String, end: String) {
         self.room = room
         self.teacher = teacher
         self.subject = subject
@@ -36,8 +34,6 @@ struct Lesson {
         self.subroom = subroom
         
         self.status = status
-        self.day = day
-        self.lessonposition = lessonposition
         
         self.starttime = start
         self.endtime = end

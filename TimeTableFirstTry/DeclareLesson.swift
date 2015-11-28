@@ -15,7 +15,7 @@ class DeclareLesson {
         let week = storage.getTimeTableData()
         var day: [TimeTableData] = []
         var start: String
-        var UILesson = Lesson(subject: "", teacher: "", room: "", status: .Empty, day: .Monday, lessonposition: 1, subsubject: "", subteacher: "", subroom: "", start: "", end: "")
+        var UILesson = Lesson(subject: "", teacher: "", room: "", status: .Empty, subsubject: "", subteacher: "", subroom: "", start: "", end: "")
         
         for var i = 0; i < week.count; ++i {
             if week[i].day == "3" {
@@ -55,7 +55,7 @@ class DeclareLesson {
         for var i = 0; i < day.count; ++i {
             if day[i].startTime == start {
                 let STORLesson = day[i]
-                UILesson = Lesson(subject: STORLesson.subject, teacher: STORLesson.teacher, room: STORLesson.location, status: .Default, day: .Monday, lessonposition: 1, subsubject: "", subteacher: "", subroom: "", start: STORLesson.startTime, end: STORLesson.endTime)
+                UILesson = Lesson(subject: STORLesson.subject, teacher: STORLesson.teacher, room: STORLesson.location, status: .Default, subsubject: "", subteacher: "", subroom: "", start: STORLesson.startTime, end: STORLesson.endTime)
             }
         }
         
