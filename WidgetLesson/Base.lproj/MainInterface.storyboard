@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="M4Y-Lb-cyx">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -8,7 +9,7 @@
         <!--Today View Controller-->
         <scene sceneID="cwh-vc-ff4">
             <objects>
-                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="TimeTableFirstTry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="WidgetLesson" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ft6-oW-KC0"/>
                         <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
@@ -23,14 +24,14 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="XHM-uf-n7l"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ox3-iJ-8fh" customClass="TodayLayout" customModule="TimeTableFirstTry" customModuleProvider="target">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ox3-iJ-8fh" customClass="TodayLayout" customModule="WidgetLesson" customModuleProvider="target">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DayCellIdentifier" id="ijI-cS-7b1" customClass="DayCollectionViewCell" customModule="TimeTableFirstTry" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DayCellIdentifier" id="ijI-cS-7b1" customClass="DayCollectionViewCell" customModule="WidgetLesson" customModuleProvider="target">
                                         <rect key="frame" x="37.5" y="0.0" width="201" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -82,7 +83,7 @@
                                             <outlet property="vertDividingView" destination="voY-6w-hgw" id="Wb0-dO-m55"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeCellIdentifier" id="GZz-95-UDU" customClass="TimeCollectionViewCell" customModule="TimeTableFirstTry" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeCellIdentifier" id="GZz-95-UDU" customClass="TimeCollectionViewCell" customModule="WidgetLesson" customModuleProvider="target">
                                         <rect key="frame" x="5" y="60" width="266" height="88.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -145,7 +146,7 @@
                                             <outlet property="vertDividingView" destination="HVK-YV-QVw" id="Yz1-82-7pW"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReplacedLessonCellIdentifier" id="0ZR-mz-lgk" customClass="ReplacedLessonCollectionViewCell" customModule="TimeTableFirstTry" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReplacedLessonCellIdentifier" id="0ZR-mz-lgk" customClass="ReplacedLessonCollectionViewCell" customModule="WidgetLesson" customModuleProvider="target">
                                         <rect key="frame" x="-15.5" y="158.5" width="307" height="93"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -264,7 +265,7 @@
                                             <outlet property="vertDividingView" destination="bbY-T5-xqy" id="aOz-FA-ROS"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LessonCellIdentifier" id="9Un-Fd-rG6" customClass="LessonCollectionViewCell" customModule="TimeTableFirstTry" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LessonCellIdentifier" id="9Un-Fd-rG6" customClass="LessonCollectionViewCell" customModule="WidgetLesson" customModuleProvider="target">
                                         <rect key="frame" x="-15.5" y="261.5" width="307" height="93"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -352,7 +353,7 @@
                                             <outlet property="vertDividingView" destination="SoF-hv-nOi" id="YBr-hd-ANK"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimetitleCellIdentifier" id="xTM-e8-6NC" customClass="TimetitleCollectionViewCell" customModule="TimeTableFirstTry" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimetitleCellIdentifier" id="xTM-e8-6NC" customClass="TimetitleCollectionViewCell" customModule="WidgetLesson" customModuleProvider="target">
                                         <rect key="frame" x="13.5" y="364.5" width="249" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">

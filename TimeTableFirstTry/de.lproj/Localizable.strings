@@ -6,14 +6,6 @@
   Copyright © 2015 Aurel Feer. All rights reserved.
 */
 
-monday = "Montag";
-tuesday = "Dienstag";
-wednesday = "Mittwoch";
-thursday = "Donnerstag";
-friday = "Freitag";
-
-time = "Zeit";
-
 //SETTINGS
 login = "Login";
 notifications = "Mitteilungen";

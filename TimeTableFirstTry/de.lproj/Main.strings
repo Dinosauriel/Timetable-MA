@@ -1,0 +1,18 @@
+
+/* Class = "UITabBarItem"; title = "Timetable"; ObjectID = "5hE-TW-brL"; */
+"5hE-TW-brL.title" = "Stundenplan";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "MEP-iS-Fdg"; */
+"MEP-iS-Fdg.title" = "Einstellungen";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "Mcg-5O-F7t"; */
+"Mcg-5O-F7t.title" = "Einstellungen";
+
+/* Class = "UILabel"; text = "Hi"; ObjectID = "NjU-VZ-C9u"; */
+"NjU-VZ-C9u.text" = "Hoi";
+
+/* Class = "UIButton"; normalTitle = "First Launch!!"; ObjectID = "evo-0S-gnq"; */
+"evo-0S-gnq.normalTitle" = "Erster Start!!";
+
+/* Class = "UINavigationItem"; title = "Timetable"; ObjectID = "qPY-H0-XnS"; */
+"qPY-H0-XnS.title" = "Stundenplan";

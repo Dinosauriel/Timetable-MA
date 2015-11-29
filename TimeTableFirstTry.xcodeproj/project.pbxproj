@@ -31,14 +31,15 @@
 		743ED8A01BF6401200DA2E46 /* LessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */; };
 		743ED8A11BF6401600DA2E46 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
 		743ED8A21BF6402400DA2E46 /* TimetitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DE1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift */; };
-		743ED8A51BF640D600DA2E46 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B061BEBE5570030FA95 /* Lesson.swift */; };
+		743ED8A51BF640D600DA2E46 /* UILesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B061BEBE5570030FA95 /* UILesson.swift */; };
 		7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */; };
-		746AA7101C08915C009D317A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 746AA70F1C08915C009D317A /* Main.storyboard */; };
-		74866B071BEBE5570030FA95 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B061BEBE5570030FA95 /* Lesson.swift */; };
+		7468840B1C0B701600F719BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7468840D1C0B701600F719BA /* Main.storyboard */; };
+		74866B071BEBE5570030FA95 /* UILesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B061BEBE5570030FA95 /* UILesson.swift */; };
 		74866B091BEBE9BA0030FA95 /* DeclareLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */; };
 		74866B0C1BEBF10A0030FA95 /* LessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */; };
 		74AA07281C06E20B002AC075 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74AA072A1C06E20B002AC075 /* InfoPlist.strings */; };
 		74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */; };
+		74CA85B01C0B4A530076CF64 /* TimeTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8F9DD1C061F2000D15752 /* TimeTableData.swift */; };
 		74E18DAB1BFFA27900DE26AF /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E18DAA1BFFA27900DE26AF /* WebView.swift */; };
 		74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A01BDD56710026F2AE /* AppDelegate.swift */; };
 		74EBE6A31BDD56710026F2AE /* TTCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A21BDD56710026F2AE /* TTCollectionViewController.swift */; };
@@ -113,8 +114,9 @@
 		743ED8901BF6339A00DA2E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		743ED8981BF6363900DA2E46 /* TodayLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayLayout.swift; sourceTree = "<group>"; };
 		7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplacedLessonCollectionViewCell.swift; sourceTree = "<group>"; };
-		746AA70F1C08915C009D317A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		74866B061BEBE5570030FA95 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		7468840C1C0B701600F719BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7468840F1C0B701B00F719BA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		74866B061BEBE5570030FA95 /* UILesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILesson.swift; sourceTree = "<group>"; };
 		74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeclareLesson.swift; sourceTree = "<group>"; };
 		74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCollectionViewCell.swift; sourceTree = "<group>"; };
 		74AA07291C06E20B002AC075 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -211,7 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				74EBE6AC1BDD56710026F2AE /* LaunchScreen.storyboard */,
-				746AA70F1C08915C009D317A /* Main.storyboard */,
+				7468840D1C0B701600F719BA /* Main.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -279,7 +281,7 @@
 		74866B051BEBE5400030FA95 /* Lesson */ = {
 			isa = PBXGroup;
 			children = (
-				74866B061BEBE5570030FA95 /* Lesson.swift */,
+				74866B061BEBE5570030FA95 /* UILesson.swift */,
 				74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */,
 				74382ED81BEFBE13007A28C4 /* Day.swift */,
 			);
@@ -510,7 +512,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				746AA7101C08915C009D317A /* Main.storyboard in Resources */,
+				7468840B1C0B701600F719BA /* Main.storyboard in Resources */,
 				74AA07281C06E20B002AC075 /* InfoPlist.strings in Resources */,
 				4F4BE6881BFDEE3A001EDE35 /* .gitignore in Resources */,
 				742889F81BF73A870018EAE4 /* Localizable.strings in Resources */,
@@ -545,9 +547,10 @@
 				743ED8A11BF6401600DA2E46 /* TimeCollectionViewCell.swift in Sources */,
 				743ED8A21BF6402400DA2E46 /* TimetitleCollectionViewCell.swift in Sources */,
 				743ED89C1BF63FA700DA2E46 /* Day.swift in Sources */,
+				74CA85B01C0B4A530076CF64 /* TimeTableData.swift in Sources */,
 				743ED89E1BF63FDC00DA2E46 /* TimetableTime.swift in Sources */,
 				740173AF1C08B21C006F3880 /* DayCollectionViewCell.swift in Sources */,
-				743ED8A51BF640D600DA2E46 /* Lesson.swift in Sources */,
+				743ED8A51BF640D600DA2E46 /* UILesson.swift in Sources */,
 				740173B21C08B312006F3880 /* TodayLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,7 +566,7 @@
 				74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */,
 				4FC8F9DE1C061F2000D15752 /* TimeTableData.swift in Sources */,
 				4FB5A78F1C060013007977FB /* APIHandler.swift in Sources */,
-				74866B071BEBE5570030FA95 /* Lesson.swift in Sources */,
+				74866B071BEBE5570030FA95 /* UILesson.swift in Sources */,
 				74EBE6D91BDD59580026F2AE /* TTCollectionViewLayout.swift in Sources */,
 				74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */,
 				741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */,
@@ -634,6 +637,15 @@
 				742889ED1BF735AD0018EAE4 /* de */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		7468840D1C0B701600F719BA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7468840C1C0B701600F719BA /* Base */,
+				7468840F1C0B701B00F719BA /* de */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		74AA072A1C06E20B002AC075 /* InfoPlist.strings */ = {

@@ -102,18 +102,14 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
-        print("Scroll Will Begin Decelarating")
         if UIApplication.sharedApplication().statusBarOrientation == .Portrait || UIApplication.sharedApplication().statusBarOrientation == .PortraitUpsideDown  {
-            print("Device is Portrait")
             scrollToOptimalSection(scrollView)
         }
     }
     
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
-            print("Immediate stop!")
             if UIApplication.sharedApplication().statusBarOrientation == .Portrait || UIApplication.sharedApplication().statusBarOrientation == .PortraitUpsideDown {
-                print("Device is Portrait")
                 scrollToOptimalSection(scrollView)
             }
         }
@@ -123,21 +119,15 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         if scrollView == self.collectionView {
             let targetScrollingPos = UICollectionViewScrollPosition.Right
             var currentCellOffset: CGPoint = self.collectionView.contentOffset
-            print(currentCellOffset)
             currentCellOffset.x += layout.getTimeColumnWidth()
-            //print(currentCellOffset)
-            
             let columnWidth = self.collectionView.bounds.width - layout.getTimeColumnWidth()
             
             let rightTargetFactor: CGFloat = 0.6
             let leftTargetFactor: CGFloat = 1 - rightTargetFactor
             
-            print("\(currentCellOffset.x) - \(scrollStartContentOffset.x)")
             if (currentCellOffset.x - scrollStartContentOffset.x) < 0 {
-                print("Scrolling Left")
                 currentCellOffset.x += (columnWidth * leftTargetFactor)
             } else {
-                print("Scrolling Right")
                 currentCellOffset.x += (columnWidth * rightTargetFactor)
             }
             
@@ -152,7 +142,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return numberOfSections
     }
-    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numberOfRows
@@ -194,7 +183,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             }
         } else {
             if indexPath.row == 0 {
-                let timeCell: TimeCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(timeCellIdentifier, forIndexPath: indexPath) as! TimeCollectionViewCell
+                let timeCell: TimeCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(timeCellIdentifier, forIndexPath: indexPath) as! TimeCollectionViewCell
                 timeCell.starttimeLabel.font = UIFont.systemFontOfSize(13)
                 timeCell.endtimeLabel.font = UIFont.systemFontOfSize(13)
                 timeCell.starttimeLabel.textColor = defaultTextColor
@@ -214,7 +203,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 
                 let celltoreturn: UICollectionViewCell
                 
-                let alesson = declarelesson.getNewLessonForUI(indexPath.row, pos: indexPath.section)
+                let alesson = declarelesson.getNewLessonForUI(indexPath.row + 1, pos: indexPath.section)
                 
                 switch alesson.status {
                     case .Default:

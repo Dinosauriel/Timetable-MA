@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Lesson {
+struct UILesson {
     
     let subject: String
     let teacher: String
