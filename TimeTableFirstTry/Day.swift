@@ -20,11 +20,16 @@ class Day {
         
         
         func getNextDay(distance: Int) -> String {
-            let week = calendar.components(.WeekOfYear, fromDate: NSDate())
-            let day = calendar.dateBySettingUnit(.Weekday, value: (2 + distance), ofDate: NSDate(), options: NSCalendarOptions())
+            var day = calendar.dateBySettingUnit(.Weekday, value: (2 + distance), ofDate: NSDate(), options: NSCalendarOptions())
+            
+            let weekdayCal = calendar.component(.Weekday, fromDate: day!)
+            
+            if weekdayCal < currentWeekDay && currentWeekDay != 7 {
+                day = calendar.dateByAddingUnit(.WeekOfYear, value: -1, toDate: day!, options: NSCalendarOptions())
+            }
             
             let formatter = NSDateFormatter()
-            formatter.dateFormat = "EEE, dd. MMM yyyy"
+            formatter.dateFormat = "EEEE, dd. MMMM yyyy"
             
             let DateString = formatter.stringFromDate(day!)
             return DateString

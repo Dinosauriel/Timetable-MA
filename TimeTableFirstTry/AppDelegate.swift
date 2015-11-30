@@ -37,7 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
         
         //Push-notifications
         //let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge], categories: nil)

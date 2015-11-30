@@ -13,3 +13,4 @@ widget = "Widget";
 
 general = "General";
 app = "App";
+time = "Time";
