@@ -24,31 +24,35 @@ class TTCollectionViewLayout: UICollectionViewLayout {
             return
         }
         
-        if (self.itemAttributes != nil && self.itemAttributes.count > 0) {
+        /*if (self.itemAttributes != nil && self.itemAttributes.count > 0) {
             
             for section in 0 ..< self.collectionView!.numberOfSections() {
-                let numberOfItems :Int = self.collectionView!.numberOfItemsInSection(section)
+                let numberOfItems: Int = self.collectionView!.numberOfItemsInSection(section)
                 for index in 0 ..< numberOfItems {
                     if section != 0 && index != 0 {
                         continue
                     }
                     
-                    let attributes : UICollectionViewLayoutAttributes = self.layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: index, inSection: section))
+                    let attributes: UICollectionViewLayoutAttributes = self.layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: index, inSection: section))
                     if section == 0 {
-                        var frame = attributes.frame
-                        frame.origin.y = self.collectionView!.contentOffset.y
-                        attributes.frame = frame
+                        //var frame = attributes.frame
+                        //frame.origin.y = self.collectionView!.contentOffset.y
+                        //attributes.frame = frame
+                        
+                        attributes.frame.origin.y = self.collectionView!.contentOffset.y
                     }
                     
                     if index == 0 {
-                        var frame = attributes.frame
-                        frame.origin.x = self.collectionView!.contentOffset.x
-                        attributes.frame = frame
+                        //var frame = attributes.frame
+                        //frame.origin.x = self.collectionView!.contentOffset.x
+                        //attributes.frame = frame
+                        
+                        attributes.frame.origin.x = self.collectionView!.contentOffset.x
                     }
                 }
             }
             return
-        }
+        }*/
         
         if (self.itemsWidth == nil || self.itemsWidth.count != numberOfColumns) {
             self.calculateItemsSize()
@@ -83,14 +87,18 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                 }
                 
                 if section == 0 {
-                    var frame = attributes.frame
-                    frame.origin.y = self.collectionView!.contentOffset.y
-                    attributes.frame = frame
+                    //var frame = attributes.frame
+                    //frame.origin.y = self.collectionView!.contentOffset.y
+                    //attributes.frame = frame
+                    
+                    attributes.frame.origin.y = self.collectionView!.contentOffset.y
                 }
                 if index == 0 {
-                    var frame = attributes.frame
-                    frame.origin.x = self.collectionView!.contentOffset.x
-                    attributes.frame = frame
+                    //var frame = attributes.frame
+                    //frame.origin.x = self.collectionView!.contentOffset.x
+                    //attributes.frame = frame
+                    
+                    attributes.frame.origin.x = self.collectionView!.contentOffset.x
                 }
                 
                 sectionAttributes.addObject(attributes)
