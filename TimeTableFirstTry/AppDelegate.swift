@@ -21,9 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        // DEFINING INITIAL VIEWCONTROLLER
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
         // DETECTING FIRST LAUNCH
         if UserDefaults.objectForKey("HasLaunchedOnce") == nil {
             UserDefaults.setBool(false, forKey: "HasLaunchedOnce")
@@ -64,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?,annotation: AnyObject) -> Bool {
         print("Handling token...")
         APIHandlerVar?.handleTokenResponse(url)
