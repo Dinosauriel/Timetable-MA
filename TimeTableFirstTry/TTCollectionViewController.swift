@@ -41,7 +41,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let specialLessonBackgroundColor = UIColor(hue: 0.125, saturation: 1, brightness: 0.97, alpha: 1.0) //YELLOW
     
     //MARK: TIMES
-    let rotationScrollDelayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
+    //let rotationScrollDelayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
     
     //MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
@@ -85,14 +85,14 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             addStatusBar()
             addTabBar()
             
-            dispatch_after(rotationScrollDelayTime, dispatch_get_main_queue()) {
-                self.scrollToOptimalSection(self.collectionView)
-            }
-            
         } else {
             removeStatusBar()
             removeTabBar()
         }
+    }
+    
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        self.scrollToOptimalSection(self.collectionView)
     }
     
     // MARK: PAGING

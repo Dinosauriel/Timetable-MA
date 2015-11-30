@@ -10,8 +10,11 @@ import UIKit
 
 class TTCollectionViewLayout: UICollectionViewLayout {
     
+    
     var itemAttributes: NSMutableArray!
+    // Array of index Widths assigned by calculateItemWidths
     var itemsWidth: NSMutableArray!
+    // ContentSize for entire Table
     var contentSize: CGSize!
     var numberOfColumns = 6
     
@@ -61,11 +64,18 @@ class TTCollectionViewLayout: UICollectionViewLayout {
         var column = 0
         var xOffset: CGFloat = 0
         var yOffset: CGFloat = 0
+        
+        //Width of Entire Table
         var contentWidth: CGFloat = 0
+        //Height of Entire Table
         var contentHeight: CGFloat = 0
         
         for section in 0 ..< self.collectionView!.numberOfSections() {
+            
+            // Attributes of a single section
             let sectionAttributes = NSMutableArray()
+            
+            // Height of a single Section
             var itemHeight: CGFloat
             
             if section == 0 {
@@ -74,16 +84,24 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                 itemHeight = 60
             }
             
+            
             for index in 0 ..< numberOfColumns {
+                //Width of a single Column
                 let itemWidth = self.itemsWidth[index] as! CGFloat
+                
+                // IndexPath created for every index and Section
                 let indexPath = NSIndexPath(forItem: index, inSection: section)
+                
+                // Attributes of a single Cell with the current section and index
                 let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
+                // Assigning provisional Position and Size of each cell as attribute.frame
                 attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemWidth, itemHeight))
                 
+                // Determining zIndexes (higher means more in front)
                 if section == 0 && index == 0 {
-                    attributes.zIndex = 4
-                } else  if section == 0 || index == 0 {
                     attributes.zIndex = 3
+                } else  if section == 0 || index == 0 {
+                    attributes.zIndex = 2
                 }
                 
                 if section == 0 {
@@ -122,11 +140,14 @@ class TTCollectionViewLayout: UICollectionViewLayout {
             self.itemAttributes.addObject(sectionAttributes)
         }
         
-        let attributes: UICollectionViewLayoutAttributes = self.itemAttributes.lastObject?.lastObject as! UICollectionViewLayoutAttributes
-        contentHeight = attributes.frame.origin.y + attributes.frame.size.height
+        let lastAttribute: UICollectionViewLayoutAttributes = self.itemAttributes.lastObject?.lastObject as! UICollectionViewLayoutAttributes
+        contentHeight = lastAttribute.frame.origin.y + lastAttribute.frame.size.height
         self.contentSize = CGSizeMake(contentWidth, contentHeight)
     }
     
+    /**
+    Returning Size for the entire CollectionView
+    */
     override func collectionViewContentSize() -> CGSize {
         return self.contentSize
     }
@@ -143,7 +164,8 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                 
                 let filteredArray = section.filteredArrayUsingPredicate(
                     
-                    NSPredicate(block: { (evaluatedObject, bindings) -> Bool in
+                    NSPredicate(block: {
+                        (evaluatedObject, bindings) -> Bool in
                         return CGRectIntersectsRect(rect, evaluatedObject.frame)
                     })
                     ) as! [UICollectionViewLayoutAttributes]
@@ -161,6 +183,10 @@ class TTCollectionViewLayout: UICollectionViewLayout {
     }
     
     // MARK: CALCULATING SIZE FOR CELLS
+    
+    /**
+    Calculates a optimal width for a section relative to the display size
+    */
     func widthForItemWithColumnIndex(sectionIndex: Int) -> CGFloat {
         
         let timeColumnWidth: CGFloat = getTimeColumnWidth()
@@ -179,7 +205,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
     }
     
     /**
-    Appends for each Column a fitting Value to self.itemsize
+    Appends for each Column a fitting Value to self.itemsWidth
     */
     func calculateItemsSize() {
         self.itemsWidth = NSMutableArray(capacity: numberOfColumns)
@@ -189,6 +215,9 @@ class TTCollectionViewLayout: UICollectionViewLayout {
         }
     }
     
+    /**
+    Calculates the Width of the time section by adding a Margin to the "Time" String
+    */
     func getTimeColumnWidth() -> CGFloat {
         
         let timeTitle = NSLocalizedString("time", comment: "TimeTransForSizeCalculation")
