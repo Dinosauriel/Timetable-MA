@@ -27,7 +27,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
             return
         }
         
-        /*if (self.itemAttributes != nil && self.itemAttributes.count > 0) {
+        if (self.itemAttributes != nil && self.itemAttributes.count > 0) {
             
             for section in 0 ..< self.collectionView!.numberOfSections() {
                 let numberOfItems: Int = self.collectionView!.numberOfItemsInSection(section)
@@ -55,7 +55,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                 }
             }
             return
-        }*/
+        }
         
         if (self.itemsWidth == nil || self.itemsWidth.count != numberOfColumns) {
             self.calculateItemsSize()
@@ -104,6 +104,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                     attributes.zIndex = 2
                 }
                 
+                //Assigning absolute y-Values to all items in section 0
                 if section == 0 {
                     //var frame = attributes.frame
                     //frame.origin.y = self.collectionView!.contentOffset.y
@@ -111,6 +112,8 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                     
                     attributes.frame.origin.y = self.collectionView!.contentOffset.y
                 }
+                
+                //Assigning absolute x-Values to all items in index 0
                 if index == 0 {
                     //var frame = attributes.frame
                     //frame.origin.x = self.collectionView!.contentOffset.x
@@ -119,18 +122,24 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                     attributes.frame.origin.x = self.collectionView!.contentOffset.x
                 }
                 
+                //Adding the Calculated Attributes to the sectionAttributes Array
                 sectionAttributes.addObject(attributes)
                 
+                // Updating xOffset for next row in this section
                 xOffset += itemWidth
+                // Updating column for next row in this section
                 column++
                 
                 if column == numberOfColumns {
+                    // Adapting ContentWidth if necessary
                     if xOffset > contentWidth {
                         contentWidth = xOffset
                     }
                     
+                    //Setting column and xOffset to 0 to prepare for the next section
                     column = 0
                     xOffset = 0
+                    // Adapting yOffset for next section
                     yOffset += itemHeight
                 }
             }
@@ -152,8 +161,10 @@ class TTCollectionViewLayout: UICollectionViewLayout {
         return self.contentSize
     }
     
+    /**
+    Returning the Attributes that were created in prepareLayout()
+    */
     override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes {
-        
         return self.itemAttributes[indexPath.section][indexPath.row] as! UICollectionViewLayoutAttributes
     }
     
@@ -162,13 +173,16 @@ class TTCollectionViewLayout: UICollectionViewLayout {
         if self.itemAttributes != nil {
             for section in self.itemAttributes {
                 
-                let filteredArray = section.filteredArrayUsingPredicate(
-                    
-                    NSPredicate(block: {
-                        (evaluatedObject, bindings) -> Bool in
-                        return CGRectIntersectsRect(rect, evaluatedObject.frame)
-                    })
-                    ) as! [UICollectionViewLayoutAttributes]
+                // Filters for all CGRects that intersect
+                let filterPredicate = NSPredicate(
+                    block: {
+                    (evaluatedObject, bindings) -> Bool in
+                    return CGRectIntersectsRect(rect, evaluatedObject.frame)
+                }
+                )
+                
+                // Filtering self.itemAttributes with the predicate
+                let filteredArray = section.filteredArrayUsingPredicate(filterPredicate) as! [UICollectionViewLayoutAttributes]
                 
                 attributes.appendContentsOf(filteredArray)
                 
