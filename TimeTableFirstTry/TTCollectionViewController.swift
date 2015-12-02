@@ -38,7 +38,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let replacedLessonTextColor = UIColor.blueColor()
     let cancelledLessonTextColor = UIColor.redColor()
     let defaultTextColor = UIColor.blackColor()
-    let specialLessonBackgroundColor = UIColor(hue: 0.125, saturation: 1, brightness: 0.97, alpha: 1.0) //YELLOW
+    let specialLessonBackgroundColor = UIColor(hue: 0.8639, saturation: 0, brightness: 0.83, alpha: 1.0) //GRAY
     
     //MARK: TIMES
     //let rotationScrollDelayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))

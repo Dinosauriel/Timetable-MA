@@ -14,6 +14,7 @@ class SettingsTableViewController: UITableViewController {
     let settingsMainMenuCellIdentifier = "settingsMainMenuCellIdentifier"
     
     let showHiSegueIdentifier = "showHiSegue"
+    let showClassSegueIdentifier = "showClassSelect"
     
     let settingsMainMenu = [
         NSLocalizedString("login", comment: "loginTrans"),
@@ -26,8 +27,15 @@ class SettingsTableViewController: UITableViewController {
 
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 0 {
-            self.performSegueWithIdentifier(showHiSegueIdentifier, sender: self)
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                self.performSegueWithIdentifier(showHiSegueIdentifier, sender: self)
+            }
+        } else {
+            if indexPath.row == 0 {
+                self.performSegueWithIdentifier(showClassSegueIdentifier, sender: self)
+            }
+            
         }
     }
     
@@ -39,7 +47,7 @@ class SettingsTableViewController: UITableViewController {
         if section == 0 {
             return 3
         } else {
-            return 2
+            return 1
         }
     }
     
@@ -58,8 +66,11 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = settingsTableView.dequeueReusableCellWithIdentifier(settingsMainMenuCellIdentifier, forIndexPath: indexPath) as UITableViewCell
         
-        cell.textLabel?.text = settingsMainMenu[indexPath.row]
-        
+        if indexPath.section == 0 {
+            cell.textLabel?.text = settingsMainMenu[indexPath.row]
+        } else {
+            cell.textLabel?.text = NSLocalizedString("class", comment: "TransForSettingsClass")
+        }
         return cell
     }
     

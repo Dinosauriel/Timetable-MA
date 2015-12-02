@@ -21,6 +21,9 @@ class TTCollectionViewLayout: UICollectionViewLayout {
     let marginForTimeColumn: CGFloat = 15
     let heightForDayRow: CGFloat = 40
     
+    /**
+    Assigning the proper Values to the Variables
+    */
     override func prepareLayout() {
         
         if self.collectionView?.numberOfSections() == 0 {

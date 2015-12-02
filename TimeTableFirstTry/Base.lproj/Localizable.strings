@@ -14,3 +14,5 @@ widget = "Widget";
 general = "General";
 app = "App";
 time = "Time";
+
+class = "Class";
