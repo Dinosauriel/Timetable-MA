@@ -39,8 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = initialViewController
         
         //Push-notifications
-        //let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge], categories: nil)
-        //UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         
         //API
         
@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }*/
         
-        //UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
         return true
     }

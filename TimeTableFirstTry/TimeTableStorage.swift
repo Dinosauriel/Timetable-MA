@@ -30,7 +30,7 @@ public class TimeTableStorage {
                 TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["Class"]!), StartTime: String(lesson["StartTime"]!), EndTime: String(lesson["EndTime"]!), Location: String(lesson["Location"]!), Subject: String(lesson["Subject"]!), Teacher: String(lesson["Teacher"]!), Day: String(lesson["Day"]!))
             }
             ++i
-            print(lesson)
+            //print(lesson)
         }
         
         //Saves the token to the local storage for later use
