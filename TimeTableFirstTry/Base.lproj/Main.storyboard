@@ -8,7 +8,7 @@
         <!--Web View-->
         <scene sceneID="9pI-tH-hOO">
             <objects>
-                <viewController storyboardIdentifier="LoginVCID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zd4-2a-Ekv" customClass="WebView" customModule="TimeTableFirstTry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVCID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zd4-2a-Ekv" customClass="WebView" customModule="Timetable_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0rt-od-OLL"/>
                         <viewControllerLayoutGuide type="bottom" id="GxD-JB-cya"/>
@@ -55,7 +55,7 @@
         <!--Settings-->
         <scene sceneID="6Ku-KL-UFy">
             <objects>
-                <tableViewController storyboardIdentifier="SettingsVCID" id="Y6f-Xw-aOx" customClass="SettingsTableViewController" customModule="TimeTableFirstTry" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsVCID" id="Y6f-Xw-aOx" customClass="SettingsTableViewController" customModule="Timetable_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="buZ-et-Ruz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -135,7 +135,7 @@
         <!--Class-->
         <scene sceneID="S17-YI-ip2">
             <objects>
-                <tableViewController id="nZB-oH-qbj" customClass="ClassTableViewController" customModule="TimeTableFirstTry" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="nZB-oH-qbj" customClass="ClassTableViewController" customModule="Timetable_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="MoL-Nh-45S">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,7 +171,7 @@
         <!--Subclass-->
         <scene sceneID="sHA-8n-ETc">
             <objects>
-                <tableViewController id="08L-6S-M2O" customClass="SubClassTableViewController" customModule="TimeTableFirstTry" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="08L-6S-M2O" customClass="SubClassTableViewController" customModule="Timetable_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="C1a-4W-zzT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,7 +207,7 @@
         <!--Timetable-->
         <scene sceneID="rG2-y0-Cz8">
             <objects>
-                <viewController storyboardIdentifier="TimeTableVCID" id="m88-DH-tRX" customClass="TTCollectionViewController" customModule="TimeTableFirstTry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimeTableVCID" id="m88-DH-tRX" customClass="TTCollectionViewController" customModule="Timetable_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KsC-db-yIu"/>
                         <viewControllerLayoutGuide type="bottom" id="pPM-cO-ZMW"/>
@@ -221,9 +221,9 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewLayout key="collectionViewLayout" id="qOJ-WM-DPR" customClass="TTCollectionViewLayout" customModule="TimeTableFirstTry" customModuleProvider="target"/>
+                                <collectionViewLayout key="collectionViewLayout" id="qOJ-WM-DPR" customClass="TTCollectionViewLayout" customModule="Timetable_App" customModuleProvider="target"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimetitleCellIdentifier" id="D0r-k3-ayw" customClass="TimetitleCollectionViewCell" customModule="TimeTableFirstTry" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimetitleCellIdentifier" id="D0r-k3-ayw" customClass="TimetitleCollectionViewCell" customModule="Timetable_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="19.5" width="249" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -233,7 +233,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ft-7W-54o" userLabel="Timetitle Label">
                                                     <rect key="frame" x="0.0" y="0.0" width="249" height="50"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -249,6 +249,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="NHT-Ph-WUZ" firstAttribute="leading" secondItem="D0r-k3-ayw" secondAttribute="leading" id="18E-bl-AZG"/>
                                             <constraint firstAttribute="bottom" secondItem="5ft-7W-54o" secondAttribute="bottom" id="NBy-1g-dXB"/>
@@ -264,7 +265,7 @@
                                             <outlet property="timetitleLabel" destination="5ft-7W-54o" id="HQt-yq-mcc"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeCellIdentifier" id="iwX-Al-vSb" customClass="TimeCollectionViewCell" customModule="TimeTableFirstTry" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeCellIdentifier" id="iwX-Al-vSb" customClass="TimeCollectionViewCell" customModule="Timetable_App" customModuleProvider="target">
                                         <rect key="frame" x="334" y="0.0" width="266" height="88.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -272,16 +273,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkM-2o-aps" userLabel="Starttime Label">
-                                                    <rect key="frame" x="0.0" y="0.0" width="266" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="266" height="16"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksw-ia-0FO" userLabel="Endtime Label">
-                                                    <rect key="frame" x="0.0" y="68" width="266" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="72.5" width="266" height="16"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -297,6 +298,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="EJN-Wv-uWe" firstAttribute="leading" secondItem="iwX-Al-vSb" secondAttribute="leading" id="6lu-z1-4WJ"/>
                                             <constraint firstAttribute="bottom" secondItem="EJN-Wv-uWe" secondAttribute="bottom" id="E37-xB-A2j"/>
@@ -316,7 +318,7 @@
                                             <outlet property="starttimeLabel" destination="ZkM-2o-aps" id="61f-uK-ULk"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReplacedLessonCellIdentifier" id="W1T-ho-iaf" customClass="ReplacedLessonCollectionViewCell" customModule="TimeTableFirstTry" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReplacedLessonCellIdentifier" id="W1T-ho-iaf" customClass="ReplacedLessonCollectionViewCell" customModule="Timetable_App" customModuleProvider="target">
                                         <rect key="frame" x="146.5" y="98.5" width="307" height="93"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -324,40 +326,40 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pj-XE-adb">
-                                                    <rect key="frame" x="20" y="21" width="130" height="20.5"/>
+                                                    <rect key="frame" x="20" y="23.5" width="130" height="16"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="19g-pw-elL"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvu-hW-yHU">
-                                                    <rect key="frame" x="150" y="21" width="78.5" height="20.5"/>
+                                                    <rect key="frame" x="150" y="23.5" width="78.5" height="16"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIK-aE-j1M">
-                                                    <rect key="frame" x="228" y="21" width="78.5" height="20.5"/>
+                                                    <rect key="frame" x="228" y="23.5" width="78.5" height="16"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oG-co-Eg2" userLabel="SubTeacher Label">
-                                                    <rect key="frame" x="150" y="51" width="78.5" height="20.5"/>
+                                                    <rect key="frame" x="150" y="53.5" width="78.5" height="16"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4v-H4-A36" userLabel="SubRoom Label">
-                                                    <rect key="frame" x="228" y="51" width="78.5" height="20.5"/>
+                                                    <rect key="frame" x="228" y="53.5" width="78.5" height="16"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -370,9 +372,9 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NuD-sC-N0j" userLabel="SubSubject Label">
-                                                    <rect key="frame" x="20" y="51" width="130" height="20.5"/>
+                                                    <rect key="frame" x="20" y="53.5" width="130" height="16"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -388,6 +390,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="9pj-XE-adb" firstAttribute="leading" secondItem="W1T-ho-iaf" secondAttribute="leading" constant="20" id="4W9-0B-Rgf"/>
                                             <constraint firstItem="NuD-sC-N0j" firstAttribute="leading" secondItem="W1T-ho-iaf" secondAttribute="leading" constant="20" id="5SG-jH-f2W"/>
@@ -424,7 +427,7 @@
                                             <outlet property="teacherLabel" destination="Vvu-hW-yHU" id="86z-vb-PAe"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LessonCellIdentifier" id="vH5-5Q-bZb" customClass="LessonCollectionViewCell" customModule="TimeTableFirstTry" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LessonCellIdentifier" id="vH5-5Q-bZb" customClass="LessonCollectionViewCell" customModule="Timetable_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="201.5" width="307" height="93"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -475,6 +478,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="clV-Xy-p7Q" firstAttribute="leading" secondItem="vH5-5Q-bZb" secondAttribute="leading" constant="20" id="1rQ-57-KUy"/>
                                             <constraint firstAttribute="bottom" secondItem="b2a-bP-zNZ" secondAttribute="bottom" id="4Dp-X4-JPQ"/>
@@ -501,7 +505,7 @@
                                             <outlet property="teacherLabel" destination="2in-sB-8GW" id="FHi-V3-gN1"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DayCellIdentifier" id="nZv-OI-p7i" customClass="DayCollectionViewCell" customModule="TimeTableFirstTry" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DayCellIdentifier" id="nZv-OI-p7i" customClass="DayCollectionViewCell" customModule="Timetable_App" customModuleProvider="target">
                                         <rect key="frame" x="317" y="223" width="201" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -511,7 +515,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LC-GX-Gds" userLabel="Day Label">
                                                     <rect key="frame" x="0.0" y="0.0" width="201" height="50"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -527,6 +531,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="0LC-GX-Gds" firstAttribute="top" secondItem="nZv-OI-p7i" secondAttribute="top" id="0Z9-SQ-GGH"/>
                                             <constraint firstItem="0LC-GX-Gds" firstAttribute="leading" secondItem="nZv-OI-p7i" secondAttribute="leading" id="1KE-25-cVG"/>

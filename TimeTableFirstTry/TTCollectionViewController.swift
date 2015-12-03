@@ -152,9 +152,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 let timetitleCell: TimetitleCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(timetitleCellIdentifier, forIndexPath: indexPath) as! TimetitleCollectionViewCell
-                timetitleCell.backgroundColor = cellBackgroundColor
-                timetitleCell.timetitleLabel.font = UIFont.systemFontOfSize(13)
-                timetitleCell.timetitleLabel.textColor = defaultTextColor
+                //timetitleCell.backgroundColor = cellBackgroundColor
+                //timetitleCell.timetitleLabel.font = UIFont.systemFontOfSize(13)
+                //timetitleCell.timetitleLabel.textColor = defaultTextColor
                 timetitleCell.timetitleLabel.text = NSLocalizedString("time", comment: "TransForTime")
                 
                 if indexPath.section != (numberOfSections - 1) {
@@ -167,11 +167,11 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             } else {
                 let dayCell : DayCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
                 let dayArray = day.generateDayArray()
-                dayCell.dayLabel.font = UIFont.systemFontOfSize(13)
-                dayCell.dayLabel.textColor = defaultTextColor
+                //dayCell.dayLabel.font = UIFont.systemFontOfSize(13)
+                //dayCell.dayLabel.textColor = defaultTextColor
                 dayCell.dayLabel.text = dayArray[indexPath.row - 1] as? String
                 
-                dayCell.backgroundColor = cellBackgroundColor
+                //dayCell.backgroundColor = cellBackgroundColor
                 
                 if indexPath.section != (numberOfSections - 1) {
                     dayCell.dividingView.backgroundColor = dividingLineColor
@@ -184,14 +184,14 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         } else {
             if indexPath.row == 0 {
                 let timeCell: TimeCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(timeCellIdentifier, forIndexPath: indexPath) as! TimeCollectionViewCell
-                timeCell.starttimeLabel.font = UIFont.systemFontOfSize(13)
-                timeCell.endtimeLabel.font = UIFont.systemFontOfSize(13)
-                timeCell.starttimeLabel.textColor = defaultTextColor
-                timeCell.endtimeLabel.textColor = defaultTextColor
+                //timeCell.starttimeLabel.font = UIFont.systemFontOfSize(13)
+                //timeCell.endtimeLabel.font = UIFont.systemFontOfSize(13)
+                //timeCell.starttimeLabel.textColor = defaultTextColor
+                //timeCell.endtimeLabel.textColor = defaultTextColor
                 timeCell.starttimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section, when: "start")
                 timeCell.endtimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section, when: "end")
                 
-                timeCell.backgroundColor = cellBackgroundColor
+                //timeCell.backgroundColor = cellBackgroundColor
                 
                 if indexPath.section != (numberOfSections - 1) {
                     timeCell.dividingView.backgroundColor = dividingLineColor
@@ -232,15 +232,15 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                     case .Cancelled:
                         let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
                         // Declaring subjectLabel appearance
-                        lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
+                        //lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
                         lessonCell.subjectLabel.textColor = cancelledLessonTextColor
                         lessonCell.subjectLabel.text = alesson.subject
                         // Declaring teacherLabel appearance
-                        lessonCell.teacherLabel.font = UIFont.systemFontOfSize(13)
+                        //lessonCell.teacherLabel.font = UIFont.systemFontOfSize(13)
                         lessonCell.teacherLabel.textColor = cancelledLessonTextColor
                         lessonCell.teacherLabel.text = alesson.teacher
                         // Declaring roomLabel appearance
-                        lessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
+                        //lessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
                         lessonCell.roomLabel.textColor = cancelledLessonTextColor
                         lessonCell.roomLabel.text = alesson.room
                         //Crossing out Lesson
@@ -258,27 +258,27 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                     case .Replaced:
                         let replacedlessonCell: ReplacedLessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(replacedlessonCellIdentifier, forIndexPath: indexPath) as! ReplacedLessonCollectionViewCell
                         // Declaring subjectLabel appearance
-                        replacedlessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
+                        //replacedlessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
                         replacedlessonCell.subjectLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.subjectLabel.text = alesson.subject
                         // Declaring teacherLabel appearance
-                        replacedlessonCell.teacherLabel.font = UIFont.systemFontOfSize(13)
+                        //replacedlessonCell.teacherLabel.font = UIFont.systemFontOfSize(13)
                         replacedlessonCell.teacherLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.teacherLabel.text = alesson.teacher
                         // Declaring roomLabel appearance
-                        replacedlessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
+                        //replacedlessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
                         replacedlessonCell.roomLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.roomLabel.text = alesson.room
                         // Declaring subsubjectLabel appearance
-                        replacedlessonCell.subsubjectLabel.font = UIFont.systemFontOfSize(13)
+                        //replacedlessonCell.subsubjectLabel.font = UIFont.systemFontOfSize(13)
                         replacedlessonCell.subsubjectLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.subsubjectLabel.text = alesson.subsubject
                         // Declaring subteacherLabel appearance
-                        replacedlessonCell.subteacherLabel.font = UIFont.systemFontOfSize(13)
+                        //replacedlessonCell.subteacherLabel.font = UIFont.systemFontOfSize(13)
                         replacedlessonCell.subteacherLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.subteacherLabel.text = alesson.subteacher
                         // Declaring subroomLabel appearance
-                        replacedlessonCell.subroomLabel.font = UIFont.systemFontOfSize(13)
+                        //replacedlessonCell.subroomLabel.font = UIFont.systemFontOfSize(13)
                         replacedlessonCell.subroomLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.subroomLabel.text = alesson.subroom
                         
@@ -317,15 +317,14 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         if indexPath.section != (numberOfSections - 1) {
                             lessonCell.dividingView.backgroundColor = dividingLineColor
                         }
-                        //lessonCell.vertDividingView.backgroundColor = dividingLineColor
                         
                         celltoreturn = lessonCell
                 }
                 
-                
-                if celltoreturn.backgroundColor != specialLessonBackgroundColor {
-                    celltoreturn.backgroundColor = cellBackgroundColor
-                }
+//                
+//                if celltoreturn.backgroundColor != specialLessonBackgroundColor {
+//                    celltoreturn.backgroundColor = cellBackgroundColor
+//                }
 
                 return celltoreturn
             }
