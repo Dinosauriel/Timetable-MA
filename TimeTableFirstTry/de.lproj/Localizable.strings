@@ -16,3 +16,8 @@ app = "App";
 time = "Zeit";
 
 class = "Klasse";
+
+firstclass = "1. Klasse";
+secondclass = "2. Klasse";
+thirdclass = "3. Klasse";
+fourthclass = "4. Klasse";

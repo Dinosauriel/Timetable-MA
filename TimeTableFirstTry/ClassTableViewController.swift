@@ -13,10 +13,10 @@ class ClassTableViewController: UITableViewController {
     @IBOutlet var classTableView: UITableView!
     
     var classMenu = [
-        "1. Klasse",
-        "2. Klasse",
-        "3. Klasse",
-        "4. Klasse"
+        NSLocalizedString("firstclass", comment: "transForClassSelection"),
+        NSLocalizedString("secondclass", comment: "transForClassSelection"),
+        NSLocalizedString("thirdclass", comment: "transForClassSelection"),
+        NSLocalizedString("fourthclass", comment: "transForClassSelection")
         ]
     
     let cellIdentifier = "ClassCellIdentifier"
@@ -28,7 +28,6 @@ class ClassTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = classTableView.dequeueReusableCellWithIdentifier(cellIdentifier)! as UITableViewCell
         
-        //createClassArray()
         cell.textLabel?.text = self.classMenu[indexPath.row]
         
         return cell
@@ -45,17 +44,5 @@ class ClassTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return NSLocalizedString("class", comment: "TransForClassSelHeader")
     }
-    
-    /**
-    Returns Array with appropriate Names for Class Menu
-    */
-//    func createClassArray() {
-//        for var i = 1; i <= 4; ++i {
-//            var classString = String(i)
-//            classString.appendContentsOf(". ")
-//            classString.appendContentsOf(NSLocalizedString("class", comment: "TransForClassSel"))
-//            
-//            self.classMenu.addObject(classString)
-//        }
-//    }
+
 }

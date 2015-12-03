@@ -25,11 +25,11 @@ public class TimeTableStorage {
         var lesson = [String : String]()
         
         while i != endI {
-            lesson = try body[i] as! NSDictionary as! [String : String]
+            lesson = body[i] as! NSDictionary as! [String : String]
             if let moc = self.managedObjectContext {
                 TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["Class"]!), StartTime: String(lesson["StartTime"]!), EndTime: String(lesson["EndTime"]!), Location: String(lesson["Location"]!), Subject: String(lesson["Subject"]!), Teacher: String(lesson["Teacher"]!), Day: String(lesson["Day"]!))
             }
-            i++
+            ++i
             print(lesson)
         }
         

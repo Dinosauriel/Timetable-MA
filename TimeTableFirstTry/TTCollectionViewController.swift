@@ -203,22 +203,22 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 
                 let celltoreturn: UICollectionViewCell
                 
-                let alesson = declarelesson.getNewLessonForUI(indexPath.row + 1, pos: indexPath.section)
+                let alesson = declarelesson.getNewLessonForUI(indexPath.row, pos: indexPath.section)
                 
                 switch alesson.status {
                     case .Default:
-                        let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
                         // Declaring subjectLabel appearance
-                        lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
-                        lessonCell.subjectLabel.textColor = defaultTextColor
+                        //lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
+                        //lessonCell.subjectLabel.textColor = defaultTextColor
                         lessonCell.subjectLabel.text = alesson.subject
                         // Declaring teacherLabel appearance
-                        lessonCell.teacherLabel.font = UIFont.systemFontOfSize(13)
-                        lessonCell.teacherLabel.textColor = defaultTextColor
+                        //lessonCell.teacherLabel.font = UIFont.systemFontOfSize(13)
+                        //lessonCell.teacherLabel.textColor = defaultTextColor
                         lessonCell.teacherLabel.text = alesson.teacher
                         // Declaring roomLabel appearance
-                        lessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
-                        lessonCell.roomLabel.textColor = defaultTextColor
+                        //lessonCell.roomLabel.font = UIFont.systemFontOfSize(13)
+                        //lessonCell.roomLabel.textColor = defaultTextColor
                         lessonCell.roomLabel.text = alesson.room
                         
                         
@@ -227,10 +227,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         }
                         //lessonCell.vertDividingView.backgroundColor = dividingLineColor
                         
-                        celltoreturn = lessonCell
+                        celltoreturn = lessonCell as LessonCollectionViewCell
                     
                     case .Cancelled:
-                        let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
                         // Declaring subjectLabel appearance
                         lessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
                         lessonCell.subjectLabel.textColor = cancelledLessonTextColor
@@ -256,7 +256,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         celltoreturn = lessonCell
                     
                     case .Replaced:
-                        let replacedlessonCell: ReplacedLessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(replacedlessonCellIdentifier, forIndexPath: indexPath) as! ReplacedLessonCollectionViewCell
+                        let replacedlessonCell: ReplacedLessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(replacedlessonCellIdentifier, forIndexPath: indexPath) as! ReplacedLessonCollectionViewCell
                         // Declaring subjectLabel appearance
                         replacedlessonCell.subjectLabel.font = UIFont.systemFontOfSize(13)
                         replacedlessonCell.subjectLabel.textColor = replacedLessonTextColor
@@ -321,6 +321,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         
                         celltoreturn = lessonCell
                 }
+                
                 
                 if celltoreturn.backgroundColor != specialLessonBackgroundColor {
                     celltoreturn.backgroundColor = cellBackgroundColor
