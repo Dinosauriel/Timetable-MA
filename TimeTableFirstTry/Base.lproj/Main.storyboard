@@ -22,18 +22,11 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evo-0S-gnq">
-                                <rect key="frame" x="253.5" y="285" width="93" height="30"/>
-                                <animations/>
-                                <state key="normal" title="First Launch!!"/>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="evo-0S-gnq" firstAttribute="centerY" secondItem="7I9-b7-UpG" secondAttribute="centerY" id="33I-69-xJZ"/>
                             <constraint firstItem="Wpx-Zt-oIs" firstAttribute="leading" secondItem="7I9-b7-UpG" secondAttribute="leading" id="F0E-oG-i8L"/>
-                            <constraint firstItem="evo-0S-gnq" firstAttribute="centerX" secondItem="7I9-b7-UpG" secondAttribute="centerX" id="Q2o-Ic-Cfo"/>
                             <constraint firstItem="Wpx-Zt-oIs" firstAttribute="top" secondItem="0rt-od-OLL" secondAttribute="bottom" id="l9f-N3-fQ2"/>
                             <constraint firstAttribute="trailing" secondItem="Wpx-Zt-oIs" secondAttribute="trailing" id="ltW-rc-oCV"/>
                             <constraint firstItem="GxD-JB-cya" firstAttribute="top" secondItem="Wpx-Zt-oIs" secondAttribute="bottom" id="ra6-tE-KNn"/>
@@ -59,7 +52,7 @@
                         <color key="backgroundColor" red="0.79215686269999996" green="0.81568627449999997" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsMainMenuCellIdentifier" textLabel="TKR-pd-LJq" style="IBUITableViewCellStyleDefault" id="RHc-B9-c4A">
-                                <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RHc-B9-c4A" id="mNU-h6-ygC">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -139,7 +132,7 @@
                         <color key="backgroundColor" red="0.79215686269999996" green="0.81568627449999997" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClassCellIdentifier" id="Dg6-dY-zdo">
-                                <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dg6-dY-zdo" id="Os7-WW-oIl">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -175,7 +168,7 @@
                         <color key="backgroundColor" red="0.79215686269999996" green="0.81568627449999997" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" id="cza-Vd-gKp">
-                                <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cza-Vd-gKp" id="eFx-c9-8Vp">
                                     <rect key="frame" x="0.0" y="0.0" width="561" height="43.5"/>
@@ -193,7 +186,6 @@
                     <navigationItem key="navigationItem" title="Subclass" id="moD-0W-G7M"/>
                     <connections>
                         <outlet property="subclassTableView" destination="C1a-4W-zzT" id="cOM-MV-HaQ"/>
-                        <segue destination="Y6f-Xw-aOx" kind="show" identifier="showMainMenu" id="MgF-3W-9bx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRr-gg-eXE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -219,50 +211,8 @@
                                 <color key="tintColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewLayout key="collectionViewLayout" id="qOJ-WM-DPR" customClass="TTCollectionViewLayout" customModule="Timetable_App" customModuleProvider="target"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimetitleCellIdentifier" id="D0r-k3-ayw" customClass="TimetitleCollectionViewCell" customModule="Timetable_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="19.5" width="249" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="249" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ft-7W-54o" userLabel="Timetitle Label">
-                                                    <rect key="frame" x="0.0" y="0.0" width="249" height="50"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHT-Ph-WUZ">
-                                                    <rect key="frame" x="0.0" y="49" width="249" height="1"/>
-                                                    <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="NIk-ra-21N"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <animations/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <animations/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="NHT-Ph-WUZ" firstAttribute="leading" secondItem="D0r-k3-ayw" secondAttribute="leading" id="18E-bl-AZG"/>
-                                            <constraint firstAttribute="bottom" secondItem="5ft-7W-54o" secondAttribute="bottom" id="NBy-1g-dXB"/>
-                                            <constraint firstAttribute="trailing" secondItem="5ft-7W-54o" secondAttribute="trailing" id="Sr6-63-6O6"/>
-                                            <constraint firstAttribute="bottom" secondItem="NHT-Ph-WUZ" secondAttribute="bottom" id="cVG-ZI-nVt"/>
-                                            <constraint firstItem="5ft-7W-54o" firstAttribute="top" secondItem="D0r-k3-ayw" secondAttribute="top" id="q4u-Ly-git"/>
-                                            <constraint firstItem="5ft-7W-54o" firstAttribute="leading" secondItem="D0r-k3-ayw" secondAttribute="leading" id="uNi-Pm-ArX"/>
-                                            <constraint firstAttribute="trailing" secondItem="NHT-Ph-WUZ" secondAttribute="trailing" id="y31-Im-uhI"/>
-                                        </constraints>
-                                        <size key="customSize" width="249" height="50"/>
-                                        <connections>
-                                            <outlet property="dividingView" destination="NHT-Ph-WUZ" id="Qrw-vB-MIo"/>
-                                            <outlet property="timetitleLabel" destination="5ft-7W-54o" id="HQt-yq-mcc"/>
-                                        </connections>
-                                    </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeCellIdentifier" id="iwX-Al-vSb" customClass="TimeCollectionViewCell" customModule="Timetable_App" customModuleProvider="target">
-                                        <rect key="frame" x="334" y="0.0" width="266" height="88.5"/>
+                                        <rect key="frame" x="0.0" y="2.5" width="266" height="88.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="266" height="88.5"/>
@@ -315,7 +265,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReplacedLessonCellIdentifier" id="W1T-ho-iaf" customClass="ReplacedLessonCollectionViewCell" customModule="Timetable_App" customModuleProvider="target">
-                                        <rect key="frame" x="146.5" y="98.5" width="307" height="93"/>
+                                        <rect key="frame" x="293" y="0.0" width="307" height="93"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="307" height="93"/>
@@ -424,7 +374,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LessonCellIdentifier" id="vH5-5Q-bZb" customClass="LessonCollectionViewCell" customModule="Timetable_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="201.5" width="307" height="93"/>
+                                        <rect key="frame" x="0.0" y="103" width="307" height="93"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="307" height="93"/>
@@ -501,8 +451,50 @@
                                             <outlet property="teacherLabel" destination="2in-sB-8GW" id="FHi-V3-gN1"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimetitleCellIdentifier" id="D0r-k3-ayw" customClass="TimetitleCollectionViewCell" customModule="Timetable_App" customModuleProvider="target">
+                                        <rect key="frame" x="351" y="124.5" width="249" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="249" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ft-7W-54o" userLabel="Timetitle Label">
+                                                    <rect key="frame" x="0.0" y="0.0" width="249" height="50"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHT-Ph-WUZ">
+                                                    <rect key="frame" x="0.0" y="49" width="249" height="1"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="NIk-ra-21N"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <animations/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="NHT-Ph-WUZ" firstAttribute="leading" secondItem="D0r-k3-ayw" secondAttribute="leading" id="18E-bl-AZG"/>
+                                            <constraint firstAttribute="bottom" secondItem="5ft-7W-54o" secondAttribute="bottom" id="NBy-1g-dXB"/>
+                                            <constraint firstAttribute="trailing" secondItem="5ft-7W-54o" secondAttribute="trailing" id="Sr6-63-6O6"/>
+                                            <constraint firstAttribute="bottom" secondItem="NHT-Ph-WUZ" secondAttribute="bottom" id="cVG-ZI-nVt"/>
+                                            <constraint firstItem="5ft-7W-54o" firstAttribute="top" secondItem="D0r-k3-ayw" secondAttribute="top" id="q4u-Ly-git"/>
+                                            <constraint firstItem="5ft-7W-54o" firstAttribute="leading" secondItem="D0r-k3-ayw" secondAttribute="leading" id="uNi-Pm-ArX"/>
+                                            <constraint firstAttribute="trailing" secondItem="NHT-Ph-WUZ" secondAttribute="trailing" id="y31-Im-uhI"/>
+                                        </constraints>
+                                        <size key="customSize" width="249" height="50"/>
+                                        <connections>
+                                            <outlet property="dividingView" destination="NHT-Ph-WUZ" id="Qrw-vB-MIo"/>
+                                            <outlet property="timetitleLabel" destination="5ft-7W-54o" id="HQt-yq-mcc"/>
+                                        </connections>
+                                    </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DayCellIdentifier" id="nZv-OI-p7i" customClass="DayCollectionViewCell" customModule="Timetable_App" customModuleProvider="target">
-                                        <rect key="frame" x="317" y="223" width="201" height="50"/>
+                                        <rect key="frame" x="0.0" y="206" width="201" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="201" height="50"/>
@@ -582,7 +574,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Timetable" id="5hE-TW-brL"/>
                     <connections>
-                        <outlet property="bottomTabbarConstraint" destination="4Ms-cY-2wc" id="nWg-6f-0Se"/>
                         <outlet property="collectionView" destination="JqN-rn-afi" id="MN9-EX-arh"/>
                         <outlet property="topStatusbarConstraint" destination="Rhh-ZU-ywq" id="lBR-nb-a2U"/>
                         <segue destination="Zd4-2a-Ekv" kind="show" identifier="showLogin" id="pUP-Td-sje"/>
@@ -640,8 +631,5 @@
             <point key="canvasLocation" x="1168" y="-2323"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="MgF-3W-9bx"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
 </document>

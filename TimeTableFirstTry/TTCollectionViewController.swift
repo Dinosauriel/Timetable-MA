@@ -19,6 +19,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     let loginSegueIdentifier = "showLogin"
     
+    //MARK: TIME
+    let calendar = NSCalendar.currentCalendar()
+    
     //MARK: CLASSES
     let timegetter = TimetableTime()
     let declarelesson = DeclareLesson()
@@ -46,11 +49,13 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     //MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topStatusbarConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bottomTabbarConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        scrollToCurrentSection(collectionView)
     }
     
     //MARK: REFRESH BUTTON
@@ -68,7 +73,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     func removeTabBar() {
-        //bottomTabbarConstraint.constant = 0
     }
     
     func addStatusBar() {
@@ -76,7 +80,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     func addTabBar() {
-        //bottomTabbarConstraint.constant = 49
     }
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
@@ -92,7 +95,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        self.scrollToOptimalSection(self.collectionView)
+        //self.scrollToOptimalSection(self.collectionView)
     }
     
     // MARK: PAGING
@@ -135,6 +138,36 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             if targetCellIndexPath != nil {
                 collectionView.scrollToItemAtIndexPath(targetCellIndexPath!, atScrollPosition: targetScrollingPos, animated:  true)
             }
+        }
+    }
+    
+    func scrollToCurrentSection(scrollView: UIScrollView) {
+        print("Scrolling to Day...")
+        if scrollView == self.collectionView {
+            let date = NSDate()
+            let targetScrollingPos = UICollectionViewScrollPosition.Right
+            let currentWeekDayCal = calendar.components(.Weekday, fromDate: date)
+            let currentWeekDay = currentWeekDayCal.weekday
+            
+            var targetItem = 1
+            
+            switch currentWeekDay {
+                case 3:
+                    targetItem = 2
+                case 4:
+                    targetItem = 3
+                case 5:
+                    targetItem = 4
+                case 6:
+                    targetItem = 5
+                default:
+                    targetItem = 1
+            }
+            print(targetItem)
+            
+            let targetIndexPath = NSIndexPath(forItem: targetItem, inSection: 1)
+            
+            collectionView.scrollToItemAtIndexPath(targetIndexPath, atScrollPosition: targetScrollingPos, animated: false)
         }
     }
     

@@ -199,6 +199,7 @@
 		4F86006F1BE8D8AA00FA53AD /* Time */ = {
 			isa = PBXGroup;
 			children = (
+				74382ED81BEFBE13007A28C4 /* Day.swift */,
 				4F8600701BE8D8B700FA53AD /* TimetableTime.swift */,
 			);
 			name = Time;
@@ -289,7 +290,6 @@
 			children = (
 				74866B061BEBE5570030FA95 /* UILesson.swift */,
 				74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */,
-				74382ED81BEFBE13007A28C4 /* Day.swift */,
 			);
 			name = Lesson;
 			sourceTree = "<group>";
