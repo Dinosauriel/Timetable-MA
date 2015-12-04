@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
-        <!--Web View-->
+        <!--Web View Controller-->
         <scene sceneID="9pI-tH-hOO">
             <objects>
-                <viewController storyboardIdentifier="LoginVCID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zd4-2a-Ekv" customClass="WebView" customModule="Timetable_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVCID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zd4-2a-Ekv" customClass="WebViewController" customModule="Timetable_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0rt-od-OLL"/>
                         <viewControllerLayoutGuide type="bottom" id="GxD-JB-cya"/>
@@ -26,11 +26,6 @@
                                 <rect key="frame" x="253.5" y="285" width="93" height="30"/>
                                 <animations/>
                                 <state key="normal" title="First Launch!!"/>
-                                <connections>
-                                    <segue destination="RLx-gT-kvd" kind="show" id="v5f-xQ-7UZ">
-                                        <nil key="action"/>
-                                    </segue>
-                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -45,7 +40,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="webView" destination="Wpx-Zt-oIs" id="E60-oO-5SP"/>
+                        <outlet property="webView" destination="Wpx-Zt-oIs" id="od5-mk-IF8"/>
+                        <segue destination="RLx-gT-kvd" kind="show" identifier="showMainAppCycle" id="QDh-xU-kck"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yia-88-wTs" userLabel="First Responder" sceneMemberID="firstResponder"/>

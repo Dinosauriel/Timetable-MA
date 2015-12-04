@@ -42,7 +42,7 @@
 		74AA07281C06E20B002AC075 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74AA072A1C06E20B002AC075 /* InfoPlist.strings */; };
 		74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */; };
 		74CA85B01C0B4A530076CF64 /* TimeTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8F9DD1C061F2000D15752 /* TimeTableData.swift */; };
-		74E18DAB1BFFA27900DE26AF /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E18DAA1BFFA27900DE26AF /* WebView.swift */; };
+		74E18DAB1BFFA27900DE26AF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E18DAA1BFFA27900DE26AF /* WebViewController.swift */; };
 		74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A01BDD56710026F2AE /* AppDelegate.swift */; };
 		74EBE6A31BDD56710026F2AE /* TTCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A21BDD56710026F2AE /* TTCollectionViewController.swift */; };
 		74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A71BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld */; };
@@ -128,7 +128,7 @@
 		74AA07291C06E20B002AC075 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		74AA072B1C06E210002AC075 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		74E18DAA1BFFA27900DE26AF /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		74E18DAA1BFFA27900DE26AF /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		74EBE69D1BDD56710026F2AE /* Timetable App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Timetable App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EBE6A01BDD56710026F2AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74EBE6A21BDD56710026F2AE /* TTCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTCollectionViewController.swift; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 		74E18DA91BFFA24C00DE26AF /* First Launch / WebView */ = {
 			isa = PBXGroup;
 			children = (
-				74E18DAA1BFFA27900DE26AF /* WebView.swift */,
+				74E18DAA1BFFA27900DE26AF /* WebViewController.swift */,
 			);
 			name = "First Launch / WebView";
 			sourceTree = "<group>";
@@ -594,7 +594,7 @@
 				74866B091BEBE9BA0030FA95 /* DeclareLesson.swift in Sources */,
 				4FC8F9DC1C06190E00D15752 /* TokenStorage.swift in Sources */,
 				74382ED91BEFBE13007A28C4 /* Day.swift in Sources */,
-				74E18DAB1BFFA27900DE26AF /* WebView.swift in Sources */,
+				74E18DAB1BFFA27900DE26AF /* WebViewController.swift in Sources */,
 				74A9A9FF1C0F28C1005E80A8 /* SubClassTableViewController.swift in Sources */,
 				4F6402DE1BE8CC7000A611F6 /* GetAPIData.swift in Sources */,
 				74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */,
