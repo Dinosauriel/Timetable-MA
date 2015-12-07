@@ -58,6 +58,14 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         scrollToCurrentSection(collectionView)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
+            addStatusBar()
+        } else {
+            removeStatusBar()
+        }
+    }
+    
     //MARK: REFRESH BUTTON
     @IBAction func refreshButton(sender: AnyObject) {
         let apiHandler = APIHandler()
@@ -83,7 +91,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        if toInterfaceOrientation == UIInterfaceOrientation.Portrait || toInterfaceOrientation == UIInterfaceOrientation.PortraitUpsideDown {
+        if toInterfaceOrientation == .Portrait || toInterfaceOrientation == .PortraitUpsideDown {
             
             addStatusBar()
             addTabBar()

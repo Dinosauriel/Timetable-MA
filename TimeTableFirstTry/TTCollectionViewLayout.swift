@@ -123,7 +123,6 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                 if column == 1 {
                     --xOffset
                 }
-
                 
                 // Updating column for next row in this section
                 ++column
