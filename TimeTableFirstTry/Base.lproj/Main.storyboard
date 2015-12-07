@@ -591,6 +591,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="AHH-6q-lRk">
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="backgroundColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.79215686269999996" green="0.81568627449999997" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="m88-DH-tRX" kind="relationship" relationship="viewControllers" id="Z9D-ub-1YC"/>

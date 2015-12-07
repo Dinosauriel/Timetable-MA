@@ -41,17 +41,11 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                     
                     let attributes: UICollectionViewLayoutAttributes = self.layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: index, inSection: section))
                     if section == 0 {
-                        //var frame = attributes.frame
-                        //frame.origin.y = self.collectionView!.contentOffset.y
-                        //attributes.frame = frame
                         
                         attributes.frame.origin.y = self.collectionView!.contentOffset.y
                     }
                     
                     if index == 0 {
-                        //var frame = attributes.frame
-                        //frame.origin.x = self.collectionView!.contentOffset.x
-                        //attributes.frame = frame
                         
                         attributes.frame.origin.x = self.collectionView!.contentOffset.x
                     }
@@ -109,18 +103,12 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                 
                 //Assigning absolute y-Values to all items in section 0
                 if section == 0 {
-                    //var frame = attributes.frame
-                    //frame.origin.y = self.collectionView!.contentOffset.y
-                    //attributes.frame = frame
                     
                     attributes.frame.origin.y = self.collectionView!.contentOffset.y
                 }
                 
                 //Assigning absolute x-Values to all items in index 0
                 if index == 0 {
-                    //var frame = attributes.frame
-                    //frame.origin.x = self.collectionView!.contentOffset.x
-                    //attributes.frame = frame
                     
                     attributes.frame.origin.x = self.collectionView!.contentOffset.x
                 }
@@ -130,13 +118,21 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                 
                 // Updating xOffset for next row in this section
                 xOffset += itemWidth
+                xOffset += 2
+                
+                if column == 1 {
+                    --xOffset
+                }
+
+                
                 // Updating column for next row in this section
-                column++
+                ++column
                 
                 if column == numberOfColumns {
                     // Adapting ContentWidth if necessary
                     if xOffset > contentWidth {
                         contentWidth = xOffset
+                        contentWidth += 50
                     }
                     
                     //Setting column and xOffset to 0 to prepare for the next section
