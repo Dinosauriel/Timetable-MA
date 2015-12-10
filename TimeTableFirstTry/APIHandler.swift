@@ -58,11 +58,11 @@ class APIHandler {
             return
         }
         //The resource-string for the unfiltered data
-        let URLBaseRequestString = "https://apistage.tam.ch/klw/data/source/timetable/?mod="
+        let URLBaseRequestString = "https://stage.tam.ch/klw/rest/mobile-timetable/auth/"
         
         //Adding filters to the request
         
-        //Building the array containing the filters
+       /* //Building the array containing the filters
         var array = [String : AnyObject]()
         var arrayPartA = [String : String]()
         arrayPartA["Class"] = "%4g"
@@ -78,9 +78,9 @@ class APIHandler {
         } catch let error {
             print(error)
         }
-        
+        */
         //The resource-string for the data with filters
-        let URLRequestString = URLBaseRequestString + URLFilterString
+        let URLRequestString = URLBaseRequestString + token + "/date/Thu%2C%2010%20Dec%202015%2012%3A53%3A00%20GMT"
         
         //The URL for the data
         let requestURL = NSURL(string: URLRequestString)
@@ -93,10 +93,12 @@ class APIHandler {
         let session = NSURLSession(configuration: config)
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) -> Void in
             do {
-                let array:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
+                //let array:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
                 //print("Contents:")
-                //print(array)
-                self.checkResponseCode(array)
+                if let s = String(data: data!, encoding: NSUTF8StringEncoding) {
+                    print(s)
+                }
+                //self.checkResponseCode(array)
             } catch let myJSONError {
                 print(myJSONError)
             }
