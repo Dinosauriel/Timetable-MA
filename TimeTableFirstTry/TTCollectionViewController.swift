@@ -27,6 +27,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let declarelesson = DeclareLesson()
     let layout = TTCollectionViewLayout()
     let day = Day()
+    var UserDefaults = NSUserDefaults.standardUserDefaults()
 
     //MARK: INTEGERS
     let numberOfSections = 13
@@ -52,6 +53,11 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if !UserDefaults.boolForKey("HasLaunchedOnce") {
+            UserDefaults.setBool(true, forKey: "HasLaunchedOnce")
+        }
+
     }
     
     override func viewDidAppear(animated: Bool) {

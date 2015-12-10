@@ -5,6 +5,56 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
+        <!--Page View Controller-->
+        <scene sceneID="DKv-NB-W5v">
+            <objects>
+                <pageViewController storyboardIdentifier="FLPVCID" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="LCR-LF-Fkh" customClass="FLPageViewController" customModule="Timetable_App" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QHS-KO-sao" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1365" y="-1644"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="idm-Kw-lEO">
+            <objects>
+                <viewController storyboardIdentifier="FL1ID" id="85E-8G-bvL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RFY-ee-oWf"/>
+                        <viewControllerLayoutGuide type="bottom" id="bbz-uO-Kzz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wey-jE-DKf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Uf-rI-fE7">
+                                <rect key="frame" x="269" y="449" width="62" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bhs-OG-yCd"/>
+                                </constraints>
+                                <state key="normal" title="Continue"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's a conveniant way to check your timetable " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUT-Pq-k1U">
+                                <rect key="frame" x="144.5" y="102" width="311" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="GLk-Vc-ypH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2Uf-rI-fE7" firstAttribute="centerX" secondItem="Wey-jE-DKf" secondAttribute="centerX" id="G9Q-yW-PiB"/>
+                            <constraint firstItem="uUT-Pq-k1U" firstAttribute="top" secondItem="RFY-ee-oWf" secondAttribute="bottom" constant="82" id="Ta5-kM-uoo"/>
+                            <constraint firstItem="uUT-Pq-k1U" firstAttribute="centerX" secondItem="Wey-jE-DKf" secondAttribute="centerX" id="qOi-fq-kdG"/>
+                            <constraint firstItem="bbz-uO-Kzz" firstAttribute="top" secondItem="2Uf-rI-fE7" secondAttribute="bottom" constant="121" id="tEX-3q-tOn"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aCG-bV-C8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1323" y="-932"/>
+        </scene>
         <!--Web View Controller-->
         <scene sceneID="9pI-tH-hOO">
             <objects>
@@ -582,6 +632,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t2I-Cy-QLI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1168" y="-2323"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="m2A-WL-mIe">
+            <objects>
+                <viewController storyboardIdentifier="FL0ID" id="lYk-34-Qlk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r8D-Ui-etr"/>
+                        <viewControllerLayoutGuide type="bottom" id="a9h-3W-a9m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lkm-gD-1b9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi! Thank you for downloading our App" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDi-nL-Z0H">
+                                <rect key="frame" x="167" y="102" width="267" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="ulI-ki-nFe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JDi-nL-Z0H" firstAttribute="top" secondItem="r8D-Ui-etr" secondAttribute="bottom" constant="82" id="awB-a9-9Lg"/>
+                            <constraint firstItem="JDi-nL-Z0H" firstAttribute="centerX" secondItem="lkm-gD-1b9" secondAttribute="centerX" id="x3e-K5-Fek"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MkY-87-G8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2137" y="-932"/>
         </scene>
     </scenes>
     <resources>
