@@ -8,9 +8,8 @@
 
 import UIKit
 
-class TTCollectionViewLayout: UICollectionViewLayout {
-    
-    
+class TTCollectionViewLayout: UICollectionViewFlowLayout {
+        
     var itemAttributes: NSMutableArray!
     // Array of index Widths assigned by calculateItemWidths
     var itemsWidth: NSMutableArray!
@@ -118,10 +117,16 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                 
                 // Updating xOffset for next row in this section
                 xOffset += itemWidth
-                xOffset += 2
                 
-                if column == 1 {
-                    --xOffset
+                //print("xOffset = \(xOffset), column * itemWidth = \(Double(column) * Double(xOffset))")
+                
+                if column != 0 {
+                    xOffset += 2
+                
+                    if column == 1 {
+                        //print("index = \(index)")
+                        --xOffset
+                    }
                 }
                 
                 // Updating column for next row in this section
@@ -131,7 +136,6 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                     // Adapting ContentWidth if necessary
                     if xOffset > contentWidth {
                         contentWidth = xOffset
-                        contentWidth += 50
                     }
                     
                     //Setting column and xOffset to 0 to prepare for the next section
@@ -199,14 +203,19 @@ class TTCollectionViewLayout: UICollectionViewLayout {
     /**
     Calculates a optimal width for a section relative to the display size
     */
-    func widthForItemWithColumnIndex(sectionIndex: Int) -> CGFloat {
+    func widthForItemWithColumnIndex(columnIndex: Int) -> CGFloat {
         
         let timeColumnWidth: CGFloat = getTimeColumnWidth()
-        
-        if sectionIndex != 0 {
-            
+        if columnIndex != 0 {
+            let width: CGFloat
             let screenSize: CGRect = UIScreen.mainScreen().bounds
-            let width: CGFloat = (screenSize.width - timeColumnWidth)
+            if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
+                width = (screenSize.width - timeColumnWidth)
+                print("Portrait!")
+            } else {
+                print("Landscape!")
+                width = ((screenSize.height - timeColumnWidth) / 5)
+            }
             
             return width
             

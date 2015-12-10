@@ -55,10 +55,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     override func viewDidAppear(animated: Bool) {
-        scrollToCurrentSection(collectionView)
     }
     
     override func viewWillAppear(animated: Bool) {
+        scrollToCurrentSection(collectionView)
         if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
             addStatusBar()
         } else {
@@ -91,19 +91,21 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        if toInterfaceOrientation == .Portrait || toInterfaceOrientation == .PortraitUpsideDown {
+        if toInterfaceOrientation == .Portrait {
             
             addStatusBar()
             addTabBar()
             
         } else {
+            
             removeStatusBar()
             removeTabBar()
         }
+        
     }
     
+    
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        //self.scrollToOptimalSection(self.collectionView)
     }
     
     // MARK: PAGING
@@ -111,6 +113,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         scrollStartContentOffset = collectionView.contentOffset
         scrollStartContentOffset.x += layout.getTimeColumnWidth()
     }
+    
     
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
         if UIApplication.sharedApplication().statusBarOrientation == .Portrait || UIApplication.sharedApplication().statusBarOrientation == .PortraitUpsideDown  {
@@ -133,7 +136,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             currentCellOffset.x += layout.getTimeColumnWidth()
             let columnWidth = self.collectionView.bounds.width - layout.getTimeColumnWidth()
             
-            let rightTargetFactor: CGFloat = 0.6
+            let rightTargetFactor: CGFloat = 0.7
             let leftTargetFactor: CGFloat = 1 - rightTargetFactor
             
             if (currentCellOffset.x - scrollStartContentOffset.x) < 0 {
@@ -362,11 +365,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         celltoreturn = lessonCell
                 }
                 
-//                
-//                if celltoreturn.backgroundColor != specialLessonBackgroundColor {
-//                    celltoreturn.backgroundColor = cellBackgroundColor
-//                }
-
                 return celltoreturn
             }
         }
