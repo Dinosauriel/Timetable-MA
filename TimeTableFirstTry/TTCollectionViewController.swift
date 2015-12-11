@@ -50,9 +50,12 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     //MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topStatusbarConstraint: NSLayoutConstraint!
+    @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollToCurrentSection(collectionView)
         
         if !UserDefaults.boolForKey("HasLaunchedOnce") {
             UserDefaults.setBool(true, forKey: "HasLaunchedOnce")
@@ -64,7 +67,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     override func viewWillAppear(animated: Bool) {
-        scrollToCurrentSection(collectionView)
         if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
             addStatusBar()
         } else {
@@ -84,28 +86,25 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     // MARK: BAR HANDLING
     func removeStatusBar() {
         topStatusbarConstraint.constant = 0
+        navigationBarHeightConstraint.constant = 44
     }
     
-    func removeTabBar() {
-    }
     
     func addStatusBar() {
-        topStatusbarConstraint.constant = 20
-    }
-    
-    func addTabBar() {
+        topStatusbarConstraint.constant = 0
+        navigationBarHeightConstraint.constant = 64
     }
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         if toInterfaceOrientation == .Portrait {
             
             addStatusBar()
-            addTabBar()
+            //addTabBar()
             
         } else {
             
             removeStatusBar()
-            removeTabBar()
+            //removeTabBar()
         }
         
     }

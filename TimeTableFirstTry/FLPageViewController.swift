@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource {
+class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     let pageIdentifiers = [
         "FL0ID",
@@ -17,13 +17,15 @@ class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource
     
     var currentPage = 0
     
-    var pageViewController: UIPageViewController?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.dataSource = self
+        self.delegate = self
+        
         defineFirstPage()
         declarePageViewAppearance()
-        pageViewController?.dataSource = self
+        //pageViewController?.dataSource = self
     }
     
     func declarePageViewAppearance() {
@@ -34,32 +36,53 @@ class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource
     }
     
     func defineFirstPage() {
-        let firstViewController = storyboard!.instantiateViewControllerWithIdentifier(pageIdentifiers[currentPage]) as UIViewController
-        let startingViewControllers = [firstViewController]
+        
+        let newViewController = storyboard!.instantiateViewControllerWithIdentifier(pageIdentifiers[currentPage]) as UIViewController
+        let startingViewControllers: [UIViewController] = [newViewController]
+
         self.setViewControllers(startingViewControllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        print("--")
-        
-        if currentPage > 0 {
-            let pageItemViewController = storyboard?.instantiateViewControllerWithIdentifier(pageIdentifiers[currentPage - 1])
-            --currentPage
-            return pageItemViewController
+    //MARK: UIPageViewControllerDelegate
+    func pageViewControllerSupportedInterfaceOrientations(pageViewController: UIPageViewController) -> UIInterfaceOrientationMask {
+        return .Portrait
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
+        let pendingIdentifier = pendingViewControllers[0].restorationIdentifier
+        if pageIdentifiers.contains(pendingIdentifier!) {
+            print("page before: \(currentPage)")
+            let pendingPosition = pageIdentifiers.indexOf(pendingIdentifier!)
+            currentPage = pendingPosition!
+            print("page after: \(currentPage)")
+
+        } else {
+            
+            print("WARNING: pending Identifier not in pageIdentifiers!")
         }
-        return nil
+    }
+    
+    //MARK: UIPageViewControllerDataSource
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+        print("page before")
+        if currentPage > 0 {
+            let beforeViewController = storyboard?.instantiateViewControllerWithIdentifier(pageIdentifiers[currentPage - 1])
+            return beforeViewController
+        } else {
+            return nil
+        }
+        
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        print("++")
-        
-        if currentPage < pageIdentifiers.count {
-            let pageItemViewController = storyboard?.instantiateViewControllerWithIdentifier(pageIdentifiers[currentPage + 1])
-            ++currentPage
-            
-            return pageItemViewController
+        print("page after")
+        if currentPage < (pageIdentifiers.count - 1) {
+            let afterViewController = storyboard?.instantiateViewControllerWithIdentifier(pageIdentifiers[currentPage + 1])
+            return afterViewController
+        } else {
+            return nil
         }
-        return nil
+        
     }
 
     //MARK: FUNCTIONS FOR PAGE INDICATOR
