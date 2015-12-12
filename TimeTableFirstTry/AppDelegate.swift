@@ -28,11 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         var initialViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarVCID")
         
-        if UserDefaults.boolForKey("HasLaunchedOnce") == false {
-            //The Boolean needs to be set to true in another function in case the App is closed before the initial setup.
-            UserDefaults.setBool(true, forKey: "HasLaunchedOnce")
-            print("First Launch!")
-            initialViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVCID")
+        if !UserDefaults.boolForKey("HasLaunchedOnce") {
+            initialViewController = storyboard.instantiateViewControllerWithIdentifier("FLPVCID")
         }
         
         self.window?.rootViewController = initialViewController
