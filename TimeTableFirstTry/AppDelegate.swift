@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var token: NSString?
-    var APIData: GetAPIData?
     var APIHandlerVar: APIHandler?
     var UserDefaults = NSUserDefaults.standardUserDefaults()
     let collectionView = TTCollectionViewController()
@@ -44,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //API
         
-        APIData = GetAPIData()
         APIHandlerVar = APIHandler()
         
         /*dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
@@ -70,10 +68,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Support for background fetch
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(10)
-        APIData!.fetchDataFromBackground {
-            completionHandler(.NewData)
-        }
+//        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(10)
+//        APIHandlerVar!.fetchDataFromBackground {
+//            completionHandler(.NewData)
+//        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
