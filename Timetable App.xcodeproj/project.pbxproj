@@ -21,6 +21,7 @@
 		740173B31C08B317006F3880 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */; };
 		7402B3E61C031EB40048C5D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7402B3E51C031EB40048C5D7 /* Assets.xcassets */; };
 		741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
+		741559D91C1DB9D700FF0965 /* TTLandscapeCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741559D81C1DB9D700FF0965 /* TTLandscapeCollectionViewLayout.swift */; };
 		74156C081C02240A0050740D /* WidgetLesson.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 743ED8861BF6339A00DA2E46 /* WidgetLesson.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		742889F81BF73A870018EAE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 742889FA1BF73A870018EAE4 /* Localizable.strings */; };
 		74382ED91BEFBE13007A28C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
@@ -106,6 +107,7 @@
 		4FC8F9DF1C061F4700D15752 /* TimeTableStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableStorage.swift; sourceTree = "<group>"; };
 		7402B3E51C031EB40048C5D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
+		741559D81C1DB9D700FF0965 /* TTLandscapeCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTLandscapeCollectionViewLayout.swift; sourceTree = "<group>"; };
 		742889ED1BF735AD0018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		742889F41BF737900018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		742889F91BF73A870018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				74EBE6D81BDD59580026F2AE /* TTCollectionViewLayout.swift */,
+				741559D81C1DB9D700FF0965 /* TTLandscapeCollectionViewLayout.swift */,
 				74EBE6A21BDD56710026F2AE /* TTCollectionViewController.swift */,
 			);
 			name = TTCollectionView;
@@ -592,6 +595,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				741559D91C1DB9D700FF0965 /* TTLandscapeCollectionViewLayout.swift in Sources */,
 				74EBE6A31BDD56710026F2AE /* TTCollectionViewController.swift in Sources */,
 				4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */,
 				7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */,

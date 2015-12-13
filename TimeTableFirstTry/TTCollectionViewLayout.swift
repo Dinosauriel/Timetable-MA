@@ -20,6 +20,8 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
     let marginForTimeColumn: CGFloat = 15
     let heightForDayRow: CGFloat = 40
     
+    let marginBetweenRows: CGFloat = 2
+    
     /**
     Assigning the proper Values to the Variables
     */
@@ -120,12 +122,12 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
                 
                 //print("xOffset = \(xOffset), column * itemWidth = \(Double(column) * Double(xOffset))")
                 
-                if column != 0 {
-                    xOffset += 2
+                if column != 0 || column != numberOfColumns{
+                    xOffset += marginBetweenRows
                 
                     if column == 1 {
                         //print("index = \(index)")
-                        --xOffset
+                        //--xOffset
                     }
                 }
                 
@@ -211,12 +213,10 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
             let screenSize: CGRect = UIScreen.mainScreen().bounds
             if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
                 width = (screenSize.width - timeColumnWidth)
-                print("Portrait!")
             } else {
-                print("Landscape!")
-                width = ((screenSize.height - timeColumnWidth) / 5)
+                width = (screenSize.height - timeColumnWidth)
             }
-            
+            print("Portrait!")
             return width
             
         } else {

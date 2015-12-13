@@ -64,7 +64,6 @@ class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource
     
     //MARK: UIPageViewControllerDataSource
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        print("page before")
         if currentPage > 0 {
             let beforeViewController = storyboard?.instantiateViewControllerWithIdentifier(pageIdentifiers[currentPage - 1])
             return beforeViewController
@@ -75,7 +74,6 @@ class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        print("page after")
         if currentPage < (pageIdentifiers.count - 1) {
             let afterViewController = storyboard?.instantiateViewControllerWithIdentifier(pageIdentifiers[currentPage + 1])
             return afterViewController
