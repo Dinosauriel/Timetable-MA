@@ -93,12 +93,16 @@ class APIHandler {
         let session = NSURLSession(configuration: config)
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) -> Void in
             do {
-                //let array:NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
-                //print("Contents:")
-                if let s = String(data: data!, encoding: NSUTF8StringEncoding) {
+                print("Contents:")
+                if let s:NSString = String(data: data!, encoding: NSUTF8StringEncoding) {
+                    var cleaned:String = s as String
                     print(s)
+                    
+                    cleaned = s.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "()"))
+                    let asd = (cleaned as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+                    let ar:NSMutableDictionary = try NSJSONSerialization.JSONObjectWithData(asd!, options: NSJSONReadingOptions.MutableContainers) as! NSMutableDictionary
+                    print(ar)
                 }
-                //self.checkResponseCode(array)
             } catch let myJSONError {
                 print(myJSONError)
             }
