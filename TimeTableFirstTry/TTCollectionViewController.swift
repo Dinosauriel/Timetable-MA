@@ -26,6 +26,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let timegetter = TimetableTime()
     let declarelesson = DeclareLesson()
     let layout = TTCollectionViewLayout()
+    let landscapelayout = TTLandscapeCollectionViewLayout()
     let day = Day()
     var UserDefaults = NSUserDefaults.standardUserDefaults()
 
@@ -62,15 +63,14 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         }
 
     }
-    
-    override func viewDidAppear(animated: Bool) {
-    }
-    
+
     override func viewWillAppear(animated: Bool) {
         if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
             addStatusBar()
+            setLayoutToPortrait(false)
         } else {
             removeStatusBar()
+            setLayoutToLandscape(false)
         }
     }
     
@@ -95,23 +95,34 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         navigationBarHeightConstraint.constant = 64
     }
     
+    func setLayoutToPortrait(animated: Bool) {
+        self.collectionView.setCollectionViewLayout(layout, animated: animated)
+    }
+    
+    func setLayoutToLandscape(animated: Bool) {
+        self.collectionView.setCollectionViewLayout(landscapelayout, animated: animated)
+    }
+    
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         if toInterfaceOrientation == .Portrait {
-            
             addStatusBar()
-            //addTabBar()
+            setLayoutToPortrait(false)
             
         } else {
             
             removeStatusBar()
-            //removeTabBar()
+            setLayoutToLandscape(false)
         }
         
     }
     
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        if fromInterfaceOrientation != .Portrait {
+            scrollToOptimalSection(self.collectionView, animated: true)
+        }
     }
+    
     
     // MARK: PAGING
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
@@ -122,19 +133,19 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
         if UIApplication.sharedApplication().statusBarOrientation == .Portrait || UIApplication.sharedApplication().statusBarOrientation == .PortraitUpsideDown  {
-            scrollToOptimalSection(scrollView)
+            scrollToOptimalSection(scrollView, animated: true)
         }
     }
     
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             if UIApplication.sharedApplication().statusBarOrientation == .Portrait || UIApplication.sharedApplication().statusBarOrientation == .PortraitUpsideDown {
-                scrollToOptimalSection(scrollView)
+                scrollToOptimalSection(scrollView, animated: true)
             }
         }
     }
     
-    func scrollToOptimalSection(scrollView: UIScrollView) {
+    func scrollToOptimalSection(scrollView: UIScrollView, animated: Bool) {
         if scrollView == self.collectionView {
             let targetScrollingPos = UICollectionViewScrollPosition.Right
             var currentCellOffset: CGPoint = self.collectionView.contentOffset
@@ -152,7 +163,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             
             let targetCellIndexPath = collectionView.indexPathForItemAtPoint(currentCellOffset)
             if targetCellIndexPath != nil {
-                collectionView.scrollToItemAtIndexPath(targetCellIndexPath!, atScrollPosition: targetScrollingPos, animated:  true)
+                collectionView.scrollToItemAtIndexPath(targetCellIndexPath!, atScrollPosition: targetScrollingPos, animated: animated)
             }
         }
     }
@@ -165,7 +176,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             let currentWeekDayCal = calendar.components(.Weekday, fromDate: date)
             let currentWeekDay = currentWeekDayCal.weekday
             
-            var targetItem = 1
+            var targetItem: Int
             
             switch currentWeekDay {
                 case 3:
