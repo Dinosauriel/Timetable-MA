@@ -18,8 +18,9 @@ class TimeTableData: NSManagedObject {
     @NSManaged var subject:String
     @NSManaged var teacher:String
     @NSManaged var day:String
+    @NSManaged var event:String
     
-    class func createInManagedObjectContext(ManagedObjectContext moc:NSManagedObjectContext, ClassName className:String, StartTime startTime:String, EndTime endTime:String, Location location:String, Subject subject:String, Teacher teacher:String, Day day:String) -> TimeTableData {
+    class func createInManagedObjectContext(ManagedObjectContext moc:NSManagedObjectContext, ClassName className:String, StartTime startTime:String, EndTime endTime:String, Location location:String, Subject subject:String, Teacher teacher:String, Day day:String, Event event:String) -> TimeTableData {
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("TimeTableData", inManagedObjectContext: moc) as! TimeTableData
         newItem.nameOfClass = className
         newItem.startTime = startTime
@@ -28,6 +29,7 @@ class TimeTableData: NSManagedObject {
         newItem.subject = subject
         newItem.teacher = teacher
         newItem.day = day
+        newItem.event = event
         
         return newItem
     }
