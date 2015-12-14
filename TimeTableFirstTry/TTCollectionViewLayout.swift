@@ -201,7 +201,6 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
     }
     
     // MARK: CALCULATING SIZE FOR CELLS
-    
     /**
     Calculates a optimal width for a section relative to the display size
     */
@@ -216,7 +215,6 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
             } else {
                 width = (screenSize.height - timeColumnWidth)
             }
-            print("Portrait!")
             return width
             
         } else {

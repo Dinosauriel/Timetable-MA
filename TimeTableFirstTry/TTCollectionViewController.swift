@@ -68,10 +68,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     override func viewWillAppear(animated: Bool) {
         if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
             addStatusBar()
-            setLayoutToPortrait(false)
+            setLayoutToPortrait(true)
         } else {
             removeStatusBar()
-            setLayoutToLandscape(false)
+            setLayoutToLandscape(true)
         }
     }
     
@@ -107,12 +107,12 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         if toInterfaceOrientation == .Portrait {
             addStatusBar()
-            setLayoutToPortrait(false)
+            setLayoutToPortrait(true)
             
         } else {
             
             removeStatusBar()
-            setLayoutToLandscape(false)
+            setLayoutToLandscape(true)
         }
         
     }
