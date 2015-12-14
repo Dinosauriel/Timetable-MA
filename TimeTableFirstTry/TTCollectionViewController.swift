@@ -57,6 +57,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         super.viewDidLoad()
         
         scrollToCurrentSection(collectionView)
+        self.collectionView.backgroundColor = dividingLineColor
         
         if !UserDefaults.boolForKey("HasLaunchedOnce") {
             UserDefaults.setBool(true, forKey: "HasLaunchedOnce")
@@ -211,21 +212,20 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                let timetitleCell: TimetitleCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(timetitleCellIdentifier, forIndexPath: indexPath) as! TimetitleCollectionViewCell
+                let dayCell: DayCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
                 //timetitleCell.backgroundColor = cellBackgroundColor
                 //timetitleCell.timetitleLabel.font = UIFont.systemFontOfSize(13)
                 //timetitleCell.timetitleLabel.textColor = defaultTextColor
-                timetitleCell.timetitleLabel.text = NSLocalizedString("time", comment: "TransForTime")
+                dayCell.dayLabel.text = NSLocalizedString("time", comment: "TransForTime")
                 
                 if indexPath.section != (numberOfSections - 1) {
-                    timetitleCell.dividingView.backgroundColor = dividingLineColor
+                    dayCell.dividingView.backgroundColor = dividingLineColor
                 }
-                //timetitleCell.vertDividingView.backgroundColor = dividingLineColor
                 
-                return timetitleCell
+                return dayCell
                 
             } else {
-                let dayCell : DayCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
+                let dayCell: DayCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
                 let dayArray = day.generateDayArray()
                 //dayCell.dayLabel.font = UIFont.systemFontOfSize(13)
                 //dayCell.dayLabel.textColor = defaultTextColor
