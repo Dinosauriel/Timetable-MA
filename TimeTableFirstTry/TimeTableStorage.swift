@@ -16,7 +16,7 @@ public class TimeTableStorage {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     func storeTimeTableData(data : AnyObject) {
-        print("a")
+        /*print("a")
         eraseAllData()
         print("c")
         var i = 0
@@ -27,11 +27,42 @@ public class TimeTableStorage {
         while i != endI {
             lesson = body[i] as! NSDictionary as! [String : String]
             if let moc = self.managedObjectContext {
-                TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["Class"]!), StartTime: String(lesson["StartTime"]!), EndTime: String(lesson["EndTime"]!), Location: String(lesson["Location"]!), Subject: String(lesson["Subject"]!), Teacher: String(lesson["Teacher"]!), Day: String(lesson["Day"]!))
+                TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["class"]!), StartTime: String(lesson["start"]!), EndTime: String(lesson["end"]!), Location: String(lesson["Location"]!), Subject: String(lesson["Subject"]!), Teacher: String(lesson["acronym"]!), Day: String(lesson["Day"]!), Event: String(lesson["event"]))
             }
             ++i
             //print(lesson)
+        }*/
+        
+        eraseAllData()
+        
+        let weeks:NSArray = (data as! [String:AnyObject])["timetable"] as! NSArray
+        let weeksCount = weeks.count
+        var weeksItr = 0
+        
+        while weeksItr != weeksCount {
+            let week:NSArray = weeks[weeksItr] as! NSArray
+            let dayCount = week.count
+            var dayItr = 0
+            
+            while dayItr != dayCount {
+                let day:NSDictionary = week[dayItr] as! NSDictionary
+                let lessons:NSArray = day["lessons"] as! NSArray
+                let lessonCount = lessons.count
+                var lessonItr = 0
+                
+                while lessonItr != lessonCount {
+                    let lesson:NSDictionary = lessons[lessonItr] as! NSDictionary
+                    if let moc = self.managedObjectContext {
+                        TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["class"]!), StartTime: String(lesson["start"]!), EndTime: String(lesson["end"]!), Location: String(lesson["location"]!), Subject: String(lesson["title"]!), Teacher: String(lesson["acronym"]!), Day: String(day["date"]!), Event: String(lesson["eventType"]!))
+                    }
+                    print(lesson)
+                    ++lessonItr
+                }
+                ++dayItr
+            }
+            ++weeksItr
         }
+        
         
         //Saves the token to the local storage for later use
 
@@ -46,6 +77,7 @@ public class TimeTableStorage {
     
     func getTimeTableData() -> [TimeTableData] {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
+        print("Fetching Data")
         if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
             tableData = fetchResults
             return tableData as! [TimeTableData]
@@ -55,7 +87,7 @@ public class TimeTableStorage {
         }
     }
     
-    func getTimeTableDataWithDayInt(day:String) -> [TimeTableData] {
+    func getTimeTableDataWithDayString(day:String) -> [TimeTableData] {
         let tempArray = getTimeTableData()
         var finalArray = [TimeTableData]()
         for tempLesson in tempArray {

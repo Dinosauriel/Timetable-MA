@@ -60,25 +60,6 @@ class APIHandler {
         //The resource-string for the unfiltered data
         let URLBaseRequestString = "https://stage.tam.ch/klw/rest/mobile-timetable/auth/"
         
-        //Adding filters to the request
-        
-       /* //Building the array containing the filters
-        var array = [String : AnyObject]()
-        var arrayPartA = [String : String]()
-        arrayPartA["Class"] = "%4g"
-        //arrayPartA["Location"] = "3b"
-        array["ORDER"] = ["Day ASC", "Location DESC"]
-        array["WHERE"] = arrayPartA
-        
-        var URLFilterString:String = ""
-        
-        do {
-            let filterData = try NSJSONSerialization.dataWithJSONObject(array, options: .PrettyPrinted)
-            URLFilterString = filterData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
-        } catch let error {
-            print(error)
-        }
-        */
         //The resource-string for the data with filters
         let URLRequestString = URLBaseRequestString + token + "/date/Thu%2C%2010%20Dec%202015%2012%3A53%3A00%20GMT"
         
@@ -99,15 +80,17 @@ class APIHandler {
                     print(s)
                     
                     cleaned = s.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "()"))
-                    let asd = (cleaned as NSString).dataUsingEncoding(NSUTF8StringEncoding)
-                    let ar:NSMutableDictionary = try NSJSONSerialization.JSONObjectWithData(asd!, options: NSJSONReadingOptions.MutableContainers) as! NSMutableDictionary
-                    print(ar)
+                    let cleanedData = (cleaned as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+                    let dataDict:NSMutableDictionary = try NSJSONSerialization.JSONObjectWithData(cleanedData!, options: NSJSONReadingOptions.MutableContainers) as! NSMutableDictionary
+                    print("Received Data")
+                    self.checkResponseCode(dataDict)
                 }
             } catch let myJSONError {
                 print(myJSONError)
             }
         })
         
+        print("Requesting Data...")
         task.resume()
         
     }
@@ -129,6 +112,8 @@ class APIHandler {
                 break;
             default: print("default")
             }
+        } else {
+            timeTableStorage.storeTimeTableData(dataDict)
         }
     }
     
