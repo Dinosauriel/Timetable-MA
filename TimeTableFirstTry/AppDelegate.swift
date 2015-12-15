@@ -65,10 +65,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Support for background fetch
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-//        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(10)
-//        APIHandlerVar!.fetchDataFromBackground {
-//            completionHandler(.NewData)
-//        }
+        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(10)
+        APIHandlerVar!.fetchDataFromBackground {
+            completionHandler(.NewData)
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
