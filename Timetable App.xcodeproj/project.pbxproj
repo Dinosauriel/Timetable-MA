@@ -37,8 +37,6 @@
 		74866B091BEBE9BA0030FA95 /* DeclareLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */; };
 		74866B0C1BEBF10A0030FA95 /* LessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */; };
 		749997171C19853C00B8FED3 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749997161C19853C00B8FED3 /* TabBarViewController.swift */; };
-		74A9A9FD1C0F28AE005E80A8 /* ClassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9A9FC1C0F28AE005E80A8 /* ClassTableViewController.swift */; };
-		74A9A9FF1C0F28C1005E80A8 /* SubClassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9A9FE1C0F28C1005E80A8 /* SubClassTableViewController.swift */; };
 		74AA07281C06E20B002AC075 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74AA072A1C06E20B002AC075 /* InfoPlist.strings */; };
 		74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */; };
 		74AD756F1C19CEC2005139BA /* FLPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD756E1C19CEC2005139BA /* FLPageViewController.swift */; };
@@ -124,8 +122,6 @@
 		74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeclareLesson.swift; sourceTree = "<group>"; };
 		74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCollectionViewCell.swift; sourceTree = "<group>"; };
 		749997161C19853C00B8FED3 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		74A9A9FC1C0F28AE005E80A8 /* ClassTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassTableViewController.swift; sourceTree = "<group>"; };
-		74A9A9FE1C0F28C1005E80A8 /* SubClassTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubClassTableViewController.swift; sourceTree = "<group>"; };
 		74AA07291C06E20B002AC075 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		74AA072B1C06E210002AC075 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -272,9 +268,8 @@
 		746D982E1BF47DFB00240CAC /* TTCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				74EBE6D81BDD59580026F2AE /* TTCollectionViewLayout.swift */,
-				741559D81C1DB9D700FF0965 /* TTLandscapeCollectionViewLayout.swift */,
 				74EBE6A21BDD56710026F2AE /* TTCollectionViewController.swift */,
+				74D993401C208DB3001333CA /* Layouts */,
 			);
 			name = TTCollectionView;
 			sourceTree = "<group>";
@@ -300,10 +295,17 @@
 			isa = PBXGroup;
 			children = (
 				74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */,
-				74A9A9FC1C0F28AE005E80A8 /* ClassTableViewController.swift */,
-				74A9A9FE1C0F28C1005E80A8 /* SubClassTableViewController.swift */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		74D993401C208DB3001333CA /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				74EBE6D81BDD59580026F2AE /* TTCollectionViewLayout.swift */,
+				741559D81C1DB9D700FF0965 /* TTLandscapeCollectionViewLayout.swift */,
+			);
+			name = Layouts;
 			sourceTree = "<group>";
 		};
 		74E18DA91BFFA24C00DE26AF /* First Launch / WebView */ = {
@@ -586,7 +588,6 @@
 				4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */,
 				7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */,
 				4FC8F9E01C061F4700D15752 /* TimeTableStorage.swift in Sources */,
-				74A9A9FD1C0F28AE005E80A8 /* ClassTableViewController.swift in Sources */,
 				74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */,
 				4FC8F9DE1C061F2000D15752 /* TimeTableData.swift in Sources */,
 				4FB5A78F1C060013007977FB /* APIHandler.swift in Sources */,
@@ -600,7 +601,6 @@
 				4FC8F9DC1C06190E00D15752 /* TokenStorage.swift in Sources */,
 				74382ED91BEFBE13007A28C4 /* Day.swift in Sources */,
 				74E18DAB1BFFA27900DE26AF /* LoginWebViewController.swift in Sources */,
-				74A9A9FF1C0F28C1005E80A8 /* SubClassTableViewController.swift in Sources */,
 				74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */,
 				74AD756F1C19CEC2005139BA /* FLPageViewController.swift in Sources */,
 				74866B0C1BEBF10A0030FA95 /* LessonCollectionViewCell.swift in Sources */,
@@ -814,7 +814,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = TimeTableFirstTry/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lee.labf.timetable;
 				PRODUCT_NAME = "Timetable App";
@@ -832,7 +832,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = TimeTableFirstTry/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lee.labf.timetable;
 				PRODUCT_NAME = "Timetable App";

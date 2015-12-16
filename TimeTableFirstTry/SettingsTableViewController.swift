@@ -32,9 +32,6 @@ class SettingsTableViewController: UITableViewController {
                 self.performSegueWithIdentifier(showHiSegueIdentifier, sender: self)
             }
         } else {
-            if indexPath.row == 0 {
-                self.performSegueWithIdentifier(showClassSegueIdentifier, sender: self)
-            }
             
         }
     }

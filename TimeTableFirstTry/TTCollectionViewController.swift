@@ -75,6 +75,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        scrollToCurrentSection(collectionView)
+    }
+    
     //MARK: REFRESH BUTTON
     @IBAction func refreshButton(sender: AnyObject) {
         let apiHandler = APIHandler()
@@ -226,7 +230,13 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 
             } else {
                 let dayCell: DayCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
-                let dayArray = day.generateDayArray()
+                
+                let dayArray: NSArray
+                if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
+                    dayArray = day.generateDayArray(.long)
+                } else {
+                    dayArray = day.generateDayArray(.short)
+                }
                 //dayCell.dayLabel.font = UIFont.systemFontOfSize(13)
                 //dayCell.dayLabel.textColor = defaultTextColor
                 dayCell.dayLabel.text = dayArray[indexPath.row - 1] as? String
