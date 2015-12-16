@@ -20,8 +20,8 @@ class APIHandler {
     func requestNewAuthToken() {
         print("GETTING NEW TOKEN!")
         //NSNotificationCenter.defaultCenter().postNotificationName("NotificationIdentifier", object: nil)
-        let TTCVC = (UIApplication.sharedApplication().delegate as! AppDelegate).getView()
-        TTCVC.performSegueWithIdentifier("showLogin", sender: TTCVC)
+        //let TTCVC = (UIApplication.sharedApplication().delegate as! AppDelegate).getView()
+        //TTCVC.performSegueWithIdentifier("showLogin", sender: TTCVC)
     }
     
     /**

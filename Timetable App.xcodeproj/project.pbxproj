@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F4BE6881BFDEE3A001EDE35 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4F4BE6871BFDEE3A001EDE35 /* .gitignore */; };
 		4F4DE76A1C21CCDA00F67890 /* APIBackgroundHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DE7691C21CCDA00F67890 /* APIBackgroundHandler.swift */; };
+		4F4DE76C1C21E6A900F67890 /* TokenResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DE76B1C21E6A900F67890 /* TokenResponseHandler.swift */; };
 		4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8600701BE8D8B700FA53AD /* TimetableTime.swift */; };
 		4FB5A78F1C060013007977FB /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5A78E1C060013007977FB /* APIHandler.swift */; };
 		4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEFFEB1BEB7A78007C4647 /* Token.swift */; };
@@ -95,6 +96,7 @@
 /* Begin PBXFileReference section */
 		4F4BE6871BFDEE3A001EDE35 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4F4DE7691C21CCDA00F67890 /* APIBackgroundHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIBackgroundHandler.swift; sourceTree = "<group>"; };
+		4F4DE76B1C21E6A900F67890 /* TokenResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenResponseHandler.swift; sourceTree = "<group>"; };
 		4F8600701BE8D8B700FA53AD /* TimetableTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableTime.swift; sourceTree = "<group>"; };
 		4FB5A78E1C060013007977FB /* APIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		4FBEFFEB1BEB7A78007C4647 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				4FB5A78E1C060013007977FB /* APIHandler.swift */,
 				4F4DE7691C21CCDA00F67890 /* APIBackgroundHandler.swift */,
+				4F4DE76B1C21E6A900F67890 /* TokenResponseHandler.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				4FC8F9E01C061F4700D15752 /* TimeTableStorage.swift in Sources */,
 				74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */,
 				4FC8F9DE1C061F2000D15752 /* TimeTableData.swift in Sources */,
+				4F4DE76C1C21E6A900F67890 /* TokenResponseHandler.swift in Sources */,
 				4FB5A78F1C060013007977FB /* APIHandler.swift in Sources */,
 				74866B071BEBE5570030FA95 /* UILesson.swift in Sources */,
 				74EBE6D91BDD59580026F2AE /* TTCollectionViewLayout.swift in Sources */,
