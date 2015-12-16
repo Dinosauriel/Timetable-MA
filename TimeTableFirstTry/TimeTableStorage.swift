@@ -16,32 +16,16 @@ public class TimeTableStorage {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     func storeTimeTableData(data : AnyObject) {
-        /*print("a")
-        eraseAllData()
-        print("c")
-        var i = 0
-        let body = data["body"] as! NSArray
-        let endI = body.count
-        var lesson = [String : String]()
-        
-        while i != endI {
-            lesson = body[i] as! NSDictionary as! [String : String]
-            if let moc = self.managedObjectContext {
-                TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["class"]!), StartTime: String(lesson["start"]!), EndTime: String(lesson["end"]!), Location: String(lesson["Location"]!), Subject: String(lesson["Subject"]!), Teacher: String(lesson["acronym"]!), Day: String(lesson["Day"]!), Event: String(lesson["event"]))
-            }
-            ++i
-            //print(lesson)
-        }*/
         
         eraseAllData()
         
-        let userData:NSDictionary = (data as! [String:String])["user"] as! NSArray
+        /*let userData:NSDictionary = (data as! [String:String])["user"] as! NSArray
         let firstname:String = userData["firstname"]
         let lastname:String = userData["lastname"]
         var role:String = userData["role"]
         
         (role as NSString).stringByReplacingOccurrencesOfString("-student", withString: "")
-        
+        */
         let weeks:NSArray = (data as! [String:AnyObject])["timetable"] as! NSArray
         let weeksCount = weeks.count
         var weeksItr = 0
@@ -111,7 +95,6 @@ public class TimeTableStorage {
         } catch let error {
             print(error)
         }
-        print("b")
         
     }
     

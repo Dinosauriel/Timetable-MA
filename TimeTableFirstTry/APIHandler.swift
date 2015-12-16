@@ -19,11 +19,9 @@ class APIHandler {
     */
     func requestNewAuthToken() {
         print("GETTING NEW TOKEN!")
-        //let URLforRequest = "https://oauth.tam.ch/signin/klw-stupla-app?response_type=token&client_id=0Wv69s7vyidj3cKzNckhiSulA5on8uFM&redirect_uri=uniapp%3A%2F%2Fklw-stupla-app&_blank&scope=all"
-        
-        //UIApplication.sharedApplication().openURL(NSURL(string: URLforRequest)!)
-        //let TTCVC = TTCollectionViewController()
-        //TTCVC.showLogin()
+        //NSNotificationCenter.defaultCenter().postNotificationName("NotificationIdentifier", object: nil)
+        let TTCVC = (UIApplication.sharedApplication().delegate as! AppDelegate).getView()
+        TTCVC.performSegueWithIdentifier("showLogin", sender: TTCVC)
     }
     
     /**
@@ -61,8 +59,48 @@ class APIHandler {
         let URLBaseRequestString = "https://stage.tam.ch/klw/rest/mobile-timetable/auth/"
         
         //The resource-string for the data with filters
-        let URLRequestString = URLBaseRequestString + token + "/date/Thu%2C%2010%20Dec%202015%2012%3A53%3A00%20GMT"
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day,.Month,.Year,.Weekday,.Hour,.Minute,.Second], fromDate: date)
         
+        let dayVarShort:String
+        switch(components.weekday) {
+        case 1: dayVarShort = "Sun"
+        case 2: dayVarShort = "Mon"
+        case 3: dayVarShort = "Tue"
+        case 4: dayVarShort = "Wed"
+        case 5: dayVarShort = "Thu"
+        case 6: dayVarShort = "Fri"
+        case 7: dayVarShort = "Sat"
+        default: dayVarShort = "Mon"
+        }
+        let dayVarDate:String = String(components.day)
+        let monthVarShort:String
+        switch(components.month) {
+        case 1: monthVarShort = "Jan"
+        case 2: monthVarShort = "Feb"
+        case 3: monthVarShort = "Mar"
+        case 4: monthVarShort = "Apr"
+        case 5: monthVarShort = "Mai"
+        case 6: monthVarShort = "Jun"
+        case 7: monthVarShort = "Jul"
+        case 8: monthVarShort = "Aug"
+        case 9: monthVarShort = "Sep"
+        case 10: monthVarShort = "Oct"
+        case 11: monthVarShort = "Nov"
+        case 12: monthVarShort = "Dec"
+        default: monthVarShort = "Jan"
+        }
+        let yearVar:String = String(components.year)
+        let hourVar:String = String(components.hour)
+        let minuteVar:String = String(components.minute)
+        let secondVar:String = String(components.second)
+        let timeZoneVar:String = "GMT"//String(NSTimeZone.localTimeZone())
+        
+        
+        //let URLRequestString = URLBaseRequestString + token + "/date/" + dayVarShort + "%2C%20" + dayVarDate + "%20" + monthVarShort + "%20" + yearVar + "%20" + hourVar + "%3A" + minuteVar + "%3A" + secondVar + "%20" + timeZoneVar
+        let URLRequestString = "https://stage.tam.ch/klw/rest/mobile-timetable/auth/"+token+"/date/Thu%2C%2010%20Dec%202015%2012%3A53%3A00%20GMT"
+        print(URLRequestString)
         //The URL for the data
         let requestURL = NSURL(string: URLRequestString)
         
@@ -97,9 +135,19 @@ class APIHandler {
     
     func checkResponseCode(dataDict:NSDictionary) {
         let timeTableStorage:TimeTableStorage = TimeTableStorage()
+        let keys = dataDict.allKeys
         
+        if keys.contains({$0 as! String == "code"}) {
+            let code = dataDict["code"] as! String
+            switch String(code) {
+            case "401": print("Not authenticated"); requestNewAuthToken()
+            default: print("default")
+            }
+        } else {
+            timeTableStorage.storeTimeTableData(dataDict)
+        }
         
-        if let code = dataDict["code"] as? Int {
+        /*if let code = dataDict["code"] as! Int? {
             switch Int(code) {
             case 401: print("Not authenticated")
             case 200: print("Ok")
@@ -114,7 +162,7 @@ class APIHandler {
             }
         } else {
             timeTableStorage.storeTimeTableData(dataDict)
-        }
+        }*/
     }
     
     func handleChangeWithNotification(oldData:NSArray,newData:NSArray) {
