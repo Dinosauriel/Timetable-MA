@@ -35,6 +35,13 @@ public class TimeTableStorage {
         
         eraseAllData()
         
+        let userData:NSDictionary = (data as! [String:String])["user"] as! NSArray
+        let firstname:String = userData["firstname"]
+        let lastname:String = userData["lastname"]
+        var role:String = userData["role"]
+        
+        (role as NSString).stringByReplacingOccurrencesOfString("-student", withString: "")
+        
         let weeks:NSArray = (data as! [String:AnyObject])["timetable"] as! NSArray
         let weeksCount = weeks.count
         var weeksItr = 0
@@ -62,9 +69,6 @@ public class TimeTableStorage {
             }
             ++weeksItr
         }
-        
-        
-        //Saves the token to the local storage for later use
 
         //Writing to the file in case of interruption (XCode-Stop)
         do {
