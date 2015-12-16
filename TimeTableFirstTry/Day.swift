@@ -9,10 +9,15 @@
 import Foundation
 
 class Day {
-    func generateDayArray() -> NSArray {
-
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
+    let date = NSDate()
+    let calendar = NSCalendar.currentCalendar()
+    
+    enum Length {
+        case short
+        case long
+    }
+    
+    func generateDayArray(length: Length) -> NSArray {
         let currentWeekDayCal = calendar.components(.Weekday, fromDate: date)
         let currentWeekDay = currentWeekDayCal.weekday
         
@@ -29,7 +34,11 @@ class Day {
             }
             
             let formatter = NSDateFormatter()
-            formatter.dateFormat = "EEEE, dd. MMMM yyyy"
+            if length == .long {
+                formatter.dateFormat = "EEEE, dd. MMMM yyyy"
+            } else if length == .short {
+                formatter.dateFormat = "EE, dd. MM yyyy"
+            }
             
             let DateString = formatter.stringFromDate(day!)
             return DateString

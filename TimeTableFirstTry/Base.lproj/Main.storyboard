@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RLx-gT-kvd">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
@@ -11,7 +10,7 @@
                 <pageViewController storyboardIdentifier="FLPVCID" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="LCR-LF-Fkh" customClass="FLPageViewController" customModule="Timetable_App" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QHS-KO-sao" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1741" y="-1950"/>
+            <point key="canvasLocation" x="-2682" y="-1970"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="idm-Kw-lEO">
@@ -44,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCG-bV-C8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1741" y="-3380"/>
+            <point key="canvasLocation" x="-1273" y="-1970"/>
         </scene>
         <!--Login Web View Controller-->
         <scene sceneID="9pI-tH-hOO">
@@ -121,7 +120,6 @@
                     <connections>
                         <outlet property="settingsTableView" destination="buZ-et-Ruz" id="6Fx-wn-Wc9"/>
                         <segue destination="vWf-Tr-taT" kind="show" identifier="showHiSegue" id="9dV-CS-1nz"/>
-                        <segue destination="nZB-oH-qbj" kind="show" identifier="showClassSelect" id="4Ck-eY-u12"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyG-Ts-hic" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -153,71 +151,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xpM-tQ-qnk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2721" y="-2323"/>
-        </scene>
-        <!--Class-->
-        <scene sceneID="S17-YI-ip2">
-            <objects>
-                <tableViewController id="nZB-oH-qbj" customClass="ClassTableViewController" customModule="Timetable_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="MoL-Nh-45S">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.79215686269999996" green="0.81568627449999997" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClassCellIdentifier" id="Dg6-dY-zdo">
-                                <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dg6-dY-zdo" id="Os7-WW-oIl">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="nZB-oH-qbj" id="Bf5-mY-eNt"/>
-                            <outlet property="delegate" destination="nZB-oH-qbj" id="a9Q-a7-863"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Class" id="l2E-iS-pbo"/>
-                    <connections>
-                        <outlet property="classTableView" destination="MoL-Nh-45S" id="VgK-68-KIb"/>
-                        <segue destination="08L-6S-M2O" kind="show" id="h7r-yB-RgL"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z8h-fc-zBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2721" y="-1552"/>
-        </scene>
-        <!--Subclass-->
-        <scene sceneID="sHA-8n-ETc">
-            <objects>
-                <tableViewController id="08L-6S-M2O" customClass="SubClassTableViewController" customModule="Timetable_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="C1a-4W-zzT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.79215686269999996" green="0.81568627449999997" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" id="cza-Vd-gKp">
-                                <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cza-Vd-gKp" id="eFx-c9-8Vp">
-                                    <rect key="frame" x="0.0" y="0.0" width="561" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="08L-6S-M2O" id="Q9a-VR-PRG"/>
-                            <outlet property="delegate" destination="08L-6S-M2O" id="sgX-1r-hT9"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Subclass" id="moD-0W-G7M"/>
-                    <connections>
-                        <outlet property="subclassTableView" destination="C1a-4W-zzT" id="cOM-MV-HaQ"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bRr-gg-eXE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2721" y="-760"/>
         </scene>
         <!--Timetable-->
         <scene sceneID="rG2-y0-Cz8">
@@ -615,7 +548,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MkY-87-G8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1741" y="-2664"/>
+            <point key="canvasLocation" x="-1953" y="-1970"/>
         </scene>
     </scenes>
     <resources>

@@ -9,16 +9,22 @@
 import UIKit
 
 class TTLandscapeCollectionViewLayout: TTCollectionViewLayout {
+    
+    /**
+    overriding width function for week layout
+    */
     override func widthForItemWithColumnIndex(columnIndex: Int) -> CGFloat {
         
         let timeColumnWidth: CGFloat = getTimeColumnWidth()
+        numberOfDaysOnScreen = 5
+        
         if columnIndex != 0 {
             let width: CGFloat
             let screenSize: CGRect = UIScreen.mainScreen().bounds
             if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
-                width = ((screenSize.height - timeColumnWidth) / 5) - marginBetweenRows
+                width = ((screenSize.height - timeColumnWidth) / numberOfDaysOnScreen) - marginBetweenRows
             } else {
-                width = ((screenSize.width - timeColumnWidth) / 5) - marginBetweenRows
+                width = ((screenSize.width - timeColumnWidth) / numberOfDaysOnScreen) - marginBetweenRows
             }
             return width
             
