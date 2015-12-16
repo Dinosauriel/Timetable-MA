@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var UserDefaults = NSUserDefaults.standardUserDefaults()
     let collectionView = TTCollectionViewController()
     
+    func getView() -> TTCollectionViewController {
+        return collectionView
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // DETECTING FIRST LAUNCH
