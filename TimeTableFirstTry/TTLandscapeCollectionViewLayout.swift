@@ -13,7 +13,7 @@ class TTLandscapeCollectionViewLayout: TTCollectionViewLayout {
     /**
     overriding width function for week layout
     */
-    override func widthForItemWithColumnIndex(columnIndex: Int) -> CGFloat {
+    override func widthForItemWithColumn(columnIndex: Int) -> CGFloat {
         
         let timeColumnWidth: CGFloat = getTimeColumnWidth()
         numberOfDaysOnScreen = 5
