@@ -21,7 +21,7 @@ class DeclareLesson {
         
         ++sec
         
-        for var i = 0; i < week.count; ++i {
+        for var i in 0 ..< week.count {
             if week[i].day == String(sec) {
                 day.append(week[i])
             }

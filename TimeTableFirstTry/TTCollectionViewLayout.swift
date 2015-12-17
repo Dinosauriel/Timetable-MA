@@ -24,7 +24,7 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
     let marginBetweenWeeks: CGFloat = 10
 
     //MARK: INTEGERS
-    var numberOfColumns: Int = 6
+    var numberOfColumns: Int = 16
     let numberOfDaysInWeek: Int = 5
     
     
@@ -85,12 +85,8 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
             
             var itemHeight: CGFloat                     // Height of a single Section
             
-            //First row is thinner
-            if section == 0 {
-                itemHeight = 30
-            } else {
-                itemHeight = 60
-            }
+            //Get Height From function
+            itemHeight = heightForItemWithSection(section)
             
             
             for index in 0 ..< numberOfColumns {
@@ -241,6 +237,14 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
         } else {
 
             return timeColumnWidth
+        }
+    }
+    
+    func heightForItemWithSection(section: Int) -> CGFloat {
+        if section == 0 {
+            return CGFloat(30)
+        } else {
+            return CGFloat(60)
         }
     }
     
