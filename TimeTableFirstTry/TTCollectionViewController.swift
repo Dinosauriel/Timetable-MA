@@ -54,7 +54,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollToCurrentSection(collectionView)
         self.collectionView.backgroundColor = dividingLineColor
         
         if !UserDefaults.boolForKey("HasLaunchedOnce") {
@@ -73,7 +72,12 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     override func viewDidAppear(animated: Bool) {
-        scrollToCurrentSection(collectionView)
+        scrollToCurrentSection(self.collectionView, animated:  false)
+    }
+    
+    //MARK: BACK BUTTON
+    @IBAction func backButton(sender: AnyObject) {
+        scrollToCurrentSection(self.collectionView, animated: true)
     }
     
     //MARK: REFRESH BUTTON
@@ -180,8 +184,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         }
     }
     
-    func scrollToCurrentSection(scrollView: UIScrollView) {
-        print("Scrolling to Day...")
+    func scrollToCurrentSection(scrollView: UIScrollView, animated: Bool) {
         if scrollView == self.collectionView {
             let date = NSDate()
             let targetScrollingPos = UICollectionViewScrollPosition.Right
@@ -206,7 +209,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             
             let targetIndexPath = NSIndexPath(forItem: targetItem, inSection: 1)
             
-            collectionView.scrollToItemAtIndexPath(targetIndexPath, atScrollPosition: targetScrollingPos, animated: false)
+            collectionView.scrollToItemAtIndexPath(targetIndexPath, atScrollPosition: targetScrollingPos, animated: animated)
         }
     }
     
@@ -366,7 +369,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         celltoreturn = lessonCell
                 }
                 //let currentLesson = timegetter.getCurrentLesson()
-                let currentLessonIndexPath = NSIndexPath(forItem: 2, inSection: 4)
+                let currentLessonIndexPath = NSIndexPath(forRow: 2, inSection: 4)
                 
                 if indexPath == currentLessonIndexPath {
                         celltoreturn.backgroundColor = UIColor.redColor()
