@@ -25,24 +25,6 @@ class APIHandler {
     }
     
     /**
-    Handles the response of the Authentication-Service by extracting the token from the URL
-    */
-    func handleTokenResponse(url : NSURL) {
-        //Convert the NSURL to a string
-        let URLString = String(url)
-        //Extract the token out of the string
-        let stringArr = URLString.componentsSeparatedByString("&")
-        let tokenArr = stringArr[0].componentsSeparatedByString("=")
-        
-        //Stores the token in a seperate variable
-        token = tokenArr[1]
-        print("Retrieved token " + token)
-        
-        tokenStorage.storeTokenData(token)
-        
-    }
-    
-    /**
     Requests data from the API by using the token. If there's no token stored the function to request one will be called and this function terminates
     */
     func getDataWithToken() {
@@ -98,8 +80,8 @@ class APIHandler {
         let timeZoneVar:String = "GMT"//String(NSTimeZone.localTimeZone())
         
         
-        //let URLRequestString = URLBaseRequestString + token + "/date/" + dayVarShort + "%2C%20" + dayVarDate + "%20" + monthVarShort + "%20" + yearVar + "%20" + hourVar + "%3A" + minuteVar + "%3A" + secondVar + "%20" + timeZoneVar
-        let URLRequestString = "https://stage.tam.ch/klw/rest/mobile-timetable/auth/"+token+"/date/Thu%2C%2010%20Dec%202015%2012%3A53%3A00%20GMT"
+        let URLRequestString = URLBaseRequestString + token + "/date/" + dayVarShort + "%2C%20" + dayVarDate + "%20" + monthVarShort + "%20" + yearVar + "%20" + hourVar + "%3A" + minuteVar + "%3A" + secondVar + "%20" + timeZoneVar
+        //let URLRequestString = "https://stage.tam.ch/klw/rest/mobile-timetable/auth/"+token+"/date/Thu%2C%2010%20Dec%202015%2012%3A53%3A00%20GMT"
         print(URLRequestString)
         //The URL for the data
         let requestURL = NSURL(string: URLRequestString)
@@ -138,9 +120,9 @@ class APIHandler {
         let keys = dataDict.allKeys
         
         if keys.contains({$0 as! String == "code"}) {
-            let code = dataDict["code"] as! String
-            switch String(code) {
-            case "401": print("Not authenticated"); requestNewAuthToken()
+            let code = dataDict["code"] as! Int
+            switch Int(code) {
+            case 401: print("Not authenticated"); requestNewAuthToken()
             default: print("default")
             }
         } else {
