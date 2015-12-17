@@ -9,46 +9,43 @@
 import Foundation
 
 class Day {
-    let date = NSDate()
+    let today = NSDate()
     let calendar = NSCalendar.currentCalendar()
+    let formatter = NSDateFormatter()
     
-    enum Length {
+    enum StringLength {
         case short
         case long
     }
     
-    func generateDayArray(length: Length) -> NSArray {
-        let currentWeekDayCal = calendar.components(.Weekday, fromDate: date)
-        let currentWeekDay = currentWeekDayCal.weekday
+    func generateDayArray(dateStringLength: StringLength) -> [String] {
+        let demandedArrayLength: Int = 15
         
-        var weekToReturn = [String](count: 5, repeatedValue: "")
+        var weekToReturn: [String] = [String](count: demandedArrayLength, repeatedValue: "")
         
+        var firstMonday = calendar.dateBySettingUnit(.Weekday, value: 2, ofDate: today, options: NSCalendarOptions.MatchLast)
         
-        func getNextDay(distance: Int) -> String {
-            var day = calendar.dateBySettingUnit(.Weekday, value: (2 + distance), ofDate: NSDate(), options: NSCalendarOptions())
-            
-            let weekdayCal = calendar.component(.Weekday, fromDate: day!)
-            
-            if weekdayCal < currentWeekDay && currentWeekDay != 7 {
-                day = calendar.dateByAddingUnit(.WeekOfYear, value: -1, toDate: day!, options: NSCalendarOptions())
-            }
-            
-            let formatter = NSDateFormatter()
-            if length == .long {
-                formatter.dateFormat = "EEEE, dd. MMMM yyyy"
-            } else if length == .short {
-                formatter.dateFormat = "EE, dd. MM yyyy"
-            }
-            
-            let DateString = formatter.stringFromDate(day!)
-            return DateString
+        let monIsLater = calendar.compareDate(firstMonday!, toDate: today, toUnitGranularity: .Weekday) == .OrderedDescending
+        
+        if monIsLater {
+            firstMonday = calendar.dateByAddingUnit(.WeekOfYear, value: -1, toDate: firstMonday!, options: NSCalendarOptions.MatchLast)
         }
         
-        for var i = 0; i < weekToReturn.count; ++i {
-            weekToReturn[i] = getNextDay(i)
-
+        for i in 0 ..< demandedArrayLength {
+            let newDate = calendar.dateByAddingUnit(.Day, value: i, toDate: firstMonday!, options: NSCalendarOptions.MatchNextTime)
+            let newString = getStringFromDate(newDate!, length: dateStringLength)
+            weekToReturn[i] = newString
         }
         
         return weekToReturn
+    }
+    
+    func getStringFromDate(date: NSDate, length: StringLength) -> String {
+        if length == .long {
+            formatter.dateFormat = "EEEE, dd. MMMM yyyy"
+        } else if length == .short {
+            formatter.dateFormat = "EE, dd. mm. yy"
+        }
+        return formatter.stringFromDate(date)
     }
 }

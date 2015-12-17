@@ -21,6 +21,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     //MARK: TIME
     let calendar = NSCalendar.currentCalendar()
+    //let rotationScrollDelayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
     
     //MARK: CLASSES
     let timegetter = TimetableTime()
@@ -32,7 +33,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
 
     //MARK: INTEGERS
     let numberOfSections = 13
-    let numberOfRows = 6
+    let numberOfColumns = 16
     
     //MARK: CGPoints
     var scrollStartContentOffset: CGPoint = CGPoint(x: 0, y: 0)
@@ -44,9 +45,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let cancelledLessonTextColor = UIColor.redColor()
     let defaultTextColor = UIColor.blackColor()
     let specialLessonBackgroundColor = UIColor(hue: 0.8639, saturation: 0, brightness: 0.83, alpha: 1.0) //GRAY
-    
-    //MARK: TIMES
-    //let rotationScrollDelayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
     
     //MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
@@ -102,10 +100,20 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     func setLayoutToPortrait(animated: Bool) {
         self.collectionView.setCollectionViewLayout(layout, animated: animated)
+        //self.overrideDateCells()
     }
     
     func setLayoutToLandscape(animated: Bool) {
         self.collectionView.setCollectionViewLayout(landscapelayout, animated: animated)
+        //self.overrideDateCells()
+    }
+    
+    func overrideDateCells() {
+        
+        for i in 0 ..< numberOfColumns {
+            print(i)
+            self.collectionView(collectionView, cellForItemAtIndexPath: NSIndexPath(forItem: i, inSection: 0))
+        }
     }
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
@@ -209,7 +217,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfRows
+        return numberOfColumns
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -321,8 +329,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                             lessonCell.dividingView.backgroundColor = dividingLineColor
                         }
                         //lessonCell.vertDividingView.backgroundColor = dividingLineColor
-
-                    
+                
                         celltoreturn = lessonCell
                     
                     case .Replaced:
