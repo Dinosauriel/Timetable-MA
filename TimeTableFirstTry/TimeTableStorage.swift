@@ -74,15 +74,20 @@ public class TimeTableStorage {
         }
     }
     
-    func getTimeTableDataWithDayString(day:String) -> [TimeTableData] {
-        let tempArray = getTimeTableData()
-        var finalArray = [TimeTableData]()
-        for tempLesson in tempArray {
-            if tempLesson.day == day {
-                finalArray.append(tempLesson)
+    func getTimeTableDict() -> [String:[TimeTableData]] {
+        let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
+        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
+            tableData = fetchResults
+            var resultDict = [String:[TimeTableData]]()
+            for lesson:TimeTableData in tableData as! [TimeTableData] {
+                let day:String = lesson.day
+                resultDict[day]?.append(lesson)
             }
+            return resultDict
+        } else {
+            print("FetchRequest failed")
+            return ["failed":[]]
         }
-        return finalArray
     }
     
     func eraseAllData() -> Void {
