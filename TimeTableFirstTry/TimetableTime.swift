@@ -51,4 +51,28 @@ class TimetableTime {
         
         return time
     }
+    
+    func getCurrentLesson() -> [Int] {
+        var arrayToReturn: [Int] = []
+        
+        for i in 0 ..< 12 {
+            let selectedLessonEnd = getLessonDate(i, when: .End)
+            if calendar.compareDate(date, toDate: selectedLessonEnd, toUnitGranularity: .Minute) == NSComparisonResult.OrderedDescending {
+                if i != 11 {
+                    arrayToReturn = [i]
+                    arrayToReturn.append(calendar.component(.Weekday, fromDate: date))
+                    break
+                } else {
+                    arrayToReturn = [0]
+                    arrayToReturn.append(calendar.component(.Weekday, fromDate: date) + 1)
+                    print("CurrentLesson is on next Day")
+                }
+            } else {
+                arrayToReturn = [0]
+            }
+        }
+        print(arrayToReturn)
+        
+        return arrayToReturn
+    }
  }

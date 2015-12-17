@@ -65,7 +65,6 @@ public class TimeTableStorage {
     
     func getTimeTableData() -> [TimeTableData] {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
-        print("Fetching Data")
         if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
             tableData = fetchResults
             return tableData as! [TimeTableData]

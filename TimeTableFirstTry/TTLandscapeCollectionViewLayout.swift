@@ -33,6 +33,13 @@ class TTLandscapeCollectionViewLayout: TTCollectionViewLayout {
             return timeColumnWidth
         }
     }
-
+    
+    override func heightForItemWithSection(section: Int) -> CGFloat {
+        if section == 0 {
+            return CGFloat(30)
+        } else {
+            return CGFloat(40)
+        }
+    }
     
 }

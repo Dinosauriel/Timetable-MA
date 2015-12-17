@@ -60,7 +60,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         if !UserDefaults.boolForKey("HasLaunchedOnce") {
             UserDefaults.setBool(true, forKey: "HasLaunchedOnce")
         }
-
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -285,7 +284,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         if indexPath.section != (numberOfSections - 1) {
                             lessonCell.dividingView.backgroundColor = dividingLineColor
                         }
-                        //lessonCell.vertDividingView.backgroundColor = dividingLineColor
                         
                         celltoreturn = lessonCell as LessonCollectionViewCell
                     
@@ -303,11 +301,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         //Crossing out Lesson
                         lessonCell.crossOutView.backgroundColor = cancelledLessonTextColor
                         
-                        
                         if indexPath.section != (numberOfSections - 1) {
+                        
                             lessonCell.dividingView.backgroundColor = dividingLineColor
                         }
-                        //lessonCell.vertDividingView.backgroundColor = dividingLineColor
                 
                         celltoreturn = lessonCell
                     
@@ -367,6 +364,13 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         }
                         
                         celltoreturn = lessonCell
+                }
+                //let currentLesson = timegetter.getCurrentLesson()
+                let currentLessonIndexPath = NSIndexPath(forItem: 2, inSection: 4)
+                
+                if indexPath == currentLessonIndexPath {
+                        celltoreturn.backgroundColor = UIColor.redColor()
+                        print("Hi")
                 }
                 
                 return celltoreturn
