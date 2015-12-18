@@ -34,6 +34,9 @@ class TTLandscapeCollectionViewLayout: TTCollectionViewLayout {
         }
     }
     
+    /**
+    overriding height function for week layout
+    */
     override func heightForItemWithSection(section: Int) -> CGFloat {
         if section == 0 {
             return CGFloat(30)

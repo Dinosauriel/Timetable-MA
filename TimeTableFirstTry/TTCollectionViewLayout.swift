@@ -21,7 +21,7 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
     
     let marginForTimeColumn: CGFloat = 15
     let marginBetweenRows: CGFloat = 2
-    let marginBetweenWeeks: CGFloat = 10
+    let marginBetweenWeeks: CGFloat = 5
 
     //MARK: INTEGERS
     var numberOfColumns: Int = 16
@@ -88,7 +88,6 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
             //Get Height From function
             itemHeight = heightForItemWithSection(section)
             
-            
             for index in 0 ..< numberOfColumns {
                 //Width of a single Column
                 let itemWidth = self.itemsWidth[index] as! CGFloat
@@ -99,7 +98,19 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
                 // Attributes of a single Cell with the current section and index
                 let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
                 // Assigning provisional Position and Size of each cell as attribute.frame
-                attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemWidth, itemHeight))
+                if (section != 0) || (section == 0 && index == 0) || index + 1 == numberOfColumns {
+                    attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemWidth, itemHeight))
+                } else {
+                    if index != 0 {
+                        if index + 1 != numberOfColumns {
+                            if (index % numberOfDaysInWeek) == 0 {
+                                attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, (itemWidth + marginBetweenWeeks), itemHeight))
+                            } else {
+                                attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, (itemWidth + marginBetweenRows), itemHeight))
+                            }
+                        }
+                    }
+                }
                 
                 // Determining zIndexes (higher means more in front)
                 if section == 0 && index == 0 {
@@ -110,13 +121,11 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
                 
                 //Assigning absolute y-Values to all items in section 0
                 if section == 0 {
-                    
                     attributes.frame.origin.y = self.collectionView!.contentOffset.y
                 }
                 
                 //Assigning absolute x-Values to all items in index 0
                 if index == 0 {
-                    
                     attributes.frame.origin.x = self.collectionView!.contentOffset.x
                 }
                 
@@ -127,12 +136,12 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
                 xOffset += itemWidth
                 
                 // Add small margin between two days
-                if column != 0 && column != (numberOfColumns - 1 ) {
+                if (column != 0) && (column != (numberOfColumns - 1 )) {
                     xOffset += marginBetweenRows
                 }
                 
                 // Add big margin between two weeks
-                if column % numberOfDaysInWeek == 0 && column != (numberOfColumns - 1) && column != 0 {
+                if (column % numberOfDaysInWeek == 0) && (column != (numberOfColumns - 1)) && (column != 0) {
                     
                     xOffset -= marginBetweenRows
                     xOffset += marginBetweenWeeks
@@ -156,7 +165,7 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
             }
             
             //Initializing itemAttributes if necessairy
-            if (self.itemAttributes == nil) {
+            if self.itemAttributes == nil {
                 self.itemAttributes = NSMutableArray(capacity: self.collectionView!.numberOfSections())
             }
             
@@ -205,6 +214,7 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
                 // Filtering self.itemAttributes with the predicate
                 let attributesInSectionInRect = section.filteredArrayUsingPredicate(filterPredicate) as! [UICollectionViewLayoutAttributes]
                 
+                //Adding section Attributes in rect
                 attributesInRect.appendContentsOf(attributesInSectionInRect)
                 
             }
@@ -219,7 +229,7 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
     
     // MARK: CALCULATING SIZE FOR CELLS
     /**
-    Calculates a optimal width for a section relative to the display size
+    Returns a optimal width for a section relative to the display size
     */
     func widthForItemWithColumn(column: Int) -> CGFloat {
         
@@ -240,6 +250,9 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
         }
     }
     
+    /**
+    Returns absolute value of the height of a cell regardinf its section
+    */
     func heightForItemWithSection(section: Int) -> CGFloat {
         if section == 0 {
             return CGFloat(30)
@@ -260,7 +273,7 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
     }
     
     /**
-    Calculates the Width of the time column by adding a Margin to the "Time" String
+    Returns the Width of the time column by adding a Margin to the "Time" String
     */
     func getTimeColumnWidth() -> CGFloat {
         

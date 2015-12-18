@@ -86,7 +86,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="buZ-et-Ruz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsMainMenuCellIdentifier" textLabel="TKR-pd-LJq" style="IBUITableViewCellStyleDefault" id="RHc-B9-c4A">
                                 <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
@@ -175,6 +175,11 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Timetable" id="qPY-H0-XnS">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="zQT-8I-aHg">
+                                            <connections>
+                                                <action selector="backButton:" destination="m88-DH-tRX" id="oDr-Yx-6N3"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="8d8-wF-0Vm">
                                             <color key="tintColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
