@@ -98,15 +98,16 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
                 // Attributes of a single Cell with the current section and index
                 let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
                 // Assigning provisional Position and Size of each cell as attribute.frame
-                if section != 0 {
+                if (section != 0) || (section == 0 && index == 0) {
                     attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemWidth, itemHeight))
                 } else {
-                    attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, (itemWidth + 30), itemHeight))
-                /*    if ((index + 1) % numberOfDaysInWeek) == 0 {
-                        attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, (itemWidth + marginBetweenRows), itemHeight))
-                    } else {
-                        attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, (itemWidth + marginBetweenWeeks), itemHeight))
-                    } */
+                    if index != 0 {
+                        if (index % numberOfDaysInWeek) == 0 && index + 1 != numberOfColumns {
+                            attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, (itemWidth + marginBetweenWeeks), itemHeight))
+                        } else {
+                            attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, (itemWidth + marginBetweenRows), itemHeight))
+                        }
+                    }
                 }
                 
                 // Determining zIndexes (higher means more in front)
@@ -133,12 +134,12 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
                 xOffset += itemWidth
                 
                 // Add small margin between two days
-                if (column != 0) && (column != (numberOfColumns - 1 )) && (section != 0) {
+                if (column != 0) && (column != (numberOfColumns - 1 )) {
                     xOffset += marginBetweenRows
                 }
                 
                 // Add big margin between two weeks
-                if (column % numberOfDaysInWeek == 0) && (column != (numberOfColumns - 1)) && (column != 0) && (section != 0) {
+                if (column % numberOfDaysInWeek == 0) && (column != (numberOfColumns - 1)) && (column != 0) {
                     
                     xOffset -= marginBetweenRows
                     xOffset += marginBetweenWeeks

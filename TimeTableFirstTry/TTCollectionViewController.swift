@@ -180,10 +180,12 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 currentCellOffset.x += (columnWidth * rightTargetFactor)
             }
             
-            let targetCellIndexPath = collectionView.indexPathForItemAtPoint(currentCellOffset)
-            if targetCellIndexPath != nil {
-                collectionView.scrollToItemAtIndexPath(targetCellIndexPath!, atScrollPosition: targetScrollingPos, animated: animated)
+            let currentIndexPath = collectionView.indexPathForItemAtPoint(currentCellOffset)
+            if currentIndexPath != nil {
+                let targetCellIndexPath = NSIndexPath(forItem: (currentIndexPath?.row)!, inSection: (currentIndexPath?.section)! + 1)
+                collectionView.scrollToItemAtIndexPath(targetCellIndexPath, atScrollPosition: targetScrollingPos, animated: animated)
             }
+            
         }
     }
     
