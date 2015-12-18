@@ -98,14 +98,16 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
                 // Attributes of a single Cell with the current section and index
                 let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
                 // Assigning provisional Position and Size of each cell as attribute.frame
-                if (section != 0) || (section == 0 && index == 0) {
+                if (section != 0) || (section == 0 && index == 0) || index + 1 == numberOfColumns {
                     attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemWidth, itemHeight))
                 } else {
                     if index != 0 {
-                        if (index % numberOfDaysInWeek) == 0 && index + 1 != numberOfColumns {
-                            attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, (itemWidth + marginBetweenWeeks), itemHeight))
-                        } else {
-                            attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, (itemWidth + marginBetweenRows), itemHeight))
+                        if index + 1 != numberOfColumns {
+                            if (index % numberOfDaysInWeek) == 0 {
+                                attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, (itemWidth + marginBetweenWeeks), itemHeight))
+                            } else {
+                                attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, (itemWidth + marginBetweenRows), itemHeight))
+                            }
                         }
                     }
                 }
