@@ -46,6 +46,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let defaultTextColor = UIColor.blackColor()
     let specialLessonBackgroundColor = UIColor(hue: 0.8639, saturation: 0, brightness: 0.83, alpha: 1.0) //GRAY
     
+    let yellowGreenBackground = UIColor(hue: 0.1694, saturation: 0.74, brightness: 0.84, alpha: 1.0)    //GREEN-YELLOW
+    let darkgreenTint = UIColor(hue: 0.4778, saturation: 0.73, brightness: 0.46, alpha: 1.0)            //DARKGREEN
+    
     //MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topStatusbarConstraint: NSLayoutConstraint!
@@ -230,27 +233,32 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
 
                 dayCell.dayLabel.text = NSLocalizedString("time", comment: "TransForTime")
                 
-                if indexPath.section != (numberOfSections - 1) {
-                    dayCell.dividingView.backgroundColor = dividingLineColor
-                }
+                dayCell.dividingView.backgroundColor = dividingLineColor
+                
+                dayCell.backgroundColor = yellowGreenBackground
+                dayCell.dayLabel.textColor = darkgreenTint
                 
                 return dayCell
                 
             } else {
                 let dayCell: DayCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
                 
-                let dayArray: NSArray
+                let dayArray: [String]
                 if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
                     dayArray = day.generateDayArray(.long)
                 } else {
                     dayArray = day.generateDayArray(.short)
                 }
-                dayCell.dayLabel.text = dayArray[indexPath.row - 1] as? String
+                dayCell.dayLabel.text = dayArray[indexPath.row - 1]
                 
+                dayCell.dividingView.backgroundColor = dividingLineColor
                 
-                if indexPath.section != (numberOfSections - 1) {
-                    dayCell.dividingView.backgroundColor = dividingLineColor
+                if indexPath.row == 4 {
+                    dayCell.dayLabel.font = UIFont.boldSystemFontOfSize(12)
                 }
+                
+                dayCell.backgroundColor = yellowGreenBackground
+                dayCell.dayLabel.textColor = darkgreenTint
                 
                 return dayCell
                 
@@ -262,9 +270,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 timeCell.starttimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section - 1, when: .Start)
                 timeCell.endtimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section - 1, when: .End)
                 
-                if indexPath.section != (numberOfSections - 1) {
-                    timeCell.dividingView.backgroundColor = dividingLineColor
-                }
+                timeCell.dividingView.backgroundColor = dividingLineColor
                 
                 return timeCell
             } else {
@@ -283,10 +289,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         // Declaring roomLabel appearance
                         lessonCell.roomLabel.text = alesson.room
                         
-                        
-                        if indexPath.section != (numberOfSections - 1) {
-                            lessonCell.dividingView.backgroundColor = dividingLineColor
-                        }
+                        lessonCell.dividingView.backgroundColor = dividingLineColor
                         
                         celltoreturn = lessonCell as LessonCollectionViewCell
                     
@@ -304,10 +307,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         //Crossing out Lesson
                         lessonCell.crossOutView.backgroundColor = cancelledLessonTextColor
                         
-                        if indexPath.section != (numberOfSections - 1) {
-                        
-                            lessonCell.dividingView.backgroundColor = dividingLineColor
-                        }
+                        lessonCell.dividingView.backgroundColor = dividingLineColor
                 
                         celltoreturn = lessonCell
                     
@@ -332,10 +332,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         replacedlessonCell.subroomLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.subroomLabel.text = alesson.subroom
                         
-                        
-                        if indexPath.section != (numberOfSections - 1) {
-                            replacedlessonCell.dividingView.backgroundColor = dividingLineColor
-                        }
+                        replacedlessonCell.dividingView.backgroundColor = dividingLineColor
                     
                         celltoreturn = replacedlessonCell
                     
@@ -346,9 +343,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         lessonCell.teacherLabel.text = ""
                         lessonCell.roomLabel.text = ""
                         
-                        if indexPath.section != (numberOfSections - 1) {
-                            lessonCell.dividingView.backgroundColor = dividingLineColor
-                        }
+                        lessonCell.dividingView.backgroundColor = dividingLineColor
                         
                         celltoreturn = lessonCell
                     
@@ -362,9 +357,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
 
                         lessonCell.subjectLabel.text = alesson.subject
                         
-                        if indexPath.section != (numberOfSections - 1) {
-                            lessonCell.dividingView.backgroundColor = dividingLineColor
-                        }
+                        lessonCell.dividingView.backgroundColor = dividingLineColor
                         
                         celltoreturn = lessonCell
                 }
@@ -372,8 +365,8 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 let currentLessonIndexPath = NSIndexPath(forRow: 2, inSection: 4)
                 
                 if indexPath == currentLessonIndexPath {
-                        celltoreturn.backgroundColor = UIColor.redColor()
-                        print("Hi")
+                    print("row: " + String(indexPath.row) + ", section: " + String(indexPath.section))
+                    celltoreturn.backgroundColor = UIColor.redColor()
                 }
                 
                 return celltoreturn
