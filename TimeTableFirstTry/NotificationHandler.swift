@@ -23,6 +23,7 @@ class NotificationHandler {
         newNotification.fireDate = datetime
         newNotification.alertTitle = title
         newNotification.alertBody = message
+        newNotification.soundName = UILocalNotificationDefaultSoundName
         newNotification.alertAction = nil
         UIApplication.sharedApplication().scheduleLocalNotification(newNotification)
     }

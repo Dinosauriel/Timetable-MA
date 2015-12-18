@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // DETECTING FIRST LAUNCH
         if UserDefaults.objectForKey("HasLaunchedOnce") == nil {
             UserDefaults.setBool(false, forKey: "HasLaunchedOnce")
+            UserDefaults.setBool(true, forKey: "RetrievedNewToken")
         }
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -41,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = initialViewController
         
         //Push-notifications
-        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge], categories: nil)
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         
         //API
@@ -67,14 +68,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Handling token...")
         tokenResponseVar?.handleTokenResponse(url)
         
+        if UserDefaults.objectForKey("RetrievedNewToken") == nil || UserDefaults.boolForKey("RetrievedNewToken") {
+            UserDefaults.setBool(false, forKey: "RetrievedNewToken")
+        }
+        
         return true
     }
     
     // Support for background fetch
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        APIBackgroundHandlerVar = APIBackgroundHandler()
-        APIBackgroundHandlerVar!.getBackgroundData {_ in 
-            completionHandler(.NewData)
+        if UserDefaults.boolForKey("RetrievedNewToken") {
+            APIBackgroundHandlerVar = APIBackgroundHandler()
+            APIBackgroundHandlerVar!.getBackgroundData({ (status) -> Void in
+                switch(status) {
+                case "failed": completionHandler(.Failed)
+                case "newData": completionHandler(.NewData)
+                case "noData": completionHandler(.NoData)
+                default: completionHandler(.NoData)
+                }
+            })
+        } else {
+            UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalNever)
+            completionHandler(.Failed)
         }
     }
 
