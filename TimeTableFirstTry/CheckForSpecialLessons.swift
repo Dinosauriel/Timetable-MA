@@ -40,7 +40,7 @@ class CheckForSpecialLessons {
                                 endString = endString.stringByReplacingOccurrencesOfString("+", withString: " +")
                                 let endDate = dateFormatter.dateFromString(endString)
                                 
-                                if lessonToCheck["id"] as! Int != lesson["id"] as! Int {
+                                if lessonToCheck["id"] as! Int != lesson["id"] as! Int && lessonToCheck["eventType"] as! String != "cancel" {
                                     if startDateToCheck <= startDate || endDateToCheck >= endDate {
                                         print("Lesson ")
                                         print(lessonToCheck)
