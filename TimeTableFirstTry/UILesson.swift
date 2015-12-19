@@ -19,12 +19,10 @@ struct UILesson {
     let subroom: String
     
     let status: Status
-    
-    let starttime: String
-    let endtime: String
+
 
     
-    init(subject: String, teacher: String, room: String, status: Status, subsubject: String, subteacher: String, subroom: String, start: String, end: String) {
+    init(subject: String, teacher: String, room: String, status: Status, subsubject: String, subteacher: String, subroom: String) {
         self.room = room
         self.teacher = teacher
         self.subject = subject
@@ -34,9 +32,6 @@ struct UILesson {
         self.subroom = subroom
         
         self.status = status
-        
-        self.starttime = start
-        self.endtime = end
     }
     
     enum Status {

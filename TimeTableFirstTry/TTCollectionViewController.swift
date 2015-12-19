@@ -368,13 +368,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         celltoreturn = lessonCell
                 }
                 //let currentLesson = timegetter.getCurrentLesson()
-                let currentLessonIndexPath = NSIndexPath(forRow: 2, inSection: 4)
                 
-                if indexPath == currentLessonIndexPath {
-                    print("row: " + String(indexPath.row) + ", section: " + String(indexPath.section))
+                if timegetter.lessonIsCurrentLesson(indexPath.item, inSection: indexPath.section) {
                     celltoreturn.backgroundColor = UIColor.redColor()
                 }
-                
                 return celltoreturn
             }
         }
