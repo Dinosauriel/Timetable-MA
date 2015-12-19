@@ -29,6 +29,8 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let layout = TTCollectionViewLayout()
     let landscapelayout = TTLandscapeCollectionViewLayout()
     let day = Day()
+    let sup = DeviceSupport()
+    
     var UserDefaults = NSUserDefaults.standardUserDefaults()
 
     //MARK: INTEGERS
@@ -62,6 +64,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         if !UserDefaults.boolForKey("HasLaunchedOnce") {
             UserDefaults.setBool(true, forKey: "HasLaunchedOnce")
         }
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -140,6 +143,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         if fromInterfaceOrientation != .Portrait {
             scrollToOptimalSection(self.collectionView, animated: true)
         }
+        
+        // Reload Day section so Dates are shorter.
+        self.collectionView.reloadSections(NSIndexSet(index: 0))
     }
     
     
@@ -247,9 +253,13 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 
                 let dayArray: [String]
                 if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
-                    dayArray = day.generateDayArray(.long)
+                    dayArray = day.generateDayArray(.long, forUI: true)
                 } else {
-                    dayArray = day.generateDayArray(.short)
+                    if sup.getAbsoluteDisplayHeight() > 480 {
+                        dayArray = day.generateDayArray(.short,forUI: true)
+                    } else {
+                        dayArray = day.generateDayArray(.veryshort, forUI: true)
+                    }
                 }
                 dayCell.dayLabel.text = dayArray[indexPath.row - 1]
                 
@@ -269,8 +279,8 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             if indexPath.row == 0 {
                 let timeCell: TimeCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(timeCellIdentifier, forIndexPath: indexPath) as! TimeCollectionViewCell
 
-                timeCell.starttimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section - 1, when: .Start)
-                timeCell.endtimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section - 1, when: .End)
+                timeCell.starttimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section - 1, when: .Start, withSeconds:  false)
+                timeCell.endtimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section - 1, when: .End, withSeconds: false)
                 
                 timeCell.dividingView.backgroundColor = dividingLineColor
                 
@@ -279,7 +289,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 
                 let celltoreturn: UICollectionViewCell
                 
-                let alesson = declarelesson.getNewLessonForUI(indexPath.row, pos: indexPath.section)
+                let alesson = declarelesson.getNewLessonForUI(indexPath.section, item: indexPath.item)
                 
                 switch alesson.status {
                     case .Default:

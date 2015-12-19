@@ -48,6 +48,7 @@
 		74AD756F1C19CEC2005139BA /* FLPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD756E1C19CEC2005139BA /* FLPageViewController.swift */; };
 		74CA85B01C0B4A530076CF64 /* TimeTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8F9DD1C061F2000D15752 /* TimeTableData.swift */; };
 		74E18DAB1BFFA27900DE26AF /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E18DAA1BFFA27900DE26AF /* LoginWebViewController.swift */; };
+		74E41DA41C258195005E15EB /* DeviceSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E41DA31C258195005E15EB /* DeviceSupport.swift */; };
 		74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A01BDD56710026F2AE /* AppDelegate.swift */; };
 		74EBE6A31BDD56710026F2AE /* TTCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A21BDD56710026F2AE /* TTCollectionViewController.swift */; };
 		74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A71BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld */; };
@@ -139,6 +140,7 @@
 		74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		74AD756E1C19CEC2005139BA /* FLPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLPageViewController.swift; sourceTree = "<group>"; };
 		74E18DAA1BFFA27900DE26AF /* LoginWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
+		74E41DA31C258195005E15EB /* DeviceSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSupport.swift; sourceTree = "<group>"; };
 		74EBE69D1BDD56710026F2AE /* Timetable App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Timetable App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EBE6A01BDD56710026F2AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74EBE6A21BDD56710026F2AE /* TTCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTCollectionViewController.swift; sourceTree = "<group>"; };
@@ -271,12 +273,12 @@
 		743ED89A1BF63E5900DA2E46 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				74E41DA21C258150005E15EB /* Supporting Classes */,
 				4F2CAE561C23203E007CCC7B /* Notifications */,
 				749997151C19852100B8FED3 /* TabBar */,
 				4FC8F9DA1C0618E300D15752 /* DataStorage */,
 				74E18DA91BFFA24C00DE26AF /* First Launch / WebView */,
 				742889F51BF739E50018EAE4 /* Lang */,
-				74EBE6D11BDD582A0026F2AE /* Cells */,
 				74866B051BEBE5400030FA95 /* Lesson */,
 				4F86006F1BE8D8AA00FA53AD /* Time */,
 				74AD297D1BF759D7001382F5 /* Settings */,
@@ -296,6 +298,7 @@
 			children = (
 				74EBE6A21BDD56710026F2AE /* TTCollectionViewController.swift */,
 				74D993401C208DB3001333CA /* Layouts */,
+				74EBE6D11BDD582A0026F2AE /* Cells */,
 			);
 			name = TTCollectionView;
 			sourceTree = "<group>";
@@ -341,6 +344,14 @@
 				74AD756E1C19CEC2005139BA /* FLPageViewController.swift */,
 			);
 			name = "First Launch / WebView";
+			sourceTree = "<group>";
+		};
+		74E41DA21C258150005E15EB /* Supporting Classes */ = {
+			isa = PBXGroup;
+			children = (
+				74E41DA31C258195005E15EB /* DeviceSupport.swift */,
+			);
+			name = "Supporting Classes";
 			sourceTree = "<group>";
 		};
 		74EBE6941BDD56710026F2AE = {
@@ -619,6 +630,7 @@
 				4F4DE76C1C21E6A900F67890 /* TokenResponseHandler.swift in Sources */,
 				4FB5A78F1C060013007977FB /* APIHandler.swift in Sources */,
 				74866B071BEBE5570030FA95 /* UILesson.swift in Sources */,
+				74E41DA41C258195005E15EB /* DeviceSupport.swift in Sources */,
 				74EBE6D91BDD59580026F2AE /* TTCollectionViewLayout.swift in Sources */,
 				4F219C1C1C248C07006EA0DB /* CustomNSDate.swift in Sources */,
 				74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */,
@@ -792,7 +804,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -830,7 +842,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

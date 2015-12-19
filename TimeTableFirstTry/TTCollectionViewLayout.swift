@@ -10,6 +10,9 @@ import UIKit
 
 class TTCollectionViewLayout: UICollectionViewFlowLayout {
     
+    //MARK: CLASSES
+    let sup = DeviceSupport()
+    
     //MARK: VARIOUS OBJECTS
     var itemAttributes: NSMutableArray!
     var itemsWidth: NSMutableArray!     // Array of index Widths assigned by calculateItemWidths
@@ -82,28 +85,27 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
         for section in 0 ..< self.collectionView!.numberOfSections() {
             
             let sectionAttributes = NSMutableArray()    // Attributes of a single section
-            
-            var itemHeight: CGFloat                     // Height of a single Section
+            var itemHeight: CGFloat                     // Height of a single section
             
             //Get Height From function
             itemHeight = heightForItemWithSection(section)
             
-            for index in 0 ..< numberOfColumns {
+            for item in 0 ..< numberOfColumns {
                 //Width of a single Column
-                let itemWidth = self.itemsWidth[index] as! CGFloat
+                let itemWidth = self.itemsWidth[item] as! CGFloat
                 
                 // IndexPath created for every index and Section
-                let indexPath = NSIndexPath(forItem: index, inSection: section)
+                let indexPath = NSIndexPath(forItem: item, inSection: section)
                 
                 // Attributes of a single Cell with the current section and index
                 let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
                 // Assigning provisional Position and Size of each cell as attribute.frame
-                if (section != 0) || (section == 0 && index == 0) || index + 1 == numberOfColumns {
+                if (section != 0) || (section == 0 && item == 0) || item + 1 == numberOfColumns {
                     attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemWidth, itemHeight))
                 } else {
-                    if index != 0 {
-                        if index + 1 != numberOfColumns {
-                            if (index % numberOfDaysInWeek) == 0 {
+                    if item != 0 {
+                        if item + 1 != numberOfColumns {
+                            if (item % numberOfDaysInWeek) == 0 {
                                 attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, (itemWidth + marginBetweenWeeks), itemHeight))
                             } else {
                                 attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, (itemWidth + marginBetweenRows), itemHeight))
@@ -113,9 +115,9 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
                 }
                 
                 // Determining zIndexes (higher means more in front)
-                if section == 0 && index == 0 {
+                if section == 0 && item == 0 {
                     attributes.zIndex = 3
-                } else  if section == 0 || index == 0 {
+                } else  if section == 0 || item == 0 {
                     attributes.zIndex = 2
                 }
                 
@@ -125,7 +127,7 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
                 }
                 
                 //Assigning absolute x-Values to all items in index 0
-                if index == 0 {
+                if item == 0 {
                     attributes.frame.origin.x = self.collectionView!.contentOffset.x
                 }
                 
@@ -236,12 +238,9 @@ class TTCollectionViewLayout: UICollectionViewFlowLayout {
         let timeColumnWidth: CGFloat = getTimeColumnWidth()
         if column != 0 {
             let width: CGFloat
-            let screenSize: CGRect = UIScreen.mainScreen().bounds
-            if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
-                width = (screenSize.width - timeColumnWidth) / numberOfDaysOnScreen
-            } else {
-                width = (screenSize.height - timeColumnWidth) / numberOfDaysOnScreen
-            }
+            
+            width = (sup.getAbsoluteDisplayWidth() - timeColumnWidth) / numberOfDaysOnScreen
+            
             return width
             
         } else {

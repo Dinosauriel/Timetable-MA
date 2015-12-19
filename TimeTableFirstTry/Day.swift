@@ -18,9 +18,10 @@ class Day {
     enum StringLength {
         case short
         case long
+        case veryshort
     }
     
-    func generateDayArray(dateStringLength: StringLength) -> [String] {
+    func generateDayArray(dateStringLength: StringLength, forUI: Bool) -> [String] {
         let demandedArrayLength: Int = 15
         var weekendCorrection = 0
         
@@ -40,19 +41,27 @@ class Day {
             }
             
             let newDate = calendar.dateByAddingUnit(.Day, value: i + weekendCorrection, toDate: firstMonday!, options: NSCalendarOptions.MatchNextTime)
-            let newString = getStringFromDate(newDate!, length: dateStringLength)
+            let newString = getStringFromDate(newDate!, length: dateStringLength, forUI: forUI)
             weekToReturn[i] = newString
         }
         
         return weekToReturn
     }
     
-    func getStringFromDate(date: NSDate, length: StringLength) -> String {
-        if length == .long {
-            formatter.dateFormat = "EEEE, dd. MMMM yyyy"
-        } else if length == .short {
-            formatter.dateFormat = "EE, dd. MM. yy"
+    func getStringFromDate(date: NSDate, length: StringLength, forUI: Bool) -> String {
+        
+        if forUI {
+            if length == .long {
+                formatter.dateFormat = "EEEE, dd. MMMM yyyy"
+            } else if length == .short {
+                formatter.dateFormat = "EE, dd. MM. yy"
+            } else if length == .veryshort {
+                formatter.dateFormat = "EE, dd. MM."
+            }
+        } else {
+            formatter.dateFormat = "yyyy-mm-dd"
         }
+        
         return formatter.stringFromDate(date)
     }
 }

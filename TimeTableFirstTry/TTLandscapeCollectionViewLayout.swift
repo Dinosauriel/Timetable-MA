@@ -20,12 +20,9 @@ class TTLandscapeCollectionViewLayout: TTCollectionViewLayout {
         
         if column != 0 {
             let width: CGFloat
-            let screenSize: CGRect = UIScreen.mainScreen().bounds
-            if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
-                width = ((screenSize.height - timeColumnWidth) / numberOfDaysOnScreen) - marginBetweenRows
-            } else {
-                width = ((screenSize.width - timeColumnWidth) / numberOfDaysOnScreen) - marginBetweenRows
-            }
+            
+            width = ((sup.getAbsoluteDisplayHeight() - timeColumnWidth) / numberOfDaysOnScreen) - marginBetweenRows
+            
             return width
             
         } else {

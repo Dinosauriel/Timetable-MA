@@ -43,10 +43,14 @@ class TimetableTime {
         }
     }
     
-    func getLessonTimeAsString(pos: Int, when: StartEnd) -> String {
+    func getLessonTimeAsString(pos: Int, when: StartEnd, withSeconds: Bool) -> String {
         let time: String
         
-        formatter.dateFormat = "HH:mm"
+        if withSeconds {
+            self.formatter.dateFormat = "HH:mm:ss"
+        } else {
+            self.formatter.dateFormat = "HH:mm"
+        }
         time = formatter.stringFromDate(getLessonDate(pos, when: when))
         
         return time
