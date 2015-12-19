@@ -31,7 +31,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let day = Day()
     let sup = DeviceSupport()
     
-    var UserDefaults = NSUserDefaults.standardUserDefaults()
+    var userDefaults = NSUserDefaults.standardUserDefaults()
 
     //MARK: INTEGERS
     let numberOfSections = 13
@@ -61,8 +61,8 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         
         self.collectionView.backgroundColor = dividingLineColor
         
-        if !UserDefaults.boolForKey("HasLaunchedOnce") {
-            UserDefaults.setBool(true, forKey: "HasLaunchedOnce")
+        if !userDefaults.boolForKey("HasLaunchedOnce") {
+            userDefaults.setBool(true, forKey: "HasLaunchedOnce")
         }
         
     }
@@ -91,7 +91,11 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         let apiHandler = APIHandler()
         apiHandler.getDataWithToken()
         print("REFRESH!!")
-        self.performSegueWithIdentifier(loginSegueIdentifier, sender: nil)
+        if !userDefaults.boolForKey("RetrievedNewToken") {
+            self.performSegueWithIdentifier(loginSegueIdentifier, sender: nil)
+        } else {
+            print("TOKEN IS ALREADY UP TO DATE!")
+        }
     }
 
 
@@ -109,20 +113,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     func setLayoutToPortrait(animated: Bool) {
         self.collectionView.setCollectionViewLayout(layout, animated: animated)
-        //self.overrideDateCells()
     }
     
     func setLayoutToLandscape(animated: Bool) {
         self.collectionView.setCollectionViewLayout(landscapelayout, animated: animated)
-        //self.overrideDateCells()
-    }
-    
-    func overrideDateCells() {
-        
-        for i in 0 ..< numberOfColumns {
-            print(i)
-            self.collectionView(collectionView, cellForItemAtIndexPath: NSIndexPath(forItem: i, inSection: 0))
-        }
     }
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {

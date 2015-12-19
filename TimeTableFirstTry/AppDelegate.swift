@@ -80,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if UserDefaults.boolForKey("RetrievedNewToken") {
             APIBackgroundHandlerVar = APIBackgroundHandler()
             APIBackgroundHandlerVar!.getBackgroundData({ (status) -> Void in
-                switch(status) {
+                switch status {
                 case "failed": completionHandler(.Failed)
                 case "newData": completionHandler(.NewData)
                 case "noData": completionHandler(.NoData)
