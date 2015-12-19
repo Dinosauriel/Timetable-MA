@@ -83,7 +83,11 @@ public class TimeTableStorage {
                 let day:String = lesson.day
                 resultDict[day]?.append(lesson)
             }
-            return resultDict
+            if resultDict.count != 0 {
+                return resultDict
+            } else {
+                return ["failed":[]]
+            }
         } else {
             print("FetchRequest failed")
             return ["failed":[]]
