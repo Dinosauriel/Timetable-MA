@@ -25,11 +25,11 @@ class DeclareLesson {
         
             let requestedStorageLesson: TimeTableData = requestedDay[sec - 1]
         
-            let LessonForUI: UILesson = UILesson(subject: requestedStorageLesson.subject, teacher: requestedStorageLesson.teacher, room: requestedStorageLesson.location, status: .Default, subsubject: "", subteacher: "", subroom: "", start: "", end: "")
+            let LessonForUI: UILesson = UILesson(subject: requestedStorageLesson.subject, teacher: requestedStorageLesson.teacher, room: requestedStorageLesson.location, status: .Default, subsubject: "", subteacher: "", subroom: "")
         
             return LessonForUI
         } else {
-            return UILesson(subject: "", teacher: "", room: "", status: .Empty, subsubject: "", subteacher: "", subroom: "", start: "", end: "")
+            return UILesson(subject: "", teacher: "", room: "", status: .Empty, subsubject: "", subteacher: "", subroom: "")
         }
     }
 }

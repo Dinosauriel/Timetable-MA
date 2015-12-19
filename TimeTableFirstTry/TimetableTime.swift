@@ -79,4 +79,8 @@ class TimetableTime {
         
         return arrayToReturn
     }
+    
+    func lessonIsCurrentLesson(item: Int, inSection: Int) -> Bool {
+        return ((item == 2) && (inSection == 4))
+    }
  }

@@ -12,8 +12,7 @@ class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource
     
     let pageIdentifiers = [
         "FL0ID",
-        "FL1ID",
-        "LoginVCID"]
+        "FL1ID"]
     
     var currentPage = 0
     
@@ -41,6 +40,10 @@ class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource
         let startingViewControllers: [UIViewController] = [newViewController]
 
         self.setViewControllers(startingViewControllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+    }
+    
+    func disablePageViewController() {
+
     }
     
     //MARK: UIPageViewControllerDelegate

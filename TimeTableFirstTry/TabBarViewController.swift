@@ -11,8 +11,8 @@ import UIKit
 class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
-    let darkgreen = UIColor(hue: 0.4778, saturation: 0.73, brightness: 0.46, alpha: 1.0)
         super.viewDidLoad()
+        let darkgreen = UIColor(hue: 0.4778, saturation: 0.73, brightness: 0.46, alpha: 1.0)
         tabBar.tintColor = darkgreen
     }
 }
