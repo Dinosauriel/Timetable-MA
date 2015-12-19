@@ -78,13 +78,14 @@ public class TimeTableStorage {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
         if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
             tableData = fetchResults
-            var resultDict = [String:[TimeTableData]]()
+            var resultDict:NSMutableDictionary = ["":[]]
             for lesson:TimeTableData in tableData as! [TimeTableData] {
                 let day:String = lesson.day
-                resultDict[day]?.append(lesson)
+                resultDict.setObject(lesson, forKey: day)
             }
             if resultDict.count != 0 {
-                return resultDict
+                let resultDict2:NSDictionary = resultDict
+                return resultDict2 as! [String : [TimeTableData]]
             } else {
                 return ["failed":[]]
             }

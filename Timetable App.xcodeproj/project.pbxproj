@@ -146,7 +146,7 @@
 		74EBE6A21BDD56710026F2AE /* TTCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTCollectionViewController.swift; sourceTree = "<group>"; };
 		74EBE6A81BDD56710026F2AE /* TimeTableFirstTry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeTableFirstTry.xcdatamodel; sourceTree = "<group>"; };
 		74EBE6AD1BDD56710026F2AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		74EBE6AF1BDD56710026F2AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74EBE6AF1BDD56710026F2AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = TimeTableFirstTry/Info.plist; sourceTree = "<group>"; };
 		74EBE6B41BDD56710026F2AE /* Timetable App.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Timetable App.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EBE6B81BDD56710026F2AE /* TimeTableFirstTryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableFirstTryTests.swift; sourceTree = "<group>"; };
 		74EBE6BA1BDD56710026F2AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -286,7 +286,6 @@
 				746D982E1BF47DFB00240CAC /* TTCollectionView */,
 				74285B831BF4B58200446CBF /* Storyboards */,
 				74EBE6A01BDD56710026F2AE /* AppDelegate.swift */,
-				74EBE6AF1BDD56710026F2AE /* Info.plist */,
 				74EBE6A71BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld */,
 				7402B3E51C031EB40048C5D7 /* Assets.xcassets */,
 			);
@@ -362,6 +361,7 @@
 				4F4BE6871BFDEE3A001EDE35 /* .gitignore */,
 				74EBE69F1BDD56710026F2AE /* Timetable App */,
 				74EBE6B71BDD56710026F2AE /* TimeTableFirstTryTests */,
+				74EBE6AF1BDD56710026F2AE /* Info.plist */,
 				74EBE6C21BDD56720026F2AE /* TimeTableFirstTryUITests */,
 				743ED8871BF6339A00DA2E46 /* Frameworks */,
 				74EBE69E1BDD56710026F2AE /* Products */,
