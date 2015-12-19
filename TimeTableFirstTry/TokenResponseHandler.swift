@@ -9,6 +9,7 @@
 import Foundation
 
 class TokenResponseHandler {
+    let userDefaults = NSUserDefaults.standardUserDefaults()
     
     var token : String!
     var tokenStorage = TokenStorage()
@@ -26,7 +27,7 @@ class TokenResponseHandler {
         //Stores the token in a seperate variable
         token = tokenArr[1]
         print("Retrieved token " + token)
-        
+        userDefaults.setBool(true, forKey: "RetrievedNewToken")
         tokenStorage.storeTokenData(token)
         
     }

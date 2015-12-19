@@ -87,10 +87,12 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         let apiHandler = APIHandler()
         apiHandler.getDataWithToken()
         print("REFRESH!!")
-        if !userDefaults.boolForKey("RetrievedNewToken") {
-            self.performSegueWithIdentifier(loginSegueIdentifier, sender: nil)
-        } else {
+        print(userDefaults.boolForKey("RetrievedNewToken"))
+        if userDefaults.boolForKey("RetrievedNewToken") {
+            self.collectionView.reloadData()
             print("TOKEN IS ALREADY UP TO DATE!")
+        } else {
+            self.performSegueWithIdentifier(loginSegueIdentifier, sender: nil)
         }
     }
 

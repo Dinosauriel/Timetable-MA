@@ -14,6 +14,7 @@ class APIHandler {
     var token : String!
     var tokenStorage = TokenStorage()
     let shortName:ShortNameForDayMonth = ShortNameForDayMonth()
+    let userDefaults = NSUserDefaults.standardUserDefaults()
     
     /**
     Requests a new AuthToken from the API-Authentication-Service by opening a webpage for the user to log in
@@ -100,12 +101,12 @@ class APIHandler {
         if keys.contains({$0 as! String == "code"}) {
             let code = dataDict["code"] as! Int
             switch Int(code) {
-            case 401: print("Not authenticated"); requestNewAuthToken()
+            case 401: print("Not authenticated"); requestNewAuthToken(); userDefaults.setBool(false, forKey: "RetrievedNewToken")
             default: print("default")
             }
         } else {
             check.checkForSpecialLessons(dataDict)
-            //timeTableStorage.storeTimeTableData(dataDict)
+            timeTableStorage.storeTimeTableData(dataDict)
         }
         
         /*if let code = dataDict["code"] as! Int? {

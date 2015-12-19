@@ -44,6 +44,11 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
             if !userDefaults.boolForKey("HasLaunchedOnce") {
                 userDefaults.setBool(true, forKey: "HasLaunchedOnce")
             }
+            let TTCVC = TTCollectionViewController()
+            
+            if TTCVC.isViewLoaded() {
+                TTCVC.collectionView.reloadData()
+            }
         }
             
         return true
@@ -53,7 +58,6 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
         activityIndicator.stopAnimating()
         let url = webView.request?.URL?.absoluteString
         if url!.containsString("https://aai.tam.ch/idp/profile/SAML2/Redirect/SSO?execution=") {
-            
         }
     }
     

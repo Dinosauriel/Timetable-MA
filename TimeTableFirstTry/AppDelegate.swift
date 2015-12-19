@@ -68,10 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Handling token...")
         tokenResponseVar?.handleTokenResponse(url)
         
-        if UserDefaults.objectForKey("RetrievedNewToken") == nil || UserDefaults.boolForKey("RetrievedNewToken") {
-            UserDefaults.setBool(false, forKey: "RetrievedNewToken")
-        }
-        
         return true
     }
     
