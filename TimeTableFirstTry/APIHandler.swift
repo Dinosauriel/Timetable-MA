@@ -32,6 +32,7 @@ class APIHandler {
 
         //Loads the token from the data
         let token:String = tokenStorage.getTokenFromData()
+        print("Got token from data: " + token)
         
         //Checks if the app was able to retrieve a token from the data
         if token == "" {
@@ -73,12 +74,12 @@ class APIHandler {
                 print("Contents:")
                 if let s:NSString = String(data: data!, encoding: NSUTF8StringEncoding) {
                     var cleaned:String = s as String
-                    print(s)
                     
                     cleaned = s.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "()"))
                     let cleanedData = (cleaned as NSString).dataUsingEncoding(NSUTF8StringEncoding)
                     let dataDict:NSMutableDictionary = try NSJSONSerialization.JSONObjectWithData(cleanedData!, options: NSJSONReadingOptions.MutableContainers) as! NSMutableDictionary
                     print("Received Data")
+                    print(dataDict)
                     self.checkResponseCode(dataDict)
                 }
             } catch let myJSONError {
@@ -93,6 +94,7 @@ class APIHandler {
     
     func checkResponseCode(dataDict:NSDictionary) {
         let timeTableStorage:TimeTableStorage = TimeTableStorage()
+        let check:CheckForSpecialLessons = CheckForSpecialLessons()
         let keys = dataDict.allKeys
         
         if keys.contains({$0 as! String == "code"}) {
@@ -102,7 +104,8 @@ class APIHandler {
             default: print("default")
             }
         } else {
-            timeTableStorage.storeTimeTableData(dataDict)
+            check.checkForSpecialLessons(dataDict)
+            //timeTableStorage.storeTimeTableData(dataDict)
         }
         
         /*if let code = dataDict["code"] as! Int? {
