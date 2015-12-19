@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F219C1A1C2472DF006EA0DB /* ShortNamesForDayMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F219C191C2472DF006EA0DB /* ShortNamesForDayMonth.swift */; };
 		4F2CAE581C232058007CCC7B /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CAE571C232058007CCC7B /* NotificationHandler.swift */; };
 		4F4BE6881BFDEE3A001EDE35 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4F4BE6871BFDEE3A001EDE35 /* .gitignore */; };
 		4F4DE76A1C21CCDA00F67890 /* APIBackgroundHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DE7691C21CCDA00F67890 /* APIBackgroundHandler.swift */; };
@@ -96,6 +97,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4F219C191C2472DF006EA0DB /* ShortNamesForDayMonth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortNamesForDayMonth.swift; sourceTree = "<group>"; };
 		4F2CAE571C232058007CCC7B /* NotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		4F4BE6871BFDEE3A001EDE35 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4F4DE7691C21CCDA00F67890 /* APIBackgroundHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIBackgroundHandler.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				4FB5A78E1C060013007977FB /* APIHandler.swift */,
 				4F4DE7691C21CCDA00F67890 /* APIBackgroundHandler.swift */,
 				4F4DE76B1C21E6A900F67890 /* TokenResponseHandler.swift */,
+				4F219C191C2472DF006EA0DB /* ShortNamesForDayMonth.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				74866B091BEBE9BA0030FA95 /* DeclareLesson.swift in Sources */,
 				4FC8F9DC1C06190E00D15752 /* TokenStorage.swift in Sources */,
 				74382ED91BEFBE13007A28C4 /* Day.swift in Sources */,
+				4F219C1A1C2472DF006EA0DB /* ShortNamesForDayMonth.swift in Sources */,
 				74E18DAB1BFFA27900DE26AF /* LoginWebViewController.swift in Sources */,
 				74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */,
 				4F4DE76A1C21CCDA00F67890 /* APIBackgroundHandler.swift in Sources */,

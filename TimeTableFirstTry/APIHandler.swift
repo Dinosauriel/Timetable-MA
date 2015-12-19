@@ -13,6 +13,7 @@ class APIHandler {
     
     var token : String!
     var tokenStorage = TokenStorage()
+    let shortName:ShortNameForDayMonth = ShortNameForDayMonth()
     
     /**
     Requests a new AuthToken from the API-Authentication-Service by opening a webpage for the user to log in
@@ -45,34 +46,9 @@ class APIHandler {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Day,.Month,.Year,.Weekday,.Hour,.Minute,.Second], fromDate: date)
         
-        let dayVarShort:String
-        switch(components.weekday) {
-        case 1: dayVarShort = "Sun"
-        case 2: dayVarShort = "Mon"
-        case 3: dayVarShort = "Tue"
-        case 4: dayVarShort = "Wed"
-        case 5: dayVarShort = "Thu"
-        case 6: dayVarShort = "Fri"
-        case 7: dayVarShort = "Sat"
-        default: dayVarShort = "Mon"
-        }
+        let dayVarShort:String = shortName.day(components.day)
         let dayVarDate:String = String(components.day)
-        let monthVarShort:String
-        switch(components.month) {
-        case 1: monthVarShort = "Jan"
-        case 2: monthVarShort = "Feb"
-        case 3: monthVarShort = "Mar"
-        case 4: monthVarShort = "Apr"
-        case 5: monthVarShort = "Mai"
-        case 6: monthVarShort = "Jun"
-        case 7: monthVarShort = "Jul"
-        case 8: monthVarShort = "Aug"
-        case 9: monthVarShort = "Sep"
-        case 10: monthVarShort = "Oct"
-        case 11: monthVarShort = "Nov"
-        case 12: monthVarShort = "Dec"
-        default: monthVarShort = "Jan"
-        }
+        let monthVarShort:String = shortName.month(components.month)
         let yearVar:String = String(components.year)
         let hourVar:String = String(components.hour)
         let minuteVar:String = String(components.minute)

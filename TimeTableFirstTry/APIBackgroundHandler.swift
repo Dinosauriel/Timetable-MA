@@ -12,7 +12,9 @@ import WebKit
 class APIBackgroundHandler {
     
     var notificationHandler:NotificationHandler = NotificationHandler()
+    var UserDefaults = NSUserDefaults.standardUserDefaults()
     let tokenStorage:TokenStorage = TokenStorage()
+    let shortName:ShortNameForDayMonth = ShortNameForDayMonth()
     
     // Fetch Background data
     func fetchDataFromBackground(completion: () -> Void) {
@@ -26,9 +28,10 @@ class APIBackgroundHandler {
     func tokenIsInvalid() {
         let dateTime = notificationHandler.getCurrentTimeAsString()
         notificationHandler.addNewNotificationToQueue(FireDate: dateTime, Title: "Token is invalid", Message: "The token has expired or is not valid. Please log in retrieve a new one.")
+        UserDefaults.setBool(false, forKey: "RetrievedNewToken")
     }
     
-    func getBackgroundData(completion: () -> Void) {
+    func getBackgroundData(completion: (String) -> Void) {
         
         //Loads the token from the data
         let token:String = tokenStorage.getTokenFromData()
@@ -36,7 +39,7 @@ class APIBackgroundHandler {
         //Checks if the app was able to retrieve a token from the data
         if token == "" {
             tokenIsInvalid()
-            completion()
+            completion("failed")
             return
         }
         //The resource-string for the unfiltered data
@@ -47,34 +50,9 @@ class APIBackgroundHandler {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Day,.Month,.Year,.Weekday,.Hour,.Minute,.Second], fromDate: date)
         
-        let dayVarShort:String
-        switch(components.weekday) {
-        case 1: dayVarShort = "Sun"
-        case 2: dayVarShort = "Mon"
-        case 3: dayVarShort = "Tue"
-        case 4: dayVarShort = "Wed"
-        case 5: dayVarShort = "Thu"
-        case 6: dayVarShort = "Fri"
-        case 7: dayVarShort = "Sat"
-        default: dayVarShort = "Mon"
-        }
+        let dayVarShort:String = shortName.day(components.day)
         let dayVarDate:String = String(components.day)
-        let monthVarShort:String
-        switch(components.month) {
-        case 1: monthVarShort = "Jan"
-        case 2: monthVarShort = "Feb"
-        case 3: monthVarShort = "Mar"
-        case 4: monthVarShort = "Apr"
-        case 5: monthVarShort = "Mai"
-        case 6: monthVarShort = "Jun"
-        case 7: monthVarShort = "Jul"
-        case 8: monthVarShort = "Aug"
-        case 9: monthVarShort = "Sep"
-        case 10: monthVarShort = "Oct"
-        case 11: monthVarShort = "Nov"
-        case 12: monthVarShort = "Dec"
-        default: monthVarShort = "Jan"
-        }
+        let monthVarShort:String = shortName.month(components.month)
         let yearVar:String = String(components.year)
         let hourVar:String = String(components.hour)
         let minuteVar:String = String(components.minute)
@@ -104,7 +82,7 @@ class APIBackgroundHandler {
                     let cleanedData = (cleaned as NSString).dataUsingEncoding(NSUTF8StringEncoding)
                     let dataDict:NSMutableDictionary = try NSJSONSerialization.JSONObjectWithData(cleanedData!, options: NSJSONReadingOptions.MutableContainers) as! NSMutableDictionary
                     print("Received Data")
-                    self.checkResponseCode(dataDict)
+                    completion(self.checkResponseCode(dataDict))
                 }
             } catch let myJSONError {
                 print(myJSONError)
@@ -116,18 +94,37 @@ class APIBackgroundHandler {
         
     }
     
-    func checkResponseCode(dataDict:NSDictionary) {
+    func checkResponseCode(dataDict:NSDictionary) -> String {
         let timeTableStorage:TimeTableStorage = TimeTableStorage()
         let keys = dataDict.allKeys
         
         if keys.contains({$0 as! String == "code"}) {
             let code = dataDict["code"] as! Int
             switch Int(code) {
-            case 401: print("Not authenticated"); tokenIsInvalid()
-            default: print("default")
+            case 401: print("Not authenticated"); tokenIsInvalid(); return "failed"
+            default: print("default"); return "failed"
             }
         } else {
             timeTableStorage.storeTimeTableData(dataDict)
+            let dateTime = notificationHandler.getCurrentTimeAsString()
+            notificationHandler.addNewNotificationToQueue(FireDate: dateTime, Title: "New Data", Message: "New data!")
+            return "newData"
+        }
+    }
+    
+    func checkForChanges(newData:NSDictionary) {
+        let timeTableStorage:TimeTableStorage = TimeTableStorage()
+        
+        let oldData:NSDictionary = timeTableStorage.getTimeTableDict()
+        
+        for newWeek in newData["timeTable"] as! [NSArray] {
+            for newDay:NSDictionary in newWeek as! [NSDictionary] {
+                let newDayDate:String = newDay["date"] as! String
+                let lessons:NSArray = newDay["lessons"] as! NSArray
+                for lesson:NSDictionary in lessons as! [NSDictionary] {
+                    
+                }
+            }
         }
     }
     
