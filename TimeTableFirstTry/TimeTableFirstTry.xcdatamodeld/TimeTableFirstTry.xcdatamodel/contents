@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15A279b" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15A279b" minimumToolsVersion="Automatic">
     <entity name="TimeTableData" representedClassName=".TimeTableData" syncable="YES">
         <attribute name="day" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endTime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="event" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nameOfClass" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startTime" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,7 +15,7 @@
         <attribute name="tokenVar" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TimeTableData" positionX="-63" positionY="-9" width="128" height="165"/>
+        <element name="TimeTableData" positionX="-63" positionY="-9" width="128" height="180"/>
         <element name="Token" positionX="-63" positionY="-18" width="128" height="60"/>
     </elements>
 </model>
