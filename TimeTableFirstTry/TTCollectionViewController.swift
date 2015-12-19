@@ -29,6 +29,8 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let layout = TTCollectionViewLayout()
     let landscapelayout = TTLandscapeCollectionViewLayout()
     let day = Day()
+    let sup = DeviceSupport()
+    
     var UserDefaults = NSUserDefaults.standardUserDefaults()
 
     //MARK: INTEGERS
@@ -62,6 +64,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         if !UserDefaults.boolForKey("HasLaunchedOnce") {
             UserDefaults.setBool(true, forKey: "HasLaunchedOnce")
         }
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -140,6 +143,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         if fromInterfaceOrientation != .Portrait {
             scrollToOptimalSection(self.collectionView, animated: true)
         }
+        
+        // Reload Day section so Dates are shorter.
+        self.collectionView.reloadSections(NSIndexSet(index: 0))
     }
     
     
@@ -249,7 +255,11 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
                     dayArray = day.generateDayArray(.long)
                 } else {
-                    dayArray = day.generateDayArray(.short)
+                    if sup.getAbsoluteDisplayHeight() > 480 {
+                        dayArray = day.generateDayArray(.short)
+                    } else {
+                        dayArray = day.generateDayArray(.veryshort)
+                    }
                 }
                 dayCell.dayLabel.text = dayArray[indexPath.row - 1]
                 

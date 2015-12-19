@@ -18,6 +18,7 @@ class Day {
     enum StringLength {
         case short
         case long
+        case veryshort
     }
     
     func generateDayArray(dateStringLength: StringLength) -> [String] {
@@ -52,7 +53,10 @@ class Day {
             formatter.dateFormat = "EEEE, dd. MMMM yyyy"
         } else if length == .short {
             formatter.dateFormat = "EE, dd. MM. yy"
+        } else if length == .veryshort {
+            formatter.dateFormat = "EE, dd. M."
         }
+        
         return formatter.stringFromDate(date)
     }
 }
