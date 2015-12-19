@@ -10,8 +10,12 @@ import UIKit
 
 class LoginWebViewController: UIViewController, UIWebViewDelegate {
     
+    //MARK: CLASSES
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    
     //OUTLETS
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     //IDENTIFIERS
     let mainAppCycleSegueIdentifier = "showMainAppCycle"
@@ -23,6 +27,7 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         
         webView.delegate = self
+        
     }
     
     /**
@@ -35,9 +40,21 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
         if URLString!.containsString("uniapp://klw-stupla-app#access_token=") {
             print("Token URL Loaded!")
             self.performSegueWithIdentifier(mainAppCycleSegueIdentifier, sender: self)
+            
+            if !userDefaults.boolForKey("HasLaunchedOnce") {
+                userDefaults.setBool(true, forKey: "HasLaunchedOnce")
+            }
         }
             
         return true
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        activityIndicator.stopAnimating()
+        let url = webView.request?.URL?.absoluteString
+        if url!.containsString("https://aai.tam.ch/idp/profile/SAML2/Redirect/SSO?execution=") {
+            
+        }
     }
     
     /**
@@ -46,6 +63,7 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
     override func viewWillAppear(animated: Bool) {
 
         let URLforRequest = NSURL(string: "https://oauth.tam.ch/signin/klw-stupla-app?response_type=token&client_id=0Wv69s7vyidj3cKzNckhiSulA5on8uFM&redirect_uri=uniapp%3A%2F%2Fklw-stupla-app&_blank&scope=all")
+        
         let request = NSURLRequest(URL: URLforRequest!)
         
         webView.loadRequest(request)

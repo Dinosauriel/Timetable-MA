@@ -61,10 +61,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         
         self.collectionView.backgroundColor = dividingLineColor
         
-        if !userDefaults.boolForKey("HasLaunchedOnce") {
-            userDefaults.setBool(true, forKey: "HasLaunchedOnce")
-        }
-        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -171,7 +167,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             currentCellOffset.x += layout.getTimeColumnWidth()
             let columnWidth = self.collectionView.bounds.width - layout.getTimeColumnWidth()
             
-            let rightTargetFactor: CGFloat = 0.7
+            let rightTargetFactor: CGFloat = 0.8
             let leftTargetFactor: CGFloat = 1 - rightTargetFactor
             
             if (currentCellOffset.x - scrollStartContentOffset.x) < 0 {
