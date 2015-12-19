@@ -115,7 +115,7 @@ class APIBackgroundHandler {
     func checkForChanges(newData:NSDictionary) {
         let timeTableStorage:TimeTableStorage = TimeTableStorage()
         
-        let oldData:NSDictionary = timeTableStorage.getTimeTableDict()
+        //let oldData: NSDictionary = timeTableStorage.getTimeTableDict()
         
         for newWeek in newData["timeTable"] as! [NSArray] {
             for newDay:NSDictionary in newWeek as! [NSDictionary] {

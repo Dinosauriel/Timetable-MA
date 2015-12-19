@@ -9,46 +9,27 @@
 import Foundation
 
 class DeclareLesson {
+    let dayGetter = Day()
     
-    func getNewLessonForUI(var sec: Int,let pos: Int) -> UILesson {
-        let startTimes = ["07:45:00", "08:35:00", "09:25:00", "10:20:00", "11:10:00", "12:00:00", "12:45:00", "13:35:00", "14:25:00", "15:15:00", "16:05:00", "16:55:00"]
-        
+    func getNewLessonForUI(sec: Int, item: Int) -> UILesson {
         let storage = TimeTableStorage()
-        let week = storage.getTimeTableData()
-        var day: [TimeTableData] = []
-        var start: String
-        var LessonForUI = UILesson(subject: "", teacher: "", room: "", status: .Empty, subsubject: "", subteacher: "", subroom: "", start: "", end: "")
         
-        ++sec
+        let allLessonsSortedByDay: [String: [TimeTableData]] = storage.getTimeTableDict()
         
-        for var i in 0 ..< week.count {
-            if week[i].day == String(sec) {
-                day.append(week[i])
-            }
+        let dayArray: [String] = dayGetter.generateDayArray(.long, forUI: false)
+        
+        let requestedDayString: String = dayArray[item - 1]
+        
+        if allLessonsSortedByDay != ["failed":[]] {
+            let requestedDay: [TimeTableData] = allLessonsSortedByDay[requestedDayString]!
+        
+            let requestedStorageLesson: TimeTableData = requestedDay[sec - 1]
+        
+            let LessonForUI: UILesson = UILesson(subject: requestedStorageLesson.subject, teacher: requestedStorageLesson.teacher, room: requestedStorageLesson.location, status: .Default, subsubject: "", subteacher: "", subroom: "", start: "", end: "")
+        
+            return LessonForUI
+        } else {
+            return UILesson(subject: "", teacher: "", room: "", status: .Empty, subsubject: "", subteacher: "", subroom: "", start: "", end: "")
         }
-        
-        start = startTimes[pos - 1]
-        
-        func detMultLessonForPos() -> Bool {
-            
-            var lescount = 0
-            for var a = 0; a < day.count; ++a {
-                if day[a].startTime == start {
-                    ++lescount
-                }
-            }
-            print(lescount)
-            return (lescount > 1)
-        }
-
-
-        for var i = 0; i < day.count; ++i {
-            if day[i].startTime == start {
-                let STORLesson = day[i]
-                LessonForUI = UILesson(subject: STORLesson.subject, teacher: STORLesson.teacher, room: STORLesson.location, status: .Default, subsubject: "", subteacher: "", subroom: "", start: STORLesson.startTime, end: STORLesson.endTime)
-            }
-        }
-        
-        return LessonForUI
     }
 }
