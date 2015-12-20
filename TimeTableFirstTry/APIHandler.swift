@@ -16,6 +16,8 @@ class APIHandler {
     let shortName:ShortNameForDayMonth = ShortNameForDayMonth()
     let userDefaults = NSUserDefaults.standardUserDefaults()
     
+    var isLoadingData: Bool = false
+    
     /**
     Requests a new AuthToken from the API-Authentication-Service by opening a webpage for the user to log in
     */
@@ -71,6 +73,7 @@ class APIHandler {
         
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
+        self.isLoadingData = true
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) -> Void in
             do {
                 print("Contents:")
@@ -91,12 +94,12 @@ class APIHandler {
         
         print("Requesting Data...")
         task.resume()
-        
+        self.isLoadingData = false
     }
     
     func checkResponseCode(dataDict:NSDictionary) {
         let timeTableStorage:TimeTableStorage = TimeTableStorage()
-        let check:CheckForSpecialLessons = CheckForSpecialLessons()
+        let check: CheckForSpecialLessons = CheckForSpecialLessons()
         let keys = dataDict.allKeys
         
         if keys.contains({$0 as! String == "code"}) {

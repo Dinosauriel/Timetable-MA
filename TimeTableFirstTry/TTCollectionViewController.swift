@@ -85,14 +85,17 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     //MARK: REFRESH BUTTON
     @IBAction func refreshButton(sender: AnyObject) {
         let apiHandler = APIHandler()
-        apiHandler.getDataWithToken()
-        print("REFRESH!!")
-        print(userDefaults.boolForKey("RetrievedNewToken"))
-        if userDefaults.boolForKey("RetrievedNewToken") {
-            self.collectionView.reloadData()
-            print("TOKEN IS ALREADY UP TO DATE!")
-        } else {
-            self.performSegueWithIdentifier(loginSegueIdentifier, sender: nil)
+        
+        if !apiHandler.isLoadingData { //Button-SPAM-protection
+            apiHandler.getDataWithToken()
+            print("REFRESH!!")
+            print("RetrivedNewToken: " + String(userDefaults.boolForKey("RetrievedNewToken")))
+            if userDefaults.boolForKey("RetrievedNewToken") {
+                self.collectionView.reloadData()
+                print("TOKEN IS ALREADY UP TO DATE!")
+            } else {
+                self.performSegueWithIdentifier(loginSegueIdentifier, sender: nil)
+            }
         }
     }
 
@@ -257,9 +260,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 
                 dayCell.dividingView.backgroundColor = dividingLineColor
                 
-                if indexPath.row == 4 {
+                /*if indexPath.row == 4 {
                     dayCell.dayLabel.font = UIFont.boldSystemFontOfSize(12)
-                }
+                }*/
                 
                 dayCell.backgroundColor = yellowGreenBackground
                 dayCell.dayLabel.textColor = darkgreenTint
@@ -368,9 +371,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 }
                 //let currentLesson = timegetter.getCurrentLesson()
                 
-                if timegetter.lessonIsCurrentLesson(indexPath.item, inSection: indexPath.section) {
+                /*if timegetter.lessonIsCurrentLesson(indexPath.item, inSection: indexPath.section) {
                     celltoreturn.backgroundColor = UIColor.redColor()
-                }
+                }*/
                 return celltoreturn
             }
         }

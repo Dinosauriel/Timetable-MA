@@ -63,7 +63,7 @@ public class TimeTableStorage {
         }
     }
     
-    func getTimeTableDataWithDay(requestedDay: String) -> [TimeTableData]{
+    /*func getTimeTableDataWithDay(requestedDay: String) -> [TimeTableData]{
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
         fetchRequest.returnsObjectsAsFaults = false
         let predicateForDay = NSPredicate(format: "%K = %@", "day", requestedDay)
@@ -75,7 +75,7 @@ public class TimeTableStorage {
         } else {
             return []
         }
-    }
+    }*/
     
     func getTimeTableDataWithStarttime(requestedTime: String) -> [TimeTableData] {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
@@ -83,11 +83,15 @@ public class TimeTableStorage {
         let predicateForTime = NSPredicate(format: "%K = %@", "startTime", requestedTime)
         fetchRequest.predicate = predicateForTime
         
-        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData]  {
-            let lessonWithTime = fetchResults
-            return lessonWithTime
-        } else {
-            return []
+        do {
+            if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
+                let lessonWithTime = fetchResults
+                return lessonWithTime
+            } else {
+                return []
+            }
+        } catch {
+            
         }
 
     }
@@ -103,29 +107,7 @@ public class TimeTableStorage {
             return []
         }
     }
-    
-    func getTimeTableDict() -> NSDictionary {
-        let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
-        
-        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
-            tableData = fetchResults
-            let resultDict: NSMutableDictionary = ["":[]]
-            for lesson:TimeTableData in tableData as! [TimeTableData] {
-                let day:String = lesson.day
-                resultDict.setObject(lesson, forKey: day)
-            }
-            
-            if resultDict.count != 0 {
-                let resultDict2:NSDictionary = resultDict
-                return resultDict2
-            } else {
-                return ["failed":[]]
-            }
-        } else {
-            print("getTimeTableDict: Fetch Request failed")
-            return ["failed":[]]
-        }
-    }
+
     
     func eraseAllData() -> Void {
         let fetchDeleteRequest = NSFetchRequest(entityName: "TimeTableData")
