@@ -38,6 +38,7 @@ class APIHandler {
         //Checks if the app was able to retrieve a token from the data
         if token == "" {
             requestNewAuthToken()
+            userDefaults.setBool(false, forKey: "RetrievedNewToken")
             return
         }
         //The resource-string for the unfiltered data

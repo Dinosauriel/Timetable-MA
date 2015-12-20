@@ -59,7 +59,7 @@ class Day {
                 formatter.dateFormat = "EE, dd. MM."
             }
         } else {
-            formatter.dateFormat = "yyyy-mm-dd"
+            formatter.dateFormat = "yyyy-MM-dd"
         }
         
         return formatter.stringFromDate(date)
