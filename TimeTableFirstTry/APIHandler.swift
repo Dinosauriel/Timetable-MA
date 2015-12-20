@@ -106,7 +106,7 @@ class APIHandler {
             default: print("default")
             }
         } else {
-            check.checkForSpecialLessons(dataDict)
+            //check.checkForSpecialLessons(dataDict)
             timeTableStorage.storeTimeTableData(dataDict)
         }
         

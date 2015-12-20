@@ -46,7 +46,7 @@ public class TimeTableStorage {
                     if let moc = self.managedObjectContext {
                         TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["class"]!), StartTime: String(lesson["start"]!), EndTime: String(lesson["end"]!), Location: String(lesson["location"]!), Subject: String(lesson["title"]!), Teacher: String(lesson["acronym"]!), Day: String(day["date"]!), Event: String(lesson["eventType"]!), ID: Int(lesson["id"]! as! Int))
                     }
-                    print(lesson)
+                    //print(lesson)
                     ++lessonItr
                 }
                 ++dayItr
@@ -65,11 +65,10 @@ public class TimeTableStorage {
     
     func getTimeTableData() -> NSArray {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
-        //fetchRequest.returnsObjectsAsFaults = false
-        if let fetchResults = try? managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
+        fetchRequest.returnsObjectsAsFaults = false
+        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
             tableData = fetchResults
-            print("getTimeTableData: Fech Request succeeded")
-            return tableData as! [TimeTableData]
+            return tableData
         } else {
             print("getTimeTableData: Fech Request failed")
             return []
@@ -94,7 +93,7 @@ public class TimeTableStorage {
                 return ["failed":[]]
             }
         } else {
-            print("getTimeTableDict Fetch Request failed")
+            print("getTimeTableDict: Fetch Request failed")
             return ["failed":[]]
         }
     }

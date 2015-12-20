@@ -13,6 +13,8 @@ class TimetableTime {
     let calendar = NSCalendar.currentCalendar()
     let formatter = NSDateFormatter()
     
+    let numberOfLessonsInDay = 12
+    
     let startHours = [7, 8, 9, 10, 11, 12, 12, 13, 14, 15, 16, 16, 17]
     let startMinutes = [45, 35, 25, 20, 10, 00, 45, 35, 25, 15, 05, 50, 35]
     
@@ -54,6 +56,16 @@ class TimetableTime {
         time = formatter.stringFromDate(getLessonDate(pos, when: when))
         
         return time
+    }
+    
+    func getLessonTimeAsStringArray(when: StartEnd, withSeconds: Bool) -> [String] {
+        var ArrayToReturn: [String] = []
+        
+        for i in 0 ..< numberOfLessonsInDay {
+            ArrayToReturn.append(getLessonTimeAsString(i, when: when, withSeconds: withSeconds))
+        }
+        
+        return ArrayToReturn
     }
     
     func getCurrentLesson() -> [Int] {
