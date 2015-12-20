@@ -63,7 +63,7 @@ public class TimeTableStorage {
         }
     }
     
-    func getTimeTableData() -> [TimeTableData] {
+    func getTimeTableData() -> NSArray {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
         //fetchRequest.returnsObjectsAsFaults = false
         if let fetchResults = try? managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
@@ -78,6 +78,7 @@ public class TimeTableStorage {
     
     func getTimeTableDict() -> NSDictionary {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
+        
         if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
             tableData = fetchResults
             let resultDict: NSMutableDictionary = ["":[]]
