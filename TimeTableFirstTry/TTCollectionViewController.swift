@@ -281,6 +281,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 
                 let celltoreturn: UICollectionViewCell
                 
+                
                 let alesson = declarelesson.getNewLessonForUI(indexPath.section, item: indexPath.item)
                 
                 switch alesson.status {

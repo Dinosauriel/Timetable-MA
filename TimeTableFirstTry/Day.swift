@@ -27,11 +27,13 @@ class Day {
         
         var weekToReturn: [String] = [String](count: demandedArrayLength, repeatedValue: "")
         
-        var firstMonday = calendar.dateBySettingUnit(.Weekday, value: 2, ofDate: today, options: NSCalendarOptions.MatchLast)
+        var firstMonday: NSDate? = calendar.dateBySettingUnit(.Weekday, value: 2, ofDate: today, options: NSCalendarOptions.MatchFirst)
         
-        let monIsLater = calendar.compareDate(firstMonday!, toDate: today, toUnitGranularity: .Weekday) == .OrderedDescending
+        let monIsLater: Bool = calendar.compareDate(firstMonday!, toDate: self.today, toUnitGranularity: .Weekday) == .OrderedDescending
         
-        if monIsLater {
+        let isWeekend: Bool = calendar.component(.Weekday, fromDate: self.today) == 7 || calendar.component(.Weekday, fromDate: self.today) == 1
+        
+        if monIsLater && !isWeekend {
             firstMonday = calendar.dateByAddingUnit(.WeekOfYear, value: -1, toDate: firstMonday!, options: NSCalendarOptions.MatchLast)
         }
         

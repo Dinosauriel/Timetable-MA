@@ -63,6 +63,35 @@ public class TimeTableStorage {
         }
     }
     
+    func getTimeTableDataWithDay(requestedDay: String) -> [TimeTableData]{
+        let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
+        fetchRequest.returnsObjectsAsFaults = false
+        let predicateForDay = NSPredicate(format: "%K = %@", "day", requestedDay)
+        fetchRequest.predicate = predicateForDay
+        
+        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
+            let lessonsInDay = fetchResults
+            return lessonsInDay
+        } else {
+            return []
+        }
+    }
+    
+    func getTimeTableDataWithStarttime(requestedTime: String) -> [TimeTableData] {
+        let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
+        fetchRequest.returnsObjectsAsFaults = false
+        let predicateForTime = NSPredicate(format: "%K = %@", "startTime", requestedTime)
+        fetchRequest.predicate = predicateForTime
+        
+        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData]  {
+            let lessonWithTime = fetchResults
+            return lessonWithTime
+        } else {
+            return []
+        }
+
+    }
+    
     func getTimeTableData() -> NSArray {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
         fetchRequest.returnsObjectsAsFaults = false
