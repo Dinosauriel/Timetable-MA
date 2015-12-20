@@ -65,32 +65,35 @@ public class TimeTableStorage {
     
     func getTimeTableData() -> [TimeTableData] {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
-        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
+        //fetchRequest.returnsObjectsAsFaults = false
+        if let fetchResults = try? managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
             tableData = fetchResults
+            print("getTimeTableData: Fech Request succeeded")
             return tableData as! [TimeTableData]
         } else {
-            print("failed")
+            print("getTimeTableData: Fech Request failed")
             return []
         }
     }
     
-    func getTimeTableDict() -> [String:[TimeTableData]] {
+    func getTimeTableDict() -> NSDictionary {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
         if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
             tableData = fetchResults
-            var resultDict:NSMutableDictionary = ["":[]]
+            let resultDict: NSMutableDictionary = ["":[]]
             for lesson:TimeTableData in tableData as! [TimeTableData] {
                 let day:String = lesson.day
                 resultDict.setObject(lesson, forKey: day)
             }
+            
             if resultDict.count != 0 {
                 let resultDict2:NSDictionary = resultDict
-                return resultDict2 as! [String : [TimeTableData]]
+                return resultDict2
             } else {
                 return ["failed":[]]
             }
         } else {
-            print("FetchRequest failed")
+            print("getTimeTableDict Fetch Request failed")
             return ["failed":[]]
         }
     }
