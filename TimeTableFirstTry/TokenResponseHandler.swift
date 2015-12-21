@@ -26,8 +26,9 @@ class TokenResponseHandler {
         
         //Stores the token in a seperate variable
         token = tokenArr[1]
-        print("Retrieved token " + token)
+        //Set the bool which says if the token is valid or not to true
         userDefaults.setBool(true, forKey: "RetrievedNewToken")
+        //Store the token for later use
         tokenStorage.storeTokenData(token)
         
     }
