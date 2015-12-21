@@ -17,17 +17,6 @@ class APIHandler {
     let userDefaults = NSUserDefaults.standardUserDefaults()
     let timeTable = TTCollectionViewController()
     
-    
-    /**
-    Requests a new AuthToken from the API-Authentication-Service by opening a webpage for the user to log in
-    */
-    func requestNewAuthToken() {
-        print("GETTING NEW TOKEN!")
-        //NSNotificationCenter.defaultCenter().postNotificationName("NotificationIdentifier", object: nil)
-        //let TTCVC = (UIApplication.sharedApplication().delegate as! AppDelegate).getView()
-        //TTCVC.performSegueWithIdentifier("showLogin", sender: TTCVC)
-    }
-    
     /**
     Requests data from the API by using the token. If there's no token stored the function to request one will be called and this function terminates
     */
@@ -39,14 +28,13 @@ class APIHandler {
         
         //Checks if the app was able to retrieve a token from the data
         if token == "" {
-            requestNewAuthToken()
             userDefaults.setBool(false, forKey: "RetrievedNewToken")
             return
         }
-        //The resource-string for the unfiltered data
+        //The URL-String without the token and the current date
         let URLBaseRequestString = "https://stage.tam.ch/klw/rest/mobile-timetable/auth/"
         
-        //The resource-string for the data with filters
+        //Setting the variables to the current year/month/day/...
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Day,.Month,.Year,.Weekday,.Hour,.Minute,.Second], fromDate: date)
@@ -58,35 +46,38 @@ class APIHandler {
         let hourVar:String = String(components.hour)
         let minuteVar:String = String(components.minute)
         let secondVar:String = String(components.second)
-        let timeZoneVar:String = "GMT"//String(NSTimeZone.localTimeZone())
+        let timeZoneVar:String = "GMT"
         
-        
+        //Assemble the final URL with the baseURLString, the token and the current date
         let URLRequestString = URLBaseRequestString + token + "/date/" + dayVarShort + "%2C%20" + dayVarDate + "%20" + monthVarShort + "%20" + yearVar + "%20" + hourVar + "%3A" + minuteVar + "%3A" + secondVar + "%20" + timeZoneVar
-        //let URLRequestString = "https://stage.tam.ch/klw/rest/mobile-timetable/auth/"+token+"/date/Thu%2C%2010%20Dec%202015%2012%3A53%3A00%20GMT"
-        //print(URLRequestString)
-        //The URL for the data
-        let requestURL = NSURL(string: URLRequestString)
         
+        //Creating an NSURL with the string
+        let requestURL = NSURL(string: URLRequestString)
+        //Creating a URLRequest and setting the parameters for it
         let request = NSMutableURLRequest(URL: requestURL!)
         request.HTTPMethod = "GET"
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
+        //Creating and configuring the NSURLSessionDataTask which actually requests the data. The block-argument is excecuted when the DataTask is completed
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) -> Void in
             do {
-                print("Contents:")
+                //The response contains two round brackets which have to be cut off
+                
+                //The response gets parsed into a string
                 if let s:NSString = String(data: data!, encoding: NSUTF8StringEncoding) {
                     var cleaned:String = s as String
-                    
+                    //The round brackets are cut away
                     cleaned = s.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "()"))
+                    //The string gets parsed into data which gets then parsed into a NSMutableDictionary
                     let cleanedData = (cleaned as NSString).dataUsingEncoding(NSUTF8StringEncoding)
                     let dataDict:NSMutableDictionary = try NSJSONSerialization.JSONObjectWithData(cleanedData!, options: NSJSONReadingOptions.MutableContainers) as! NSMutableDictionary
-                    print("Received Data")
-                    //print(dataDict)
+                    
                     self.checkResponseCode(dataDict)
                 }
             } catch let myJSONError {
+                //In the case that the parsing of the data fails print the error
+                //(Never happened until now)
                 print(myJSONError)
             }
             self.timeTable.canRefresh = true
@@ -97,42 +88,26 @@ class APIHandler {
         task.resume()
     }
     
+    /**
+     This function checks if the response we got contains data we need or if the token was not valid and the API returned code 401
+    */
     func checkResponseCode(dataDict:NSDictionary) {
         let timeTableStorage:TimeTableStorage = TimeTableStorage()
-        let check: CheckForSpecialLessons = CheckForSpecialLessons()
+        //let check: CheckForSpecialLessons = CheckForSpecialLessons()
         let keys = dataDict.allKeys
         
         if keys.contains({$0 as! String == "code"}) {
             let code = dataDict["code"] as! Int
             switch Int(code) {
-            case 401: print("Not authenticated"); requestNewAuthToken(); userDefaults.setBool(false, forKey: "RetrievedNewToken")
+                //If the response was a code 401 we have to request a new token
+            case 401: print("Not authenticated"); userDefaults.setBool(false, forKey: "RetrievedNewToken")
             default: print("default")
             }
         } else {
             //check.checkForSpecialLessons(dataDict)
+            //The data was ok -> store it
             timeTableStorage.storeTimeTableData(dataDict)
         }
-        
-        /*if let code = dataDict["code"] as! Int? {
-            switch Int(code) {
-            case 401: print("Not authenticated")
-            case 200: print("Ok")
-                let table = timeTableStorage.getTimeTableData()
-                if (table != (dataDict["body"] as? NSArray)) && (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) && (table != []) {
-                    
-                }
-                timeTableStorage.storeTimeTableData(dataDict);
-                print(dataDict["body"]![0])
-                break;
-            default: print("default")
-            }
-        } else {
-            timeTableStorage.storeTimeTableData(dataDict)
-        }*/
-    }
-    
-    func handleChangeWithNotification(oldData:NSArray,newData:NSArray) {
-        
     }
     
 }
