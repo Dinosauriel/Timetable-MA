@@ -10,6 +10,10 @@ import Foundation
 
 class ShortNameForDayMonth {
     
+    /**
+     This function returns the short-name of a month
+     The argument is an Integer representing the month
+    */
     func month(monthNumber:Int) -> String {
         switch(monthNumber) {
         case 1: return "Jan"
@@ -28,6 +32,10 @@ class ShortNameForDayMonth {
         }
     }
     
+    /**
+     This function returns the short-name of a day
+     The argument is an Integer representing the day
+     */
     func day(dayNumber:Int) -> String {
         switch(dayNumber) {
         case 1: return "Sun"
