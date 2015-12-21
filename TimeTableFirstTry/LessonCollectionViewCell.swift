@@ -9,6 +9,8 @@
 import UIKit
 
 class LessonCollectionViewCell: UICollectionViewCell {
+    let dividingLineColor = UIColor(hue: 0.8639, saturation: 0, brightness: 0.83, alpha: 1.0) //GRAY
+    
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var teacherLabel: UILabel!
     @IBOutlet weak var roomLabel: UILabel!
@@ -32,5 +34,7 @@ class LessonCollectionViewCell: UICollectionViewCell {
             self.teacherLabel.textColor = UIColor.blackColor()
             self.roomLabel.textColor = UIColor.blackColor()
         }
+        
+        self.dividingView.backgroundColor = dividingLineColor
     }
 }

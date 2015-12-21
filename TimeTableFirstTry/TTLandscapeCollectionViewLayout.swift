@@ -16,7 +16,12 @@ class TTLandscapeCollectionViewLayout: TTCollectionViewLayout {
     override func widthForItemWithColumn(column: Int) -> CGFloat {
         
         let timeColumnWidth: CGFloat = getTimeColumnWidth()
-        numberOfDaysOnScreen = 5
+        
+        if sup.getAbsoluteDisplayWidth() > 480 {
+            numberOfDaysOnScreen = 5
+        } else {
+            numberOfDaysOnScreen = 3
+        }
         
         if column != 0 {
             let width: CGFloat

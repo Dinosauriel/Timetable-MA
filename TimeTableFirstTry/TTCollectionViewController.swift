@@ -10,6 +10,8 @@ import UIKit
 
 class TTCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    //MARK: VARIABLES
+    //---------------------------------------------------------------------------------------------------------
     //MARK: IDENTIFIERS
     let timetitleCellIdentifier = "TimetitleCellIdentifier"
     let dayCellIdentifier = "DayCellIdentifier"
@@ -59,12 +61,16 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     //MARK: BOOL
     var canRefresh: Bool = true
     
-    //Mark: ARRAYS
+    //MARK: ARRAYS
     var currentLesson: [Int] = []
     
+    //----------------------------------------------------------------------------------------------------------
+    //MARK: CODE
+    
+    
     override func viewDidLoad() {
-        assignCurrentLesson()
         super.viewDidLoad()
+        assignCurrentLesson()
         self.collectionView.backgroundColor = dividingLineColor
     }
 
@@ -77,7 +83,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             removeStatusBar()
             setLayoutToLandscape(false)
         }
-        scrollToCurrentSection(self.collectionView, animated: true)
+        scrollToCurrentSection(self.collectionView, animated: false)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -106,64 +112,92 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         }
     }
     
+    /**
+    Shows the login View Controller
+    */
     func goToLogin() {
         self.performSegueWithIdentifier(loginSegueIdentifier, sender: nil)
     }
+    
 
     // MARK: BAR HANDLING
+    
+    
+    /**
+    Adapt needed constraints to hide the status Bar
+    */
     func removeStatusBar() {
         navigationBarHeightConstraint.constant = 44
     }
     
-    
+    /**
+    Adapt needed constraints to show the status Bar
+    */
     func addStatusBar() {
         navigationBarHeightConstraint.constant = 64
     }
     
+    /**
+    Change the Layout of the collectionView to TTCollectionViewLayout
+    */
     func setLayoutToPortrait(animated: Bool) {
         self.collectionView.setCollectionViewLayout(layout, animated: animated)
     }
     
+    /**
+    Change the Layout of the collectionView to TTLandscapeCollectionViewLayout
+    */
     func setLayoutToLandscape(animated: Bool) {
         self.collectionView.setCollectionViewLayout(landscapelayout, animated: animated)
     }
     
+    /**
+    Make needed changes for Rotation
+    */
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         if toInterfaceOrientation == .Portrait {
             addStatusBar()
             setLayoutToPortrait(true)
-            
         } else {
-            
             removeStatusBar()
             setLayoutToLandscape(true)
         }
-        
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         if fromInterfaceOrientation != .Portrait {
-            scrollToOptimalSection(self.collectionView, animated: true)
+            scrollToOptimalSection(self.collectionView, animated: true)     //Scroll to the section that is best
         }
-        
-        // Reload Day section so Dates are shorter.
+        // Reload Day section so Dates are shorter if needed (only on iPhone 4s)
         self.collectionView.reloadSections(NSIndexSet(index: 0))
     }
     
     
     // MARK: PAGING
+    
+    
+    /**
+    Setting scrollStartContentOffset for later use
+    */
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        scrollStartContentOffset = collectionView.contentOffset
-        scrollStartContentOffset.x += layout.getTimeColumnWidth()
+        if scrollView == collectionView {
+            scrollStartContentOffset = collectionView.contentOffset
+            scrollStartContentOffset.x += layout.getTimeColumnWidth()
+        }
     }
     
-    
+    /**
+    Check if orientation is portrait and scroll to optimal Section
+    */
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
         if UIApplication.sharedApplication().statusBarOrientation == .Portrait || UIApplication.sharedApplication().statusBarOrientation == .PortraitUpsideDown  {
             scrollToOptimalSection(scrollView, animated: true)
         }
     }
     
+    /**
+    Check if abrupt stop and if orientation is portrait and scroll to optimal section
+    */
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             if UIApplication.sharedApplication().statusBarOrientation == .Portrait || UIApplication.sharedApplication().statusBarOrientation == .PortraitUpsideDown {
@@ -172,49 +206,60 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         }
     }
     
+    /**
+    Determining the best cell for current offset and scrolling to it
+    */
     func scrollToOptimalSection(scrollView: UIScrollView, animated: Bool) {
         if scrollView == self.collectionView {
             let targetScrollingPos = UICollectionViewScrollPosition.Right
-            var currentCellOffset: CGPoint = self.collectionView.contentOffset
-            currentCellOffset.x += layout.getTimeColumnWidth()
-            let columnWidth = self.collectionView.bounds.width - layout.getTimeColumnWidth()
             
-            let rightTargetFactor: CGFloat = 0.8
+            var currentCellOffset: CGPoint = self.collectionView.contentOffset  //Determining current Offset
+            currentCellOffset.x += layout.getTimeColumnWidth()                  //Adapting it to get the true Offset
+            
+            let columnWidth = self.collectionView.bounds.width - layout.getTimeColumnWidth()   //Calculate Width of column
+            
+            let rightTargetFactor: CGFloat = 0.8                    //Determine sensitivity
             let leftTargetFactor: CGFloat = 1 - rightTargetFactor
             
-            if (currentCellOffset.x - scrollStartContentOffset.x) < 0 {
+            if (currentCellOffset.x - scrollStartContentOffset.x) < 0 { //Determine scroll Direction (to Left)
                 currentCellOffset.x += (columnWidth * leftTargetFactor)
-            } else {
+            } else {                                                    //Determine scroll Direction (to Left)
                 currentCellOffset.x += (columnWidth * rightTargetFactor)
             }
             
-            let currentIndexPath = collectionView.indexPathForItemAtPoint(currentCellOffset)
+            let currentIndexPath = collectionView.indexPathForItemAtPoint(currentCellOffset)    //New IndexPath based on modified Offset
             if currentIndexPath != nil {
                 let targetCellIndexPath = NSIndexPath(forItem: (currentIndexPath?.row)!, inSection: (currentIndexPath?.section)! + 1)
-                collectionView.scrollToItemAtIndexPath(targetCellIndexPath, atScrollPosition: targetScrollingPos, animated: animated)
+                collectionView.scrollToItemAtIndexPath(targetCellIndexPath, atScrollPosition: targetScrollingPos, animated: animated) //Scrolling to determined IndexPath
             }
-            
         }
     }
     
+    /**
+    Determining the current Day and scrolling to corresponding section
+    */
     func scrollToCurrentSection(scrollView: UIScrollView, animated: Bool) {
         if scrollView == self.collectionView {
             let targetScrollingPos = UICollectionViewScrollPosition.Right
-            let targetItem = currentLesson[0] - 1
+            let targetItem = currentLesson[0] - 1   //Modifiing returned Day so Monday(2) -> row 1
             
-            let targetIndexPath = NSIndexPath(forItem: targetItem, inSection: 1)
+            let targetIndexPath = NSIndexPath(forItem: targetItem, inSection: 1) //Creating IndexPath based on recieved Day
             
-            collectionView.scrollToItemAtIndexPath(targetIndexPath, atScrollPosition: targetScrollingPos, animated: animated)
+            collectionView.scrollToItemAtIndexPath(targetIndexPath, atScrollPosition: targetScrollingPos, animated: animated) //Scroll to IndexPath
         }
     }
     
+    //Determining if self.currentLesoon is empty and filling it if needed.
     func assignCurrentLesson() {
-        if currentLesson == [] {
-            currentLesson = timegetter.getCurrentLessonCoordinates()
+        if self.currentLesson == [] {
+            self.currentLesson = timegetter.getCurrentLessonCoordinates()
         }
     }
+    
     
     // MARK: UICollectionViewDataSource
+    
+    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return numberOfSections
     }
@@ -255,10 +300,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 dayCell.dayLabel.text = dayArray[indexPath.row - 1]
                 
                 dayCell.dividingView.backgroundColor = dividingLineColor
-                
-                /*if timegetter.dayIsCurrentDay(indexPath.item) {
-                    dayCell.dayLabel.font = UIFont.boldSystemFontOfSize(13)
-                }*/
                 if indexPath.item == (currentLesson[0] - 1) {
                     dayCell.dayLabel.font = UIFont.boldSystemFontOfSize(13)
                 }
@@ -384,10 +425,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                     
                         celltoreturn = lessonCell
                 }
-                
-                /*if timegetter.lessonIsCurrentLesson(indexPath.item, inSection: indexPath.section) {
-                    celltoreturn.backgroundColor = UIColor.redColor()
-                }*/
                 
                 if indexPath.item == currentLesson[0] - 1 && indexPath.section == currentLesson[1] + 1 {
                     celltoreturn.backgroundColor = UIColor.redColor()
