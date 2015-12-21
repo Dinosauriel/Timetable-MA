@@ -44,7 +44,7 @@ public class TimeTableStorage {
                 while lessonItr != lessonCount {
                     let lesson:NSDictionary = lessons[lessonItr] as! NSDictionary
                     if let moc = self.managedObjectContext {
-                        TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["class"]!), StartTime: String(lesson["start"]!), EndTime: String(lesson["end"]!), Location: String(lesson["location"]!), Subject: String(lesson["title"]!), Teacher: String(lesson["acronym"]!), Day: String(day["date"]!), Event: String(lesson["eventType"]!), ID: Int(lesson["id"]! as! Int))
+                        TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["class"]!), StartTime: String(lesson["start"]!), EndTime: String(lesson["end"]!), Location: String(lesson["location"]!), Subject: String(lesson["title"]!), Teacher: String(lesson["acronym"]!), Day: String(day["date"]!), Event: String(lesson["eventType"]!), ID: Int64(lesson["id"]! as! Int))
                     }
                     //print(lesson)
                     ++lessonItr
@@ -83,17 +83,12 @@ public class TimeTableStorage {
         let predicateForTime = NSPredicate(format: "%K = %@", "startTime", requestedTime)
         fetchRequest.predicate = predicateForTime
         
-        do {
-            if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
-                let lessonWithTime = fetchResults
-                return lessonWithTime
-            } else {
-                return []
-            }
-        } catch {
-            
+        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
+            let lessonWithTime = fetchResults
+            return lessonWithTime
+        } else {
+            return []
         }
-
     }
     
     func getTimeTableData() -> NSArray {

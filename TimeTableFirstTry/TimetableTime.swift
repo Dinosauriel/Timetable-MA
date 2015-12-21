@@ -85,7 +85,7 @@ class TimetableTime {
         return ArrayToReturn
     }
     
-    func getCurrentLesson() -> [Int] {
+    func getCurrentLessonCoordinates() -> [Int] {
         generateDateArrays()
         var currentLesson: Int = 0
         
@@ -117,7 +117,7 @@ class TimetableTime {
     }
     
     func lessonIsCurrentLesson(item: Int, inSection: Int) -> Bool {
-        let coordinates: [Int] = getCurrentLesson()
+        let coordinates: [Int] = getCurrentLessonCoordinates()
         print(coordinates)
         let xDay: Int = coordinates[0] - 1
         let yTime: Int = coordinates[1] + 1
@@ -126,7 +126,7 @@ class TimetableTime {
     }
     
     func dayIsCurrentDay(item: Int) -> Bool {
-        let coordinates: [Int] = getCurrentLesson()
+        let coordinates: [Int] = getCurrentLessonCoordinates()
         return item == coordinates[0] - 1
     }
  }

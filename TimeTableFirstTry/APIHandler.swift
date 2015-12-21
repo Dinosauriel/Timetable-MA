@@ -89,8 +89,6 @@ class APIHandler {
             } catch let myJSONError {
                 print(myJSONError)
             }
-            self.timeTable.canRefresh = true
-            print("setting can refresh to true")
         })
         
         print("Requesting Data...")

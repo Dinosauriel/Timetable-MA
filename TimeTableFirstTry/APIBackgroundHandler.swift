@@ -123,10 +123,10 @@ class APIBackgroundHandler {
                 for lesson:NSDictionary in lessons as! [NSDictionary] {
                     newLessons.addObject(lesson)
                     for oldLesson:TimeTableData in oldData as! [TimeTableData] {
-                        if changedLessons.containsObject(oldLesson.id) {
+                        if changedLessons.containsObject(NSNumber(longLong: oldLesson.id)) {
                             break
                         }
-                        if oldLesson.id == lesson["id"] as! Int {
+                        if oldLesson.id == lesson["id"] as! Int64 {
                             if oldLesson.event != lesson["eventType"] as! String {
                                 changedLessons.addObject(lesson)
                                 break

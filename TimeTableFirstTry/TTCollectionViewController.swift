@@ -46,44 +46,46 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let replacedLessonTextColor = UIColor.blueColor()
     let cancelledLessonTextColor = UIColor.redColor()
     let defaultTextColor = UIColor.blackColor()
-    let specialLessonBackgroundColor = UIColor(hue: 0.8639, saturation: 0, brightness: 0.83, alpha: 1.0) //GRAY
+    let specialLessonBackgroundColor = UIColor(hue: 0.1167, saturation: 0.83, brightness: 0.94, alpha: 1.0) //YELLOW
+    let specialDividingLineColor = UIColor(hue: 0.0833, saturation: 0.83, brightness: 0.93, alpha: 1.0) // #ef8c28, ORANGE-YELLOW
     
     let yellowGreenBackground = UIColor(hue: 0.1694, saturation: 0.74, brightness: 0.84, alpha: 1.0)    //GREEN-YELLOW
     let darkgreenTint = UIColor(hue: 0.4778, saturation: 0.73, brightness: 0.46, alpha: 1.0)            //DARKGREEN
     
     //MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var topStatusbarConstraint: NSLayoutConstraint!
     @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var refreshButton: UIBarButtonItem!
-    @IBOutlet weak var navigationBar: UINavigationBar!
     
     //MARK: BOOL
     var canRefresh: Bool = true
     
+    //Mark: ARRAYS
+    var currentLesson: [Int] = []
+    
     override func viewDidLoad() {
+        assignCurrentLesson()
         super.viewDidLoad()
-        
         self.collectionView.backgroundColor = dividingLineColor
-        
     }
 
     override func viewWillAppear(animated: Bool) {
+        self.collectionView.reloadData()
         if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
             addStatusBar()
-            setLayoutToPortrait(true)
+            setLayoutToPortrait(false)
         } else {
             removeStatusBar()
-            setLayoutToLandscape(true)
+            setLayoutToLandscape(false)
         }
+        scrollToCurrentSection(self.collectionView, animated: true)
     }
     
     override func viewDidAppear(animated: Bool) {
-        scrollToCurrentSection(self.collectionView, animated:  false)
     }
     
     //MARK: BACK BUTTON
     @IBAction func backButton(sender: AnyObject) {
+        assignCurrentLesson()
         scrollToCurrentSection(self.collectionView, animated: true)
     }
     
@@ -98,21 +100,23 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             if userDefaults.boolForKey("RetrievedNewToken") {
                 collectionView.reloadData()
             } else {
-                self.performSegueWithIdentifier(loginSegueIdentifier, sender: nil)
-                canRefresh = true
+                goToLogin()
             }
+            canRefresh = true
         }
+    }
+    
+    func goToLogin() {
+        self.performSegueWithIdentifier(loginSegueIdentifier, sender: nil)
     }
 
     // MARK: BAR HANDLING
     func removeStatusBar() {
-        topStatusbarConstraint.constant = 0
         navigationBarHeightConstraint.constant = 44
     }
     
     
     func addStatusBar() {
-        topStatusbarConstraint.constant = 0
         navigationBarHeightConstraint.constant = 64
     }
     
@@ -195,30 +199,18 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     func scrollToCurrentSection(scrollView: UIScrollView, animated: Bool) {
         if scrollView == self.collectionView {
-            let date = NSDate()
             let targetScrollingPos = UICollectionViewScrollPosition.Right
-            let currentWeekDayCal = calendar.components(.Weekday, fromDate: date)
-            let currentWeekDay = currentWeekDayCal.weekday
-            
-            var targetItem: Int
-            
-            switch currentWeekDay {
-                case 3:
-                    targetItem = 2
-                case 4:
-                    targetItem = 3
-                case 5:
-                    targetItem = 4
-                case 6:
-                    targetItem = 5
-                default:
-                    targetItem = 1
-            }
-            print(targetItem)
+            let targetItem = currentLesson[0] - 1
             
             let targetIndexPath = NSIndexPath(forItem: targetItem, inSection: 1)
             
             collectionView.scrollToItemAtIndexPath(targetIndexPath, atScrollPosition: targetScrollingPos, animated: animated)
+        }
+    }
+    
+    func assignCurrentLesson() {
+        if currentLesson == [] {
+            currentLesson = timegetter.getCurrentLessonCoordinates()
         }
     }
     
@@ -232,6 +224,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        assignCurrentLesson()
         
         if indexPath.section == 0 {
             if indexPath.row == 0 {
@@ -263,7 +256,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 
                 dayCell.dividingView.backgroundColor = dividingLineColor
                 
-                if timegetter.dayIsCurrentDay(indexPath.item) {
+                /*if timegetter.dayIsCurrentDay(indexPath.item) {
+                    dayCell.dayLabel.font = UIFont.boldSystemFontOfSize(13)
+                }*/
+                if indexPath.item == (currentLesson[0] - 1) {
                     dayCell.dayLabel.font = UIFont.boldSystemFontOfSize(13)
                 }
                 
@@ -372,7 +368,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
 
                         lessonCell.subjectLabel.text = alesson.subject
                         
-                        lessonCell.dividingView.backgroundColor = dividingLineColor
+                        lessonCell.dividingView.backgroundColor = specialDividingLineColor
                         
                         celltoreturn = lessonCell
                     case .MovedTo:
@@ -389,9 +385,14 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         celltoreturn = lessonCell
                 }
                 
-                if timegetter.lessonIsCurrentLesson(indexPath.item, inSection: indexPath.section) {
+                /*if timegetter.lessonIsCurrentLesson(indexPath.item, inSection: indexPath.section) {
+                    celltoreturn.backgroundColor = UIColor.redColor()
+                }*/
+                
+                if indexPath.item == currentLesson[0] - 1 && indexPath.section == currentLesson[1] + 1 {
                     celltoreturn.backgroundColor = UIColor.redColor()
                 }
+
                 
                 return celltoreturn
             }

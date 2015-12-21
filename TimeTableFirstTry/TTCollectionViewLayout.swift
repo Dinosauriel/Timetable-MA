@@ -24,7 +24,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
     
     let marginForTimeColumn: CGFloat = 15
     let marginBetweenRows: CGFloat = 2
-    let marginBetweenWeeks: CGFloat = 5
+    let marginBetweenWeeks: CGFloat = 4
 
     //MARK: INTEGERS
     var numberOfColumns: Int = 16
