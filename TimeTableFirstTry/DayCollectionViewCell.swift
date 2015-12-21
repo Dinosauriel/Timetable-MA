@@ -12,10 +12,14 @@ class DayCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dayLabel: UILabel!
     
     @IBOutlet weak var dividingView: UIView!
-    @IBOutlet weak var vertDividingView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.dayLabel.font = UIFont.systemFontOfSize(13)
     }
     
 }

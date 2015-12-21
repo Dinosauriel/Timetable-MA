@@ -10,15 +10,15 @@ import Foundation
 
 struct UILesson {
     
-    let subject: String
-    let teacher: String
-    let room: String
+    var subject: String
+    var teacher: String
+    var room: String
     
     let subsubject: String
     let subteacher: String
     let subroom: String
     
-    let status: Status
+    var status: Status
 
 
     
@@ -40,6 +40,7 @@ struct UILesson {
         case Cancelled
         case Empty
         case Special
+        case MovedTo
     }
     
     enum Day {

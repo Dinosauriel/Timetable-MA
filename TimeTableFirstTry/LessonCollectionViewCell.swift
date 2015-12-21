@@ -15,9 +15,22 @@ class LessonCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var crossOutView: UIView!
     @IBOutlet weak var dividingView: UIView!
-    @IBOutlet weak var vertDividingView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.backgroundColor = UIColor.whiteColor()
+        
+        self.crossOutView.backgroundColor = UIColor.clearColor()
+        
+        if self.subjectLabel.textColor != UIColor.blackColor() {
+            
+            self.subjectLabel.textColor = UIColor.blackColor()
+            self.teacherLabel.textColor = UIColor.blackColor()
+            self.roomLabel.textColor = UIColor.blackColor()
+        }
     }
 }

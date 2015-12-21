@@ -32,27 +32,68 @@ class DeclareLesson {
         let requestedDate = requestedDay + dateTimeSeparator + requestedTime + timeZoneAppendix
         let requestedLessons: [TimeTableData] = storage.getTimeTableDataWithStarttime(requestedDate)
         
-        let eventDate = requestedDay + dateTimeSeparator + eventStartTimeString + timeZoneAppendix
-        let events: [TimeTableData] = storage.getTimeTableDataWithStarttime(eventDate)
+        let specialEventDate = requestedDay + dateTimeSeparator + eventStartTimeString + timeZoneAppendix
+        let specialEvents: [TimeTableData] = storage.getTimeTableDataWithStarttime(specialEventDate)
         
         if requestedLessons.count == 1 {
             let requestedLesson: TimeTableData = requestedLessons[0]
+            print(requestedLesson.event)
+            
             requestedUILesson = UILesson(subject: requestedLesson.subject, teacher: requestedLesson.teacher, room: requestedLesson.location, status: .Default, subsubject: "", subteacher: "", subroom: "")
             
-            if events.count == 1 { //Checking for an event
-                let event = events[0]
-                requestedUILesson = UILesson(subject: event.subject, teacher: event.teacher, room: event.location, status: .Special, subsubject: "", subteacher: "", subroom: "")
+            switch requestedLesson.event {
+                case "lesson":
+                    requestedUILesson.status = .Default
+                    break
                 
-            } else if events.count > 1 {
+                case "subst":
+                    requestedUILesson.status = .Replaced
+                    break
                 
-            } else {
+                case "shift":
+                    requestedUILesson.status = .Cancelled
+                    break
                 
+                case "rmchg":
+                    requestedUILesson.status = .Replaced
+                    break
+                
+                case "add":
+                    requestedUILesson.status = .MovedTo
+                    break
+                
+                case "cancel":
+                    requestedUILesson.status = .Cancelled
+                    break
+                
+                case "block":
+                    requestedUILesson.status = .Special
+                    break
+                
+                case "holiday":
+                    requestedUILesson.status = .Special
+                    break
+                
+                default:
+                    requestedUILesson.status = .Default
+                    break
             }
-
             
         } else if requestedLessons.count > 1 {  //More than one lesson at this Position
             
         } else if requestedLessons.count == 0 { //No lesson at this Position
+            
+        }
+        
+        //Overriding everything if there is a Special Event
+        if specialEvents.count >= 1 { //Checking for an event
+            let event = specialEvents[0]
+            requestedUILesson.status = .Special
+            if sec == 1 {
+                requestedUILesson.subject = event.subject
+                requestedUILesson.room = event.location
+                requestedUILesson.teacher = event.teacher
+            }
             
         }
         

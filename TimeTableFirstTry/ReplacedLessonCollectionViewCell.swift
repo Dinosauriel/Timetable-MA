@@ -21,5 +21,8 @@ class ReplacedLessonCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var subroomLabel: UILabel!
     
     @IBOutlet weak var dividingView: UIView!
-    @IBOutlet weak var vertDividingView: UIView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
 }

@@ -21,7 +21,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     //MARK: TIME
     let calendar = NSCalendar.currentCalendar()
-    //let rotationScrollDelayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
+    //let refreshDelay = dispatch_time(DISPATCH_TIME_NOW, Int64(10 * Double(NSEC_PER_SEC)))
     
     //MARK: CLASSES
     let timegetter = TimetableTime()
@@ -55,6 +55,11 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topStatusbarConstraint: NSLayoutConstraint!
     @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    //MARK: BOOL
+    var canRefresh: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,21 +89,20 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     //MARK: REFRESH BUTTON
     @IBAction func refreshButton(sender: AnyObject) {
-        let apiHandler = APIHandler()
-        
-        if !apiHandler.isLoadingData { //Button-SPAM-protection
+        if canRefresh {
+            canRefresh = false
+            let apiHandler = APIHandler()
             apiHandler.getDataWithToken()
             print("REFRESH!!")
             print("RetrivedNewToken: " + String(userDefaults.boolForKey("RetrievedNewToken")))
             if userDefaults.boolForKey("RetrievedNewToken") {
-                self.collectionView.reloadData()
-                print("TOKEN IS ALREADY UP TO DATE!")
+                collectionView.reloadData()
             } else {
                 self.performSegueWithIdentifier(loginSegueIdentifier, sender: nil)
+                canRefresh = true
             }
         }
     }
-
 
     // MARK: BAR HANDLING
     func removeStatusBar() {
@@ -132,7 +136,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         }
         
     }
-    
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         if fromInterfaceOrientation != .Portrait {
@@ -260,9 +263,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 
                 dayCell.dividingView.backgroundColor = dividingLineColor
                 
-                /*if indexPath.row == 4 {
-                    dayCell.dayLabel.font = UIFont.boldSystemFontOfSize(12)
-                }*/
+                if timegetter.dayIsCurrentDay(indexPath.item) {
+                    dayCell.dayLabel.font = UIFont.boldSystemFontOfSize(13)
+                }
                 
                 dayCell.backgroundColor = yellowGreenBackground
                 dayCell.dayLabel.textColor = darkgreenTint
@@ -298,6 +301,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         lessonCell.roomLabel.text = alesson.room
                         
                         lessonCell.dividingView.backgroundColor = dividingLineColor
+                        
+                        if indexPath.item == 3 {
+                            lessonCell.backgroundView?.backgroundColor = yellowGreenBackground
+                        }
                         
                         celltoreturn = lessonCell as LessonCollectionViewCell
                     
@@ -345,7 +352,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         celltoreturn = replacedlessonCell
                     
                     case .Empty:
-                        let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
                         // Declaring empty Lesson
                         lessonCell.subjectLabel.text = ""
                         lessonCell.teacherLabel.text = ""
@@ -356,7 +363,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         celltoreturn = lessonCell
                     
                     case .Special:
-                        let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
                         
                         lessonCell.teacherLabel.text = ""
                         lessonCell.roomLabel.text = ""
@@ -368,12 +375,24 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         lessonCell.dividingView.backgroundColor = dividingLineColor
                         
                         celltoreturn = lessonCell
+                    case .MovedTo:
+                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                    
+                        lessonCell.teacherLabel.text = alesson.teacher
+                        lessonCell.subjectLabel.text = alesson.subject
+                        lessonCell.roomLabel.text = alesson.room
+                    
+                        lessonCell.teacherLabel.textColor = replacedLessonTextColor
+                        lessonCell.subjectLabel.textColor = replacedLessonTextColor
+                        lessonCell.roomLabel.textColor = replacedLessonTextColor
+                    
+                        celltoreturn = lessonCell
                 }
-                //let currentLesson = timegetter.getCurrentLesson()
                 
-                /*if timegetter.lessonIsCurrentLesson(indexPath.item, inSection: indexPath.section) {
+                if timegetter.lessonIsCurrentLesson(indexPath.item, inSection: indexPath.section) {
                     celltoreturn.backgroundColor = UIColor.redColor()
-                }*/
+                }
+                
                 return celltoreturn
             }
         }

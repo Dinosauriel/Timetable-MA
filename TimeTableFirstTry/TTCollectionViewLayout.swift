@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TTCollectionViewLayout: UICollectionViewFlowLayout {
+class TTCollectionViewLayout: UICollectionViewLayout {
     
     //MARK: CLASSES
     let sup = DeviceSupport()

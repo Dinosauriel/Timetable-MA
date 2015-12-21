@@ -369,13 +369,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2in-sB-8GW">
-                                                    <rect key="frame" x="115.5" y="38" width="96" height="16"/>
+                                                    <rect key="frame" x="115" y="38" width="96" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esl-gV-nsz">
-                                                    <rect key="frame" x="211.5" y="38" width="95.5" height="16"/>
+                                                    <rect key="frame" x="211" y="38" width="95.5" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -483,7 +483,9 @@
                     <tabBarItem key="tabBarItem" title="Timetable" image="timetableicon" selectedImage="timetableicon" id="5hE-TW-brL"/>
                     <connections>
                         <outlet property="collectionView" destination="JqN-rn-afi" id="MN9-EX-arh"/>
+                        <outlet property="navigationBar" destination="5aI-MJ-p09" id="shY-F3-XyN"/>
                         <outlet property="navigationBarHeightConstraint" destination="OC0-v1-U59" id="Nwa-5f-vHa"/>
+                        <outlet property="refreshButton" destination="8d8-wF-0Vm" id="fMN-IJ-5N0"/>
                         <outlet property="topStatusbarConstraint" destination="Rhh-ZU-ywq" id="lBR-nb-a2U"/>
                         <segue destination="Zd4-2a-Ekv" kind="show" identifier="showLogin" id="pUP-Td-sje"/>
                     </connections>
@@ -577,7 +579,7 @@
         <image name="timetableicon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZpT-Jh-VHe"/>
+        <segue reference="pUP-Td-sje"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
 </document>

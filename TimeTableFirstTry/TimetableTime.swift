@@ -21,6 +21,9 @@ class TimetableTime {
     let endHours = [8, 9, 10, 11, 11, 12, 13, 14, 15, 15, 16, 17, 18]
     let endMinutes = [25, 15, 05, 00, 50, 40, 25, 15, 05, 55, 45, 30, 15]
     
+    var startDates: [NSDate] = []
+    var endDates: [NSDate] = []
+    
     enum StartEnd {
         case Start
         case End
@@ -45,7 +48,17 @@ class TimetableTime {
         }
     }
     
+    func generateDateArrays() {
+        if startDates == [] || endDates == [] {
+            for i in 0 ..< 12 {
+                startDates.append(getLessonDate(i, when: .Start))
+                endDates.append(getLessonDate(i, when: .End))
+            }
+        }
+    }
+    
     func getLessonTimeAsString(pos: Int, when: StartEnd, withSeconds: Bool) -> String {
+        generateDateArrays()
         let time: String
         
         if withSeconds {
@@ -53,7 +66,11 @@ class TimetableTime {
         } else {
             self.formatter.dateFormat = "HH:mm"
         }
-        time = formatter.stringFromDate(getLessonDate(pos, when: when))
+        if when == .End {
+            time = formatter.stringFromDate(endDates[pos])
+        } else {
+            time = formatter.stringFromDate(startDates[pos])
+        }
         
         return time
     }
@@ -69,30 +86,47 @@ class TimetableTime {
     }
     
     func getCurrentLesson() -> [Int] {
-        var arrayToReturn: [Int] = []
+        generateDateArrays()
+        var currentLesson: Int = 0
         
         for i in 0 ..< 12 {
-            let selectedLessonEnd = getLessonDate(i, when: .End)
-            if calendar.compareDate(date, toDate: selectedLessonEnd, toUnitGranularity: .Minute) == NSComparisonResult.OrderedDescending {
-                if i != 11 {
-                    arrayToReturn = [i]
-                    arrayToReturn.append(calendar.component(.Weekday, fromDate: date))
-                    break
-                } else {
-                    arrayToReturn = [0]
-                    arrayToReturn.append(calendar.component(.Weekday, fromDate: date) + 1)
-                    print("CurrentLesson is on next Day")
-                }
-            } else {
-                arrayToReturn = [0]
+            let selectedLessonEnd = endDates[i]
+            if calendar.compareDate(selectedLessonEnd, toDate: date, toUnitGranularity: .Minute) == NSComparisonResult.OrderedDescending {
+                currentLesson = i
+                break
             }
         }
-        print(arrayToReturn)
+        let arrayToReturn: [Int] = [getCurrentWeekDayInWorkWeek(), currentLesson]
         
         return arrayToReturn
     }
     
+    func getCurrentWeekDayInWorkWeek() -> Int {
+        generateDateArrays()
+        var weekDay = calendar.component(.Weekday, fromDate: date)
+        let lastLessonEnd = endDates[11]
+        if calendar.compareDate(date, toDate: lastLessonEnd, toUnitGranularity: .Minute) == .OrderedDescending {
+            ++weekDay
+        }
+        
+        if weekDay == 1 || weekDay == 7 {
+            weekDay = 2
+        }
+        
+        return weekDay
+    }
+    
     func lessonIsCurrentLesson(item: Int, inSection: Int) -> Bool {
-        return ((item == 2) && (inSection == 4))
+        let coordinates: [Int] = getCurrentLesson()
+        print(coordinates)
+        let xDay: Int = coordinates[0] - 1
+        let yTime: Int = coordinates[1] + 1
+        
+        return ((item == xDay) && (inSection == yTime))
+    }
+    
+    func dayIsCurrentDay(item: Int) -> Bool {
+        let coordinates: [Int] = getCurrentLesson()
+        return item == coordinates[0] - 1
     }
  }

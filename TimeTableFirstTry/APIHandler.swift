@@ -15,8 +15,8 @@ class APIHandler {
     var tokenStorage = TokenStorage()
     let shortName:ShortNameForDayMonth = ShortNameForDayMonth()
     let userDefaults = NSUserDefaults.standardUserDefaults()
+    let timeTable = TTCollectionViewController()
     
-    var isLoadingData: Bool = false
     
     /**
     Requests a new AuthToken from the API-Authentication-Service by opening a webpage for the user to log in
@@ -63,7 +63,7 @@ class APIHandler {
         
         let URLRequestString = URLBaseRequestString + token + "/date/" + dayVarShort + "%2C%20" + dayVarDate + "%20" + monthVarShort + "%20" + yearVar + "%20" + hourVar + "%3A" + minuteVar + "%3A" + secondVar + "%20" + timeZoneVar
         //let URLRequestString = "https://stage.tam.ch/klw/rest/mobile-timetable/auth/"+token+"/date/Thu%2C%2010%20Dec%202015%2012%3A53%3A00%20GMT"
-        print(URLRequestString)
+        //print(URLRequestString)
         //The URL for the data
         let requestURL = NSURL(string: URLRequestString)
         
@@ -73,7 +73,6 @@ class APIHandler {
         
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
-        self.isLoadingData = true
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) -> Void in
             do {
                 print("Contents:")
@@ -84,17 +83,18 @@ class APIHandler {
                     let cleanedData = (cleaned as NSString).dataUsingEncoding(NSUTF8StringEncoding)
                     let dataDict:NSMutableDictionary = try NSJSONSerialization.JSONObjectWithData(cleanedData!, options: NSJSONReadingOptions.MutableContainers) as! NSMutableDictionary
                     print("Received Data")
-                    print(dataDict)
+                    //print(dataDict)
                     self.checkResponseCode(dataDict)
                 }
             } catch let myJSONError {
                 print(myJSONError)
             }
+            self.timeTable.canRefresh = true
+            print("setting can refresh to true")
         })
         
         print("Requesting Data...")
         task.resume()
-        self.isLoadingData = false
     }
     
     func checkResponseCode(dataDict:NSDictionary) {

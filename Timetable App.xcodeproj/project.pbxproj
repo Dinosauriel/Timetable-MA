@@ -35,7 +35,6 @@
 		743ED89F1BF6400B00DA2E46 /* ReplacedLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */; };
 		743ED8A01BF6401200DA2E46 /* LessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */; };
 		743ED8A11BF6401600DA2E46 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
-		743ED8A21BF6402400DA2E46 /* TimetitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DE1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift */; };
 		743ED8A51BF640D600DA2E46 /* UILesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B061BEBE5570030FA95 /* UILesson.swift */; };
 		7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */; };
 		7468840B1C0B701600F719BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7468840D1C0B701600F719BA /* Main.storyboard */; };
@@ -57,7 +56,6 @@
 		74EBE6C41BDD56720026F2AE /* TimeTableFirstTryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6C31BDD56720026F2AE /* TimeTableFirstTryUITests.swift */; };
 		74EBE6D91BDD59580026F2AE /* TTCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6D81BDD59580026F2AE /* TTCollectionViewLayout.swift */; };
 		74EBE6DB1BDD598A0026F2AE /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DA1BDD598A0026F2AE /* DayCollectionViewCell.swift */; };
-		74EBE6DF1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DE1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,7 +153,6 @@
 		74EBE6C51BDD56720026F2AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74EBE6D81BDD59580026F2AE /* TTCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTCollectionViewLayout.swift; sourceTree = "<group>"; };
 		74EBE6DA1BDD598A0026F2AE /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
-		74EBE6DE1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetitleCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,7 +411,6 @@
 				7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */,
 				74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */,
 				741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */,
-				74EBE6DE1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -606,7 +602,6 @@
 				743ED89F1BF6400B00DA2E46 /* ReplacedLessonCollectionViewCell.swift in Sources */,
 				743ED8A01BF6401200DA2E46 /* LessonCollectionViewCell.swift in Sources */,
 				743ED8A11BF6401600DA2E46 /* TimeCollectionViewCell.swift in Sources */,
-				743ED8A21BF6402400DA2E46 /* TimetitleCollectionViewCell.swift in Sources */,
 				743ED89C1BF63FA700DA2E46 /* Day.swift in Sources */,
 				74CA85B01C0B4A530076CF64 /* TimeTableData.swift in Sources */,
 				743ED89E1BF63FDC00DA2E46 /* TimetableTime.swift in Sources */,
@@ -647,7 +642,6 @@
 				4FAA67F21C25949D0071E825 /* CheckForSpecialLessons.swift in Sources */,
 				74AD756F1C19CEC2005139BA /* FLPageViewController.swift in Sources */,
 				74866B0C1BEBF10A0030FA95 /* LessonCollectionViewCell.swift in Sources */,
-				74EBE6DF1BDD59F00026F2AE /* TimetitleCollectionViewCell.swift in Sources */,
 				74EBE6DB1BDD598A0026F2AE /* DayCollectionViewCell.swift in Sources */,
 				4F2CAE581C232058007CCC7B /* NotificationHandler.swift in Sources */,
 			);
