@@ -78,15 +78,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             APIBackgroundHandlerVar = APIBackgroundHandler()
             APIBackgroundHandlerVar!.getBackgroundData({ (status) -> Void in
                 switch status {
-                case "failed": completionHandler(.Failed)
+                case "failed": completionHandler(.Failed); UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalNever)
                 case "newData": completionHandler(.NewData)
                 case "noData": completionHandler(.NoData)
                 default: completionHandler(.NoData)
                 }
             })
-        } else {
-            UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalNever)
-            completionHandler(.Failed)
         }
     }
 

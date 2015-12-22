@@ -13,7 +13,7 @@ class APIHandler {
     
     var token : String!
     var tokenStorage = TokenStorage()
-    let shortName:ShortNameForDayMonth = ShortNameForDayMonth()
+    let urlBuilder:URLBuildingSupport = URLBuildingSupport()
     let userDefaults = NSUserDefaults.standardUserDefaults()
     let timeTable = TTCollectionViewController()
     
@@ -31,25 +31,8 @@ class APIHandler {
             userDefaults.setBool(false, forKey: "RetrievedNewToken")
             return
         }
-        //The URL-String without the token and the current date
-        let URLBaseRequestString = "https://stage.tam.ch/klw/rest/mobile-timetable/auth/"
         
-        //Setting the variables to the current year/month/day/...
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Day,.Month,.Year,.Weekday,.Hour,.Minute,.Second], fromDate: date)
-        
-        let dayVarShort:String = shortName.day(components.day)
-        let dayVarDate:String = String(components.day)
-        let monthVarShort:String = shortName.month(components.month)
-        let yearVar:String = String(components.year)
-        let hourVar:String = String(components.hour)
-        let minuteVar:String = String(components.minute)
-        let secondVar:String = String(components.second)
-        let timeZoneVar:String = "GMT"
-        
-        //Assemble the final URL with the baseURLString, the token and the current date
-        let URLRequestString = URLBaseRequestString + token + "/date/" + dayVarShort + "%2C%20" + dayVarDate + "%20" + monthVarShort + "%20" + yearVar + "%20" + hourVar + "%3A" + minuteVar + "%3A" + secondVar + "%20" + timeZoneVar
+        let URLRequestString = urlBuilder.getURLForCurrentDate(token)
         
         //Creating an NSURL with the string
         let requestURL = NSURL(string: URLRequestString)
@@ -102,7 +85,6 @@ class APIHandler {
             default: print("default")
             }
         } else {
-            //check.checkForSpecialLessons(dataDict)
             //The data was ok -> store it
             timeTableStorage.storeTimeTableData(dataDict)
         }

@@ -14,3 +14,11 @@ general = "General";
 loginState = "Currently logged in:";
 
 time = "Time";
+
+
+//NOTIFICATIONS
+invalidTokenTitle = "Invalid Token!";
+invalidTokenBody = "The authentication-token has invalidated. Please relog";
+
+changedNotificationTitle = "Change";
+changedNotificationBody = "Some of your lessons changed!";

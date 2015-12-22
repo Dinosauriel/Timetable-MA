@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ShortNameForDayMonth {
+class URLBuildingSupport {
     
     /**
      This function returns the short-name of a month
@@ -47,6 +47,27 @@ class ShortNameForDayMonth {
         case 7: return "Sat"
         default: return "Mon"
         }
+    }
+    
+    func getURLForCurrentDate(token:String) -> String {
+        let URLBaseRequestString = "https://stage.tam.ch/klw/rest/mobile-timetable/auth/"
+        
+        //The resource-string for the data with filters
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day,.Month,.Year,.Weekday,.Hour,.Minute,.Second], fromDate: date)
+        
+        let dayVarShort:String = day(components.day)
+        let dayVarDate:String = String(components.day)
+        let monthVarShort:String = month(components.month)
+        let yearVar:String = String(components.year)
+        let hourVar:String = String(components.hour)
+        let minuteVar:String = String(components.minute)
+        let secondVar:String = String(components.second)
+        let timeZoneVar:String = "GMT"
+        
+        
+        return URLBaseRequestString + token + "/date/" + dayVarShort + "%2C%20" + dayVarDate + "%20" + monthVarShort + "%20" + yearVar + "%20" + hourVar + "%3A" + minuteVar + "%3A" + secondVar + "%20" + timeZoneVar
     }
     
 }
