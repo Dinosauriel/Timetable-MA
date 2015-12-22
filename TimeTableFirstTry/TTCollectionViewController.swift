@@ -429,12 +429,13 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                     case .Special:
                         let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(specialLessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
                         
-                        lessonCell.teacherLabel.text = ""
-                        lessonCell.roomLabel.text = ""
+
                         lessonCell.subjectLabel.textColor = cellBackgroundColor
                         lessonCell.backgroundColor = specialLessonBackgroundColor
 
                         lessonCell.subjectLabel.text = alesson.subject
+                        lessonCell.teacherLabel.text = alesson.teacher
+                        lessonCell.roomLabel.text = alesson.room
                         
                         lessonCell.dividingView.backgroundColor = specialDividingLineColor
                         
