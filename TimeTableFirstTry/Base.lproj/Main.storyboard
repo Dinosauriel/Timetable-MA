@@ -16,7 +16,7 @@
         <!--View Controller-->
         <scene sceneID="idm-Kw-lEO">
             <objects>
-                <viewController storyboardIdentifier="FL1ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="85E-8G-bvL" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FL10ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="85E-8G-bvL" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RFY-ee-oWf"/>
                         <viewControllerLayoutGuide type="bottom" id="bbz-uO-Kzz"/>
@@ -25,13 +25,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hoi" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUT-Pq-k1U">
-                                <rect key="frame" x="289.5" y="102" width="21" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to get your timetable, you will have to login to the network of the Kantonsschule im Lee with your usual account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUT-Pq-k1U">
+                                <rect key="frame" x="150.5" y="71" width="300" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="GLk-Vc-ypH"/>
+                                    <constraint firstAttribute="width" constant="300" id="DVc-ga-j9t"/>
+                                    <constraint firstAttribute="height" constant="100" id="GLk-Vc-ypH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="However, your permission to use the timetable will expire after some time and you will have to relog" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y47-VC-Fvh">
+                                <rect key="frame" x="150" y="179" width="300" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="eTh-lC-Cxp"/>
+                                    <constraint firstAttribute="height" constant="100" id="qRX-GR-snD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idu-hu-Wuh">
@@ -41,10 +51,23 @@
                                     <segue destination="Zd4-2a-Ekv" kind="show" id="ZpT-Jh-VHe"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please note, that we can't take any responsibility that the timetable displayed will be absolutely correct!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1GF-tz-uoe">
+                                <rect key="frame" x="150" y="278" width="300" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="5nU-Mg-r9D"/>
+                                    <constraint firstAttribute="height" constant="100" id="exA-gC-NV6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uUT-Pq-k1U" firstAttribute="top" secondItem="RFY-ee-oWf" secondAttribute="bottom" constant="82" id="Ta5-kM-uoo"/>
+                            <constraint firstItem="1GF-tz-uoe" firstAttribute="centerX" secondItem="Wey-jE-DKf" secondAttribute="centerX" id="DSt-ht-2Se"/>
+                            <constraint firstItem="y47-VC-Fvh" firstAttribute="centerX" secondItem="Wey-jE-DKf" secondAttribute="centerX" id="Gxy-gq-5Cu"/>
+                            <constraint firstItem="uUT-Pq-k1U" firstAttribute="top" secondItem="RFY-ee-oWf" secondAttribute="bottom" constant="51" id="Ta5-kM-uoo"/>
+                            <constraint firstItem="1GF-tz-uoe" firstAttribute="top" secondItem="uUT-Pq-k1U" secondAttribute="bottom" constant="107" id="Ujn-9j-u5Z"/>
+                            <constraint firstItem="y47-VC-Fvh" firstAttribute="top" secondItem="uUT-Pq-k1U" secondAttribute="bottom" constant="8" id="aOB-LI-O2Y"/>
                             <constraint firstItem="uUT-Pq-k1U" firstAttribute="centerX" secondItem="Wey-jE-DKf" secondAttribute="centerX" id="qOi-fq-kdG"/>
                             <constraint firstItem="bbz-uO-Kzz" firstAttribute="top" secondItem="idu-hu-Wuh" secondAttribute="bottom" constant="80" id="vwL-oW-HFe"/>
                             <constraint firstItem="idu-hu-Wuh" firstAttribute="centerX" secondItem="Wey-jE-DKf" secondAttribute="centerX" id="ynl-RD-MUd"/>
@@ -67,14 +90,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView multipleTouchEnabled="YES" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wpx-Zt-oIs">
-                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
-                                <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rdK-VN-5V6">
                                 <rect key="frame" x="281" y="281" width="37" height="37"/>
                                 <color key="color" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <webView multipleTouchEnabled="YES" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wpx-Zt-oIs">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -212,7 +235,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JqN-rn-afi">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="tintColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewLayout key="collectionViewLayout" id="qOJ-WM-DPR" customClass="TTCollectionViewLayout" customModule="Timetable_App" customModuleProvider="target"/>
+                                <collectionViewLayout key="collectionViewLayout" id="qOJ-WM-DPR"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeCellIdentifier" id="iwX-Al-vSb" customClass="TimeCollectionViewCell" customModule="Timetable_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2.5" width="266" height="88.5"/>
@@ -639,7 +662,7 @@
         <!--View Controller-->
         <scene sceneID="m2A-WL-mIe">
             <objects>
-                <viewController storyboardIdentifier="FL0ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lYk-34-Qlk" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FL1ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lYk-34-Qlk" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r8D-Ui-etr"/>
                         <viewControllerLayoutGuide type="bottom" id="a9h-3W-a9m"/>
@@ -648,34 +671,176 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi! Thank you for downloading our App" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDi-nL-Z0H">
-                                <rect key="frame" x="167" y="102" width="267" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In the following, we want to show you how this app works" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ari-es-oAm">
+                                <rect key="frame" x="150" y="150" width="300" height="59"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="ulI-ki-nFe"/>
+                                    <constraint firstAttribute="height" constant="59" id="L7y-8z-Mqo"/>
+                                    <constraint firstAttribute="width" constant="300" id="PAx-TN-JZd"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With it, you can chek your timetable quickly and uncomplicatedly." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLB-bg-vX8">
+                                <rect key="frame" x="150" y="71" width="300" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="ch8-GP-aQR"/>
+                                    <constraint firstAttribute="height" constant="59" id="zGG-cq-S2a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphoneblackss" translatesAutoresizingMaskIntoConstraints="NO" id="MAJ-Ph-9FI">
+                                <rect key="frame" x="276" y="294" width="666" height="666"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="666" id="7Te-o2-eW7"/>
+                                    <constraint firstAttribute="height" constant="666" id="HVo-lM-UPI"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphonewhitess" translatesAutoresizingMaskIntoConstraints="NO" id="hmD-m5-hbW">
+                                <rect key="frame" x="-430" y="254" width="666" height="666"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="666" id="2Xu-dh-JAF"/>
+                                    <constraint firstAttribute="height" constant="666" id="z34-4U-0An"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JDi-nL-Z0H" firstAttribute="top" secondItem="r8D-Ui-etr" secondAttribute="bottom" constant="82" id="awB-a9-9Lg"/>
-                            <constraint firstItem="JDi-nL-Z0H" firstAttribute="centerX" secondItem="lkm-gD-1b9" secondAttribute="centerX" id="x3e-K5-Fek"/>
+                            <constraint firstItem="hmD-m5-hbW" firstAttribute="leading" secondItem="lkm-gD-1b9" secondAttribute="leadingMargin" constant="-450" id="AMR-7w-6n6"/>
+                            <constraint firstItem="Ari-es-oAm" firstAttribute="centerX" secondItem="lkm-gD-1b9" secondAttribute="centerX" id="BFj-j7-cdD"/>
+                            <constraint firstItem="GLB-bg-vX8" firstAttribute="centerX" secondItem="lkm-gD-1b9" secondAttribute="centerX" id="Dba-dB-5C4"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="hmD-m5-hbW" secondAttribute="bottom" constant="-320" id="Phx-GY-O1p"/>
+                            <constraint firstItem="GLB-bg-vX8" firstAttribute="top" secondItem="r8D-Ui-etr" secondAttribute="bottom" constant="51" id="PiR-VZ-TNv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MAJ-Ph-9FI" secondAttribute="trailing" constant="-362" id="bg4-1L-nMQ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="MAJ-Ph-9FI" secondAttribute="bottom" constant="-360" id="iNA-Rw-7hK"/>
+                            <constraint firstItem="Ari-es-oAm" firstAttribute="top" secondItem="GLB-bg-vX8" secondAttribute="bottom" constant="20" id="ohU-cS-4oS"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MkY-87-G8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1953" y="-1970"/>
+            <point key="canvasLocation" x="-2021" y="-2244"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="rEO-SG-5cj">
+            <objects>
+                <viewController storyboardIdentifier="FL0ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aW0-FS-ohl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9HG-mO-rAr"/>
+                        <viewControllerLayoutGuide type="bottom" id="M50-ou-e8t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gqv-eI-0lk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSK-5t-nAf">
+                                <rect key="frame" x="279" y="102" width="42" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="aBA-6V-dJe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLK-iL-rRs">
+                                <rect key="frame" x="135" y="146" width="331.5" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="RSd-FH-aqk"/>
+                                </constraints>
+                                <string key="text">Thanks for downloading our App!
+We put a lot of Work into it an hope you like it.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hSK-5t-nAf" firstAttribute="centerX" secondItem="Gqv-eI-0lk" secondAttribute="centerX" id="BBq-o6-VdH"/>
+                            <constraint firstItem="hSK-5t-nAf" firstAttribute="top" secondItem="9HG-mO-rAr" secondAttribute="bottom" constant="82" id="IUA-Rt-5XF"/>
+                            <constraint firstItem="hLK-iL-rRs" firstAttribute="centerX" secondItem="Gqv-eI-0lk" secondAttribute="centerX" id="T1y-5n-gi5"/>
+                            <constraint firstItem="hLK-iL-rRs" firstAttribute="top" secondItem="hSK-5t-nAf" secondAttribute="bottom" constant="20" id="wdc-tZ-p0a"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DY0-y4-yb6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2021" y="-2998"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zIN-kO-jQM">
+            <objects>
+                <viewController storyboardIdentifier="FL2ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="atg-wR-S2a" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bg6-AC-LUQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="l8m-bG-tAa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rqV-5m-sVr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to use this feature you will have to allow push-notifications and background actualisations." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJB-zc-ZwH">
+                                <rect key="frame" x="150" y="150" width="300" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="0Py-jD-oiQ"/>
+                                    <constraint firstAttribute="width" constant="300" id="axZ-Ys-OE8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This app supports push-notifications! They will let you know if something in your timetable has changed." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBF-Dv-ozA">
+                                <rect key="frame" x="150" y="71" width="300" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="AAl-Ma-YMd"/>
+                                    <constraint firstAttribute="width" constant="300" id="GS2-vr-ffC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphonewhitesstilt" translatesAutoresizingMaskIntoConstraints="NO" id="BLL-Z3-7gn">
+                                <rect key="frame" x="164" y="334" width="666" height="666"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="666" id="GHw-97-FWm"/>
+                                    <constraint firstAttribute="width" constant="666" id="KO2-ge-PNw"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphoneblacksstilt" translatesAutoresizingMaskIntoConstraints="NO" id="Cf5-E7-Mkf">
+                                <rect key="frame" x="-36" y="264" width="666" height="666"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="666" id="0xf-HW-w97"/>
+                                    <constraint firstAttribute="height" constant="666" id="4yA-sE-OIh"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xJB-zc-ZwH" firstAttribute="top" secondItem="nBF-Dv-ozA" secondAttribute="bottom" constant="20" id="6rh-fd-wda"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BLL-Z3-7gn" secondAttribute="trailing" constant="-250" id="CRf-g7-pdl"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Cf5-E7-Mkf" secondAttribute="bottom" constant="-330" id="Shn-DT-H45"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="BLL-Z3-7gn" secondAttribute="bottom" constant="-400" id="WWm-l1-o6J"/>
+                            <constraint firstItem="xJB-zc-ZwH" firstAttribute="centerX" secondItem="rqV-5m-sVr" secondAttribute="centerX" id="dCa-8t-mSp"/>
+                            <constraint firstItem="nBF-Dv-ozA" firstAttribute="centerX" secondItem="rqV-5m-sVr" secondAttribute="centerX" id="nNW-5v-LLN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cf5-E7-Mkf" secondAttribute="trailing" constant="-50" id="nva-BL-ywP"/>
+                            <constraint firstItem="nBF-Dv-ozA" firstAttribute="top" secondItem="bg6-AC-LUQ" secondAttribute="bottom" constant="51" id="usy-E7-XQ6"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GCx-JD-wk1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2021" y="-1560"/>
         </scene>
     </scenes>
     <resources>
+        <image name="iphoneblackss" width="666" height="666"/>
+        <image name="iphoneblacksstilt" width="666" height="666"/>
+        <image name="iphonewhitess" width="666" height="666"/>
+        <image name="iphonewhitesstilt" width="666" height="666"/>
         <image name="settingsicon" width="36" height="36"/>
         <image name="timetableicon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pUP-Td-sje"/>
+        <segue reference="ZpT-Jh-VHe"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
 </document>

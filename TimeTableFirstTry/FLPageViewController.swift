@@ -12,7 +12,8 @@ class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource
     
     let pageIdentifiers = [
         "FL0ID",
-        "FL1ID"]
+        "FL1ID",
+        "FL10ID"]
     
     var currentPage = 0
     

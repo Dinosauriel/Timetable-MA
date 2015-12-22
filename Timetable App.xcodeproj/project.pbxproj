@@ -18,22 +18,11 @@
 		4FC8F9DC1C06190E00D15752 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8F9DB1C06190E00D15752 /* TokenStorage.swift */; };
 		4FC8F9DE1C061F2000D15752 /* TimeTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8F9DD1C061F2000D15752 /* TimeTableData.swift */; };
 		4FC8F9E01C061F4700D15752 /* TimeTableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8F9DF1C061F4700D15752 /* TimeTableStorage.swift */; };
-		740173AF1C08B21C006F3880 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DA1BDD598A0026F2AE /* DayCollectionViewCell.swift */; };
-		740173B21C08B312006F3880 /* TodayLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743ED8981BF6363900DA2E46 /* TodayLayout.swift */; };
-		740173B31C08B317006F3880 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */; };
 		7402B3E61C031EB40048C5D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7402B3E51C031EB40048C5D7 /* Assets.xcassets */; };
 		741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
 		741559D91C1DB9D700FF0965 /* TTLandscapeCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741559D81C1DB9D700FF0965 /* TTLandscapeCollectionViewLayout.swift */; };
-		74156C081C02240A0050740D /* WidgetLesson.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 743ED8861BF6339A00DA2E46 /* WidgetLesson.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		742889F81BF73A870018EAE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 742889FA1BF73A870018EAE4 /* Localizable.strings */; };
 		74382ED91BEFBE13007A28C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
-		743ED8891BF6339A00DA2E46 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */; };
-		743ED89C1BF63FA700DA2E46 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
-		743ED89E1BF63FDC00DA2E46 /* TimetableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8600701BE8D8B700FA53AD /* TimetableTime.swift */; };
-		743ED89F1BF6400B00DA2E46 /* ReplacedLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */; };
-		743ED8A01BF6401200DA2E46 /* LessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */; };
-		743ED8A11BF6401600DA2E46 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
-		743ED8A51BF640D600DA2E46 /* UILesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B061BEBE5570030FA95 /* UILesson.swift */; };
 		7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */; };
 		7468840B1C0B701600F719BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7468840D1C0B701600F719BA /* Main.storyboard */; };
 		74866B071BEBE5570030FA95 /* UILesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B061BEBE5570030FA95 /* UILesson.swift */; };
@@ -44,42 +33,15 @@
 		74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */; };
 		74AD756F1C19CEC2005139BA /* FLPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD756E1C19CEC2005139BA /* FLPageViewController.swift */; };
 		74BA02251C299F9C0022549C /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA02241C299F9C0022549C /* UserInfoCell.swift */; };
-		74CA85B01C0B4A530076CF64 /* TimeTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8F9DD1C061F2000D15752 /* TimeTableData.swift */; };
 		74E18DAB1BFFA27900DE26AF /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E18DAA1BFFA27900DE26AF /* LoginWebViewController.swift */; };
 		74E41DA41C258195005E15EB /* DeviceSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E41DA31C258195005E15EB /* DeviceSupport.swift */; };
 		74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A01BDD56710026F2AE /* AppDelegate.swift */; };
 		74EBE6A31BDD56710026F2AE /* TTCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A21BDD56710026F2AE /* TTCollectionViewController.swift */; };
 		74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A71BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld */; };
 		74EBE6AE1BDD56710026F2AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74EBE6AC1BDD56710026F2AE /* LaunchScreen.storyboard */; };
-		74EBE6B91BDD56710026F2AE /* TimeTableFirstTryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6B81BDD56710026F2AE /* TimeTableFirstTryTests.swift */; };
-		74EBE6C41BDD56720026F2AE /* TimeTableFirstTryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6C31BDD56720026F2AE /* TimeTableFirstTryUITests.swift */; };
 		74EBE6D91BDD59580026F2AE /* TTCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6D81BDD59580026F2AE /* TTCollectionViewLayout.swift */; };
 		74EBE6DB1BDD598A0026F2AE /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DA1BDD598A0026F2AE /* DayCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		74156C091C02240A0050740D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 74EBE6951BDD56710026F2AE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 743ED8851BF6339A00DA2E46;
-			remoteInfo = WidgetLesson;
-		};
-		74EBE6B51BDD56710026F2AE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 74EBE6951BDD56710026F2AE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 74EBE69C1BDD56710026F2AE;
-			remoteInfo = TimeTableFirstTry;
-		};
-		74EBE6C01BDD56720026F2AE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 74EBE6951BDD56710026F2AE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 74EBE69C1BDD56710026F2AE;
-			remoteInfo = TimeTableFirstTry;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		74156C0B1C02240A0050740D /* Embed App Extensions */ = {
@@ -88,7 +50,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				74156C081C02240A0050740D /* WidgetLesson.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,19 +71,12 @@
 		7402B3E51C031EB40048C5D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		741559D81C1DB9D700FF0965 /* TTLandscapeCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTLandscapeCollectionViewLayout.swift; sourceTree = "<group>"; };
-		742889ED1BF735AD0018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		742889F41BF737900018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		742889F91BF73A870018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		742889FB1BF73A8A0018EAE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		74382ED81BEFBE13007A28C4 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
-		743ED8861BF6339A00DA2E46 /* WidgetLesson.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetLesson.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		743ED88B1BF6339A00DA2E46 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		743ED88E1BF6339A00DA2E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		743ED8901BF6339A00DA2E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		743ED8981BF6363900DA2E46 /* TodayLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayLayout.swift; sourceTree = "<group>"; };
 		74428C4E1C1060AF0054BB5E /* TimeTableFirstTry.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = TimeTableFirstTry.entitlements; path = TimeTableFirstTry/TimeTableFirstTry.entitlements; sourceTree = "<group>"; };
-		74428C4F1C1063E60054BB5E /* WidgetLesson.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = WidgetLesson.entitlements; path = WidgetLesson/WidgetLesson.entitlements; sourceTree = "<group>"; };
 		7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplacedLessonCollectionViewCell.swift; sourceTree = "<group>"; };
 		7468840C1C0B701600F719BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74866B061BEBE5570030FA95 /* UILesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILesson.swift; sourceTree = "<group>"; };
@@ -143,40 +97,12 @@
 		74EBE6A81BDD56710026F2AE /* TimeTableFirstTry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeTableFirstTry.xcdatamodel; sourceTree = "<group>"; };
 		74EBE6AD1BDD56710026F2AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74EBE6AF1BDD56710026F2AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = TimeTableFirstTry/Info.plist; sourceTree = "<group>"; };
-		74EBE6B41BDD56710026F2AE /* Timetable App.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Timetable App.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		74EBE6B81BDD56710026F2AE /* TimeTableFirstTryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableFirstTryTests.swift; sourceTree = "<group>"; };
-		74EBE6BA1BDD56710026F2AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		74EBE6BF1BDD56720026F2AE /* Timetable App.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Timetable App.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		74EBE6C31BDD56720026F2AE /* TimeTableFirstTryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableFirstTryUITests.swift; sourceTree = "<group>"; };
-		74EBE6C51BDD56720026F2AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74EBE6D81BDD59580026F2AE /* TTCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTCollectionViewLayout.swift; sourceTree = "<group>"; };
 		74EBE6DA1BDD598A0026F2AE /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		743ED8831BF6339A00DA2E46 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				743ED8891BF6339A00DA2E46 /* NotificationCenter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		74EBE69A1BDD56710026F2AE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		74EBE6B11BDD56710026F2AE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		74EBE6BC1BDD56710026F2AE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -249,18 +175,6 @@
 				743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		743ED88A1BF6339A00DA2E46 /* WidgetLesson */ = {
-			isa = PBXGroup;
-			children = (
-				743ED88B1BF6339A00DA2E46 /* TodayViewController.swift */,
-				743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */,
-				743ED8901BF6339A00DA2E46 /* Info.plist */,
-				743ED8981BF6363900DA2E46 /* TodayLayout.swift */,
-			);
-			name = WidgetLesson;
-			path = ../WidgetLesson;
 			sourceTree = "<group>";
 		};
 		743ED89A1BF63E5900DA2E46 /* App */ = {
@@ -350,13 +264,10 @@
 		74EBE6941BDD56710026F2AE = {
 			isa = PBXGroup;
 			children = (
-				74428C4F1C1063E60054BB5E /* WidgetLesson.entitlements */,
 				74428C4E1C1060AF0054BB5E /* TimeTableFirstTry.entitlements */,
 				4F4BE6871BFDEE3A001EDE35 /* .gitignore */,
 				74EBE69F1BDD56710026F2AE /* Timetable App */,
-				74EBE6B71BDD56710026F2AE /* TimeTableFirstTryTests */,
 				74EBE6AF1BDD56710026F2AE /* Info.plist */,
-				74EBE6C21BDD56720026F2AE /* TimeTableFirstTryUITests */,
 				743ED8871BF6339A00DA2E46 /* Frameworks */,
 				74EBE69E1BDD56710026F2AE /* Products */,
 			);
@@ -366,9 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				74EBE69D1BDD56710026F2AE /* Timetable App.app */,
-				74EBE6B41BDD56710026F2AE /* Timetable App.xctest */,
-				74EBE6BF1BDD56720026F2AE /* Timetable App.xctest */,
-				743ED8861BF6339A00DA2E46 /* WidgetLesson.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -377,28 +285,9 @@
 			isa = PBXGroup;
 			children = (
 				743ED89A1BF63E5900DA2E46 /* App */,
-				743ED88A1BF6339A00DA2E46 /* WidgetLesson */,
 			);
 			name = "Timetable App";
 			path = TimeTableFirstTry;
-			sourceTree = "<group>";
-		};
-		74EBE6B71BDD56710026F2AE /* TimeTableFirstTryTests */ = {
-			isa = PBXGroup;
-			children = (
-				74EBE6B81BDD56710026F2AE /* TimeTableFirstTryTests.swift */,
-				74EBE6BA1BDD56710026F2AE /* Info.plist */,
-			);
-			path = TimeTableFirstTryTests;
-			sourceTree = "<group>";
-		};
-		74EBE6C21BDD56720026F2AE /* TimeTableFirstTryUITests */ = {
-			isa = PBXGroup;
-			children = (
-				74EBE6C31BDD56720026F2AE /* TimeTableFirstTryUITests.swift */,
-				74EBE6C51BDD56720026F2AE /* Info.plist */,
-			);
-			path = TimeTableFirstTryUITests;
 			sourceTree = "<group>";
 		};
 		74EBE6D11BDD582A0026F2AE /* Cells */ = {
@@ -415,23 +304,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		743ED8851BF6339A00DA2E46 /* WidgetLesson */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 743ED8961BF6339A00DA2E46 /* Build configuration list for PBXNativeTarget "WidgetLesson" */;
-			buildPhases = (
-				743ED8821BF6339A00DA2E46 /* Sources */,
-				743ED8831BF6339A00DA2E46 /* Frameworks */,
-				743ED8841BF6339A00DA2E46 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = WidgetLesson;
-			productName = WidgetLesson;
-			productReference = 743ED8861BF6339A00DA2E46 /* WidgetLesson.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		74EBE69C1BDD56710026F2AE /* Timetable App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74EBE6C81BDD56720026F2AE /* Build configuration list for PBXNativeTarget "Timetable App" */;
@@ -444,48 +316,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				74156C0A1C02240A0050740D /* PBXTargetDependency */,
 			);
 			name = "Timetable App";
 			productName = TimeTableFirstTry;
 			productReference = 74EBE69D1BDD56710026F2AE /* Timetable App.app */;
 			productType = "com.apple.product-type.application";
-		};
-		74EBE6B31BDD56710026F2AE /* Timetable AppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 74EBE6CB1BDD56720026F2AE /* Build configuration list for PBXNativeTarget "Timetable AppTests" */;
-			buildPhases = (
-				74EBE6B01BDD56710026F2AE /* Sources */,
-				74EBE6B11BDD56710026F2AE /* Frameworks */,
-				74EBE6B21BDD56710026F2AE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				74EBE6B61BDD56710026F2AE /* PBXTargetDependency */,
-			);
-			name = "Timetable AppTests";
-			productName = TimeTableFirstTryTests;
-			productReference = 74EBE6B41BDD56710026F2AE /* Timetable App.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		74EBE6BE1BDD56710026F2AE /* Timetable AppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 74EBE6CE1BDD56720026F2AE /* Build configuration list for PBXNativeTarget "Timetable AppUITests" */;
-			buildPhases = (
-				74EBE6BB1BDD56710026F2AE /* Sources */,
-				74EBE6BC1BDD56710026F2AE /* Frameworks */,
-				74EBE6BD1BDD56710026F2AE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				74EBE6C11BDD56720026F2AE /* PBXTargetDependency */,
-			);
-			name = "Timetable AppUITests";
-			productName = TimeTableFirstTryUITests;
-			productReference = 74EBE6BF1BDD56720026F2AE /* Timetable App.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -497,15 +332,6 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Aurel Feer";
 				TargetAttributes = {
-					743ED8851BF6339A00DA2E46 = {
-						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = LFNP3438N3;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-						};
-					};
 					74EBE69C1BDD56710026F2AE = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = LFNP3438N3;
@@ -520,14 +346,6 @@
 								enabled = 1;
 							};
 						};
-					};
-					74EBE6B31BDD56710026F2AE = {
-						CreatedOnToolsVersion = 7.0.1;
-						TestTargetID = 74EBE69C1BDD56710026F2AE;
-					};
-					74EBE6BE1BDD56710026F2AE = {
-						CreatedOnToolsVersion = 7.0.1;
-						TestTargetID = 74EBE69C1BDD56710026F2AE;
 					};
 				};
 			};
@@ -546,22 +364,11 @@
 			projectRoot = "";
 			targets = (
 				74EBE69C1BDD56710026F2AE /* Timetable App */,
-				74EBE6B31BDD56710026F2AE /* Timetable AppTests */,
-				74EBE6BE1BDD56710026F2AE /* Timetable AppUITests */,
-				743ED8851BF6339A00DA2E46 /* WidgetLesson */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		743ED8841BF6339A00DA2E46 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				740173B31C08B317006F3880 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		74EBE69B1BDD56710026F2AE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -575,39 +382,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		74EBE6B21BDD56710026F2AE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		74EBE6BD1BDD56710026F2AE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		743ED8821BF6339A00DA2E46 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				743ED89F1BF6400B00DA2E46 /* ReplacedLessonCollectionViewCell.swift in Sources */,
-				743ED8A01BF6401200DA2E46 /* LessonCollectionViewCell.swift in Sources */,
-				743ED8A11BF6401600DA2E46 /* TimeCollectionViewCell.swift in Sources */,
-				743ED89C1BF63FA700DA2E46 /* Day.swift in Sources */,
-				74CA85B01C0B4A530076CF64 /* TimeTableData.swift in Sources */,
-				743ED89E1BF63FDC00DA2E46 /* TimetableTime.swift in Sources */,
-				740173AF1C08B21C006F3880 /* DayCollectionViewCell.swift in Sources */,
-				743ED8A51BF640D600DA2E46 /* UILesson.swift in Sources */,
-				740173B21C08B312006F3880 /* TodayLayout.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		74EBE6991BDD56710026F2AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -643,41 +420,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		74EBE6B01BDD56710026F2AE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				74EBE6B91BDD56710026F2AE /* TimeTableFirstTryTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		74EBE6BB1BDD56710026F2AE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				74EBE6C41BDD56720026F2AE /* TimeTableFirstTryUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		74156C0A1C02240A0050740D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 743ED8851BF6339A00DA2E46 /* WidgetLesson */;
-			targetProxy = 74156C091C02240A0050740D /* PBXContainerItemProxy */;
-		};
-		74EBE6B61BDD56710026F2AE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 74EBE69C1BDD56710026F2AE /* Timetable App */;
-			targetProxy = 74EBE6B51BDD56710026F2AE /* PBXContainerItemProxy */;
-		};
-		74EBE6C11BDD56720026F2AE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 74EBE69C1BDD56710026F2AE /* Timetable App */;
-			targetProxy = 74EBE6C01BDD56720026F2AE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		742889FA1BF73A870018EAE4 /* Localizable.strings */ = {
@@ -687,15 +430,6 @@
 				742889FB1BF73A8A0018EAE4 /* Base */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		743ED88D1BF6339A00DA2E46 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				743ED88E1BF6339A00DA2E46 /* Base */,
-				742889ED1BF735AD0018EAE4 /* de */,
-			);
-			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		7468840D1C0B701600F719BA /* Main.storyboard */ = {
@@ -728,36 +462,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		743ED8941BF6339A00DA2E46 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = WidgetLesson/WidgetLesson.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = WidgetLesson/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = lee.labf.timetable.widgetlesson;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		743ED8951BF6339A00DA2E46 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = WidgetLesson/WidgetLesson.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = WidgetLesson/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = lee.labf.timetable.widgetlesson;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		74EBE6C61BDD56720026F2AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -875,66 +579,9 @@
 			};
 			name = Release;
 		};
-		74EBE6CC1BDD56720026F2AE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = TimeTableFirstTryTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = labf.TimeTableFirstTryTests;
-				PRODUCT_NAME = "Timetable App";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Timetable App.app/Timetable App";
-			};
-			name = Debug;
-		};
-		74EBE6CD1BDD56720026F2AE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = TimeTableFirstTryTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = labf.TimeTableFirstTryTests;
-				PRODUCT_NAME = "Timetable App";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Timetable App.app/Timetable App";
-			};
-			name = Release;
-		};
-		74EBE6CF1BDD56720026F2AE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = TimeTableFirstTryUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = labf.TimeTableFirstTryUITests;
-				PRODUCT_NAME = "Timetable App";
-				TEST_TARGET_NAME = TimeTableFirstTry;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		74EBE6D01BDD56720026F2AE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = TimeTableFirstTryUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = labf.TimeTableFirstTryUITests;
-				PRODUCT_NAME = "Timetable App";
-				TEST_TARGET_NAME = TimeTableFirstTry;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		743ED8961BF6339A00DA2E46 /* Build configuration list for PBXNativeTarget "WidgetLesson" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				743ED8941BF6339A00DA2E46 /* Debug */,
-				743ED8951BF6339A00DA2E46 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		74EBE6981BDD56710026F2AE /* Build configuration list for PBXProject "Timetable App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -949,24 +596,6 @@
 			buildConfigurations = (
 				74EBE6C91BDD56720026F2AE /* Debug */,
 				74EBE6CA1BDD56720026F2AE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		74EBE6CB1BDD56720026F2AE /* Build configuration list for PBXNativeTarget "Timetable AppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				74EBE6CC1BDD56720026F2AE /* Debug */,
-				74EBE6CD1BDD56720026F2AE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		74EBE6CE1BDD56720026F2AE /* Build configuration list for PBXNativeTarget "Timetable AppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				74EBE6CF1BDD56720026F2AE /* Debug */,
-				74EBE6D01BDD56720026F2AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

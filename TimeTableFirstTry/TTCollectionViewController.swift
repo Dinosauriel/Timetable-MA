@@ -69,14 +69,29 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     //MARK: CODE
     
     
+    /**
+    Preparing collectionView
+    */
     override func viewDidLoad() {
+        adaptLayout()
         super.viewDidLoad()
         assignCurrentLesson()
         self.collectionView.backgroundColor = dividingLineColor
     }
-
+    
+    /**
+    Reloading Layout and showing Day
+    */
     override func viewWillAppear(animated: Bool) {
-        self.collectionView.reloadData()
+        checkToken()
+        adaptLayout()
+        scrollToCurrentSection(self.collectionView, animated: false)
+    }
+
+    /**
+    Detecting orientation and setting Layout appropiatly
+    */
+    func adaptLayout() {
         if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
             addStatusBar()
             setLayoutToPortrait(false)
@@ -84,13 +99,12 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             removeStatusBar()
             setLayoutToLandscape(false)
         }
-        scrollToCurrentSection(self.collectionView, animated: false)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
     }
     
     //MARK: BACK BUTTON
+    /**
+    Goes back to today
+    */
     @IBAction func backButton(sender: AnyObject) {
         assignCurrentLesson()
         scrollToCurrentSection(self.collectionView, animated: true)
@@ -98,6 +112,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
 
     
     //MARK: REFRESH BUTTON
+    /**
+    Loading Data and getting New Token if necessary
+    */
     @IBAction func refreshButton(sender: AnyObject) {
         if canRefresh {
             canRefresh = false
@@ -105,12 +122,18 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             apiHandler.getDataWithToken()
             print("REFRESH!!")
             print("RetrivedNewToken: " + String(userDefaults.boolForKey("RetrievedNewToken")))
-            if userDefaults.boolForKey("RetrievedNewToken") {
-                collectionView.reloadData()
-            } else {
-                goToLogin()
-            }
+            checkToken()
             canRefresh = true
+        }
+    }
+    
+    /**
+    checks if there is a new token needed and updates appropiatly
+    */
+    func checkToken() {
+        self.collectionView.reloadData()
+        if !userDefaults.boolForKey("RetrievedNewToken") {
+            goToLogin()
         }
     }
     
@@ -171,11 +194,14 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         }
     }
     
+    /**
+    Scroll to current section if portrait
+    */
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         if fromInterfaceOrientation != .Portrait {
             scrollToOptimalSection(self.collectionView, animated: true)     //Scroll to the section that is best
         }
-        // Reload Day section so Dates are shorter if needed (only on iPhone 4s)
+        // Reload Day section so Dates are shorter if needed
         self.collectionView.reloadSections(NSIndexSet(index: 0))
     }
     

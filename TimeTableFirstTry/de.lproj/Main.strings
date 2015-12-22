@@ -1,18 +1,7 @@
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "0LC-GX-Gds"; */
-"0LC-GX-Gds.text" = "Label";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "2in-sB-8GW"; */
-"2in-sB-8GW.text" = "Label";
 
 /* Class = "UITabBarItem"; title = "Timetable"; ObjectID = "5hE-TW-brL"; */
 "5hE-TW-brL.title" = "Stundenplan";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "8oG-co-Eg2"; */
-"8oG-co-Eg2.text" = "Label";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "9pj-XE-adb"; */
-"9pj-XE-adb.text" = "Label";
 
 /* Class = "UILabel"; text = "Hi! Thank you for downloading our App"; ObjectID = "JDi-nL-Z0H"; */
 "JDi-nL-Z0H.text" = "Hi! Thank you for downloading our App";
@@ -23,38 +12,10 @@
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "Mcg-5O-F7t"; */
 "Mcg-5O-F7t.title" = "Einstellungen";
 
-/* Class = "UILabel"; text = "Hi"; ObjectID = "NjU-VZ-C9u"; */
-"NjU-VZ-C9u.text" = "Hi";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "NuD-sC-N0j"; */
-"NuD-sC-N0j.text" = "Label";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "Vvu-hW-yHU"; */
-"Vvu-hW-yHU.text" = "Label";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "ZkM-2o-aps"; */
-"ZkM-2o-aps.text" = "Label";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "clV-Xy-p7Q"; */
-"clV-Xy-p7Q.text" = "Label";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "esl-gV-nsz"; */
-"esl-gV-nsz.text" = "Label";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "i4v-H4-A36"; */
-"i4v-H4-A36.text" = "Label";
-
 /* Class = "UIButton"; normalTitle = "Got it!"; ObjectID = "idu-hu-Wuh"; */
 "idu-hu-Wuh.normalTitle" = "Okay!";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "ksw-ia-0FO"; */
-"ksw-ia-0FO.text" = "Label";
 
 /* Class = "UINavigationItem"; title = "Timetable"; ObjectID = "qPY-H0-XnS"; */
 "qPY-H0-XnS.title" = "Stundenplan";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "rIK-aE-j1M"; */
-"rIK-aE-j1M.text" = "Label";
-
-/* Class = "UILabel"; text = "hoi"; ObjectID = "uUT-Pq-k1U"; */
-"uUT-Pq-k1U.text" = "hoi";
