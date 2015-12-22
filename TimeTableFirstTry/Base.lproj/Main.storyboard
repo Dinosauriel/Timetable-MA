@@ -359,8 +359,77 @@
                                             <outlet property="teacherLabel" destination="Vvu-hW-yHU" id="86z-vb-PAe"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="specialLessonCellIdentifier" id="nNb-oC-DyW" customClass="LessonCollectionViewCell" customModule="Timetable_App" customModuleProvider="target">
+                                        <rect key="frame" x="146.5" y="103" width="307" height="93"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="307" height="93"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" restorationIdentifier="placeholdingView" translatesAutoresizingMaskIntoConstraints="NO" id="VLd-uW-86p" userLabel="crossOutView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="1"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier=""/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="8Z3-A4-pQc"/>
+                                                        <constraint firstAttribute="height" constant="1" id="jzD-ST-nHH"/>
+                                                        <constraint firstAttribute="width" id="zgx-0o-Dpx"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfj-CK-Twa">
+                                                    <rect key="frame" x="20" y="24.5" width="267" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nG8-Es-MTN" userLabel="SubTeacher Label">
+                                                    <rect key="frame" x="20" y="53" width="133.5" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZHl-zS-5Ui">
+                                                    <rect key="frame" x="0.0" y="92" width="307" height="1"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="QYB-LI-4r6"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEL-gt-Dad" userLabel="SubRoom Label">
+                                                    <rect key="frame" x="153.5" y="53" width="133.5" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ZHl-zS-5Ui" secondAttribute="trailing" id="4w8-S9-QCv"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZHl-zS-5Ui" secondAttribute="bottom" id="5vT-Hs-SUj"/>
+                                            <constraint firstAttribute="trailing" secondItem="kEL-gt-Dad" secondAttribute="trailing" constant="20" id="7kU-sQ-I10"/>
+                                            <constraint firstItem="kEL-gt-Dad" firstAttribute="centerY" secondItem="nNb-oC-DyW" secondAttribute="centerY" constant="15" id="EQf-fE-XaF"/>
+                                            <constraint firstAttribute="trailing" secondItem="Hfj-CK-Twa" secondAttribute="trailing" constant="20" id="FiN-n6-tOp"/>
+                                            <constraint firstItem="Hfj-CK-Twa" firstAttribute="centerY" secondItem="nNb-oC-DyW" secondAttribute="centerY" constant="-14" identifier="yForSubjectCon" id="MAI-JD-RXY"/>
+                                            <constraint firstItem="kEL-gt-Dad" firstAttribute="width" secondItem="nG8-Es-MTN" secondAttribute="width" id="MOM-E8-qca"/>
+                                            <constraint firstItem="nG8-Es-MTN" firstAttribute="leading" secondItem="nNb-oC-DyW" secondAttribute="leading" constant="20" id="Piz-8A-uwp"/>
+                                            <constraint firstItem="kEL-gt-Dad" firstAttribute="leading" secondItem="nG8-Es-MTN" secondAttribute="trailing" id="V0Q-dt-GKP"/>
+                                            <constraint firstItem="VLd-uW-86p" firstAttribute="top" secondItem="nNb-oC-DyW" secondAttribute="top" id="XGd-OR-a9O"/>
+                                            <constraint firstItem="ZHl-zS-5Ui" firstAttribute="leading" secondItem="nNb-oC-DyW" secondAttribute="leading" id="XgM-NQ-U25"/>
+                                            <constraint firstItem="Hfj-CK-Twa" firstAttribute="leading" secondItem="nNb-oC-DyW" secondAttribute="leading" constant="20" id="ifU-oL-1Bk"/>
+                                            <constraint firstItem="VLd-uW-86p" firstAttribute="leading" secondItem="nNb-oC-DyW" secondAttribute="leading" id="lqC-MX-l8K"/>
+                                            <constraint firstItem="nG8-Es-MTN" firstAttribute="centerY" secondItem="nNb-oC-DyW" secondAttribute="centerY" constant="15" id="s4p-vi-lqs"/>
+                                        </constraints>
+                                        <size key="customSize" width="307" height="93"/>
+                                        <connections>
+                                            <outlet property="crossOutView" destination="VLd-uW-86p" id="pPE-ez-aJB"/>
+                                            <outlet property="dividingView" destination="ZHl-zS-5Ui" id="zpw-N7-esL"/>
+                                            <outlet property="roomLabel" destination="kEL-gt-Dad" id="tkQ-9G-U1A"/>
+                                            <outlet property="subjectLabel" destination="Hfj-CK-Twa" id="s2O-wa-QZC"/>
+                                            <outlet property="teacherLabel" destination="nG8-Es-MTN" id="VGI-BG-fsf"/>
+                                        </connections>
+                                    </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LessonCellIdentifier" id="vH5-5Q-bZb" customClass="LessonCollectionViewCell" customModule="Timetable_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="103" width="307" height="93"/>
+                                        <rect key="frame" x="0.0" y="206" width="307" height="93"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="307" height="93"/>
@@ -429,24 +498,24 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DayCellIdentifier" id="nZv-OI-p7i" customClass="DayCollectionViewCell" customModule="Timetable_App" customModuleProvider="target">
-                                        <rect key="frame" x="317" y="124.5" width="201" height="50"/>
+                                        <rect key="frame" x="317" y="227.5" width="201" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="201" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LC-GX-Gds" userLabel="Day Label">
-                                                    <rect key="frame" x="0.0" y="0.0" width="201" height="50"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rd9-Ux-FPT">
                                                     <rect key="frame" x="0.0" y="49" width="201" height="1"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="i4i-yt-rNx"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LC-GX-Gds" userLabel="Day Label">
+                                                    <rect key="frame" x="0.0" y="0.0" width="201" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
