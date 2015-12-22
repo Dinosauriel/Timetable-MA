@@ -32,7 +32,6 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
     Detecting correct URL for segue!
     */
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        NSURLCache.sharedURLCache().removeAllCachedResponses()
         
         let URLString = request.URL?.absoluteString
         
@@ -41,6 +40,12 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
             self.performSegueWithIdentifier(mainAppCycleSegueIdentifier, sender: self)
             if !userDefaults.boolForKey("HasLaunchedOnce") {
                 userDefaults.setBool(true, forKey: "HasLaunchedOnce")
+            }
+            for cookie:NSHTTPCookie in NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies! {
+                print(cookie.domain)
+                if cookie.domain.containsString("tam") {
+                    NSHTTPCookieStorage.sharedHTTPCookieStorage().deleteCookie(cookie)
+                }
             }
         }
         return true
