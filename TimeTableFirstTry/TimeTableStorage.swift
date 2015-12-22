@@ -26,13 +26,7 @@ public class TimeTableStorage {
         userDefaults.setObject(firstname, forKey: "userfirstname")
         userDefaults.setObject(lastname, forKey: "userlastname")
         
-        /*let userData:NSDictionary = (data as! [String:String])["user"] as! NSArray
-        let firstname:String = userData["firstname"]
-        let lastname:String = userData["lastname"]
-        var role:String = userData["role"]
-        
-        (role as NSString).stringByReplacingOccurrencesOfString("-student", withString: "")
-        */
+
         let weeks:NSArray = (data as! [String:AnyObject])["timetable"] as! NSArray
         let weeksCount = weeks.count
         var weeksItr = 0
@@ -51,7 +45,18 @@ public class TimeTableStorage {
                 while lessonItr != lessonCount {
                     let lesson:NSDictionary = lessons[lessonItr] as! NSDictionary
                     if let moc = self.managedObjectContext {
-                        TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["class"]!), StartTime: String(lesson["start"]!), EndTime: String(lesson["end"]!), Location: String(lesson["location"]!), Subject: String(lesson["title"]!), Teacher: String(lesson["acronym"]!), Day: String(day["date"]!), Event: String(lesson["eventType"]!), ID: Int64(lesson["id"]! as! Int))
+                        var acronymString:String = String(lesson["acronym"]!)
+                        var locationString:String = String(lesson["location"]!)
+                        
+                        if acronymString == "<null>" {
+                            acronymString = ""
+                        }
+                        
+                        if locationString == "<null>" {
+                            locationString = ""
+                        }
+                        
+                        TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["class"]!), StartTime: String(lesson["start"]!), EndTime: String(lesson["end"]!), Location: locationString, Subject: String(lesson["title"]!), Teacher: acronymString, Day: String(day["date"]!), Event: String(lesson["eventType"]!), ID: Int64(lesson["id"]! as! Int))
                     }
                     //print(lesson)
                     ++lessonItr
@@ -98,7 +103,21 @@ public class TimeTableStorage {
         }
     }
     
-    func getTimeTableData() -> NSArray {
+    func getTimeTableDataWithID(requestedID :Int) -> [TimeTableData] {
+        let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
+        fetchRequest.returnsObjectsAsFaults = false
+        let predicateForID = NSPredicate(format: "%K = %@","id",Int64(requestedID))
+        fetchRequest.predicate = predicateForID
+        
+        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
+            let lessonWithID = fetchResults
+            return lessonWithID
+        } else {
+            return []
+        }
+    }
+    
+    /*func getTimeTableData() -> NSArray {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
         fetchRequest.returnsObjectsAsFaults = false
         if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
@@ -108,7 +127,7 @@ public class TimeTableStorage {
             print("getTimeTableData: Fech Request failed")
             return []
         }
-    }
+    }*/
 
     
     func eraseAllData() -> Void {
