@@ -17,6 +17,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let timeCellIdentifier = "TimeCellIdentifier"
     let lessonCellIdentifier = "LessonCellIdentifier"
     let replacedlessonCellIdentifier = "ReplacedLessonCellIdentifier"
+    let specialLessonCellIdentifier = "specialLessonCellIdentifier"
     
     let loginSegueIdentifier = "showLogin"
     
@@ -406,7 +407,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         celltoreturn = lessonCell
                     
                     case .Special:
-                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(specialLessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
                         
                         lessonCell.teacherLabel.text = ""
                         lessonCell.roomLabel.text = ""
