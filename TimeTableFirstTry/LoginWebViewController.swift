@@ -48,7 +48,6 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
                 }
             }
         }
-        NSURLCache.sharedURLCache().removeAllCachedResponses()
         return true
     }
     

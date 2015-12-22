@@ -8,7 +8,7 @@
         <!--Page View Controller-->
         <scene sceneID="DKv-NB-W5v">
             <objects>
-                <pageViewController storyboardIdentifier="FLPVCID" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="LCR-LF-Fkh" customClass="FLPageViewController" customModule="Timetable_App" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="FLPVCID" autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="LCR-LF-Fkh" customClass="FLPageViewController" customModule="Timetable_App" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QHS-KO-sao" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2682" y="-1970"/>
@@ -45,7 +45,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idu-hu-Wuh">
-                                <rect key="frame" x="279" y="490" width="42" height="30"/>
+                                <rect key="frame" x="279" y="530" width="42" height="30"/>
                                 <state key="normal" title="Got it!"/>
                                 <connections>
                                     <segue destination="Zd4-2a-Ekv" kind="show" id="ZpT-Jh-VHe"/>
@@ -69,7 +69,7 @@
                             <constraint firstItem="1GF-tz-uoe" firstAttribute="top" secondItem="uUT-Pq-k1U" secondAttribute="bottom" constant="107" id="Ujn-9j-u5Z"/>
                             <constraint firstItem="y47-VC-Fvh" firstAttribute="top" secondItem="uUT-Pq-k1U" secondAttribute="bottom" constant="8" id="aOB-LI-O2Y"/>
                             <constraint firstItem="uUT-Pq-k1U" firstAttribute="centerX" secondItem="Wey-jE-DKf" secondAttribute="centerX" id="qOi-fq-kdG"/>
-                            <constraint firstItem="bbz-uO-Kzz" firstAttribute="top" secondItem="idu-hu-Wuh" secondAttribute="bottom" constant="80" id="vwL-oW-HFe"/>
+                            <constraint firstItem="bbz-uO-Kzz" firstAttribute="top" secondItem="idu-hu-Wuh" secondAttribute="bottom" constant="40" id="vwL-oW-HFe"/>
                             <constraint firstItem="idu-hu-Wuh" firstAttribute="centerX" secondItem="Wey-jE-DKf" secondAttribute="centerX" id="ynl-RD-MUd"/>
                         </constraints>
                     </view>
@@ -90,7 +90,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rdK-VN-5V6">
+                            <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rdK-VN-5V6">
                                 <rect key="frame" x="281" y="281" width="37" height="37"/>
                                 <color key="color" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
@@ -690,30 +690,31 @@
                                 <color key="textColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphoneblackss" translatesAutoresizingMaskIntoConstraints="NO" id="MAJ-Ph-9FI">
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphoneblackss" translatesAutoresizingMaskIntoConstraints="NO" id="MAJ-Ph-9FI">
                                 <rect key="frame" x="276" y="294" width="666" height="666"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="666" id="7Te-o2-eW7"/>
                                     <constraint firstAttribute="height" constant="666" id="HVo-lM-UPI"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphonewhitess" translatesAutoresizingMaskIntoConstraints="NO" id="hmD-m5-hbW">
-                                <rect key="frame" x="-430" y="254" width="666" height="666"/>
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphonewhitess" translatesAutoresizingMaskIntoConstraints="NO" id="hmD-m5-hbW">
+                                <rect key="frame" x="0.0" y="254" width="226" height="666"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="666" id="2Xu-dh-JAF"/>
+                                    <constraint firstAttribute="width" constant="226" id="2Xu-dh-JAF"/>
                                     <constraint firstAttribute="height" constant="666" id="z34-4U-0An"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hmD-m5-hbW" firstAttribute="leading" secondItem="lkm-gD-1b9" secondAttribute="leadingMargin" constant="-450" id="AMR-7w-6n6"/>
+                            <constraint firstItem="hmD-m5-hbW" firstAttribute="leading" secondItem="lkm-gD-1b9" secondAttribute="leading" id="AMR-7w-6n6"/>
                             <constraint firstItem="Ari-es-oAm" firstAttribute="centerX" secondItem="lkm-gD-1b9" secondAttribute="centerX" id="BFj-j7-cdD"/>
                             <constraint firstItem="GLB-bg-vX8" firstAttribute="centerX" secondItem="lkm-gD-1b9" secondAttribute="centerX" id="Dba-dB-5C4"/>
                             <constraint firstAttribute="bottomMargin" secondItem="hmD-m5-hbW" secondAttribute="bottom" constant="-320" id="Phx-GY-O1p"/>
                             <constraint firstItem="GLB-bg-vX8" firstAttribute="top" secondItem="r8D-Ui-etr" secondAttribute="bottom" constant="51" id="PiR-VZ-TNv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MAJ-Ph-9FI" secondAttribute="trailing" constant="-362" id="bg4-1L-nMQ"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="MAJ-Ph-9FI" secondAttribute="bottom" constant="-360" id="iNA-Rw-7hK"/>
+                            <constraint firstItem="MAJ-Ph-9FI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ari-es-oAm" secondAttribute="bottom" constant="-40" id="hAd-Kn-Kj2"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="MAJ-Ph-9FI" secondAttribute="bottom" priority="999" constant="-360" id="iNA-Rw-7hK"/>
                             <constraint firstItem="Ari-es-oAm" firstAttribute="top" secondItem="GLB-bg-vX8" secondAttribute="bottom" constant="20" id="ohU-cS-4oS"/>
                         </constraints>
                     </view>
@@ -744,9 +745,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLK-iL-rRs">
-                                <rect key="frame" x="135" y="146" width="331.5" height="59"/>
+                                <rect key="frame" x="150" y="146" width="300" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="RSd-FH-aqk"/>
+                                    <constraint firstAttribute="width" constant="300" id="Usj-Vx-h46"/>
                                 </constraints>
                                 <string key="text">Thanks for downloading our App!
 We put a lot of Work into it an hope you like it.</string>
@@ -805,10 +807,10 @@ We put a lot of Work into it an hope you like it.</string>
                                     <constraint firstAttribute="width" constant="666" id="KO2-ge-PNw"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphoneblacksstilt" translatesAutoresizingMaskIntoConstraints="NO" id="Cf5-E7-Mkf">
-                                <rect key="frame" x="-36" y="264" width="666" height="666"/>
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphoneblacksstilt" translatesAutoresizingMaskIntoConstraints="NO" id="Cf5-E7-Mkf">
+                                <rect key="frame" x="204" y="264" width="428" height="666"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="666" id="0xf-HW-w97"/>
+                                    <constraint firstAttribute="width" constant="428" id="0xf-HW-w97"/>
                                     <constraint firstAttribute="height" constant="666" id="4yA-sE-OIh"/>
                                 </constraints>
                             </imageView>
@@ -817,11 +819,13 @@ We put a lot of Work into it an hope you like it.</string>
                         <constraints>
                             <constraint firstItem="xJB-zc-ZwH" firstAttribute="top" secondItem="nBF-Dv-ozA" secondAttribute="bottom" constant="20" id="6rh-fd-wda"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BLL-Z3-7gn" secondAttribute="trailing" constant="-250" id="CRf-g7-pdl"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Cf5-E7-Mkf" secondAttribute="bottom" constant="-330" id="Shn-DT-H45"/>
+                            <constraint firstItem="Cf5-E7-Mkf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xJB-zc-ZwH" secondAttribute="bottom" constant="-50" id="SgK-Yz-qqm"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Cf5-E7-Mkf" secondAttribute="bottom" priority="999" constant="-330" id="Shn-DT-H45"/>
                             <constraint firstAttribute="bottomMargin" secondItem="BLL-Z3-7gn" secondAttribute="bottom" constant="-400" id="WWm-l1-o6J"/>
+                            <constraint firstItem="Cf5-E7-Mkf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rqV-5m-sVr" secondAttribute="leading" id="bGy-y1-Rhy"/>
                             <constraint firstItem="xJB-zc-ZwH" firstAttribute="centerX" secondItem="rqV-5m-sVr" secondAttribute="centerX" id="dCa-8t-mSp"/>
                             <constraint firstItem="nBF-Dv-ozA" firstAttribute="centerX" secondItem="rqV-5m-sVr" secondAttribute="centerX" id="nNW-5v-LLN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Cf5-E7-Mkf" secondAttribute="trailing" constant="-50" id="nva-BL-ywP"/>
+                            <constraint firstAttribute="trailing" secondItem="Cf5-E7-Mkf" secondAttribute="trailing" constant="-32" id="nva-BL-ywP"/>
                             <constraint firstItem="nBF-Dv-ozA" firstAttribute="top" secondItem="bg6-AC-LUQ" secondAttribute="bottom" constant="51" id="usy-E7-XQ6"/>
                         </constraints>
                     </view>
