@@ -70,9 +70,11 @@ public class TimeTableStorage {
         do {
             try managedObjectContext?.save()
             print("Saved")
+            NSNotificationCenter.defaultCenter().postNotificationName("newData", object: nil)
         } catch let error {
             print(error)
         }
+        userDefaults.setBool(false, forKey: "isSaving")
     }
     
     /*func getTimeTableDataWithDay(requestedDay: String) -> [TimeTableData]{
@@ -106,7 +108,7 @@ public class TimeTableStorage {
     func getTimeTableDataWithID(requestedID :Int) -> [TimeTableData] {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
         fetchRequest.returnsObjectsAsFaults = false
-        let predicateForID = NSPredicate(format: "%K = %@","id",Int64(requestedID))
+        let predicateForID = NSPredicate(format: "%K = %@","id",NSNumber(long: requestedID))
         fetchRequest.predicate = predicateForID
         
         if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {

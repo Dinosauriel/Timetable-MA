@@ -21,7 +21,7 @@ class APIHandler {
     Requests data from the API by using the token. If there's no token stored the function to request one will be called and this function terminates
     */
     func getDataWithToken() {
-
+        userDefaults.setBool(true, forKey: "isSaving")
         //Loads the token from the data
         let token:String = tokenStorage.getTokenFromData()
         print("Got token from data: " + token)
