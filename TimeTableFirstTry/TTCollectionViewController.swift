@@ -23,7 +23,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     //MARK: TIME
     let calendar = NSCalendar.currentCalendar()
-    //let refreshDelay = dispatch_time(DISPATCH_TIME_NOW, Int64(10 * Double(NSEC_PER_SEC)))
     
     //MARK: CLASSES
     let timegetter = TimetableTime()
@@ -59,9 +58,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
     
-    //MARK: BOOL
-    var canRefresh: Bool = true
-    
     //MARK: ARRAYS
     var currentLesson: [Int] = []
     
@@ -73,6 +69,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     Preparing collectionView
     */
     override func viewDidLoad() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "checkToken", name: "newData", object: nil)
         adaptLayout()
         super.viewDidLoad()
         assignCurrentLesson()
@@ -116,14 +113,12 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     Loading Data and getting New Token if necessary
     */
     @IBAction func refreshButton(sender: AnyObject) {
-        if canRefresh {
-            canRefresh = false
+        if !userDefaults.boolForKey("isSaving") {
             let apiHandler = APIHandler()
             apiHandler.getDataWithToken()
             print("REFRESH!!")
             print("RetrivedNewToken: " + String(userDefaults.boolForKey("RetrievedNewToken")))
             checkToken()
-            canRefresh = true
         }
     }
     
