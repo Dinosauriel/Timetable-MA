@@ -810,7 +810,7 @@ We put a lot of Work into it an hope you like it.</string>
                             <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphoneblacksstilt" translatesAutoresizingMaskIntoConstraints="NO" id="Cf5-E7-Mkf">
                                 <rect key="frame" x="204" y="264" width="428" height="666"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="428" id="0xf-HW-w97"/>
+                                    <constraint firstAttribute="width" priority="999" constant="428" id="0xf-HW-w97"/>
                                     <constraint firstAttribute="height" constant="666" id="4yA-sE-OIh"/>
                                 </constraints>
                             </imageView>
