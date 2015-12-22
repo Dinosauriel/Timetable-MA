@@ -152,7 +152,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     Adapt needed constraints to hide the status Bar
     */
     func removeStatusBar() {
-        print(sup.getAbsoluteDisplayWidth())
         if sup.getAbsoluteDisplayWidth() > 375 {
             navigationBarHeightConstraint.constant = 44
         } else {

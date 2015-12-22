@@ -13,6 +13,7 @@ class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource
     let pageIdentifiers = [
         "FL0ID",
         "FL1ID",
+        "FL2ID",
         "FL10ID"]
     
     var currentPage = 0
@@ -25,7 +26,6 @@ class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource
         
         defineFirstPage()
         declarePageViewAppearance()
-        //pageViewController?.dataSource = self
     }
     
     func declarePageViewAppearance() {

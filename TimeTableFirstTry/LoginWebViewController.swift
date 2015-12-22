@@ -13,59 +13,50 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
     //MARK: CLASSES
     let userDefaults = NSUserDefaults.standardUserDefaults()
     
-    //OUTLETS
+    //MARK: OUTLETS
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    //IDENTIFIERS
+    //MARK: IDENTIFIERS
     let mainAppCycleSegueIdentifier = "showMainAppCycle"
     
     /**
-    Assigning Delegates
+    Assigning Delegate
     */
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         webView.delegate = self
-        
     }
     
     /**
     Detecting correct URL for segue!
     */
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        NSURLCache.sharedURLCache().removeAllCachedResponses()
         
         let URLString = request.URL?.absoluteString
         
         if URLString!.containsString("uniapp://klw-stupla-app#access_token=") {
             print("Token URL Loaded!")
             self.performSegueWithIdentifier(mainAppCycleSegueIdentifier, sender: self)
-            
             if !userDefaults.boolForKey("HasLaunchedOnce") {
                 userDefaults.setBool(true, forKey: "HasLaunchedOnce")
             }
-            let TTCVC = TTCollectionViewController()
-            
-            if TTCVC.isViewLoaded() {
-                TTCVC.collectionView.reloadData()
-            }
         }
-            
         return true
     }
     
+    /**
+    stop loading wheel
+    */
     func webViewDidFinishLoad(webView: UIWebView) {
         activityIndicator.stopAnimating()
-        let url = webView.request?.URL?.absoluteString
-        if url!.containsString("https://aai.tam.ch/idp/profile/SAML2/Redirect/SSO?execution=") {
-        }
     }
     
     /**
     Automatically loading starting URL once the View appears
     */
     override func viewWillAppear(animated: Bool) {
-
         let URLforRequest = NSURL(string: "https://oauth.tam.ch/signin/klw-stupla-app?response_type=token&client_id=0Wv69s7vyidj3cKzNckhiSulA5on8uFM&redirect_uri=uniapp%3A%2F%2Fklw-stupla-app&_blank&scope=all")
         
         let request = NSURLRequest(URL: URLforRequest!)
