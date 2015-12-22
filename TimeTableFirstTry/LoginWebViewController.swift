@@ -32,7 +32,8 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
     Detecting correct URL for segue!
     */
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        
+        self.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
         let URLString = request.URL?.absoluteString
         
         if URLString!.containsString("uniapp://klw-stupla-app#access_token=") {
@@ -59,11 +60,14 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
         activityIndicator.stopAnimating()
     }
     
+    func webViewDidStartLoad(webView: UIWebView) {
+        
+    }
+    
     /**
     Automatically loading starting URL once the View appears
     */
     override func viewWillAppear(animated: Bool) {
-        activityIndicator.startAnimating()
         let URLforRequest = NSURL(string: "https://oauth.tam.ch/signin/klw-stupla-app?response_type=token&client_id=0Wv69s7vyidj3cKzNckhiSulA5on8uFM&redirect_uri=uniapp%3A%2F%2Fklw-stupla-app&_blank&scope=all")
         
         let request = NSURLRequest(URL: URLforRequest!)
