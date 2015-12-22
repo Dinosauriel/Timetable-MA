@@ -25,9 +25,9 @@ class DeclareLesson {
     var requestedDay: String!
     var requestedTime: String!
     
-    var blockDay = ""
-    var specialBlockStart: Int = -1
-    var specialBlockEnd: Int = -1
+    var blockDayIndex: Int = -1
+    var specialBlockStartIndex: Int = -1
+    var specialBlockEndIndex : Int = -1
     
     //MARK: IDENTIFIERS:
     let lessonIdentifier: String = "lesson"
@@ -87,9 +87,9 @@ class DeclareLesson {
                     for i in 0 ..< endTimeArray.count {
                         endDateArray.append(requestedDay + dateTimeSeparator + endTimeArray[i] + timeZoneAppendix)
                     }
-                    blockDay = requestedDay
-                    let endLesson = (endDateArray.indexOf(requestedLesson.endTime)! + 1)
-                    print(endLesson)
+                    blockDayIndex = (dayArray.indexOf(requestedDay)! + 1)
+                    specialBlockStartIndex = sec
+                    specialBlockEndIndex  = (endDateArray.indexOf(requestedLesson.endTime)! + 1)
                     
                     requestedUILesson.status = .Special
                     break
@@ -142,6 +142,16 @@ class DeclareLesson {
                 requestedUILesson.teacher = ""
             }
             
+        }
+        
+        //Overriding needed lessons if we are in a block
+        if item == blockDayIndex {
+            if sec > specialBlockStartIndex && sec <= specialBlockEndIndex {
+                requestedUILesson.status = .Special
+                requestedUILesson.subject = ""
+                requestedUILesson.room = ""
+                requestedUILesson.teacher = ""
+            }
         }
         
         return requestedUILesson

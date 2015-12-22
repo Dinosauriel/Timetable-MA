@@ -55,10 +55,10 @@ class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource
     func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
         let pendingIdentifier = pendingViewControllers[0].restorationIdentifier
         if pageIdentifiers.contains(pendingIdentifier!) {
-            print("page before: \(currentPage)")
+            //print("page before: \(currentPage)")
             let pendingPosition = pageIdentifiers.indexOf(pendingIdentifier!)
             currentPage = pendingPosition!
-            print("page after: \(currentPage)")
+            //print("page after: \(currentPage)")
 
         } else {
             
