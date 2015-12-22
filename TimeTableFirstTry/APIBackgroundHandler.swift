@@ -25,7 +25,7 @@ class APIBackgroundHandler {
     }
     
     func getBackgroundData(completion: (String) -> Void) {
-        
+        UserDefaults.setBool(true, forKey: "isSaving")
         //Loads the token from the data
         let token:String = tokenStorage.getTokenFromData()
         
@@ -102,10 +102,13 @@ class APIBackgroundHandler {
                 while lessonItr != lessonCount {
                     let lesson:NSDictionary = lessons[lessonItr] as! NSDictionary
                     let lessonID:Int = lesson["id"] as! Int
-                    let oldDataToCompareTo:TimeTableData = timeTableStorage.getTimeTableDataWithID(lessonID)[0]
-                    if oldDataToCompareTo.event != lesson["eventType"] as! String {
-                        let dateTime = notificationHandler.getCurrentTimeAsString()
-                        notificationHandler.addNewNotificationToQueue(FireDate: dateTime, Title: NSLocalizedString("changedNotificationTitle", comment: "changedNotificationTitle"), Message: NSLocalizedString("changedNotificationBody", comment: "changedNotificationBody"))
+                    let oldDataToCompareToArray:NSArray = timeTableStorage.getTimeTableDataWithID(lessonID)
+                    if oldDataToCompareToArray.count != 0 {
+                        let oldDataToCompareTo:TimeTableData = oldDataToCompareToArray[0] as! TimeTableData
+                        if oldDataToCompareTo.event != lesson["eventType"] as! String {
+                            let dateTime = notificationHandler.getCurrentTimeAsString()
+                            notificationHandler.addNewNotificationToQueue(FireDate: dateTime, Title: NSLocalizedString("changedNotificationTitle", comment: "changedNotificationTitle"), Message: NSLocalizedString("changedNotificationBody", comment: "changedNotificationBody"))
+                        }
                     }
                     ++lessonItr
                 }

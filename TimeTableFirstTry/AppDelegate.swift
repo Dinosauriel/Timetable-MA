@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.setBool(false, forKey: "2Days")
         }
         
+        UserDefaults.setBool(false, forKey: "isSaving")
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         var initialViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarVCID")
         
@@ -74,7 +76,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Support for background fetch
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        if UserDefaults.boolForKey("RetrievedNewToken") {
+        if UserDefaults.boolForKey("RetrievedNewToken") && !UserDefaults.boolForKey("isSaving") {
+            //UserDefaults.setBool(true, forKey: "isSaving")
             APIBackgroundHandlerVar = APIBackgroundHandler()
             APIBackgroundHandlerVar!.getBackgroundData({ (status) -> Void in
                 switch status {
@@ -84,6 +87,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 default: completionHandler(.NoData)
                 }
             })
+        } else {
+            if UserDefaults.boolForKey("isSaving") {
+                completionHandler(.NoData)
+            }
         }
     }
 
