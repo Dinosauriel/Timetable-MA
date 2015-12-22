@@ -75,6 +75,7 @@ class TimetableTime {
         return time
     }
     
+    
     func getLessonTimeAsStringArray(when: StartEnd, withSeconds: Bool) -> [String] {
         var ArrayToReturn: [String] = []
         
@@ -116,17 +117,17 @@ class TimetableTime {
         return weekDay
     }
     
-    func lessonIsCurrentLesson(item: Int, inSection: Int) -> Bool {
+    /*func lessonIsCurrentLesson(item: Int, inSection: Int) -> Bool {
         let coordinates: [Int] = getCurrentLessonCoordinates()
         print(coordinates)
         let xDay: Int = coordinates[0] - 1
         let yTime: Int = coordinates[1] + 1
         
         return ((item == xDay) && (inSection == yTime))
-    }
+    }*/
     
-    func dayIsCurrentDay(item: Int) -> Bool {
+    /*func dayIsCurrentDay(item: Int) -> Bool {
         let coordinates: [Int] = getCurrentLessonCoordinates()
         return item == coordinates[0] - 1
-    }
+    }*/
  }

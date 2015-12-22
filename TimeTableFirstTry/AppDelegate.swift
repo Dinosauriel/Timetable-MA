@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if UserDefaults.objectForKey("HasLaunchedOnce") == nil {
             UserDefaults.setBool(false, forKey: "HasLaunchedOnce")
             UserDefaults.setBool(true, forKey: "RetrievedNewToken")
+            UserDefaults.setBool(false, forKey: "2Days")
         }
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

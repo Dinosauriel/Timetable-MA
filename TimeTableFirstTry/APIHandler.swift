@@ -87,7 +87,7 @@ class APIHandler {
     }
     
     /**
-     This function checks if the response we got contains data we need or if the token was not valid and the API returned code 401
+    This function checks if the response we got contains data we need or if the token was not valid and the API returned code 401
     */
     func checkResponseCode(dataDict:NSDictionary) {
         let timeTableStorage:TimeTableStorage = TimeTableStorage()

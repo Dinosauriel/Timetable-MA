@@ -11,25 +11,30 @@ import UIKit
 class SettingsTableViewController: UITableViewController {
     @IBOutlet var settingsTableView: UITableView!
     
-    let settingsMainMenuCellIdentifier = "settingsMainMenuCellIdentifier"
+    let userDefaults = NSUserDefaults.standardUserDefaults()
     
-    let showHiSegueIdentifier = "showHiSegue"
-    let showClassSegueIdentifier = "showClassSelect"
+    let settingsMainMenuCellIdentifier = "settingsMainMenuCellIdentifier"
+    let userInfoCellIdentifier = "userInfoCell"
+    
+    let showLoginSegueIdentifier = "showLoginSegue"
     
     let settingsMainMenu = [
         NSLocalizedString("login", comment: "loginTrans"),
-        NSLocalizedString("notifications", comment: "noteTrans"),
-        NSLocalizedString("widget", comment: "widTrans")
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.settingsTableView.reloadData()
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                self.performSegueWithIdentifier(showHiSegueIdentifier, sender: self)
+                self.performSegueWithIdentifier(showLoginSegueIdentifier, sender: self)
             }
         } else {
             
@@ -37,15 +42,11 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 3
-        } else {
-            return 1
-        }
+        return 2
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -53,25 +54,27 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return NSLocalizedString("general", comment: "TransForSettingsTitle")
-        } else {
-            return NSLocalizedString("app", comment: "TransForSettingsTitle")
-        }
+        return NSLocalizedString("general", comment: "TransForSettingsTitle")
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = settingsTableView.dequeueReusableCellWithIdentifier(settingsMainMenuCellIdentifier, forIndexPath: indexPath) as UITableViewCell
-        
-        if indexPath.section == 0 {
+        if indexPath.row == 0 {
+            let cell = settingsTableView.dequeueReusableCellWithIdentifier(settingsMainMenuCellIdentifier, forIndexPath: indexPath) as UITableViewCell
             cell.textLabel?.text = settingsMainMenu[indexPath.row]
+            return cell
         } else {
-            cell.textLabel?.text = NSLocalizedString("class", comment: "TransForSettingsClass")
+            let cell = settingsTableView.dequeueReusableCellWithIdentifier(userInfoCellIdentifier) as! UserInfoCell
+            cell.infoCell.text = NSLocalizedString("loginState", comment: "noob")
+            cell.firstNameCell.text = userDefaults.valueForKey("userfirstname") as? String
+            cell.lastNameCell.text = userDefaults.valueForKey("userlastname") as? String
+            return cell
         }
-        return cell
     }
-    
+        
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 0 {
+            self.performSegueWithIdentifier(showLoginSegueIdentifier, sender: nil)
+        }
         settingsTableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }

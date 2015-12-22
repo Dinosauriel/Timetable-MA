@@ -11,7 +11,6 @@ import UIKit
 class TTCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     //MARK: VARIABLES
-    //---------------------------------------------------------------------------------------------------------
     //MARK: IDENTIFIERS
     let timetitleCellIdentifier = "TimetitleCellIdentifier"
     let dayCellIdentifier = "DayCellIdentifier"
@@ -51,8 +50,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let specialLessonBackgroundColor = UIColor(hue: 0.1167, saturation: 0.83, brightness: 0.94, alpha: 1.0) //YELLOW
     let specialDividingLineColor = UIColor(hue: 0.0833, saturation: 0.83, brightness: 0.93, alpha: 1.0) // #ef8c28, ORANGE-YELLOW
     
-    let yellowGreenBackground = UIColor(hue: 0.1694, saturation: 0.74, brightness: 0.84, alpha: 1.0)    //GREEN-YELLOW
+    let yellowGreen = UIColor(hue: 0.1694, saturation: 0.74, brightness: 0.84, alpha: 1.0)              //GREEN-YELLOW
     let darkgreenTint = UIColor(hue: 0.4778, saturation: 0.73, brightness: 0.46, alpha: 1.0)            //DARKGREEN
+    let currentLessonMarker = UIColor(hue: 0.1694, saturation: 0.5, brightness: 0.84, alpha: 1.0)
     
     //MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
@@ -64,7 +64,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     //MARK: ARRAYS
     var currentLesson: [Int] = []
     
-    //----------------------------------------------------------------------------------------------------------
+    //---------------------------------------------------------------
     //MARK: CODE
     
     
@@ -94,6 +94,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         assignCurrentLesson()
         scrollToCurrentSection(self.collectionView, animated: true)
     }
+
     
     //MARK: REFRESH BUTTON
     @IBAction func refreshButton(sender: AnyObject) {
@@ -127,7 +128,12 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     Adapt needed constraints to hide the status Bar
     */
     func removeStatusBar() {
-        navigationBarHeightConstraint.constant = 44
+        print(sup.getAbsoluteDisplayWidth())
+        if sup.getAbsoluteDisplayWidth() > 375 {
+            navigationBarHeightConstraint.constant = 44
+        } else {
+            navigationBarHeightConstraint.constant = 34
+        }
     }
     
     /**
@@ -279,7 +285,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 
                 dayCell.dividingView.backgroundColor = dividingLineColor
                 
-                dayCell.backgroundColor = yellowGreenBackground
+                dayCell.backgroundColor = yellowGreen
                 dayCell.dayLabel.textColor = darkgreenTint
                 
                 return dayCell
@@ -304,7 +310,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                     dayCell.dayLabel.font = UIFont.boldSystemFontOfSize(13)
                 }
                 
-                dayCell.backgroundColor = yellowGreenBackground
+                dayCell.backgroundColor = yellowGreen
                 dayCell.dayLabel.textColor = darkgreenTint
                 
                 return dayCell
@@ -340,7 +346,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         lessonCell.dividingView.backgroundColor = dividingLineColor
                         
                         if indexPath.item == 3 {
-                            lessonCell.backgroundView?.backgroundColor = yellowGreenBackground
+                            lessonCell.backgroundView?.backgroundColor = yellowGreen
                         }
                         
                         celltoreturn = lessonCell as LessonCollectionViewCell
@@ -412,6 +418,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         lessonCell.dividingView.backgroundColor = specialDividingLineColor
                         
                         celltoreturn = lessonCell
+                    
                     case .MovedTo:
                         let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
                     
@@ -427,7 +434,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 }
                 
                 if indexPath.item == currentLesson[0] - 1 && indexPath.section == currentLesson[1] + 1 {
-                    celltoreturn.backgroundColor = UIColor.redColor()
+                    celltoreturn.backgroundColor = currentLessonMarker
                 }
 
                 

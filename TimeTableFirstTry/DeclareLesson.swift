@@ -11,7 +11,10 @@ import Foundation
 class DeclareLesson {
     
     let dayArray: [String] = Day().generateDayArray(.long, forUI: false)
-    let timeArray: [String] = ["07:45:00", "08:35:00", "09:25:00", "10:20:00", "11:10:00", "12:00:00", "12:45:00", "13:35:00", "14:25:00", "15:15:00", "16:05:00", "16:55:00"]
+    let timeArray: [String] = ["07:45:00", "08:35:00", "09:25:00", "10:20:00", "11:10:00", "12:00:00", "12:45:00", "13:35:00", "14:25:00", "15:15:00", "16:05:00", "16:50:00","17:35:00"]
+    let endTimeArray: [String] = ["08:25:00","09:15:00","10:05:00","11:00:00","11:50:00","12:40:00","13:25:00","14:15:00","15:05:00","15:55:00","16:45:00","17:30:00","18:15:00"]
+    var endDateArray: [String] = []
+    
     let eventStartTimeString: String = "00:00:00"
     
     let timeZoneAppendix = "+01:00"
@@ -21,6 +24,10 @@ class DeclareLesson {
     
     var requestedDay: String!
     var requestedTime: String!
+    
+    var blockDay = ""
+    var specialBlockStart: Int = -1
+    var specialBlockEnd: Int = -1
     
     //MARK: IDENTIFIERS:
     let lessonIdentifier: String = "lesson"
@@ -77,6 +84,13 @@ class DeclareLesson {
                     break
                 
                 case blockIdentifier:
+                    for i in 0 ..< endTimeArray.count {
+                        endDateArray.append(requestedDay + dateTimeSeparator + endTimeArray[i] + timeZoneAppendix)
+                    }
+                    blockDay = requestedDay
+                    let endLesson = (endDateArray.indexOf(requestedLesson.endTime)! + 1)
+                    print(endLesson)
+                    
                     requestedUILesson.status = .Special
                     break
                 
@@ -95,6 +109,7 @@ class DeclareLesson {
             let requestedLessonB = requestedLessons[1]
             print("A: " + requestedLessonA.event)
             print("B: " + requestedLessonB.event)
+            print("sec: " + String(sec) + ", item: " + String(item))
             
             if requestedLessonA.event == shiftedIdentifier {
                 requestedUILesson = UILesson(subject: requestedLessonB.subject, teacher: requestedLessonB.teacher, room: requestedLessonB.location, status: .Replaced, subsubject: requestedLessonA.subject, subteacher: requestedLessonA.teacher, subroom: requestedLessonA.location)
@@ -109,9 +124,6 @@ class DeclareLesson {
             if requestedLessonB.event == blockIdentifier {
                 requestedUILesson = UILesson(subject: requestedLessonB.subject, teacher: requestedLessonB.teacher, room: requestedLessonB.location, status: .Special, subsubject: "", subteacher: "", subroom: "")
             }
-            
-            
-            
         } else if requestedLessons.count == 0 { //No lesson at this Position
             
         }

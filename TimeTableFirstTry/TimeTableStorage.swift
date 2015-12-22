@@ -11,6 +11,7 @@ import WebKit
 import CoreData
 
 public class TimeTableStorage {
+    let userDefaults = NSUserDefaults.standardUserDefaults()
     
     var tableData:NSArray!
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -18,6 +19,12 @@ public class TimeTableStorage {
     func storeTimeTableData(data : AnyObject) {
         
         eraseAllData()
+        let userData:NSDictionary = (data as! [String:AnyObject])["user"] as! NSDictionary
+        let firstname:String = userData["firstname"] as! String
+        let lastname:String = userData["lastname"] as! String
+        
+        userDefaults.setObject(firstname, forKey: "userfirstname")
+        userDefaults.setObject(lastname, forKey: "userlastname")
         
         /*let userData:NSDictionary = (data as! [String:String])["user"] as! NSArray
         let firstname:String = userData["firstname"]

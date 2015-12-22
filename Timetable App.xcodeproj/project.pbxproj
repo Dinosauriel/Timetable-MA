@@ -8,13 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4F219C1A1C2472DF006EA0DB /* ShortNamesForDayMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F219C191C2472DF006EA0DB /* ShortNamesForDayMonth.swift */; };
-		4F219C1C1C248C07006EA0DB /* CustomNSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F219C1B1C248C07006EA0DB /* CustomNSDate.swift */; };
 		4F2CAE581C232058007CCC7B /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CAE571C232058007CCC7B /* NotificationHandler.swift */; };
 		4F4BE6881BFDEE3A001EDE35 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4F4BE6871BFDEE3A001EDE35 /* .gitignore */; };
 		4F4DE76A1C21CCDA00F67890 /* APIBackgroundHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DE7691C21CCDA00F67890 /* APIBackgroundHandler.swift */; };
 		4F4DE76C1C21E6A900F67890 /* TokenResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DE76B1C21E6A900F67890 /* TokenResponseHandler.swift */; };
 		4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8600701BE8D8B700FA53AD /* TimetableTime.swift */; };
-		4FAA67F21C25949D0071E825 /* CheckForSpecialLessons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA67F11C25949D0071E825 /* CheckForSpecialLessons.swift */; };
 		4FB5A78F1C060013007977FB /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5A78E1C060013007977FB /* APIHandler.swift */; };
 		4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEFFEB1BEB7A78007C4647 /* Token.swift */; };
 		4FC8F9DC1C06190E00D15752 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8F9DB1C06190E00D15752 /* TokenStorage.swift */; };
@@ -45,6 +43,7 @@
 		74AA07281C06E20B002AC075 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74AA072A1C06E20B002AC075 /* InfoPlist.strings */; };
 		74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */; };
 		74AD756F1C19CEC2005139BA /* FLPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD756E1C19CEC2005139BA /* FLPageViewController.swift */; };
+		74BA02251C299F9C0022549C /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA02241C299F9C0022549C /* UserInfoCell.swift */; };
 		74CA85B01C0B4A530076CF64 /* TimeTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8F9DD1C061F2000D15752 /* TimeTableData.swift */; };
 		74E18DAB1BFFA27900DE26AF /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E18DAA1BFFA27900DE26AF /* LoginWebViewController.swift */; };
 		74E41DA41C258195005E15EB /* DeviceSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E41DA31C258195005E15EB /* DeviceSupport.swift */; };
@@ -98,13 +97,11 @@
 
 /* Begin PBXFileReference section */
 		4F219C191C2472DF006EA0DB /* ShortNamesForDayMonth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortNamesForDayMonth.swift; sourceTree = "<group>"; };
-		4F219C1B1C248C07006EA0DB /* CustomNSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNSDate.swift; sourceTree = "<group>"; };
 		4F2CAE571C232058007CCC7B /* NotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		4F4BE6871BFDEE3A001EDE35 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4F4DE7691C21CCDA00F67890 /* APIBackgroundHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIBackgroundHandler.swift; sourceTree = "<group>"; };
 		4F4DE76B1C21E6A900F67890 /* TokenResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenResponseHandler.swift; sourceTree = "<group>"; };
 		4F8600701BE8D8B700FA53AD /* TimetableTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableTime.swift; sourceTree = "<group>"; };
-		4FAA67F11C25949D0071E825 /* CheckForSpecialLessons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckForSpecialLessons.swift; sourceTree = "<group>"; };
 		4FB5A78E1C060013007977FB /* APIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		4FBEFFEB1BEB7A78007C4647 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		4FC8F9DB1C06190E00D15752 /* TokenStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
@@ -128,7 +125,6 @@
 		74428C4F1C1063E60054BB5E /* WidgetLesson.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = WidgetLesson.entitlements; path = WidgetLesson/WidgetLesson.entitlements; sourceTree = "<group>"; };
 		7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplacedLessonCollectionViewCell.swift; sourceTree = "<group>"; };
 		7468840C1C0B701600F719BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7468840F1C0B701B00F719BA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		74866B061BEBE5570030FA95 /* UILesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILesson.swift; sourceTree = "<group>"; };
 		74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeclareLesson.swift; sourceTree = "<group>"; };
 		74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -137,6 +133,8 @@
 		74AA072B1C06E210002AC075 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		74AD756E1C19CEC2005139BA /* FLPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLPageViewController.swift; sourceTree = "<group>"; };
+		74BA02211C2963BC0022549C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		74BA02241C299F9C0022549C /* UserInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
 		74E18DAA1BFFA27900DE26AF /* LoginWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
 		74E41DA31C258195005E15EB /* DeviceSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSupport.swift; sourceTree = "<group>"; };
 		74EBE69D1BDD56710026F2AE /* Timetable App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Timetable App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,8 +201,6 @@
 				4F4DE7691C21CCDA00F67890 /* APIBackgroundHandler.swift */,
 				4F4DE76B1C21E6A900F67890 /* TokenResponseHandler.swift */,
 				4F219C191C2472DF006EA0DB /* ShortNamesForDayMonth.swift */,
-				4F219C1B1C248C07006EA0DB /* CustomNSDate.swift */,
-				4FAA67F11C25949D0071E825 /* CheckForSpecialLessons.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -320,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */,
+				74BA02241C299F9C0022549C /* UserInfoCell.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -623,11 +620,11 @@
 				74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */,
 				4FC8F9DE1C061F2000D15752 /* TimeTableData.swift in Sources */,
 				4F4DE76C1C21E6A900F67890 /* TokenResponseHandler.swift in Sources */,
+				74BA02251C299F9C0022549C /* UserInfoCell.swift in Sources */,
 				4FB5A78F1C060013007977FB /* APIHandler.swift in Sources */,
 				74866B071BEBE5570030FA95 /* UILesson.swift in Sources */,
 				74E41DA41C258195005E15EB /* DeviceSupport.swift in Sources */,
 				74EBE6D91BDD59580026F2AE /* TTCollectionViewLayout.swift in Sources */,
-				4F219C1C1C248C07006EA0DB /* CustomNSDate.swift in Sources */,
 				74EBE6A91BDD56710026F2AE /* TimeTableFirstTry.xcdatamodeld in Sources */,
 				741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */,
 				4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */,
@@ -639,7 +636,6 @@
 				74E18DAB1BFFA27900DE26AF /* LoginWebViewController.swift in Sources */,
 				74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */,
 				4F4DE76A1C21CCDA00F67890 /* APIBackgroundHandler.swift in Sources */,
-				4FAA67F21C25949D0071E825 /* CheckForSpecialLessons.swift in Sources */,
 				74AD756F1C19CEC2005139BA /* FLPageViewController.swift in Sources */,
 				74866B0C1BEBF10A0030FA95 /* LessonCollectionViewCell.swift in Sources */,
 				74EBE6DB1BDD598A0026F2AE /* DayCollectionViewCell.swift in Sources */,
@@ -706,7 +702,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7468840C1C0B701600F719BA /* Base */,
-				7468840F1C0B701B00F719BA /* de */,
+				74BA02211C2963BC0022549C /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

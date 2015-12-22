@@ -8,16 +8,9 @@
 
 //SETTINGS
 login = "Login";
-notifications = "Notifications";
-widget = "Widget";
 
 general = "General";
-app = "App";
+
+loginState = "Currently logged in:";
+
 time = "Time";
-
-class = "Class";
-
-firstclass = "1. Class";
-secondclass = "2. Class";
-thirdclass = "3. Class";
-fourthclass = "4. Class";

@@ -17,7 +17,7 @@ class TTLandscapeCollectionViewLayout: TTCollectionViewLayout {
         
         let timeColumnWidth: CGFloat = getTimeColumnWidth()
         
-        if sup.getAbsoluteDisplayWidth() > 480 {
+        if sup.getAbsoluteDisplayHeight() > 480 {
             numberOfDaysOnScreen = 5
         } else {
             numberOfDaysOnScreen = 3
