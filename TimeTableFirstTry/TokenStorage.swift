@@ -32,7 +32,9 @@ class TokenStorage {
         //Writing to the file in case of interruption (XCode-Stop)
         do {
             try managedObjectContext?.save()
-            print("Saved")
+            print("Token saved")
+            let apiHandler:APIHandler = APIHandler()
+            apiHandler.getDataWithToken()
         } catch let error {
             print(error)
         }
