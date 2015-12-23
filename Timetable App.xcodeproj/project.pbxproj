@@ -78,6 +78,7 @@
 		743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		74428C4E1C1060AF0054BB5E /* TimeTableFirstTry.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = TimeTableFirstTry.entitlements; path = TimeTableFirstTry/TimeTableFirstTry.entitlements; sourceTree = "<group>"; };
 		7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplacedLessonCollectionViewCell.swift; sourceTree = "<group>"; };
+		744AAE2E1C2ABB1200562BCF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		7468840C1C0B701600F719BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74866B061BEBE5570030FA95 /* UILesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILesson.swift; sourceTree = "<group>"; };
 		74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeclareLesson.swift; sourceTree = "<group>"; };
@@ -87,7 +88,6 @@
 		74AA072B1C06E210002AC075 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		74AD756E1C19CEC2005139BA /* FLPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLPageViewController.swift; sourceTree = "<group>"; };
-		74BA02211C2963BC0022549C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		74BA02241C299F9C0022549C /* UserInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
 		74E18DAA1BFFA27900DE26AF /* LoginWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
 		74E41DA31C258195005E15EB /* DeviceSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSupport.swift; sourceTree = "<group>"; };
@@ -436,7 +436,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7468840C1C0B701600F719BA /* Base */,
-				74BA02211C2963BC0022549C /* de */,
+				744AAE2E1C2ABB1200562BCF /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

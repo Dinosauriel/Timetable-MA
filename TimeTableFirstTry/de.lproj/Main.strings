@@ -1,10 +1,15 @@
 
+/* Class = "UILabel"; text = "Please note, that we can't take any responsibility that the timetable displayed will be absolutely correct!"; ObjectID = "1GF-tz-uoe"; */
+"1GF-tz-uoe.text" = "Bitte beachte, dass wir keine Verantwortung für die korrektheit des gezeigten Stundenplanes übernehmen können.";
 
 /* Class = "UITabBarItem"; title = "Timetable"; ObjectID = "5hE-TW-brL"; */
 "5hE-TW-brL.title" = "Stundenplan";
 
-/* Class = "UILabel"; text = "Hi! Thank you for downloading our App"; ObjectID = "JDi-nL-Z0H"; */
-"JDi-nL-Z0H.text" = "Hi! Thank you for downloading our App";
+/* Class = "UILabel"; text = "In the following, we want to show you how this app works"; ObjectID = "Ari-es-oAm"; */
+"Ari-es-oAm.text" = "Wir wollen dir im Folgenden zeigen, wie diese App funktioniert.";
+
+/* Class = "UILabel"; text = "With it, you can chek your timetable quickly and uncomplicatedly."; ObjectID = "GLB-bg-vX8"; */
+"GLB-bg-vX8.text" = "Hiermit kannst du deinen Stundenplan schnell und unkompliziert überprüfen.";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "MEP-iS-Fdg"; */
 "MEP-iS-Fdg.title" = "Einstellungen";
@@ -12,10 +17,26 @@
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "Mcg-5O-F7t"; */
 "Mcg-5O-F7t.title" = "Einstellungen";
 
+/* Class = "UILabel"; text = "Thanks for downloading our App!\nWe put a lot of Work into it an hope you like it."; ObjectID = "hLK-iL-rRs"; */
+"hLK-iL-rRs.text" = "Danke, dass du unsere App heruntergeladen hast! Wir haben hart daran gearbeitet und hoffen, sie gefällt dir.";
+
+/* Class = "UILabel"; text = "Hello!"; ObjectID = "hSK-5t-nAf"; */
+"hSK-5t-nAf.text" = "Hallo!";
+
 /* Class = "UIButton"; normalTitle = "Got it!"; ObjectID = "idu-hu-Wuh"; */
 "idu-hu-Wuh.normalTitle" = "Okay!";
 
+/* Class = "UILabel"; text = "This app supports push-notifications! They will let you know if something in your timetable has changed."; ObjectID = "nBF-Dv-ozA"; */
+"nBF-Dv-ozA.text" = "Diese App unterstützt Push-Benachrichtigungen. Sie werden dir mitteilen, wenn sich etwas im Stundenplan geändert hat.";
 
 /* Class = "UINavigationItem"; title = "Timetable"; ObjectID = "qPY-H0-XnS"; */
 "qPY-H0-XnS.title" = "Stundenplan";
 
+/* Class = "UILabel"; text = "In order to get your timetable, you will have to login to the network of the Kantonsschule im Lee with your usual account."; ObjectID = "uUT-Pq-k1U"; */
+"uUT-Pq-k1U.text" = "Damit du deinen Stundenplan sehen kannst, musst du dich im Intranet der Kantonsschule im Lee anmelden.";
+
+/* Class = "UILabel"; text = "In order to use this feature you will have to allow push-notifications and background actualisations."; ObjectID = "xJB-zc-ZwH"; */
+"xJB-zc-ZwH.text" = "Damit du diese Funktion nutzen kannst, müssen Hintergrundaktualisationen und Push-Mitteilungen erlaubt sein.";
+
+/* Class = "UILabel"; text = "However, your permission to use the timetable will expire after some time and you will have to relog"; ObjectID = "y47-VC-Fvh"; */
+"y47-VC-Fvh.text" = "Leider wird die Erlaubnis, den Stundenplan zu benützen nach einiger Zeit ablaufen und du wirst dich erneut einloggen müssen.";
