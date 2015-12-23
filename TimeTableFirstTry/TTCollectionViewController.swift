@@ -47,11 +47,12 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let replacedLessonTextColor = UIColor.blueColor()
     let cancelledLessonTextColor = UIColor.redColor()
     let defaultTextColor = UIColor.blackColor()
-    let specialLessonBackgroundColor = UIColor(hue: 0.1167, saturation: 0.83, brightness: 0.94, alpha: 1.0) //YELLOW
-    let specialDividingLineColor = UIColor(hue: 0.0833, saturation: 0.83, brightness: 0.93, alpha: 1.0) // #ef8c28, ORANGE-YELLOW
+    let specialLessonBackgroundColor = UIColor(hue: 0.4778, saturation: 0.73, brightness: 0.46, alpha: 1.0) //#18776c, DARKGREEN
+    let specialDividingLineColor = UIColor(hue: 0.4833, saturation: 0.79, brightness: 0.7, alpha: 1.0) // #25b2a4, GDARGREEN-BLUE
+
     
     let yellowGreen = UIColor(hue: 0.1694, saturation: 0.74, brightness: 0.84, alpha: 1.0)              //GREEN-YELLOW
-    let darkgreenTint = UIColor(hue: 0.4778, saturation: 0.73, brightness: 0.46, alpha: 1.0)            //DARKGREEN
+    let darkgreenTint = UIColor(hue: 0.4778, saturation: 0.73, brightness: 0.46, alpha: 1.0)            //#18776c, DARKGREEN
     let currentLessonMarker = UIColor(hue: 0.1694, saturation: 0.5, brightness: 0.84, alpha: 1.0)
     
     //MARK: OUTLETS
