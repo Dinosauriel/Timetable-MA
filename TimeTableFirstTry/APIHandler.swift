@@ -74,7 +74,6 @@ class APIHandler {
     */
     func checkResponseCode(dataDict:NSDictionary) {
         let timeTableStorage:TimeTableStorage = TimeTableStorage()
-        //let check: CheckForSpecialLessons = CheckForSpecialLessons()
         let keys = dataDict.allKeys
         
         if keys.contains({$0 as! String == "code"}) {
