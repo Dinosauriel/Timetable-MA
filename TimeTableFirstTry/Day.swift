@@ -21,6 +21,9 @@ class Day {
         case veryshort
     }
     
+    /**
+    Returns an Array of the days Needed in the Timetable
+    */
     func generateDayArray(dateStringLength: StringLength, forUI: Bool) -> [String] {
         let demandedArrayLength: Int = 15
         var weekendCorrection = 0
@@ -50,6 +53,9 @@ class Day {
         return weekToReturn
     }
     
+    /**
+    Returns String for date
+    */
     func getStringFromDate(date: NSDate, length: StringLength, forUI: Bool) -> String {
         
         if forUI {
