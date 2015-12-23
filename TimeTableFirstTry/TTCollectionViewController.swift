@@ -43,7 +43,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     //MARK: COLORS
     let dividingLineColor = UIColor(hue: 0.8639, saturation: 0, brightness: 0.83, alpha: 1.0) //GRAY
-    let cellBackgroundColor = UIColor.whiteColor()
+    let white = UIColor.whiteColor()
     let replacedLessonTextColor = UIColor.blueColor()
     let cancelledLessonTextColor = UIColor.redColor()
     let defaultTextColor = UIColor.blackColor()
@@ -433,7 +433,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(specialLessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
                         
 
-                        lessonCell.subjectLabel.textColor = cellBackgroundColor
+                        lessonCell.subjectLabel.textColor = white
+                        lessonCell.teacherLabel.textColor = white
+                        lessonCell.roomLabel.textColor = white
                         lessonCell.backgroundColor = specialLessonBackgroundColor
                         
                         lessonCell.subjectLabel.text = alesson.subject
