@@ -370,10 +370,6 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         
                         lessonCell.dividingView.backgroundColor = dividingLineColor
                         
-                        if indexPath.item == 3 {
-                            lessonCell.backgroundView?.backgroundColor = yellowGreen
-                        }
-                        
                         celltoreturn = lessonCell as LessonCollectionViewCell
                     
                     case .Cancelled:

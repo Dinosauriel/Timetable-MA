@@ -796,7 +796,7 @@ We put a lot of work into it an hope you like it.</string>
                                     <constraint firstAttribute="width" constant="666" id="KO2-ge-PNw"/>
                                 </constraints>
                             </imageView>
-                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphoneblacksstilt" translatesAutoresizingMaskIntoConstraints="NO" id="Cf5-E7-Mkf">
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphoneblackpushtiltss" translatesAutoresizingMaskIntoConstraints="NO" id="Cf5-E7-Mkf">
                                 <rect key="frame" x="204" y="264" width="428" height="666"/>
                                 <constraints>
                                     <constraint firstAttribute="width" priority="999" constant="428" id="0xf-HW-w97"/>
@@ -834,8 +834,8 @@ We put a lot of work into it an hope you like it.</string>
         </scene>
     </scenes>
     <resources>
+        <image name="iphoneblackpushtiltss" width="666" height="666"/>
         <image name="iphoneblackss" width="666" height="666"/>
-        <image name="iphoneblacksstilt" width="666" height="666"/>
         <image name="iphonewhitess" width="666" height="666"/>
         <image name="iphonewhitesstilt" width="666" height="666"/>
         <image name="settingsicon" width="36" height="36"/>
