@@ -76,11 +76,14 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
         self.collectionView.backgroundColor = dividingLineColor
     }
     
+    override func viewDidAppear(animated: Bool) {
+        checkToken()
+    }
+    
     /**
     Reloading Layout and showing Day
     */
     override func viewWillAppear(animated: Bool) {
-        checkToken()
         adaptLayout()
         scrollToCurrentSection(self.collectionView, animated: false)
     }
@@ -432,7 +435,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
 
                         lessonCell.subjectLabel.textColor = cellBackgroundColor
                         lessonCell.backgroundColor = specialLessonBackgroundColor
-
+                        
                         lessonCell.subjectLabel.text = alesson.subject
                         lessonCell.teacherLabel.text = alesson.teacher
                         lessonCell.roomLabel.text = alesson.room
