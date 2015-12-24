@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+Cell that contains the labels to display a normal lesson
+*/
 class LessonCollectionViewCell: UICollectionViewCell {
     let dividingLineColor = UIColor(hue: 0.8639, saturation: 0, brightness: 0.83, alpha: 1.0) //GRAY
     

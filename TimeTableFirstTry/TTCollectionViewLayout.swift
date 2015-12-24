@@ -21,7 +21,6 @@ class TTCollectionViewLayout: UICollectionViewLayout {
     //MARK: CGFloats
     var numberOfDaysOnScreen: CGFloat = 1
     let heightForDayRow: CGFloat = 40
-    
     let marginForTimeColumn: CGFloat = 15
     let marginBetweenRows: CGFloat = 2
     let marginBetweenWeeks: CGFloat = 4

@@ -6,4 +6,5 @@
   Copyright © 2015 Aurel Feer. All rights reserved.
 */
 
+//APPNAME
 "CFBundleName" = "Timetable";

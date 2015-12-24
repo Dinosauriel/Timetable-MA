@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+Cell that the labels to display the time
+*/
 class TimeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var starttimeLabel: UILabel!
     @IBOutlet weak var endtimeLabel: UILabel!

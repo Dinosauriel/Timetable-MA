@@ -9,12 +9,15 @@
 import Foundation
 
 class Day {
+    //MARK: CLASSES
     let today = NSDate()
     let calendar = NSCalendar.currentCalendar()
     let formatter = NSDateFormatter()
     
+    //MARK: INTEGERS
     let numberOfDaysInWeek = 5
     
+    //MARK: ENUMERATIONS
     enum StringLength {
         case short
         case long
@@ -31,15 +34,17 @@ class Day {
         var weekToReturn: [String] = [String](count: demandedArrayLength, repeatedValue: "")
         
         var firstMonday: NSDate? = calendar.dateBySettingUnit(.Weekday, value: 2, ofDate: today, options: NSCalendarOptions.MatchFirst)
+        //Getting first monday to be displayed
         
         let monIsLater: Bool = calendar.compareDate(firstMonday!, toDate: self.today, toUnitGranularity: .Weekday) == .OrderedDescending
         
         let isWeekend: Bool = calendar.component(.Weekday, fromDate: self.today) == 7 || calendar.component(.Weekday, fromDate: self.today) == 1
         
-        if monIsLater && !isWeekend {
+        if monIsLater && !isWeekend { //Adapting firstMonday if needed
             firstMonday = calendar.dateByAddingUnit(.WeekOfYear, value: -1, toDate: firstMonday!, options: NSCalendarOptions.MatchLast)
         }
         
+        //Assmbling weekToReturn based on firstMonday including weekendCorrection
         for i in 0 ..< demandedArrayLength {
             if i % numberOfDaysInWeek == 0 && i != 0 {
                 weekendCorrection += 2

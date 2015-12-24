@@ -10,6 +10,9 @@ import UIKit
 
 class DeviceSupport {
     
+    /**
+    Returns heigth of Display regardless of the current orientation
+    */
     func getAbsoluteDisplayHeight() -> CGFloat {
         let orientation = UIApplication.sharedApplication().statusBarOrientation
 
@@ -21,6 +24,9 @@ class DeviceSupport {
         
     }
     
+    /**
+    Returns heigth of Display regardless of the current orientation
+    */
     func getAbsoluteDisplayWidth() -> CGFloat {
         let orientation = UIApplication.sharedApplication().statusBarOrientation
         

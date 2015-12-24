@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+/**
+Cell that contains the three labels needed to display user information
+*/
 class UserInfoCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -14,20 +14,19 @@ class TTLandscapeCollectionViewLayout: TTCollectionViewLayout {
     overriding width function for week layout
     */
     override func widthForItemWithColumn(column: Int) -> CGFloat {
-        
         let timeColumnWidth: CGFloat = getTimeColumnWidth()
         
+        //Only three days in landscape mode of iPhone4s
         if sup.getAbsoluteDisplayHeight() > 480 {
             numberOfDaysOnScreen = 5
         } else {
             numberOfDaysOnScreen = 3
         }
         
+        //Calculate width using numberOfDaysOnScreen
         if column != 0 {
             let width: CGFloat
-            
             width = ((sup.getAbsoluteDisplayHeight() - timeColumnWidth) / numberOfDaysOnScreen) - marginBetweenRows
-            
             return width
             
         } else {
@@ -46,5 +45,4 @@ class TTLandscapeCollectionViewLayout: TTCollectionViewLayout {
             return CGFloat(40)
         }
     }
-    
 }

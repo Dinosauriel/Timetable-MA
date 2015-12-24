@@ -8,9 +8,11 @@
 
 import UIKit
 
+/**
+Cell that the labels to display the day
+*/
 class DayCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dayLabel: UILabel!
-    
     @IBOutlet weak var dividingView: UIView!
     
     override func awakeFromNib() {

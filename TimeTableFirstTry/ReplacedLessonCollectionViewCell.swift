@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+Cell that contains the labels to display a replaced lesson
+*/
 class ReplacedLessonCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -290,11 +290,16 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     // MARK: UICollectionViewDataSource
     
-    
+    /**
+    The CollectionView has numberOfSections sections
+    */
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return numberOfSections
     }
     
+    /**
+    The CollectionView has numberOfColumns items in everySection
+    */
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numberOfColumns
     }
@@ -302,8 +307,8 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         assignCurrentLesson()
         
-        if indexPath.section == 0 {
-            if indexPath.row == 0 {
+        if indexPath.section == 0 { //First section
+            if indexPath.row == 0 { //Top Left corner
                 let dayCell: DayCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
 
                 dayCell.dayLabel.text = NSLocalizedString("time", comment: "TransForTime")
@@ -315,7 +320,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 
                 return dayCell
                 
-            } else {
+            } else {    //Day section without first row
                 let dayCell: DayCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
                 
                 let dayArray: [String]
@@ -341,8 +346,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 return dayCell
                 
             }
-        } else {
-            if indexPath.row == 0 {
+        } else { //Everything but the first section
+            if indexPath.row == 0 { //Time column without the first section
+                
                 let timeCell: TimeCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(timeCellIdentifier, forIndexPath: indexPath) as! TimeCollectionViewCell
 
                 timeCell.starttimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section - 1, when: .Start, withSeconds:  false)
@@ -351,105 +357,107 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 timeCell.dividingView.backgroundColor = dividingLineColor
                 
                 return timeCell
-            } else {
                 
+            } else { //Main content room, wthout first section or row
+                //Cell for the indexPath
                 let celltoreturn: UICollectionViewCell
                 
+                //UILesson with all the necessairy information
+                let alesson: UILesson = declarelesson.getNewLessonForUI(indexPath.section, item: indexPath.item)
                 
-                let alesson = declarelesson.getNewLessonForUI(indexPath.section, item: indexPath.item)
-                
+                //The appearance changes for the different states of the UILesson
                 switch alesson.status {
                     case .Default:
+                        //Get default lesson
                         let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
-                        // Declaring subjectLabel appearance
+                        //Declaring label content
                         lessonCell.subjectLabel.text = alesson.subject
-                        // Declaring teacherLabel appearance
                         lessonCell.teacherLabel.text = alesson.teacher
-                        // Declaring roomLabel appearance
                         lessonCell.roomLabel.text = alesson.room
-                        
+                        //Declaring cell appearance
                         lessonCell.dividingView.backgroundColor = dividingLineColor
                         
                         celltoreturn = lessonCell as LessonCollectionViewCell
                     
                     case .Cancelled:
+                        //Get cancelled lesson
                         let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
-                        // Declaring subjectLabel appearance
-                        lessonCell.subjectLabel.textColor = cancelledLessonTextColor
+                        //Declaring label content
                         lessonCell.subjectLabel.text = alesson.subject
-                        // Declaring teacherLabel appearance
-                        lessonCell.teacherLabel.textColor = cancelledLessonTextColor
                         lessonCell.teacherLabel.text = alesson.teacher
-                        // Declaring roomLabel appearance
-                        lessonCell.roomLabel.textColor = cancelledLessonTextColor
                         lessonCell.roomLabel.text = alesson.room
-                        //Crossing out Lesson
+                        //Declaring label appearance
+                        lessonCell.teacherLabel.textColor = cancelledLessonTextColor
+                        lessonCell.subjectLabel.textColor = cancelledLessonTextColor
+                        lessonCell.roomLabel.textColor = cancelledLessonTextColor
+
+                        //Declaring cell appearance
                         lessonCell.crossOutView.backgroundColor = cancelledLessonTextColor
-                        
                         lessonCell.dividingView.backgroundColor = dividingLineColor
                 
                         celltoreturn = lessonCell
                     
                     case .Replaced:
+                        //Get replaced lesson
                         let replacedlessonCell: ReplacedLessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(replacedlessonCellIdentifier, forIndexPath: indexPath) as! ReplacedLessonCollectionViewCell
-                        // Declaring subjectLabel appearance
-                        replacedlessonCell.subjectLabel.textColor = replacedLessonTextColor
+                        //Declaring label content
                         replacedlessonCell.subjectLabel.text = alesson.subject
-                        // Declaring teacherLabel appearance
-                        replacedlessonCell.teacherLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.teacherLabel.text = alesson.teacher
-                        // Declaring roomLabel appearance
-                        replacedlessonCell.roomLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.roomLabel.text = alesson.room
-                        // Declaring subsubjectLabel appearance
                         replacedlessonCell.subsubjectLabel.textColor = replacedLessonTextColor
-                        replacedlessonCell.subsubjectLabel.text = alesson.subsubject
-                        // Declaring subteacherLabel appearance
-                        replacedlessonCell.subteacherLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.subteacherLabel.text = alesson.subteacher
-                        // Declaring subroomLabel appearance
+                        // Declaring label appearance
+                        replacedlessonCell.subjectLabel.textColor = replacedLessonTextColor
+                        replacedlessonCell.roomLabel.textColor = replacedLessonTextColor
+                        replacedlessonCell.subsubjectLabel.text = alesson.subsubject
+                        replacedlessonCell.subteacherLabel.textColor = replacedLessonTextColor
+                        replacedlessonCell.teacherLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.subroomLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.subroomLabel.text = alesson.subroom
                         
+                        //Declaring cell appearance
                         replacedlessonCell.dividingView.backgroundColor = dividingLineColor
                     
                         celltoreturn = replacedlessonCell
                     
                     case .Empty:
+                        //Get empty lesson
                         let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
-                        // Declaring empty Lesson
+                        // Declaring label content
                         lessonCell.subjectLabel.text = ""
                         lessonCell.teacherLabel.text = ""
                         lessonCell.roomLabel.text = ""
                         
+                        //Declare cell appearance
                         lessonCell.dividingView.backgroundColor = dividingLineColor
                         
                         celltoreturn = lessonCell
                     
                     case .Special:
+                        //Get special Lesson
                         let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(specialLessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
-                        
-
-                        lessonCell.subjectLabel.textColor = white
-                        lessonCell.teacherLabel.textColor = white
-                        lessonCell.roomLabel.textColor = white
-                        lessonCell.backgroundColor = specialLessonBackgroundColor
-                        
+                        //Declare label content
                         lessonCell.subjectLabel.text = alesson.subject
                         lessonCell.teacherLabel.text = alesson.teacher
                         lessonCell.roomLabel.text = alesson.room
-                        
+                        //Declare label appearance
+                        lessonCell.subjectLabel.textColor = white
+                        lessonCell.teacherLabel.textColor = white
+                        lessonCell.roomLabel.textColor = white
+                        //Declare cell appearance
+                        lessonCell.backgroundColor = specialLessonBackgroundColor
                         lessonCell.dividingView.backgroundColor = specialDividingLineColor
                         
                         celltoreturn = lessonCell
                     
                     case .MovedTo:
+                        //Get moved lesson
                         let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
-                    
+                        //Declare label content
                         lessonCell.teacherLabel.text = alesson.teacher
                         lessonCell.subjectLabel.text = alesson.subject
                         lessonCell.roomLabel.text = alesson.room
-                    
+                        //Declare label appearance
                         lessonCell.teacherLabel.textColor = replacedLessonTextColor
                         lessonCell.subjectLabel.textColor = replacedLessonTextColor
                         lessonCell.roomLabel.textColor = replacedLessonTextColor
@@ -457,11 +465,11 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         celltoreturn = lessonCell
                 }
                 
+                //Mark the current Lesson
                 if indexPath.item == currentLesson[0] - 1 && indexPath.section == currentLesson[1] + 1 {
                     celltoreturn.backgroundColor = currentLessonMarker
                 }
 
-                
                 return celltoreturn
             }
         }

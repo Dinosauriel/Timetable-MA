@@ -104,6 +104,7 @@ class DeclareLesson {
                 
                 case blockIdentifier:
                     
+                    //Assignging blockDayIndex, specialBlockStartIndex, specialBlockEndIndex
                     endDateArray = []
                     for i in 0 ..< endTimeArray.count {
                         endDateArray.append(requestedDay + dateTimeSeparator + endTimeArray[i] + timeZoneAppendix)
@@ -132,7 +133,7 @@ class DeclareLesson {
             //print("B: " + requestedLessonB.event)
             //print("sec: " + String(sec) + ", item: " + String(item))
             
-            //ReplacedLesson Detection
+            //ReplacedLesson Detection and creating appropriate UILesson
             if requestedLessonA.event == shiftedIdentifier {
                 requestedUILesson = UILesson(subject: requestedLessonB.subject, teacher: requestedLessonB.teacher, room: requestedLessonB.location, status: .Replaced, subsubject: requestedLessonA.subject, subteacher: requestedLessonA.teacher, subroom: requestedLessonA.location)
             } else if requestedLessonB.event == shiftedIdentifier {
@@ -140,38 +141,35 @@ class DeclareLesson {
             }
             
             //BlockLesson Detection
-            if requestedLessonA.event == blockIdentifier {
+            if requestedLessonA.event == blockIdentifier || requestedLessonB.event == blockIdentifier {
                 
-                endDateArray = []
-                for i in 0 ..< endTimeArray.count {
+                endDateArray = [] //Clearing endDateArray
+                //Assignging blockDayIndex, specialBlockStartIndex, specialBlockEndIndex
+                for i in 0 ..< endTimeArray.count { //Constructing endDateArray for specific day
                     endDateArray.append(requestedDay + dateTimeSeparator + endTimeArray[i] + timeZoneAppendix)
                 }
                 blockDayIndex = (dayArray.indexOf(requestedDay)! + 1)
                 specialBlockStartIndex = sec
-                specialBlockEndIndex  = (endDateArray.indexOf(requestedLessonA.endTime)! + 1)
                 
-                requestedUILesson = UILesson(subject: requestedLessonA.subject, teacher: requestedLessonA.teacher, room: requestedLessonA.location, status: .Special, subsubject: "", subteacher: "", subroom: "")
-            }else if requestedLessonB.event == blockIdentifier {
-                
-                endDateArray = []
-                for i in 0 ..< endTimeArray.count {
-                    endDateArray.append(requestedDay + dateTimeSeparator + endTimeArray[i] + timeZoneAppendix)
+                if requestedLessonA.event == blockIdentifier {
+                    specialBlockEndIndex  = (endDateArray.indexOf(requestedLessonA.endTime)! + 1)
+                    //creating corresponding UILesson
+                    requestedUILesson = UILesson(subject: requestedLessonA.subject, teacher: requestedLessonA.teacher, room: requestedLessonA.location, status: .Special, subsubject: "", subteacher: "", subroom: "")
+                } else if requestedLessonB.event == blockIdentifier {
+                    specialBlockEndIndex  = (endDateArray.indexOf(requestedLessonB.endTime)! + 1)
+                    //creating corresponding UILesson
+                    requestedUILesson = UILesson(subject: requestedLessonB.subject, teacher: requestedLessonB.teacher, room: requestedLessonB.location, status: .Special, subsubject: "", subteacher: "", subroom: "")
                 }
-                blockDayIndex = (dayArray.indexOf(requestedDay)! + 1)
-                specialBlockStartIndex = sec
-                specialBlockEndIndex  = (endDateArray.indexOf(requestedLessonB.endTime)! + 1)
-
-                
-                requestedUILesson = UILesson(subject: requestedLessonB.subject, teacher: requestedLessonB.teacher, room: requestedLessonB.location, status: .Special, subsubject: "", subteacher: "", subroom: "")
             }
         } else if requestedLessons.count == 0 { //No lesson at this Position
-            
+            //No changes needed
         }
         
         //Overriding everything if there is a Special Event
         if specialEvents.count >= 1 { //Checking for an event
             let event = specialEvents[0]
             requestedUILesson.status = .Special
+            //Showing lesson info only on first Lesson
             if sec == 1 {
                 requestedUILesson.subject = event.subject
                 requestedUILesson.room = event.location

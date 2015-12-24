@@ -36,13 +36,13 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
         activityIndicator.startAnimating()
         let URLString = request.URL?.absoluteString
         
-        
         // If the URL is correct, switch to timetable
         if URLString!.containsString("uniapp://klw-stupla-app#access_token=") {
             self.performSegueWithIdentifier(mainAppCycleSegueIdentifier, sender: self)
             if !userDefaults.boolForKey("HasLaunchedOnce") {
                 userDefaults.setBool(true, forKey: "HasLaunchedOnce")
             }
+            // Delete the cookies to prevent auto-login in next start of the webView
             for cookie:NSHTTPCookie in NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies! {
                 if cookie.domain.containsString("tam") {
                     NSHTTPCookieStorage.sharedHTTPCookieStorage().deleteCookie(cookie)
@@ -53,14 +53,10 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
     }
     
     /**
-    stop loading wheel
+    Stop loading wheel
     */
     func webViewDidFinishLoad(webView: UIWebView) {
         activityIndicator.stopAnimating()
-    }
-    
-    func webViewDidStartLoad(webView: UIWebView) {
-        
     }
     
     /**

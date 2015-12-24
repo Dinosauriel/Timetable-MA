@@ -8,19 +8,10 @@
 
 import Foundation
 
+/**
+An object that contains all Information needed for the display of a lesson
+*/
 struct UILesson {
-    
-    var subject: String
-    var teacher: String
-    var room: String
-    
-    let subsubject: String
-    let subteacher: String
-    let subroom: String
-    
-    var status: Status
-
-
     
     init(subject: String, teacher: String, room: String, status: Status, subsubject: String, subteacher: String, subroom: String) {
         self.room = room
@@ -33,6 +24,16 @@ struct UILesson {
         
         self.status = status
     }
+    
+    var subject: String
+    var teacher: String
+    var room: String
+    
+    let subsubject: String
+    let subteacher: String
+    let subroom: String
+    
+    var status: Status
     
     enum Status {
         case Default

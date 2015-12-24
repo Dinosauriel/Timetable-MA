@@ -9,7 +9,10 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-
+    
+    /**
+    Apply tint color to active TabBarItems
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         let darkgreen = UIColor(hue: 0.4778, saturation: 0.73, brightness: 0.46, alpha: 1.0)

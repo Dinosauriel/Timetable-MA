@@ -128,7 +128,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="sectionIndexColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingsMainMenuCellIdentifier" textLabel="TKR-pd-LJq" style="IBUITableViewCellStyleDefault" id="RHc-B9-c4A">
                                 <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
@@ -154,7 +153,7 @@
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="userInfoCell" id="uMs-3c-xDZ" customClass="UserInfoCell" customModule="Timetable_App" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="157.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uMs-3c-xDZ" id="4Nu-Nz-mPD">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="uMs-3c-xDZ" id="4Nu-Nz-mPD">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -842,7 +841,7 @@ We put a lot of work into it an hope you like it.</string>
         <image name="timetableicon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pUP-Td-sje"/>
+        <segue reference="6yw-E9-JET"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
 </document>
