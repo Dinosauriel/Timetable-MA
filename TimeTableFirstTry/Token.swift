@@ -1,9 +1,9 @@
 //
 //  Token.swift
-//  TimeTableFirstTry
+//  Timetable App
 //
-//  Created by Lukas Boner on 05.11.15.
-//  Copyright © 2015 Aurel Feer. All rights reserved.
+//  Created by Lukas Boner and Aurel Feer on 05.11.15.
+//  Copyright © 2015 Aurel Feer and Lukas Boner. All rights reserved.
 //
 
 import Foundation

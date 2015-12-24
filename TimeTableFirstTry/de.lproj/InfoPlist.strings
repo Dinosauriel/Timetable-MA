@@ -1,10 +1,10 @@
-/* 
-  InfoPlist.strings
-  TimeTableFirstTry
-
-  Created by Aurel Feer on 25.11.15.
-  Copyright © 2015 Aurel Feer. All rights reserved.
-*/
+/*
+ InfoPlist.strings
+ Timetable App
+ 
+ Created by Aurel Feer and Lukas Boner on 26.11.15.
+ Copyright © 2015 Aurel Feer and Lukas Boner. All rights reserved.
+ */
 
 //APPNAME
 "CFBundleDisplayName" = "Stundenplan";
