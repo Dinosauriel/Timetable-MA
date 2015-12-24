@@ -12,6 +12,7 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    //MARK: CLASSES
     var window: UIWindow?
     var token: NSString?
     var APIHandlerVar: APIHandler?
@@ -22,13 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        // DETECTING FIRST LAUNCH
+        //MARK: DETECTING FIRST LAUNCH
         if UserDefaults.objectForKey("HasLaunchedOnce") == nil {
             UserDefaults.setBool(false, forKey: "HasLaunchedOnce")
             UserDefaults.setBool(true, forKey: "RetrievedNewToken")
-            UserDefaults.setBool(false, forKey: "2Days")
         }
-        
         UserDefaults.setBool(false, forKey: "isSaving")
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -40,24 +39,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.rootViewController = initialViewController
         
-        //Push-notifications
+        //MARK: Push-notifications
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         
-        //API
-        
+        //MARK: API
         APIHandlerVar = APIHandler()
         tokenResponseVar = TokenResponseHandler()
-        
-        /* dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
-            if self.APIData!.getTokenFromData() {
-                self.APIData!.getDataWithToken()
-                print("Token loaded")
-            } else {
-                self.APIData!.requestAuthToken()
-            }
-        }*/
-        
         UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
         return true
