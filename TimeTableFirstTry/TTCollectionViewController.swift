@@ -404,16 +404,16 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         replacedlessonCell.subjectLabel.text = alesson.subject
                         replacedlessonCell.teacherLabel.text = alesson.teacher
                         replacedlessonCell.roomLabel.text = alesson.room
-                        replacedlessonCell.subsubjectLabel.textColor = replacedLessonTextColor
+                        replacedlessonCell.subsubjectLabel.text = alesson.subsubject
+                        replacedlessonCell.subroomLabel.text = alesson.subroom
                         replacedlessonCell.subteacherLabel.text = alesson.subteacher
                         // Declaring label appearance
                         replacedlessonCell.subjectLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.roomLabel.textColor = replacedLessonTextColor
-                        replacedlessonCell.subsubjectLabel.text = alesson.subsubject
+                        replacedlessonCell.subsubjectLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.subteacherLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.teacherLabel.textColor = replacedLessonTextColor
                         replacedlessonCell.subroomLabel.textColor = replacedLessonTextColor
-                        replacedlessonCell.subroomLabel.text = alesson.subroom
                         
                         //Declaring cell appearance
                         replacedlessonCell.dividingView.backgroundColor = dividingLineColor
