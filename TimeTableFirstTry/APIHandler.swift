@@ -55,7 +55,7 @@ class APIHandler {
                     //The string gets parsed into data which gets then parsed into a NSMutableDictionary
                     let cleanedData = (cleaned as NSString).dataUsingEncoding(NSUTF8StringEncoding)
                     let dataDict:NSMutableDictionary = try NSJSONSerialization.JSONObjectWithData(cleanedData!, options: NSJSONReadingOptions.MutableContainers) as! NSMutableDictionary
-                    
+                    print("dataDict: \(dataDict)")
                     self.checkResponseCode(dataDict)
                 }
             } catch let myJSONError {
