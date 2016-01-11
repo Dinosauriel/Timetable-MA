@@ -101,11 +101,11 @@ class APIBackgroundHandler {
                 
                 while lessonItr != lessonCount {
                     let lesson:NSDictionary = lessons[lessonItr] as! NSDictionary
-                    let lessonID:Int = lesson["id"] as! Int
-                    let oldDataToCompareToArray:NSArray = timeTableStorage.getTimeTableDataWithID(lessonID)
+                    let oldDataToCompareToArray:NSArray = timeTableStorage.getTimeTableDataWithTimeString(lesson["start"] as! String)
                     if oldDataToCompareToArray.count != 0 {
                         let oldDataToCompareTo:TimeTableData = oldDataToCompareToArray[0] as! TimeTableData
                         if oldDataToCompareTo.event != lesson["eventType"] as! String {
+                            print("changed")
                             let dateTime = notificationHandler.getCurrentTimeAsString()
                             notificationHandler.addNewNotificationToQueue(FireDate: dateTime, Title: NSLocalizedString("changedNotificationTitle", comment: "changedNotificationTitle"), Message: NSLocalizedString("changedNotificationBody", comment: "changedNotificationBody"))
                         }
