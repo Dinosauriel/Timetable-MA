@@ -38,7 +38,7 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
         
         // If the URL is correct, switch to timetable
         if URLString!.containsString("uniapp://klw-stupla-app#access_token=") {
-            self.performSegueWithIdentifier(mainAppCycleSegueIdentifier, sender: self)
+            goToTimetable()
             if !userDefaults.boolForKey("HasLaunchedOnce") {
                 userDefaults.setBool(true, forKey: "HasLaunchedOnce")
             }
@@ -68,5 +68,16 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
         let request = NSURLRequest(URL: URLforRequest!)
         
         webView.loadRequest(request)
+    }
+    
+    func goToTimetable() {
+        self.performSegueWithIdentifier(mainAppCycleSegueIdentifier, sender: self)
+    }
+    
+    /**
+    Cancel Button
+    */
+    @IBAction func cancelButton(sender: AnyObject) {
+        goToTimetable()
     }
 }

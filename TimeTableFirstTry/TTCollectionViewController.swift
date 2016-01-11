@@ -135,7 +135,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
             goToLogin()
         }
     }
-    
+        
     /**
     Shows the login View Controller
     */

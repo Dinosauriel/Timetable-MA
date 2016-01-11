@@ -91,7 +91,7 @@ class DeclareLesson {
                     break
                 
                 case roomchangedIdentifier:
-                    requestedUILesson.status = .Replaced
+                    requestedUILesson.status = .MovedTo
                     break
                 
                 case addedIdentifier:

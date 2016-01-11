@@ -40,3 +40,6 @@
 
 /* Class = "UILabel"; text = "However, your permission to use the timetable will expire after some time and you will have to relog"; ObjectID = "y47-VC-Fvh"; */
 "y47-VC-Fvh.text" = "Leider wird die Erlaubnis, den Stundenplan zu benützen nach einiger Zeit ablaufen und du wirst dich erneut einloggen müssen.";
+
+/* WebView Cancel Button*/
+"Zt7-yf-JGG.title" = "Abbrechen";
