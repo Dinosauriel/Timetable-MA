@@ -119,6 +119,20 @@ public class TimeTableStorage {
         }
     }
     
+    func getTimeTableDataWithTimeString(requestedStartTime :String) -> [TimeTableData] {
+        let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
+        fetchRequest.returnsObjectsAsFaults = false
+        let predicateForID = NSPredicate(format: "%K = %@","startTime",requestedStartTime)
+        fetchRequest.predicate = predicateForID
+        
+        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
+            let lessonWithID = fetchResults
+            return lessonWithID
+        } else {
+            return []
+        }
+    }
+    
     /*func getTimeTableData() -> NSArray {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
         fetchRequest.returnsObjectsAsFaults = false
