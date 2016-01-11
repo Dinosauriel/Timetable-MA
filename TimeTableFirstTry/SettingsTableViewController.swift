@@ -24,6 +24,12 @@ class SettingsTableViewController: UITableViewController {
     //MARK: ARRAYS
     let settingsMainMenu = [NSLocalizedString("login", comment: "loginTrans")]
     
+    let numberOfColumnsInSection: [Int] = [2,1]
+    let sectionTitles: [String] = [
+        NSLocalizedString("general", comment: "TransForSettingsTitle"),
+        NSLocalizedString("other", comment: "TransForSettingsTitle")
+        ]
+    
     /**
     View did load
     */
@@ -64,11 +70,7 @@ class SettingsTableViewController: UITableViewController {
     Two rows in tableView
     */
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 2
-        } else {
-            return 1
-        }
+        return self.numberOfColumnsInSection[section]
     }
     
     /**
@@ -82,11 +84,7 @@ class SettingsTableViewController: UITableViewController {
     Assign title to section one
     */
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return NSLocalizedString("general", comment: "TransForSettingsTitle")
-        } else {
-            return NSLocalizedString("other", comment: "TransForSettingsTitle")
-        }
+        return self.sectionTitles[section]
     }
     
     /**
