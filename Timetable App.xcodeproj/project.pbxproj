@@ -293,10 +293,10 @@
 		74EBE6D11BDD582A0026F2AE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */,
 				74EBE6DA1BDD598A0026F2AE /* DayCollectionViewCell.swift */,
 				7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */,
 				74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */,
-				741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";

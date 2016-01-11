@@ -15,6 +15,10 @@ loginState = "Aktueller Benutzer:";
 
 time = "Zeit";
 
+showFL = "Zeige den ersten Start";
+
+other = "Anderes";
+
 
 //NOTIFICATIONS
 invalidTokenTitle = "Ungültiges Token!";

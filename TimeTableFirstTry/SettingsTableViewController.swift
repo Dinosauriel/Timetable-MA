@@ -19,6 +19,7 @@ class SettingsTableViewController: UITableViewController {
     let settingsMainMenuCellIdentifier = "settingsMainMenuCellIdentifier"
     let userInfoCellIdentifier = "userInfoCell"
     let showLoginSegueIdentifier = "showLoginSegue"
+    let showFirstLaunchSegueIdentifier = "showFLPVC"
     
     //MARK: ARRAYS
     let settingsMainMenu = [NSLocalizedString("login", comment: "loginTrans")]
@@ -45,6 +46,10 @@ class SettingsTableViewController: UITableViewController {
             if indexPath.row == 0 {
                 self.performSegueWithIdentifier(showLoginSegueIdentifier, sender: self)
             }
+        } else {
+            if indexPath.row == 0 {
+                self.performSegueWithIdentifier(showFirstLaunchSegueIdentifier, sender: self)
+            }
         }
     }
     
@@ -52,14 +57,18 @@ class SettingsTableViewController: UITableViewController {
     One section in tableView
     */
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     /**
     Two rows in tableView
     */
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        if section == 0 {
+            return 2
+        } else {
+            return 1
+        }
     }
     
     /**
@@ -73,24 +82,34 @@ class SettingsTableViewController: UITableViewController {
     Assign title to section one
     */
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return NSLocalizedString("general", comment: "TransForSettingsTitle")
+        if section == 0 {
+            return NSLocalizedString("general", comment: "TransForSettingsTitle")
+        } else {
+            return NSLocalizedString("other", comment: "TransForSettingsTitle")
+        }
     }
     
     /**
     Assign the given cells to the indexPath
     */
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            //Normal Cell
-            let cell = settingsTableView.dequeueReusableCellWithIdentifier(settingsMainMenuCellIdentifier, forIndexPath: indexPath) as UITableViewCell
-            cell.textLabel?.text = settingsMainMenu[indexPath.row]
-            return cell
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                //Normal Cell
+                let cell = settingsTableView.dequeueReusableCellWithIdentifier(settingsMainMenuCellIdentifier, forIndexPath: indexPath) as UITableViewCell
+                cell.textLabel?.text = settingsMainMenu[indexPath.row]
+                return cell
+            } else {
+                //UserInfo Cell
+                let cell = settingsTableView.dequeueReusableCellWithIdentifier(userInfoCellIdentifier) as! UserInfoCell
+                cell.infoCell.text = NSLocalizedString("loginState", comment: "noob")
+                cell.firstNameCell.text = userDefaults.valueForKey("userfirstname") as? String
+                cell.lastNameCell.text = userDefaults.valueForKey("userlastname") as? String
+                return cell
+            }
         } else {
-            //UserInfo Cell
-            let cell = settingsTableView.dequeueReusableCellWithIdentifier(userInfoCellIdentifier) as! UserInfoCell
-            cell.infoCell.text = NSLocalizedString("loginState", comment: "noob")
-            cell.firstNameCell.text = userDefaults.valueForKey("userfirstname") as? String
-            cell.lastNameCell.text = userDefaults.valueForKey("userlastname") as? String
+            let cell = settingsTableView.dequeueReusableCellWithIdentifier(settingsMainMenuCellIdentifier, forIndexPath: indexPath) as UITableViewCell
+            cell.textLabel?.text = NSLocalizedString("showFL", comment: "TransForSettings")
             return cell
         }
     }

@@ -19,6 +19,7 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
     
     //MARK: IDENTIFIERS
     let mainAppCycleSegueIdentifier = "showMainAppCycle"
+    let firstLaunchSegueIdentifier = "ShowFL"
     
     /**
     Assigning Delegate
@@ -74,10 +75,18 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
         self.performSegueWithIdentifier(mainAppCycleSegueIdentifier, sender: self)
     }
     
+    func goToFL() {
+        self.performSegueWithIdentifier(firstLaunchSegueIdentifier, sender: self)
+    }
+    
     /**
     Cancel Button
     */
     @IBAction func cancelButton(sender: AnyObject) {
-        goToTimetable()
+        if !userDefaults.boolForKey("HasLaunchedOnce") {
+            goToFL()
+        } else {
+            goToTimetable()
+        }
     }
 }

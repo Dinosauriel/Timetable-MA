@@ -126,17 +126,18 @@
                         <outlet property="activityIndicator" destination="rdK-VN-5V6" id="Ogp-CN-U79"/>
                         <outlet property="webView" destination="Wpx-Zt-oIs" id="hb6-OI-aXe"/>
                         <segue destination="RLx-gT-kvd" kind="show" identifier="showMainAppCycle" id="QDh-xU-kck"/>
+                        <segue destination="LCR-LF-Fkh" kind="show" identifier="ShowFL" id="I6A-RB-sSB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yia-88-wTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-575" y="-1970"/>
+            <point key="canvasLocation" x="-467" y="-1970"/>
         </scene>
         <!--Settings-->
         <scene sceneID="6Ku-KL-UFy">
             <objects>
                 <tableViewController storyboardIdentifier="SettingsVCID" id="Y6f-Xw-aOx" customClass="SettingsTableViewController" customModule="Timetable_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="buZ-et-Ruz">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" sectionIndexMinimumDisplayRowCount="2" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="buZ-et-Ruz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -226,6 +227,7 @@
                         <segue destination="Zd4-2a-Ekv" kind="popoverPresentation" identifier="showLoginSegue" popoverAnchorView="buZ-et-Ruz" id="6yw-E9-JET">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
+                        <segue destination="LCR-LF-Fkh" kind="showDetail" identifier="showFLPVC" id="J80-du-oHo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyG-Ts-hic" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -855,6 +857,7 @@ We put a lot of work into it an hope you like it.</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6yw-E9-JET"/>
+        <segue reference="J80-du-oHo"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
 </document>
