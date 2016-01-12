@@ -22,7 +22,7 @@ other = "Anderes";
 
 //NOTIFICATIONS
 invalidTokenTitle = "Ungültiges Token!";
-invalidTokenBody = "Das Autentifizierungs-Token is nicht mehr gültig. Bitte logge dich erneut ein";
+invalidTokenBody = "Das Autentifizierungs-Token ist nicht mehr gültig. Bitte logge dich erneut ein";
 
 changedNotificationTitle = "Änderung";
 changedNotificationBody = "Einige deiner Lektionen haben sich geändert!";
