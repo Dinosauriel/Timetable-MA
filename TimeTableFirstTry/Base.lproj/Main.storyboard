@@ -224,9 +224,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="MEP-iS-Fdg"/>
                     <connections>
                         <outlet property="settingsTableView" destination="buZ-et-Ruz" id="6Fx-wn-Wc9"/>
-                        <segue destination="Zd4-2a-Ekv" kind="popoverPresentation" identifier="showLoginSegue" popoverAnchorView="buZ-et-Ruz" id="6yw-E9-JET">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
+                        <segue destination="Zd4-2a-Ekv" kind="showDetail" identifier="showLoginSegue" id="6yw-E9-JET"/>
                         <segue destination="LCR-LF-Fkh" kind="showDetail" identifier="showFLPVC" id="J80-du-oHo"/>
                     </connections>
                 </tableViewController>

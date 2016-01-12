@@ -83,6 +83,7 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
     Cancel Button
     */
     @IBAction func cancelButton(sender: AnyObject) {
+        userDefaults.setBool(true, forKey: "loginCancelled")
         if !userDefaults.boolForKey("HasLaunchedOnce") {
             goToFL()
         } else {

@@ -78,7 +78,11 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     override func viewDidAppear(animated: Bool) {
-        checkToken()
+        if !userDefaults.boolForKey("loginCancelled") {
+            checkToken()
+        } else {
+            userDefaults.setBool(false, forKey: "loginCancelled")
+        }
     }
     
     /**

@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.setBool(true, forKey: "RetrievedNewToken")
         }
         UserDefaults.setBool(false, forKey: "isSaving")
+        UserDefaults.setBool(false, forKey: "loginCancelled")
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         var initialViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarVCID")
