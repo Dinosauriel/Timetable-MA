@@ -15,7 +15,7 @@ loginState = "Aktueller Benutzer:";
 
 time = "Zeit";
 
-showFL = "Zeige den ersten Start";
+showFL = "Zeige die Einführung";
 
 other = "Anderes";
 
