@@ -19,6 +19,15 @@
 		4FC8F9DE1C061F2000D15752 /* TimeTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8F9DD1C061F2000D15752 /* TimeTableData.swift */; };
 		4FC8F9E01C061F4700D15752 /* TimeTableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8F9DF1C061F4700D15752 /* TimeTableStorage.swift */; };
 		7402B3E61C031EB40048C5D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7402B3E51C031EB40048C5D7 /* Assets.xcassets */; };
+		74080B471C46A0DA00A208AE /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */; };
+		74080B4A1C46A0DA00A208AE /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74080B491C46A0DA00A208AE /* TodayViewController.swift */; };
+		74080B4D1C46A0DA00A208AE /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74080B4B1C46A0DA00A208AE /* MainInterface.storyboard */; };
+		74080B511C46A0DA00A208AE /* nextlesson.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 74080B461C46A0D900A208AE /* nextlesson.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		74080B561C46A2D700A208AE /* TodayLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74080B551C46A2D700A208AE /* TodayLayout.swift */; };
+		74080B571C46A9BC00A208AE /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
+		74080B591C46A9C200A208AE /* ReplacedLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */; };
+		74080B5A1C46A9C600A208AE /* LessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B0B1BEBF10A0030FA95 /* LessonCollectionViewCell.swift */; };
+		74080B5E1C46BA1C00A208AE /* UILesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B061BEBE5570030FA95 /* UILesson.swift */; };
 		741008921BEA8857009FB899 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */; };
 		741559D91C1DB9D700FF0965 /* TTLandscapeCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741559D81C1DB9D700FF0965 /* TTLandscapeCollectionViewLayout.swift */; };
 		742889F81BF73A870018EAE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 742889FA1BF73A870018EAE4 /* Localizable.strings */; };
@@ -33,6 +42,10 @@
 		74AD297F1BF75A2D001382F5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */; };
 		74AD756F1C19CEC2005139BA /* FLPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD756E1C19CEC2005139BA /* FLPageViewController.swift */; };
 		74BA02251C299F9C0022549C /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA02241C299F9C0022549C /* UserInfoCell.swift */; };
+		74D67FD91C47C7AC009047DB /* DataReciever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D67FD81C47C7AC009047DB /* DataReciever.swift */; };
+		74D67FDA1C47C87D009047DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74AA072A1C06E20B002AC075 /* InfoPlist.strings */; };
+		74DAD8B91C479D8500C7CD96 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
+		74DAD8BA1C479D8800C7CD96 /* TimetableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8600701BE8D8B700FA53AD /* TimetableTime.swift */; };
 		74E18DAB1BFFA27900DE26AF /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E18DAA1BFFA27900DE26AF /* LoginWebViewController.swift */; };
 		74E41DA41C258195005E15EB /* DeviceSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E41DA31C258195005E15EB /* DeviceSupport.swift */; };
 		74EBE6A11BDD56710026F2AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6A01BDD56710026F2AE /* AppDelegate.swift */; };
@@ -43,6 +56,16 @@
 		74EBE6DB1BDD598A0026F2AE /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBE6DA1BDD598A0026F2AE /* DayCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		74080B4F1C46A0DA00A208AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74EBE6951BDD56710026F2AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74080B451C46A0D900A208AE;
+			remoteInfo = nextlesson;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		74156C0B1C02240A0050740D /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -50,6 +73,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				74080B511C46A0DA00A208AE /* nextlesson.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +93,13 @@
 		4FC8F9DD1C061F2000D15752 /* TimeTableData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableData.swift; sourceTree = "<group>"; };
 		4FC8F9DF1C061F4700D15752 /* TimeTableStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableStorage.swift; sourceTree = "<group>"; };
 		7402B3E51C031EB40048C5D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		74080B461C46A0D900A208AE /* nextlesson.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = nextlesson.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		74080B491C46A0DA00A208AE /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		74080B4C1C46A0DA00A208AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		74080B4E1C46A0DA00A208AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74080B551C46A2D700A208AE /* TodayLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayLayout.swift; sourceTree = "<group>"; };
+		74080B5B1C46AC5400A208AE /* Timetable App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Timetable App.entitlements"; sourceTree = SOURCE_ROOT; };
+		74080B5C1C46AC6C00A208AE /* nextlesson.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = nextlesson.entitlements; sourceTree = "<group>"; };
 		741008911BEA8857009FB899 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		741559D81C1DB9D700FF0965 /* TTLandscapeCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTLandscapeCollectionViewLayout.swift; sourceTree = "<group>"; };
 		742889F41BF737900018EAE4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -76,7 +107,6 @@
 		742889FB1BF73A8A0018EAE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		74382ED81BEFBE13007A28C4 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		74428C4E1C1060AF0054BB5E /* TimeTableFirstTry.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = TimeTableFirstTry.entitlements; path = TimeTableFirstTry/TimeTableFirstTry.entitlements; sourceTree = "<group>"; };
 		7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplacedLessonCollectionViewCell.swift; sourceTree = "<group>"; };
 		744AAE2E1C2ABB1200562BCF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		7468840C1C0B701600F719BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,6 +119,7 @@
 		74AD297E1BF75A2D001382F5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		74AD756E1C19CEC2005139BA /* FLPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLPageViewController.swift; sourceTree = "<group>"; };
 		74BA02241C299F9C0022549C /* UserInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
+		74D67FD81C47C7AC009047DB /* DataReciever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataReciever.swift; sourceTree = "<group>"; };
 		74E18DAA1BFFA27900DE26AF /* LoginWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
 		74E41DA31C258195005E15EB /* DeviceSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSupport.swift; sourceTree = "<group>"; };
 		74EBE69D1BDD56710026F2AE /* Timetable App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Timetable App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +133,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		74080B431C46A0D900A208AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74080B471C46A0DA00A208AE /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74EBE69A1BDD56710026F2AE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -148,6 +187,19 @@
 				4FC8F9DF1C061F4700D15752 /* TimeTableStorage.swift */,
 			);
 			name = DataStorage;
+			sourceTree = "<group>";
+		};
+		74080B481C46A0DA00A208AE /* nextlesson */ = {
+			isa = PBXGroup;
+			children = (
+				74080B5C1C46AC6C00A208AE /* nextlesson.entitlements */,
+				74080B491C46A0DA00A208AE /* TodayViewController.swift */,
+				74080B551C46A2D700A208AE /* TodayLayout.swift */,
+				74D67FD81C47C7AC009047DB /* DataReciever.swift */,
+				74080B4B1C46A0DA00A208AE /* MainInterface.storyboard */,
+				74080B4E1C46A0DA00A208AE /* Info.plist */,
+			);
+			path = nextlesson;
 			sourceTree = "<group>";
 		};
 		74285B831BF4B58200446CBF /* Storyboards */ = {
@@ -264,10 +316,10 @@
 		74EBE6941BDD56710026F2AE = {
 			isa = PBXGroup;
 			children = (
-				74428C4E1C1060AF0054BB5E /* TimeTableFirstTry.entitlements */,
 				4F4BE6871BFDEE3A001EDE35 /* .gitignore */,
 				74EBE69F1BDD56710026F2AE /* Timetable App */,
 				74EBE6AF1BDD56710026F2AE /* Info.plist */,
+				74080B481C46A0DA00A208AE /* nextlesson */,
 				743ED8871BF6339A00DA2E46 /* Frameworks */,
 				74EBE69E1BDD56710026F2AE /* Products */,
 			);
@@ -277,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				74EBE69D1BDD56710026F2AE /* Timetable App.app */,
+				74080B461C46A0D900A208AE /* nextlesson.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -284,6 +337,7 @@
 		74EBE69F1BDD56710026F2AE /* Timetable App */ = {
 			isa = PBXGroup;
 			children = (
+				74080B5B1C46AC5400A208AE /* Timetable App.entitlements */,
 				743ED89A1BF63E5900DA2E46 /* App */,
 			);
 			name = "Timetable App";
@@ -304,6 +358,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		74080B451C46A0D900A208AE /* nextlesson */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74080B541C46A0DA00A208AE /* Build configuration list for PBXNativeTarget "nextlesson" */;
+			buildPhases = (
+				74080B421C46A0D900A208AE /* Sources */,
+				74080B431C46A0D900A208AE /* Frameworks */,
+				74080B441C46A0D900A208AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = nextlesson;
+			productName = nextlesson;
+			productReference = 74080B461C46A0D900A208AE /* nextlesson.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		74EBE69C1BDD56710026F2AE /* Timetable App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74EBE6C81BDD56720026F2AE /* Build configuration list for PBXNativeTarget "Timetable App" */;
@@ -316,6 +387,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				74080B501C46A0DA00A208AE /* PBXTargetDependency */,
 			);
 			name = "Timetable App";
 			productName = TimeTableFirstTry;
@@ -328,10 +400,19 @@
 		74EBE6951BDD56710026F2AE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Aurel Feer";
 				TargetAttributes = {
+					74080B451C46A0D900A208AE = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = LFNP3438N3;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					74EBE69C1BDD56710026F2AE = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = LFNP3438N3;
@@ -364,11 +445,21 @@
 			projectRoot = "";
 			targets = (
 				74EBE69C1BDD56710026F2AE /* Timetable App */,
+				74080B451C46A0D900A208AE /* nextlesson */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		74080B441C46A0D900A208AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74080B4D1C46A0DA00A208AE /* MainInterface.storyboard in Resources */,
+				74D67FDA1C47C87D009047DB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74EBE69B1BDD56710026F2AE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -385,6 +476,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		74080B421C46A0D900A208AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74080B5A1C46A9C600A208AE /* LessonCollectionViewCell.swift in Sources */,
+				74080B561C46A2D700A208AE /* TodayLayout.swift in Sources */,
+				74DAD8B91C479D8500C7CD96 /* Day.swift in Sources */,
+				74080B571C46A9BC00A208AE /* TimeCollectionViewCell.swift in Sources */,
+				74D67FD91C47C7AC009047DB /* DataReciever.swift in Sources */,
+				74080B591C46A9C200A208AE /* ReplacedLessonCollectionViewCell.swift in Sources */,
+				74DAD8BA1C479D8800C7CD96 /* TimetableTime.swift in Sources */,
+				74080B5E1C46BA1C00A208AE /* UILesson.swift in Sources */,
+				74080B4A1C46A0DA00A208AE /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74EBE6991BDD56710026F2AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -422,7 +529,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		74080B501C46A0DA00A208AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74080B451C46A0D900A208AE /* nextlesson */;
+			targetProxy = 74080B4F1C46A0DA00A208AE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		74080B4B1C46A0DA00A208AE /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74080B4C1C46A0DA00A208AE /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		742889FA1BF73A870018EAE4 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -462,6 +585,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		74080B521C46A0DA00A208AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = nextlesson/nextlesson.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = nextlesson/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lee.labf.timetable.nextlesson;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		74080B531C46A0DA00A208AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = nextlesson/nextlesson.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = nextlesson/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lee.labf.timetable.nextlesson;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		74EBE6C61BDD56720026F2AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -547,7 +702,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TimeTableFirstTry/TimeTableFirstTry.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Timetable App.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -565,7 +720,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TimeTableFirstTry/TimeTableFirstTry.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Timetable App.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -582,6 +737,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		74080B541C46A0DA00A208AE /* Build configuration list for PBXNativeTarget "nextlesson" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74080B521C46A0DA00A208AE /* Debug */,
+				74080B531C46A0DA00A208AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		74EBE6981BDD56710026F2AE /* Build configuration list for PBXProject "Timetable App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

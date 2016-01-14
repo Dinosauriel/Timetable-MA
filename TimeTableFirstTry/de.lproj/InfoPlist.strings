@@ -7,4 +7,5 @@
  */
 
 //APPNAME
+"CFBundleName" = "Stundenplan";
 "CFBundleDisplayName" = "Stundenplan";

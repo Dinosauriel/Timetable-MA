@@ -8,3 +8,4 @@
 
 //APPNAME
 "CFBundleName" = "Timetable";
+"CFBundleDisplayName" = "Timetable";

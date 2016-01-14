@@ -10,6 +10,7 @@ import Foundation
 
 class TokenResponseHandler {
     let userDefaults = NSUserDefaults.standardUserDefaults()
+    let sharedDefaults = NSUserDefaults(suiteName: "group.lee.labf.timetable")
     
     var token : String!
     var tokenStorage = TokenStorage()
@@ -29,6 +30,8 @@ class TokenResponseHandler {
         //Set the bool which says if the token is valid or not to true
         userDefaults.setBool(true, forKey: "RetrievedNewToken")
         //Store the token for later use
+        
+        sharedDefaults?.setObject(token, forKey: "token")
         tokenStorage.storeTokenData(token)
         
     }

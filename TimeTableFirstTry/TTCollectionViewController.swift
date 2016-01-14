@@ -276,7 +276,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     func scrollToCurrentSection(scrollView: UIScrollView, animated: Bool) {
         if scrollView == self.collectionView {
             let targetScrollingPos = UICollectionViewScrollPosition.Right
-            let targetItem = currentLesson[0] - 1   //Modifiing returned Day so Monday(2) -> row 1
+            let targetItem = currentLesson[0] - 1   //Modifying returned Day so Monday(2) -> row 1
             
             let targetIndexPath = NSIndexPath(forItem: targetItem, inSection: 1) //Creating IndexPath based on recieved Day
             
