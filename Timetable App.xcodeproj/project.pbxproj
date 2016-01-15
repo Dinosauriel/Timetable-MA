@@ -33,6 +33,7 @@
 		742889F81BF73A870018EAE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 742889FA1BF73A870018EAE4 /* Localizable.strings */; };
 		74382ED91BEFBE13007A28C4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74382ED81BEFBE13007A28C4 /* Day.swift */; };
 		7443BE141BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */; };
+		7445B37C1C493E85005071BC /* GetLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7445B37B1C493E85005071BC /* GetLesson.swift */; };
 		7468840B1C0B701600F719BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7468840D1C0B701600F719BA /* Main.storyboard */; };
 		74866B071BEBE5570030FA95 /* UILesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B061BEBE5570030FA95 /* UILesson.swift */; };
 		74866B091BEBE9BA0030FA95 /* DeclareLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74866B081BEBE9BA0030FA95 /* DeclareLesson.swift */; };
@@ -108,6 +109,7 @@
 		74382ED81BEFBE13007A28C4 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		743ED8881BF6339A00DA2E46 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		7443BE131BED2E93007E6807 /* ReplacedLessonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplacedLessonCollectionViewCell.swift; sourceTree = "<group>"; };
+		7445B37B1C493E85005071BC /* GetLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLesson.swift; sourceTree = "<group>"; };
 		744AAE2E1C2ABB1200562BCF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		7468840C1C0B701600F719BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74866B061BEBE5570030FA95 /* UILesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILesson.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				74080B491C46A0DA00A208AE /* TodayViewController.swift */,
 				74080B551C46A2D700A208AE /* TodayLayout.swift */,
 				74D67FD81C47C7AC009047DB /* DataReciever.swift */,
+				7445B37B1C493E85005071BC /* GetLesson.swift */,
 				74080B4B1C46A0DA00A208AE /* MainInterface.storyboard */,
 				74080B4E1C46A0DA00A208AE /* Info.plist */,
 			);
@@ -480,6 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7445B37C1C493E85005071BC /* GetLesson.swift in Sources */,
 				74080B5A1C46A9C600A208AE /* LessonCollectionViewCell.swift in Sources */,
 				74080B561C46A2D700A208AE /* TodayLayout.swift in Sources */,
 				74DAD8B91C479D8500C7CD96 /* Day.swift in Sources */,
