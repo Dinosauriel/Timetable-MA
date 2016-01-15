@@ -13,6 +13,7 @@
 		4F4DE76A1C21CCDA00F67890 /* APIBackgroundHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DE7691C21CCDA00F67890 /* APIBackgroundHandler.swift */; };
 		4F4DE76C1C21E6A900F67890 /* TokenResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DE76B1C21E6A900F67890 /* TokenResponseHandler.swift */; };
 		4F8600711BE8D8B700FA53AD /* TimetableTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8600701BE8D8B700FA53AD /* TimetableTime.swift */; };
+		4F9603F91C495CFA002D56D5 /* URLBuildingSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F219C191C2472DF006EA0DB /* URLBuildingSupport.swift */; };
 		4FB5A78F1C060013007977FB /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5A78E1C060013007977FB /* APIHandler.swift */; };
 		4FBEFFEC1BEB7A78007C4647 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEFFEB1BEB7A78007C4647 /* Token.swift */; };
 		4FC8F9DC1C06190E00D15752 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8F9DB1C06190E00D15752 /* TokenStorage.swift */; };
@@ -481,6 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74080B5A1C46A9C600A208AE /* LessonCollectionViewCell.swift in Sources */,
+				4F9603F91C495CFA002D56D5 /* URLBuildingSupport.swift in Sources */,
 				74080B561C46A2D700A208AE /* TodayLayout.swift in Sources */,
 				74DAD8B91C479D8500C7CD96 /* Day.swift in Sources */,
 				74080B571C46A9BC00A208AE /* TimeCollectionViewCell.swift in Sources */,
