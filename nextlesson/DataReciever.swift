@@ -7,11 +7,16 @@
 //
 
 import Foundation
+import NotificationCenter
 
 class DataReciever {
     
     let sharedDefaults = NSUserDefaults(suiteName: "group.lee.labf.timetable")
     let urlBuilder:URLBuildingSupport = URLBuildingSupport()
+    let getLesson = GetLesson()
+    
+    let not = NSNotificationCenter.defaultCenter()
+        
     func getEntireTable() {
         let token:String = (sharedDefaults?.objectForKey("token"))! as! String
         
@@ -34,10 +39,15 @@ class DataReciever {
                     let keys = dataDict.allKeys
                     if !keys.contains({$0 as! String == "code"}) {
                         //success -> call draw function
+                        print("DataDict: \(dataDict.allKeys)")
+                        print("DataDict[timetable]: \(dataDict["timetable"]![1]![1]!["lessons"]!![1])")
+                        self.getLesson.setUpNextLessonsWithTimetable(dataDict)
+                        
+                        self.not.postNotificationName("DataSuccessfullyRetrieved", object: self)
                     } else {
                         //not successful
+                        self.not.postNotificationName("CouldntRetrieveData", object: self)
                     }
-                    
                 }
             } catch let myJSONError {
                 //In the case that the parsing of the data fails print the error

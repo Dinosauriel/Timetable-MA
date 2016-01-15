@@ -23,16 +23,20 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
     let timegetter = TimetableTime()
     let layout = TodayLayout()
     let day = Day()
+    let dataReciever = DataReciever()
+    let not = NSNotificationCenter.defaultCenter()
     
     let replacedTextColor = UIColor(hue: 206/360, saturation: 94/100, brightness: 98/100, alpha: 1.0) /* #0d94fc, Blue */
 
-    
     let numberOfSections = 3
     let numberOfColumns = 2
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
+        not.addObserver(self, selector: "displayNewData", name: "DataSuccessfullyRetrieved", object: nil)
+        not.addObserver(self, selector: "displayErrorNotification", name: "CouldntRetrieveData", object: nil)
+        
         refreshCurrentTime()
         super.viewDidLoad()
         
@@ -43,6 +47,15 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
         self.preferredContentSize = CGSizeMake(0, 230)
     }
     
+    //MARK: NOTIFICATION FUNCTIONS
+    func displayNewData() {
+        print("new Data recieved")
+    }
+    
+    func displayErrorNotification() {
+        print("There was an Error Recieving the Data.. please relog in the App")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,6 +63,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
+        dataReciever.getEntireTable()
         
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
@@ -97,6 +111,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
             
             if indexPath.section != (numberOfSections - 1) {
                 timeCell.dividingView.backgroundColor = UIColor.whiteColor()
+            } else {
+                timeCell.dividingView.backgroundColor = UIColor.clearColor()
             }
             
             return timeCell
@@ -118,6 +134,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
                 
                 if indexPath.section != (numberOfSections - 1) {
                     lessonCell.dividingView.backgroundColor = UIColor.whiteColor()
+                } else {
+                    lessonCell.dividingView.backgroundColor = UIColor.clearColor()
                 }
                 
                 celltoreturn = lessonCell
@@ -138,6 +156,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
                 
                 if indexPath.section != (numberOfSections - 1) {
                     lessonCell.dividingView.backgroundColor = UIColor.whiteColor()
+                } else {
+                    lessonCell.dividingView.backgroundColor = UIColor.clearColor()
                 }
                 
                 celltoreturn = lessonCell
@@ -165,6 +185,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
                 
                 if indexPath.section != (numberOfSections - 1) {
                     replacedlessonCell.dividingView.backgroundColor = UIColor.whiteColor()
+                } else {
+                    replacedlessonCell.dividingView.backgroundColor = UIColor.clearColor()
                 }
                 
                 celltoreturn = replacedlessonCell
@@ -178,6 +200,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
                 
                 if indexPath.section != (numberOfSections - 1) {
                     lessonCell.dividingView.backgroundColor = UIColor.whiteColor()
+                } else {
+                    lessonCell.dividingView.backgroundColor = UIColor.clearColor()
                 }
                 
                 celltoreturn = lessonCell
@@ -190,6 +214,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
                 
                 if indexPath.section != (numberOfSections - 1) {
                     lessonCell.dividingView.backgroundColor = UIColor.whiteColor()
+                } else {
+                    lessonCell.dividingView.backgroundColor = UIColor.clearColor()
                 }
                 
                 celltoreturn = lessonCell
@@ -206,6 +232,11 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
                 lessonCell.subjectLabel.textColor = replacedTextColor
                 lessonCell.roomLabel.textColor = replacedTextColor
                 
+                if indexPath.section != (numberOfSections - 1) {
+                    lessonCell.dividingView.backgroundColor = UIColor.whiteColor()
+                } else {
+                    lessonCell.dividingView.backgroundColor = UIColor.clearColor()
+                }
                 
                 celltoreturn = lessonCell
             }
