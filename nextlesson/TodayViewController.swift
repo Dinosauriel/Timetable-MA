@@ -15,6 +15,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
     let timeCellIdentifier = "TimeCellIdentifier"
     let lessonCellIdentifier = "LessonCellIdentifier"
     let replacedlessonCellIdentifier = "ReplacedLessonCellIdentifier"
+    let specialLessonCellIdentifier = "specialLessonCellIdentifier"
     
     let numberOfLessonsInDay = 12
     
@@ -26,6 +27,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
     let dataReciever = DataReciever()
     let not = NSNotificationCenter.defaultCenter()
     
+    let specialLessonBackgroundColor = UIColor(hue: 0.4778, saturation: 0.73, brightness: 0.46, alpha: 1.0) //#18776c, DARKGREEN
+    let specialDividingLineColor = UIColor(hue: 0.4833, saturation: 0.79, brightness: 0.7, alpha: 1.0) // #25b2a4, GDARGREEN-BLUE
     let replacedTextColor = UIColor(hue: 206/360, saturation: 94/100, brightness: 98/100, alpha: 1.0) /* #0d94fc, Blue */
 
     let numberOfSections = 3
@@ -44,7 +47,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
         print("token in userDefaults: \(userDefaults!.stringForKey("token"))")
         
         self.collectionView.backgroundColor = UIColor.clearColor()
-        self.preferredContentSize = CGSizeMake(0, 230)
+        self.preferredContentSize = CGSizeMake(0, 210)
     }
     
     //MARK: NOTIFICATION FUNCTIONS
@@ -120,7 +123,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
             
             let celltoreturn: UICollectionViewCell
             
-            let alesson = UILesson(subject: "Ro", teacher: "Bo", room: "Craft", status: .Replaced, subsubject: "", subteacher: "", subroom: "")
+            let alesson = UILesson(subject: "Ro", teacher: "Bo", room: "Craft", status: .Special, subsubject: "", subteacher: "", subroom: "")
             
             switch alesson.status {
             case .Default:
@@ -207,10 +210,19 @@ class TodayViewController: UIViewController, NCWidgetProviding, UICollectionView
                 celltoreturn = lessonCell
                 
             case .Special:
-                let lessonCell: LessonCollectionViewCell = collectionView .dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                //Get special Lesson
+                let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(specialLessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                //Declare label content
                 lessonCell.subjectLabel.text = alesson.subject
                 lessonCell.teacherLabel.text = alesson.teacher
                 lessonCell.roomLabel.text = alesson.room
+                //Declare label appearance
+                lessonCell.subjectLabel.textColor = UIColor.whiteColor()
+                lessonCell.teacherLabel.textColor = UIColor.whiteColor()
+                lessonCell.roomLabel.textColor = UIColor.whiteColor()
+                //Declare cell appearance
+                lessonCell.backgroundColor = specialLessonBackgroundColor
+                lessonCell.dividingView.backgroundColor = specialDividingLineColor
                 
                 if indexPath.section != (numberOfSections - 1) {
                     lessonCell.dividingView.backgroundColor = UIColor.whiteColor()
