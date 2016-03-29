@@ -50,7 +50,7 @@ class URLBuildingSupport {
     }
     
     func getURLForCurrentDate(token:String) -> String {
-        let URLBaseRequestString = "https://stage.tam.ch/klw/rest/mobile-timetable/auth/"
+        let URLBaseRequestString = "https://intranet.tam.ch/klw/rest/mobile-timetable/auth/"
         
         //The resource-string for the data with filters
         let date = NSDate()
