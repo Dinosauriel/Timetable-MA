@@ -77,7 +77,11 @@ class APIBackgroundHandler {
             default: print("default"); return "failed"
             }
         } else {
-            return checkForChanges(dataDict)
+            let returnString = checkForChanges(dataDict)
+            if returnString == "newData" {
+                timeTableStorage.storeTimeTableData(dataDict)
+            }
+            return returnString
         }
     }
     
@@ -108,6 +112,7 @@ class APIBackgroundHandler {
                             print("changed")
                             let dateTime = notificationHandler.getCurrentTimeAsString()
                             notificationHandler.addNewNotificationToQueue(FireDate: dateTime, Title: NSLocalizedString("changedNotificationTitle", comment: "changedNotificationTitle"), Message: NSLocalizedString("changedNotificationBody", comment: "changedNotificationBody"))
+                            return "newData"
                         }
                     }
                     ++lessonItr
@@ -116,8 +121,6 @@ class APIBackgroundHandler {
             }
             ++weeksItr
         }
-        timeTableStorage.storeTimeTableData(newData)
-        return "newData"
     }
     
 }
