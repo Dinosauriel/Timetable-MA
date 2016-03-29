@@ -149,7 +149,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                 }
                 
                 // Updating column for next row in this section
-                ++column
+                column += 1
                 
                 if column == numberOfColumns {
                     // Adapting ContentWidth if necessairy

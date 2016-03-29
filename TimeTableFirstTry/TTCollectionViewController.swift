@@ -70,7 +70,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     Preparing collectionView
     */
     override func viewDidLoad() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "checkToken", name: "newData", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TTCollectionViewController.checkToken), name: "newData", object: nil)
         adaptLayout()
         super.viewDidLoad()
         assignCurrentLesson()

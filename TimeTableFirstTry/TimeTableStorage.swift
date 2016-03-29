@@ -59,11 +59,11 @@ public class TimeTableStorage {
                         TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["class"]!), StartTime: String(lesson["start"]!), EndTime: String(lesson["end"]!), Location: locationString, Subject: String(lesson["title"]!), Teacher: acronymString, Day: String(day["date"]!), Event: String(lesson["eventType"]!), ID: Int64(lesson["id"]! as! Int))
                     }
                     //print(lesson)
-                    ++lessonItr
+                    lessonItr += 1
                 }
-                ++dayItr
+                dayItr += 1
             }
-            ++weeksItr
+            weeksItr += 1
         }
 
         //Writing to the file in case of interruption (XCode-Stop)

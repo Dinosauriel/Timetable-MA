@@ -15,6 +15,7 @@ class APIBackgroundHandler {
     var UserDefaults = NSUserDefaults.standardUserDefaults()
     let tokenStorage:TokenStorage = TokenStorage()
     let urlBuilder:URLBuildingSupport = URLBuildingSupport()
+    let timeTableStorage = TimeTableStorage()
     
     // Fetch Background data
     
@@ -115,11 +116,11 @@ class APIBackgroundHandler {
                             return "newData"
                         }
                     }
-                    ++lessonItr
+                    lessonItr += 1
                 }
-                ++dayItr
+                dayItr += 1
             }
-            ++weeksItr
+            weeksItr += 1
         }
     }
     

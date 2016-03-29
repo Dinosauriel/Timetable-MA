@@ -136,7 +136,7 @@ class TimetableTime {
         
         //Skip to next day if the last lesson has ended
         if calendar.compareDate(date, toDate: lastLessonEnd, toUnitGranularity: .Minute) == .OrderedDescending {
-            ++weekDay
+            weekDay += 1
         }
         
         //Skip weekend
