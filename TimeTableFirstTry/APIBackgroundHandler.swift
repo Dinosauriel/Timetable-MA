@@ -121,6 +121,7 @@ class APIBackgroundHandler {
             }
             ++weeksItr
         }
+return "noData"
     }
     
 }
