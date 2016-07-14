@@ -34,6 +34,7 @@ class APIHandler {
         
         let URLRequestString = urlBuilder.getURLForCurrentDate(token)
         
+        print(URLRequestString)
         //Creating an NSURL with the string
         let requestURL = NSURL(string: URLRequestString)
         //Creating a URLRequest and setting the parameters for it
