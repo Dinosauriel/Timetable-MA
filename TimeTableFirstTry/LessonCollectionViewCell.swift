@@ -27,15 +27,15 @@ class LessonCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         
-        self.crossOutView.backgroundColor = UIColor.clearColor()
+        self.crossOutView.backgroundColor = UIColor.clear
         
-        if self.subjectLabel.textColor != UIColor.blackColor() {
+        if self.subjectLabel.textColor != UIColor.black {
             
-            self.subjectLabel.textColor = UIColor.blackColor()
-            self.teacherLabel.textColor = UIColor.blackColor()
-            self.roomLabel.textColor = UIColor.blackColor()
+            self.subjectLabel.textColor = UIColor.black
+            self.teacherLabel.textColor = UIColor.black
+            self.roomLabel.textColor = UIColor.black
         }
         
         self.dividingView.backgroundColor = dividingLineColor

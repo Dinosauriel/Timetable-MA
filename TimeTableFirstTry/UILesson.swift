@@ -36,19 +36,19 @@ struct UILesson {
     var status: Status
     
     enum Status {
-        case Default
-        case Replaced
-        case Cancelled
-        case Empty
-        case Special
-        case MovedTo
+        case `default`
+        case replaced
+        case cancelled
+        case empty
+        case special
+        case movedTo
     }
     
     enum Day {
-        case Monday
-        case Thursday
-        case Wednesday
-        case Tuesday
-        case Friday
+        case monday
+        case thursday
+        case wednesday
+        case tuesday
+        case friday
     }
 }

@@ -22,7 +22,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let loginSegueIdentifier = "showLogin"
     
     //MARK: TIME
-    let calendar = NSCalendar.currentCalendar()
+    let calendar = Calendar.current
     
     //MARK: CLASSES
     let timegetter = TimetableTime()
@@ -32,7 +32,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     let day = Day()
     let sup = DeviceSupport()
     
-    var userDefaults = NSUserDefaults.standardUserDefaults()
+    var userDefaults = UserDefaults.standard
 
     //MARK: INTEGERS
     let numberOfSections = 13
@@ -43,10 +43,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     
     //MARK: COLORS
     let dividingLineColor = UIColor(hue: 0.8639, saturation: 0, brightness: 0.83, alpha: 1.0) //GRAY
-    let white = UIColor.whiteColor()
-    let replacedLessonTextColor = UIColor.blueColor()
-    let cancelledLessonTextColor = UIColor.redColor()
-    let defaultTextColor = UIColor.blackColor()
+    let white = UIColor.white
+    let replacedLessonTextColor = UIColor.blue
+    let cancelledLessonTextColor = UIColor.red
+    let defaultTextColor = UIColor.black
     let specialLessonBackgroundColor = UIColor(hue: 0.4778, saturation: 0.73, brightness: 0.46, alpha: 1.0) //#18776c, DARKGREEN
     let specialDividingLineColor = UIColor(hue: 0.4833, saturation: 0.79, brightness: 0.7, alpha: 1.0) // #25b2a4, GDARGREEN-BLUE
 
@@ -70,25 +70,25 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     Preparing collectionView
     */
     override func viewDidLoad() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TTCollectionViewController.checkToken), name: "newData", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TTCollectionViewController.checkToken), name: NSNotification.Name(rawValue: "newData"), object: nil)
         adaptLayout()
         super.viewDidLoad()
         assignCurrentLesson()
         self.collectionView.backgroundColor = dividingLineColor
     }
     
-    override func viewDidAppear(animated: Bool) {
-        if !userDefaults.boolForKey("loginCancelled") {
+    override func viewDidAppear(_ animated: Bool) {
+        if !userDefaults.bool(forKey: "loginCancelled") {
             checkToken()
         } else {
-            userDefaults.setBool(false, forKey: "loginCancelled")
+            userDefaults.set(false, forKey: "loginCancelled")
         }
     }
     
     /**
     Reloading Layout and showing Day
     */
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         adaptLayout()
         scrollToCurrentSection(self.collectionView, animated: false)
     }
@@ -97,7 +97,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     Detecting orientation and setting Layout appropiatly
     */
     func adaptLayout() {
-        if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
+        if UIApplication.shared.statusBarOrientation == .portrait {
             addStatusBar()
             setLayoutToPortrait(false)
         } else {
@@ -110,7 +110,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     /**
     Goes back to today
     */
-    @IBAction func backButton(sender: AnyObject) {
+    @IBAction func backButton(_ sender: AnyObject) {
         assignCurrentLesson()
         scrollToCurrentSection(self.collectionView, animated: true)
     }
@@ -120,12 +120,12 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     /**
     Loading Data and getting New Token if necessary
     */
-    @IBAction func refreshButton(sender: AnyObject) {
-        if !userDefaults.boolForKey("isSaving") {
+    @IBAction func refreshButton(_ sender: AnyObject) {
+        if !userDefaults.bool(forKey: "isSaving") {
             let apiHandler = APIHandler()
             apiHandler.getDataWithToken()
             print("REFRESH!!")
-            print("RetrivedNewToken: " + String(userDefaults.boolForKey("RetrievedNewToken")))
+            print("RetrivedNewToken: " + String(userDefaults.bool(forKey: "RetrievedNewToken")))
             checkToken()
         }
     }
@@ -135,7 +135,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     */
     func checkToken() {
         self.collectionView.reloadData()
-        if !userDefaults.boolForKey("RetrievedNewToken") {
+        if !userDefaults.bool(forKey: "RetrievedNewToken") {
             goToLogin()
         }
     }
@@ -144,7 +144,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     Shows the login View Controller
     */
     func goToLogin() {
-        self.performSegueWithIdentifier(loginSegueIdentifier, sender: nil)
+        self.performSegue(withIdentifier: loginSegueIdentifier, sender: nil)
     }
     
 
@@ -172,22 +172,22 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     /**
     Change the Layout of the collectionView to TTCollectionViewLayout
     */
-    func setLayoutToPortrait(animated: Bool) {
+    func setLayoutToPortrait(_ animated: Bool) {
         self.collectionView.setCollectionViewLayout(layout, animated: animated)
     }
     
     /**
     Change the Layout of the collectionView to TTLandscapeCollectionViewLayout
     */
-    func setLayoutToLandscape(animated: Bool) {
+    func setLayoutToLandscape(_ animated: Bool) {
         self.collectionView.setCollectionViewLayout(landscapelayout, animated: animated)
     }
     
     /**
     Make needed changes for Rotation
     */
-    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        if toInterfaceOrientation == .Portrait {
+    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+        if toInterfaceOrientation == .portrait {
             addStatusBar()
             setLayoutToPortrait(true)
         } else {
@@ -199,12 +199,12 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     /**
     Scroll to current section if portrait
     */
-    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        if fromInterfaceOrientation != .Portrait {
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        if fromInterfaceOrientation != .portrait {
             scrollToOptimalSection(self.collectionView, animated: true)     //Scroll to the section that is best
         }
         // Reload Day section so Dates are shorter if needed
-        self.collectionView.reloadSections(NSIndexSet(index: 0))
+        self.collectionView.reloadSections(IndexSet(integer: 0))
     }
     
     
@@ -214,7 +214,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     /**
     Setting scrollStartContentOffset for later use
     */
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if scrollView == collectionView {
             scrollStartContentOffset = collectionView.contentOffset
             scrollStartContentOffset.x += layout.getTimeColumnWidth()
@@ -224,8 +224,8 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     /**
     Check if orientation is portrait and scroll to optimal Section
     */
-    func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
-        if UIApplication.sharedApplication().statusBarOrientation == .Portrait || UIApplication.sharedApplication().statusBarOrientation == .PortraitUpsideDown  {
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        if UIApplication.shared.statusBarOrientation == .portrait || UIApplication.shared.statusBarOrientation == .portraitUpsideDown  {
             scrollToOptimalSection(scrollView, animated: true)
         }
     }
@@ -233,9 +233,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     /**
     Check if abrupt stop and if orientation is portrait and scroll to optimal section
     */
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
-            if UIApplication.sharedApplication().statusBarOrientation == .Portrait || UIApplication.sharedApplication().statusBarOrientation == .PortraitUpsideDown {
+            if UIApplication.shared.statusBarOrientation == .portrait || UIApplication.shared.statusBarOrientation == .portraitUpsideDown {
                 scrollToOptimalSection(scrollView, animated: true)
             }
         }
@@ -244,9 +244,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     /**
     Determining the best cell for current offset and scrolling to it
     */
-    func scrollToOptimalSection(scrollView: UIScrollView, animated: Bool) {
+    func scrollToOptimalSection(_ scrollView: UIScrollView, animated: Bool) {
         if scrollView == self.collectionView {
-            let targetScrollingPos = UICollectionViewScrollPosition.Right
+            let targetScrollingPos = UICollectionViewScrollPosition.right
             
             var currentCellOffset: CGPoint = self.collectionView.contentOffset  //Determining current Offset
             currentCellOffset.x += layout.getTimeColumnWidth()                  //Adapting it to get the true Offset
@@ -262,10 +262,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 currentCellOffset.x += (columnWidth * rightTargetFactor)
             }
             
-            let currentIndexPath = collectionView.indexPathForItemAtPoint(currentCellOffset)    //New IndexPath based on modified Offset
+            let currentIndexPath = collectionView.indexPathForItem(at: currentCellOffset)    //New IndexPath based on modified Offset
             if currentIndexPath != nil {
-                let targetCellIndexPath = NSIndexPath(forItem: (currentIndexPath?.row)!, inSection: (currentIndexPath?.section)! + 1)
-                collectionView.scrollToItemAtIndexPath(targetCellIndexPath, atScrollPosition: targetScrollingPos, animated: animated) //Scrolling to determined IndexPath
+                let targetCellIndexPath = IndexPath(item: ((currentIndexPath as NSIndexPath?)?.row)!, section: ((currentIndexPath as NSIndexPath?)?.section)! + 1)
+                collectionView.scrollToItem(at: targetCellIndexPath, at: targetScrollingPos, animated: animated) //Scrolling to determined IndexPath
             }
         }
     }
@@ -273,14 +273,14 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     /**
     Determining the current Day and scrolling to corresponding section
     */
-    func scrollToCurrentSection(scrollView: UIScrollView, animated: Bool) {
+    func scrollToCurrentSection(_ scrollView: UIScrollView, animated: Bool) {
         if scrollView == self.collectionView {
-            let targetScrollingPos = UICollectionViewScrollPosition.Right
+            let targetScrollingPos = UICollectionViewScrollPosition.right
             let targetItem = currentLesson[0] - 1   //Modifying returned Day so Monday(2) -> row 1
             
-            let targetIndexPath = NSIndexPath(forItem: targetItem, inSection: 1) //Creating IndexPath based on recieved Day
+            let targetIndexPath = IndexPath(item: targetItem, section: 1) //Creating IndexPath based on recieved Day
             
-            collectionView.scrollToItemAtIndexPath(targetIndexPath, atScrollPosition: targetScrollingPos, animated: animated) //Scroll to IndexPath
+            collectionView.scrollToItem(at: targetIndexPath, at: targetScrollingPos, animated: animated) //Scroll to IndexPath
         }
     }
     
@@ -297,23 +297,23 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     /**
     The CollectionView has numberOfSections sections
     */
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return numberOfSections
     }
     
     /**
     The CollectionView has numberOfColumns items in everySection
     */
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numberOfColumns
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         assignCurrentLesson()
         
-        if indexPath.section == 0 { //First section
-            if indexPath.row == 0 { //Top Left corner
-                let dayCell: DayCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
+        if (indexPath as NSIndexPath).section == 0 { //First section
+            if (indexPath as NSIndexPath).row == 0 { //Top Left corner
+                let dayCell: DayCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: dayCellIdentifier, for: indexPath) as! DayCollectionViewCell
 
                 dayCell.dayLabel.text = NSLocalizedString("time", comment: "TransForTime")
                 
@@ -325,10 +325,10 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 return dayCell
                 
             } else {    //Day section without first row
-                let dayCell: DayCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(dayCellIdentifier, forIndexPath: indexPath) as! DayCollectionViewCell
+                let dayCell: DayCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: dayCellIdentifier, for: indexPath) as! DayCollectionViewCell
                 
                 let dayArray: [String]
-                if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
+                if UIApplication.shared.statusBarOrientation == .portrait {
                     dayArray = day.generateDayArray(.long, forUI: true)
                 } else {
                     if sup.getAbsoluteDisplayHeight() > 480 {
@@ -337,11 +337,11 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         dayArray = day.generateDayArray(.veryshort, forUI: true)
                     }
                 }
-                dayCell.dayLabel.text = dayArray[indexPath.row - 1]
+                dayCell.dayLabel.text = dayArray[(indexPath as NSIndexPath).row - 1]
                 
                 dayCell.dividingView.backgroundColor = dividingLineColor
-                if indexPath.item == (currentLesson[0] - 1) {
-                    dayCell.dayLabel.font = UIFont.boldSystemFontOfSize(13)
+                if (indexPath as NSIndexPath).item == (currentLesson[0] - 1) {
+                    dayCell.dayLabel.font = UIFont.boldSystemFont(ofSize: 13)
                 }
                 
                 dayCell.backgroundColor = yellowGreen
@@ -351,12 +351,12 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 
             }
         } else { //Everything but the first section
-            if indexPath.row == 0 { //Time column without the first section
+            if (indexPath as NSIndexPath).row == 0 { //Time column without the first section
                 
-                let timeCell: TimeCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(timeCellIdentifier, forIndexPath: indexPath) as! TimeCollectionViewCell
+                let timeCell: TimeCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: timeCellIdentifier, for: indexPath) as! TimeCollectionViewCell
 
-                timeCell.starttimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section - 1, when: .Start, withSeconds:  false)
-                timeCell.endtimeLabel.text = timegetter.getLessonTimeAsString(indexPath.section - 1, when: .End, withSeconds: false)
+                timeCell.starttimeLabel.text = timegetter.getLessonTimeAsString((indexPath as NSIndexPath).section - 1, when: .start, withSeconds:  false)
+                timeCell.endtimeLabel.text = timegetter.getLessonTimeAsString((indexPath as NSIndexPath).section - 1, when: .end, withSeconds: false)
                 
                 timeCell.dividingView.backgroundColor = dividingLineColor
                 
@@ -367,13 +367,13 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 let celltoreturn: UICollectionViewCell
                 
                 //UILesson with all the necessairy information
-                let alesson: UILesson = declarelesson.getNewLessonForUI(indexPath.section, item: indexPath.item)
+                let alesson: UILesson = declarelesson.getNewLessonForUI((indexPath as NSIndexPath).section, item: (indexPath as NSIndexPath).item)
                 
                 //The appearance changes for the different states of the UILesson
                 switch alesson.status {
-                    case .Default:
+                    case .default:
                         //Get default lesson
-                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: lessonCellIdentifier, for: indexPath) as! LessonCollectionViewCell
                         //Declaring label content
                         lessonCell.subjectLabel.text = alesson.subject
                         lessonCell.teacherLabel.text = alesson.teacher
@@ -383,9 +383,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         
                         celltoreturn = lessonCell as LessonCollectionViewCell
                     
-                    case .Cancelled:
+                    case .cancelled:
                         //Get cancelled lesson
-                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: lessonCellIdentifier, for: indexPath) as! LessonCollectionViewCell
                         //Declaring label content
                         lessonCell.subjectLabel.text = alesson.subject
                         lessonCell.teacherLabel.text = alesson.teacher
@@ -401,9 +401,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 
                         celltoreturn = lessonCell
                     
-                    case .Replaced:
+                    case .replaced:
                         //Get replaced lesson
-                        let replacedlessonCell: ReplacedLessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(replacedlessonCellIdentifier, forIndexPath: indexPath) as! ReplacedLessonCollectionViewCell
+                        let replacedlessonCell: ReplacedLessonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: replacedlessonCellIdentifier, for: indexPath) as! ReplacedLessonCollectionViewCell
                         //Declaring label content
                         replacedlessonCell.subjectLabel.text = alesson.subject
                         replacedlessonCell.teacherLabel.text = alesson.teacher
@@ -424,9 +424,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                     
                         celltoreturn = replacedlessonCell
                     
-                    case .Empty:
+                    case .empty:
                         //Get empty lesson
-                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: lessonCellIdentifier, for: indexPath) as! LessonCollectionViewCell
                         // Declaring label content
                         lessonCell.subjectLabel.text = ""
                         lessonCell.teacherLabel.text = ""
@@ -437,9 +437,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         
                         celltoreturn = lessonCell
                     
-                    case .Special:
+                    case .special:
                         //Get special Lesson
-                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(specialLessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: specialLessonCellIdentifier, for: indexPath) as! LessonCollectionViewCell
                         //Declare label content
                         lessonCell.subjectLabel.text = alesson.subject
                         lessonCell.teacherLabel.text = alesson.teacher
@@ -454,9 +454,9 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                         
                         celltoreturn = lessonCell
                     
-                    case .MovedTo:
+                    case .movedTo:
                         //Get moved lesson
-                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(lessonCellIdentifier, forIndexPath: indexPath) as! LessonCollectionViewCell
+                        let lessonCell: LessonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: lessonCellIdentifier, for: indexPath) as! LessonCollectionViewCell
                         //Declare label content
                         lessonCell.teacherLabel.text = alesson.teacher
                         lessonCell.subjectLabel.text = alesson.subject
@@ -470,7 +470,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
                 }
                 
                 //Mark the current Lesson
-                if indexPath.item == currentLesson[0] - 1 && indexPath.section == currentLesson[1] + 1 {
+                if (indexPath as NSIndexPath).item == currentLesson[0] - 1 && (indexPath as NSIndexPath).section == currentLesson[1] + 1 {
                     celltoreturn.backgroundColor = currentLessonMarker
                 }
 

@@ -13,7 +13,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet var settingsTableView: UITableView!
     
     //MARK: CLASSES
-    let userDefaults = NSUserDefaults.standardUserDefaults()
+    let userDefaults = UserDefaults.standard
     
     //MARK: STRINGS
     let settingsMainMenuCellIdentifier = "settingsMainMenuCellIdentifier"
@@ -40,21 +40,21 @@ class SettingsTableViewController: UITableViewController {
     /**
     Reloading date when view appears.
     */
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.settingsTableView.reloadData()
     }
     
     /**
     Go to login if first row is pressed
     */
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section == 0 {
-            if indexPath.row == 0 {
-                self.performSegueWithIdentifier(showLoginSegueIdentifier, sender: self)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath as NSIndexPath).section == 0 {
+            if (indexPath as NSIndexPath).row == 0 {
+                self.performSegue(withIdentifier: showLoginSegueIdentifier, sender: self)
             }
         } else {
-            if indexPath.row == 0 {
-                self.performSegueWithIdentifier(showFirstLaunchSegueIdentifier, sender: self)
+            if (indexPath as NSIndexPath).row == 0 {
+                self.performSegue(withIdentifier: showFirstLaunchSegueIdentifier, sender: self)
             }
         }
     }
@@ -62,51 +62,51 @@ class SettingsTableViewController: UITableViewController {
     /**
     One section in tableView
     */
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
     /**
     Two rows in tableView
     */
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.numberOfColumnsInSection[section]
     }
     
     /**
     60 points distance between sections
     */
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }
     
     /**
     Assign title to section one
     */
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.sectionTitles[section]
     }
     
     /**
     Assign the given cells to the indexPath
     */
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            if indexPath.row == 0 {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath as NSIndexPath).section == 0 {
+            if (indexPath as NSIndexPath).row == 0 {
                 //Normal Cell
-                let cell = settingsTableView.dequeueReusableCellWithIdentifier(settingsMainMenuCellIdentifier, forIndexPath: indexPath) as UITableViewCell
-                cell.textLabel?.text = settingsMainMenu[indexPath.row]
+                let cell = settingsTableView.dequeueReusableCell(withIdentifier: settingsMainMenuCellIdentifier, for: indexPath) as UITableViewCell
+                cell.textLabel?.text = settingsMainMenu[(indexPath as NSIndexPath).row]
                 return cell
             } else {
                 //UserInfo Cell
-                let cell = settingsTableView.dequeueReusableCellWithIdentifier(userInfoCellIdentifier) as! UserInfoCell
+                let cell = settingsTableView.dequeueReusableCell(withIdentifier: userInfoCellIdentifier) as! UserInfoCell
                 cell.infoCell.text = NSLocalizedString("loginState", comment: "noob")
-                cell.firstNameCell.text = userDefaults.valueForKey("userfirstname") as? String
-                cell.lastNameCell.text = userDefaults.valueForKey("userlastname") as? String
+                cell.firstNameCell.text = userDefaults.value(forKey: "userfirstname") as? String
+                cell.lastNameCell.text = userDefaults.value(forKey: "userlastname") as? String
                 return cell
             }
         } else {
-            let cell = settingsTableView.dequeueReusableCellWithIdentifier(settingsMainMenuCellIdentifier, forIndexPath: indexPath) as UITableViewCell
+            let cell = settingsTableView.dequeueReusableCell(withIdentifier: settingsMainMenuCellIdentifier, for: indexPath) as UITableViewCell
             cell.textLabel?.text = NSLocalizedString("showFL", comment: "TransForSettings")
             return cell
         }
