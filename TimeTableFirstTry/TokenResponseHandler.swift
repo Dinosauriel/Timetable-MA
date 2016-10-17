@@ -9,8 +9,8 @@
 import Foundation
 
 class TokenResponseHandler {
-    let userDefaults = NSUserDefaults.standardUserDefaults()
-    let sharedDefaults = NSUserDefaults(suiteName: "group.lee.labf.timetable")
+    let userDefaults = UserDefaults.standard
+    let sharedDefaults = UserDefaults(suiteName: "group.lee.labf.timetable")
     
     var token : String!
     var tokenStorage = TokenStorage()
@@ -18,20 +18,20 @@ class TokenResponseHandler {
     /**
      Handles the response of the Authentication-Service by extracting the token from the URL
      */
-    func handleTokenResponse(url : NSURL) {
+    func handleTokenResponse(_ url : URL) {
         //Convert the NSURL to a string
-        let URLString = String(url)
+        let URLString = String(describing: url)
         //Extract the token out of the string
-        let stringArr = URLString.componentsSeparatedByString("&")
-        let tokenArr = stringArr[0].componentsSeparatedByString("=")
+        let stringArr = URLString.components(separatedBy: "&")
+        let tokenArr = stringArr[0].components(separatedBy: "=")
         
         //Stores the token in a seperate variable
         token = tokenArr[1]
         //Set the bool which says if the token is valid or not to true
-        userDefaults.setBool(true, forKey: "RetrievedNewToken")
+        userDefaults.set(true, forKey: "RetrievedNewToken")
         //Store the token for later use
         
-        sharedDefaults?.setObject(token, forKey: "token")
+        sharedDefaults?.set(token, forKey: "token")
         tokenStorage.storeTokenData(token)
         
     }

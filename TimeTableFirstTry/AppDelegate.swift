@@ -18,45 +18,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var APIHandlerVar: APIHandler?
     var tokenResponseVar: TokenResponseHandler?
     var APIBackgroundHandlerVar: APIBackgroundHandler?
-    var UserDefaults = NSUserDefaults.standardUserDefaults()
+    var UserDefaults = Foundation.UserDefaults.standard
     let collectionView = TTCollectionViewController()
     
     //let sharedDefaults = NSUserDefaults(suiteName: "group.lee.labf.timetable")
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         //sharedDefaults?.setObject("Robocraft", forKey: "token")
         
         //MARK: DETECTING FIRST LAUNCH
-        if UserDefaults.objectForKey("HasLaunchedOnce") == nil {
-            UserDefaults.setBool(false, forKey: "HasLaunchedOnce")
-            UserDefaults.setBool(true, forKey: "RetrievedNewToken")
+        if UserDefaults.object(forKey: "HasLaunchedOnce") == nil {
+            UserDefaults.set(false, forKey: "HasLaunchedOnce")
+            UserDefaults.set(true, forKey: "RetrievedNewToken")
         }
-        UserDefaults.setBool(false, forKey: "isSaving")
-        UserDefaults.setBool(false, forKey: "loginCancelled")
+        UserDefaults.set(false, forKey: "isSaving")
+        UserDefaults.set(false, forKey: "loginCancelled")
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var initialViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarVCID")
+        var initialViewController = storyboard.instantiateViewController(withIdentifier: "TabBarVCID")
         
-        if !UserDefaults.boolForKey("HasLaunchedOnce") {
-            initialViewController = storyboard.instantiateViewControllerWithIdentifier("FLPVCID")
+        if !UserDefaults.bool(forKey: "HasLaunchedOnce") {
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "FLPVCID")
         }
         
         self.window?.rootViewController = initialViewController
         
         //MARK: Push-notifications
-        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+        UIApplication.shared.registerUserNotificationSettings(settings)
         
         //MARK: API
         APIHandlerVar = APIHandler()
         tokenResponseVar = TokenResponseHandler()
-        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
         return true
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?,annotation: AnyObject) -> Bool {
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?,annotation: Any) -> Bool {
 
         tokenResponseVar?.handleTokenResponse(url)
         
@@ -64,44 +64,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // Support for background fetch
-    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        if UserDefaults.boolForKey("RetrievedNewToken") && !UserDefaults.boolForKey("isSaving") {
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        if UserDefaults.bool(forKey: "RetrievedNewToken") && !UserDefaults.bool(forKey: "isSaving") {
             //UserDefaults.setBool(true, forKey: "isSaving")
             APIBackgroundHandlerVar = APIBackgroundHandler()
             APIBackgroundHandlerVar!.getBackgroundData({ (status) -> Void in
                 switch status {
-                case "failed": completionHandler(.Failed); UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalNever)
-                case "newData": completionHandler(.NewData)
-                case "noData": completionHandler(.NoData)
-                default: completionHandler(.NoData)
+                case "failed": completionHandler(.failed); UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalNever)
+                case "newData": completionHandler(.newData)
+                case "noData": completionHandler(.noData)
+                default: completionHandler(.noData)
                 }
             })
         } else {
-            if UserDefaults.boolForKey("isSaving") {
-                completionHandler(.NoData)
+            if UserDefaults.bool(forKey: "isSaving") {
+                completionHandler(.noData)
             }
         }
     }
 
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
 
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
 
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
 
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
@@ -109,34 +109,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data stack
 
-    lazy var applicationDocumentsDirectory: NSURL = {
+    lazy var applicationDocumentsDirectory: URL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "labf.TimeTableFirstTry" in the application's documents Application Support directory.
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[urls.count-1]
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("TimeTableFirstTry", withExtension: "momd")!
-        return NSManagedObjectModel(contentsOfURL: modelURL)!
+        let modelURL = Bundle.main.url(forResource: "TimeTableFirstTry", withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL)!
     }()
 
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
         // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
         var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("teachers.sqlite")
+        let url = self.applicationDocumentsDirectory.appendingPathComponent("teachers.sqlite")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
-            try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+            try coordinator!.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
         } catch var error1 as NSError {
             error = error1
             coordinator = nil
             // Report any error we got.
             var dict = [String: AnyObject]()
-            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
-            dict[NSLocalizedFailureReasonErrorKey] = failureReason
+            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data" as AnyObject?
+            dict[NSLocalizedFailureReasonErrorKey] = failureReason as AnyObject?
             dict[NSUnderlyingErrorKey] = error
             error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             // Replace this with code to handle the error appropriately.
@@ -156,7 +156,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if coordinator == nil {
             return nil
         }
-        var managedObjectContext = NSManagedObjectContext.init(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
+        var managedObjectContext = NSManagedObjectContext.init(concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()

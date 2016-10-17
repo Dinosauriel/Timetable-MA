@@ -11,7 +11,7 @@ import UIKit
 class LoginWebViewController: UIViewController, UIWebViewDelegate {
     
     //MARK: CLASSES
-    let userDefaults = NSUserDefaults.standardUserDefaults()
+    let userDefaults = UserDefaults.standard
     
     //MARK: OUTLETS
     @IBOutlet weak var webView: UIWebView!
@@ -32,21 +32,21 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
     /**
     Detecting correct URL for segue!
     */
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         self.view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
-        let URLString = request.URL?.absoluteString
+        let URLString = request.url?.absoluteString
         
         // If the URL is correct, switch to timetable
-        if URLString!.containsString("uniapp://klw-stupla-app#access_token=") {
+        if URLString!.contains("uniapp://klw-stupla-app#access_token=") {
             goToTimetable()
-            if !userDefaults.boolForKey("HasLaunchedOnce") {
-                userDefaults.setBool(true, forKey: "HasLaunchedOnce")
+            if !userDefaults.bool(forKey: "HasLaunchedOnce") {
+                userDefaults.set(true, forKey: "HasLaunchedOnce")
             }
             // Delete the cookies to prevent auto-login in next start of the webView
-            for cookie:NSHTTPCookie in NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies! {
-                if cookie.domain.containsString("tam") {
-                    NSHTTPCookieStorage.sharedHTTPCookieStorage().deleteCookie(cookie)
+            for cookie:HTTPCookie in HTTPCookieStorage.shared.cookies! {
+                if cookie.domain.contains("tam") {
+                    HTTPCookieStorage.shared.deleteCookie(cookie)
                 }
             }
         }
@@ -56,35 +56,35 @@ class LoginWebViewController: UIViewController, UIWebViewDelegate {
     /**
     Stop loading wheel
     */
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         activityIndicator.stopAnimating()
     }
     
     /**
     Automatically loading starting URL once the View appears
     */
-    override func viewWillAppear(animated: Bool) {
-        let URLforRequest = NSURL(string: "https://oauth.tam.ch/signin/klw-stupla-app?response_type=token&client_id=0Wv69s7vyidj3cKzNckhiSulA5on8uFM&redirect_uri=uniapp%3A%2F%2Fklw-stupla-app&_blank&scope=all")
+    override func viewWillAppear(_ animated: Bool) {
+        let URLforRequest = URL(string: "https://oauth.tam.ch/signin/klw-stupla-app?response_type=token&client_id=0Wv69s7vyidj3cKzNckhiSulA5on8uFM&redirect_uri=uniapp%3A%2F%2Fklw-stupla-app&_blank&scope=all")
         
-        let request = NSURLRequest(URL: URLforRequest!)
+        let request = URLRequest(url: URLforRequest!)
         
         webView.loadRequest(request)
     }
     
     func goToTimetable() {
-        self.performSegueWithIdentifier(mainAppCycleSegueIdentifier, sender: self)
+        self.performSegue(withIdentifier: mainAppCycleSegueIdentifier, sender: self)
     }
     
     func goToFL() {
-        self.performSegueWithIdentifier(firstLaunchSegueIdentifier, sender: self)
+        self.performSegue(withIdentifier: firstLaunchSegueIdentifier, sender: self)
     }
     
     /**
     Cancel Button
     */
-    @IBAction func cancelButton(sender: AnyObject) {
-        userDefaults.setBool(true, forKey: "loginCancelled")
-        if !userDefaults.boolForKey("HasLaunchedOnce") {
+    @IBAction func cancelButton(_ sender: AnyObject) {
+        userDefaults.set(true, forKey: "loginCancelled")
+        if !userDefaults.bool(forKey: "HasLaunchedOnce") {
             goToFL()
         } else {
             goToTimetable()

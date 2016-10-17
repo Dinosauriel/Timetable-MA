@@ -12,7 +12,7 @@ import WebKit
 class APIBackgroundHandler {
     
     var notificationHandler:NotificationHandler = NotificationHandler()
-    var UserDefaults = NSUserDefaults.standardUserDefaults()
+    var UserDefaults = Foundation.UserDefaults.standard
     let tokenStorage:TokenStorage = TokenStorage()
     let urlBuilder:URLBuildingSupport = URLBuildingSupport()
     let timeTableStorage = TimeTableStorage()
@@ -22,11 +22,11 @@ class APIBackgroundHandler {
     func tokenIsInvalid() {
         let dateTime = notificationHandler.getCurrentTimeAsString()
         notificationHandler.addNewNotificationToQueue(FireDate: dateTime, Title: NSLocalizedString("invalidTokenTitle", comment: "invalidTokenTitle"), Message: NSLocalizedString("invalidTokenBody", comment: "changedNotificationTitle"))
-        UserDefaults.setBool(false, forKey: "RetrievedNewToken")
+        UserDefaults.set(false, forKey: "RetrievedNewToken")
     }
     
-    func getBackgroundData(completion: (String) -> Void) {
-        UserDefaults.setBool(true, forKey: "isSaving")
+    func getBackgroundData(_ completion: @escaping (String) -> Void) {
+        UserDefaults.set(true, forKey: "isSaving")
         //Loads the token from the data
         let token:String = tokenStorage.getTokenFromData()
         
@@ -39,22 +39,22 @@ class APIBackgroundHandler {
         //The resource-string for the unfiltered data
         let URLRequestString = urlBuilder.getURLForCurrentDate(token)
         //The URL for the data
-        let requestURL = NSURL(string: URLRequestString)
+        let requestURL = URL(string: URLRequestString)
         
-        let request = NSMutableURLRequest(URL: requestURL!)
-        request.HTTPMethod = "GET"
+        let request = NSMutableURLRequest(url: requestURL!)
+        request.httpMethod = "GET"
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: config)
-        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) -> Void in
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task : URLSessionDataTask = session.dataTask(with: request, completionHandler: {(data, response, error) -> Void in
             do {
                 print("Contents:")
-                if let s:NSString = String(data: data!, encoding: NSUTF8StringEncoding) {
+                if let s:NSString = String(data: data!, encoding: String.Encoding.utf8) {
                     var cleaned:String
-                    cleaned = s.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "()"))
-                    let cleanedData = (cleaned as NSString).dataUsingEncoding(NSUTF8StringEncoding)
-                    let dataDict:NSMutableDictionary = try NSJSONSerialization.JSONObjectWithData(cleanedData!, options: NSJSONReadingOptions.MutableContainers) as! NSMutableDictionary
+                    cleaned = s.trimmingCharacters(in: CharacterSet(charactersIn: "()"))
+                    let cleanedData = (cleaned as NSString).data(using: String.Encoding.utf8)
+                    let dataDict:NSMutableDictionary = try JSONSerialization.jsonObject(with: cleanedData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSMutableDictionary
                     print("Received Data")
                     completion(self.checkResponseCode(dataDict))
                 }
@@ -68,10 +68,10 @@ class APIBackgroundHandler {
         
     }
     
-    func checkResponseCode(dataDict:NSDictionary) -> String {
+    func checkResponseCode(_ dataDict:NSDictionary) -> String {
         let keys = dataDict.allKeys
         
-        if keys.contains({$0 as! String == "code"}) {
+        if keys.contains(where: {$0 as! String == "code"}) {
             let code = dataDict["code"] as! Int
             switch Int(code) {
             case 401: print("Not authenticated"); tokenIsInvalid(); return "failed"
@@ -86,7 +86,7 @@ class APIBackgroundHandler {
         }
     }
     
-    func checkForChanges(newData:NSDictionary) -> String {
+    func checkForChanges(_ newData:NSDictionary) -> String {
         let timeTableStorage:TimeTableStorage = TimeTableStorage()
         
         let weeks:NSArray = (newData as! [String:AnyObject])["timetable"] as! NSArray

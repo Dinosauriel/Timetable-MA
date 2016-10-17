@@ -10,9 +10,9 @@ import Foundation
 
 class Day {
     //MARK: CLASSES
-    let today = NSDate()
-    let calendar = NSCalendar.currentCalendar()
-    let formatter = NSDateFormatter()
+    let today = Date()
+    let calendar = Calendar.current
+    let formatter = DateFormatter()
     
     //MARK: INTEGERS
     let numberOfDaysInWeek = 5
@@ -27,21 +27,21 @@ class Day {
     /**
     Returns an Array of the days Needed in the Timetable
     */
-    func generateDayArray(dateStringLength: StringLength, forUI: Bool) -> [String] {
+    func generateDayArray(_ dateStringLength: StringLength, forUI: Bool) -> [String] {
         let demandedArrayLength: Int = 15
         var weekendCorrection = 0
         
-        var weekToReturn: [String] = [String](count: demandedArrayLength, repeatedValue: "")
+        var weekToReturn: [String] = [String](repeating: "", count: demandedArrayLength)
         
-        var firstMonday: NSDate? = calendar.dateBySettingUnit(.Weekday, value: 2, ofDate: today, options: NSCalendarOptions.MatchFirst)
+        var firstMonday: Date? = (calendar as NSCalendar).date(bySettingUnit: .weekday, value: 2, of: today, options: NSCalendar.Options.matchFirst)
         //Getting first monday to be displayed
         
-        let monIsLater: Bool = calendar.compareDate(firstMonday!, toDate: self.today, toUnitGranularity: .Weekday) == .OrderedDescending
+        let monIsLater: Bool = (calendar as NSCalendar).compare(firstMonday!, to: self.today, toUnitGranularity: .weekday) == .orderedDescending
         
-        let isWeekend: Bool = calendar.component(.Weekday, fromDate: self.today) == 7 || calendar.component(.Weekday, fromDate: self.today) == 1
+        let isWeekend: Bool = (calendar as NSCalendar).component(.weekday, from: self.today) == 7 || (calendar as NSCalendar).component(.weekday, from: self.today) == 1
         
         if monIsLater && !isWeekend { //Adapting firstMonday if needed
-            firstMonday = calendar.dateByAddingUnit(.WeekOfYear, value: -1, toDate: firstMonday!, options: NSCalendarOptions.MatchLast)
+            firstMonday = (calendar as NSCalendar).date(byAdding: .weekOfYear, value: -1, to: firstMonday!, options: NSCalendar.Options.matchLast)
         }
         
         //Assmbling weekToReturn based on firstMonday including weekendCorrection
@@ -50,7 +50,7 @@ class Day {
                 weekendCorrection += 2
             }
             
-            let newDate = calendar.dateByAddingUnit(.Day, value: i + weekendCorrection, toDate: firstMonday!, options: NSCalendarOptions.MatchNextTime)
+            let newDate = (calendar as NSCalendar).date(byAdding: .day, value: i + weekendCorrection, to: firstMonday!, options: NSCalendar.Options.matchNextTime)
             let newString = getStringFromDate(newDate!, length: dateStringLength, forUI: forUI)
             weekToReturn[i] = newString
         }
@@ -61,7 +61,7 @@ class Day {
     /**
     Returns String for date
     */
-    func getStringFromDate(date: NSDate, length: StringLength, forUI: Bool) -> String {
+    func getStringFromDate(_ date: Date, length: StringLength, forUI: Bool) -> String {
         
         if forUI {
             if length == .long {
@@ -75,6 +75,6 @@ class Day {
             formatter.dateFormat = "yyyy-MM-dd"
         }
         
-        return formatter.stringFromDate(date)
+        return formatter.string(from: date)
     }
 }
