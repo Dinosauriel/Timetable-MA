@@ -25,7 +25,6 @@ class DeclareLesson {
     
     //MARK: STRINGS
     let eventStartTimeString: String = "00:00:00"
-    let timeZoneAppendix = "+01:00"
     let dateTimeSeparator = "T"
     
     var requestedDay: String!
@@ -59,13 +58,13 @@ class DeclareLesson {
         requestedTime = timeArray[sec - 1]
         
         //Generating requestedDate from different parts
-        let requestedDate = requestedDay + dateTimeSeparator + requestedTime + timeZoneAppendix
+        let requestedDate = requestedDay + dateTimeSeparator + requestedTime
         
         //Get needed Lesson from CoreData using requestedDate
         let requestedLessons: [TimeTableData] = storage.getTimeTableDataWithStarttime(requestedDate)
         
         //Setting up specialEventDate
-        let specialEventDate = requestedDay + dateTimeSeparator + eventStartTimeString + timeZoneAppendix
+        let specialEventDate = requestedDay + dateTimeSeparator + eventStartTimeString
         //Getting special Events
         let specialEvents: [TimeTableData] = storage.getTimeTableDataWithStarttime(specialEventDate)
         
@@ -107,7 +106,7 @@ class DeclareLesson {
                     //Assignging blockDayIndex, specialBlockStartIndex, specialBlockEndIndex
                     endDateArray = []
                     for i in 0 ..< endTimeArray.count {
-                        endDateArray.append(requestedDay + dateTimeSeparator + endTimeArray[i] + timeZoneAppendix)
+                        endDateArray.append(requestedDay + dateTimeSeparator + endTimeArray[i])
                     }
                     blockDayIndex = (dayArray.indexOf(requestedDay)! + 1)
                     specialBlockStartIndex = sec
@@ -146,7 +145,7 @@ class DeclareLesson {
                 endDateArray = [] //Clearing endDateArray
                 //Assignging blockDayIndex, specialBlockStartIndex, specialBlockEndIndex
                 for i in 0 ..< endTimeArray.count { //Constructing endDateArray for specific day
-                    endDateArray.append(requestedDay + dateTimeSeparator + endTimeArray[i] + timeZoneAppendix)
+                    endDateArray.append(requestedDay + dateTimeSeparator + endTimeArray[i])
                 }
                 blockDayIndex = (dayArray.indexOf(requestedDay)! + 1)
                 specialBlockStartIndex = sec

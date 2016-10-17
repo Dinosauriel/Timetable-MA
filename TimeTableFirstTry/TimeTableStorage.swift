@@ -56,7 +56,15 @@ public class TimeTableStorage {
                             locationString = ""
                         }
                         
-                        TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["class"]!), StartTime: String(lesson["start"]!), EndTime: String(lesson["end"]!), Location: locationString, Subject: String(lesson["title"]!), Teacher: acronymString, Day: String(day["date"]!), Event: String(lesson["eventType"]!), ID: Int64(lesson["id"]! as! Int))
+                        let startTimeVar:String = String(lesson["start"]!)
+                        let startTimeVarCut:String = startTimeVar.substringToIndex(startTimeVar.startIndex.advancedBy(19))
+                        let endTimeVar:String = String(lesson["start"]!)
+                        let endTimeVarCut:String = endTimeVar.substringToIndex(endTimeVar.startIndex.advancedBy(19))
+                        
+                        let titleVar:String = String(lesson["title"]!)
+                        let titleVarCut:String = titleVar.stringByReplacingOccurrencesOfString("-<br>", withString: "")
+                        
+                        TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["class"]!), StartTime: startTimeVarCut, EndTime: endTimeVarCut, Location: locationString, Subject: titleVarCut, Teacher: acronymString, Day: String(day["date"]!), Event: String(lesson["eventType"]!), ID: Int64(lesson["id"]! as! Int))
                     }
                     //print(lesson)
                     lessonItr += 1
