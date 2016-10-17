@@ -12,14 +12,14 @@ import CoreData
 
 class TokenStorage {
     
-    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    func storeTokenData(_ token : String) {
+    func storeTokenData(token : String) {
         let fetchRequest = NSFetchRequest(entityName: "Token")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
         do {
-            try managedObjectContext?.execute(deleteRequest)
+            try managedObjectContext?.executeRequest(deleteRequest)
         } catch let error as NSError {
             print(error)
         }
@@ -47,7 +47,7 @@ class TokenStorage {
         let fetchRequest = NSFetchRequest(entityName: "Token")
         
         //Tries to read the token from the storage and stores it in the "token"-variable if possible
-        if let fetchResults = try! managedObjectContext?.fetch(fetchRequest) as? [Token] {
+        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [Token] {
             if fetchResults.count != 0 {
                 if fetchResults.count == 1 {
                     token = fetchResults[0].tokenVar

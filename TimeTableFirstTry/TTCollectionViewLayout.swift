@@ -34,18 +34,18 @@ class TTCollectionViewLayout: UICollectionViewLayout {
     /**
     Assigning the proper Values to the Variables
     */
-    override func prepare() {
+    override func prepareLayout() {
         
         // Cancel layout if there are no Sections in collectionView
-        if self.collectionView?.numberOfSections == 0 {
+        if self.collectionView?.numberOfSections() == 0 {
             return
         }
         
         // Check if itemAttributes exists
         if (self.itemAttributes != nil && self.itemAttributes.count > 0) {
             
-            for section in 0 ..< self.collectionView!.numberOfSections {
-                let numberOfItems: Int = self.collectionView!.numberOfItems(inSection: section)
+            for section in 0 ..< self.collectionView!.numberOfSections() {
+                let numberOfItems: Int = self.collectionView!.numberOfItemsInSection(section)
                 for index in 0 ..< numberOfItems {
                     //Skip iteration if not in first row or column
                     if section != 0 && index != 0 {
@@ -53,7 +53,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                     }
                     
                     //Get Attributes for current Cell
-                    let attributes: UICollectionViewLayoutAttributes = self.layoutAttributesForItem(at: IndexPath(item: index, section: section))
+                    let attributes: UICollectionViewLayoutAttributes = self.layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: index, inSection: section))
                     
                     //Position first row at the current yOffset of collectionView
                     if section == 0 {
@@ -81,7 +81,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
         var contentWidth: CGFloat = 0          //Width of Entire Table only for this Function
         var contentHeight: CGFloat = 0         //Height of Entire Table only for this Function
         
-        for section in 0 ..< self.collectionView!.numberOfSections {
+        for section in 0 ..< self.collectionView!.numberOfSections() {
             
             let sectionAttributes = NSMutableArray()    // Attributes of a single section
             var itemHeight: CGFloat                     // Height of a single section
@@ -94,20 +94,20 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                 let itemWidth = self.itemsWidth[item] as! CGFloat
                 
                 // IndexPath created for every index and Section
-                let indexPath = IndexPath(item: item, section: section)
+                let indexPath = NSIndexPath(forItem: item, inSection: section)
                 
                 // Attributes of a single Cell with the current section and index
-                let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+                let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
                 // Assigning provisional Position and Size of each cell as attribute.frame
                 if (section != 0) || (section == 0 && item == 0) || item + 1 == numberOfColumns {
-                    attributes.frame = CGRect(x: xOffset, y: yOffset, width: itemWidth, height: itemHeight).integral
+                    attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemWidth, itemHeight))
                 } else {
                     if item != 0 {
                         if item + 1 != numberOfColumns {
                             if (item % numberOfDaysInWeek) == 0 {
-                                attributes.frame = CGRect(x: xOffset, y: yOffset, width: (itemWidth + marginBetweenWeeks), height: itemHeight).integral
+                                attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, (itemWidth + marginBetweenWeeks), itemHeight))
                             } else {
-                                attributes.frame = CGRect(x: xOffset, y: yOffset, width: (itemWidth + marginBetweenRows), height: itemHeight).integral
+                                attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, (itemWidth + marginBetweenRows), itemHeight))
                             }
                         }
                     }
@@ -131,7 +131,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                 }
                 
                 //Adding the Calculated Attributes to the sectionAttributes Array
-                sectionAttributes.add(attributes)
+                sectionAttributes.addObject(attributes)
                 
                 // Updating xOffset for next row in this section
                 xOffset += itemWidth
@@ -167,39 +167,39 @@ class TTCollectionViewLayout: UICollectionViewLayout {
             
             //Initializing itemAttributes if necessairy
             if self.itemAttributes == nil {
-                self.itemAttributes = NSMutableArray(capacity: self.collectionView!.numberOfSections)
+                self.itemAttributes = NSMutableArray(capacity: self.collectionView!.numberOfSections())
             }
             
             // Append Attributes of entire Section to itemAttributes
-            self.itemAttributes.add(sectionAttributes)
+            self.itemAttributes.addObject(sectionAttributes)
         }
         
         //Get the last Cell in the CollectionView in order to adapt the contentHeight
-        let lastAttribute: UICollectionViewLayoutAttributes = (self.itemAttributes.lastObject as AnyObject).lastObject as! UICollectionViewLayoutAttributes
+        let lastAttribute: UICollectionViewLayoutAttributes = self.itemAttributes.lastObject?.lastObject as! UICollectionViewLayoutAttributes
         contentHeight = lastAttribute.frame.origin.y + lastAttribute.frame.size.height
         
         //Aplying width and height to contentSize
-        self.contentSize = CGSize(width: contentWidth, height: contentHeight)
+        self.contentSize = CGSizeMake(contentWidth, contentHeight)
     }
     
     /**
     Returning Size for the entire CollectionView
     */
-    override var collectionViewContentSize : CGSize {
+    override func collectionViewContentSize() -> CGSize {
         return self.contentSize
     }
     
     /**
     Returning the Attributes that were created in prepareLayout()
     */
-    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes {
-        return self.itemAttributes[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row] as! UICollectionViewLayoutAttributes
+    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes {
+        return self.itemAttributes[indexPath.section][indexPath.row] as! UICollectionViewLayoutAttributes
     }
     
     /**
     Filter self.itemAttributes for rect and return fitting attributes
     */
-    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var attributesInRect = [UICollectionViewLayoutAttributes]()
         if self.itemAttributes != nil {
             for section in self.itemAttributes {
@@ -208,15 +208,15 @@ class TTCollectionViewLayout: UICollectionViewLayout {
                 let filterPredicate = NSPredicate(block:
                     {
                         (evaluatedObject, bindings) -> Bool in
-                        return rect.intersects(evaluatedObject.frame)
+                        return CGRectIntersectsRect(rect, evaluatedObject.frame)
                     }
                 )
                 
                 // Filtering self.itemAttributes with the predicate
-                let attributesInSectionInRect = section.filtered(using: filterPredicate) as! [UICollectionViewLayoutAttributes]
+                let attributesInSectionInRect = section.filteredArrayUsingPredicate(filterPredicate) as! [UICollectionViewLayoutAttributes]
                 
                 //Adding section Attributes in rect
-                attributesInRect.append(contentsOf: attributesInSectionInRect)
+                attributesInRect.appendContentsOf(attributesInSectionInRect)
                 
             }
         }
@@ -224,7 +224,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
         return attributesInRect
     }
     
-    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
         return true
     }
     
@@ -232,7 +232,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
     /**
     Returns a optimal width for a section relative to the display size
     */
-    func widthForItemWithColumn(_ column: Int) -> CGFloat {
+    func widthForItemWithColumn(column: Int) -> CGFloat {
         
         let timeColumnWidth: CGFloat = getTimeColumnWidth()
         if column != 0 {
@@ -251,7 +251,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
     /**
     Returns absolute value of the height of a cell regardinf its section
     */
-    func heightForItemWithSection(_ section: Int) -> CGFloat {
+    func heightForItemWithSection(section: Int) -> CGFloat {
         if section == 0 {
             return CGFloat(30)
         } else {
@@ -266,7 +266,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
         self.itemsWidth = NSMutableArray(capacity: numberOfColumns)
         for section in 0 ..< numberOfColumns {
             
-            self.itemsWidth.add(self.widthForItemWithColumn(section))
+            self.itemsWidth.addObject(self.widthForItemWithColumn(section))
         }
     }
     
@@ -276,7 +276,7 @@ class TTCollectionViewLayout: UICollectionViewLayout {
     func getTimeColumnWidth() -> CGFloat {
         
         let timeTitle = NSLocalizedString("time", comment: "TimeTransForSizeCalculation")
-        let timeColumnSize: CGSize = (timeTitle as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0)])
+        let timeColumnSize: CGSize = (timeTitle as NSString).sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(17.0)])
         let timeColumnWidth: CGFloat = timeColumnSize.width + marginForTimeColumn
         
         return timeColumnWidth

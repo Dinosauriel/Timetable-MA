@@ -14,7 +14,7 @@ class URLBuildingSupport {
      This function returns the short-name of a month
      The argument is an Integer representing the month
     */
-    func month(_ monthNumber:Int) -> String {
+    func month(monthNumber:Int) -> String {
         switch(monthNumber) {
         case 1: return "Jan"
         case 2: return "Feb"
@@ -36,7 +36,7 @@ class URLBuildingSupport {
      This function returns the short-name of a day
      The argument is an Integer representing the day
      */
-    func day(_ dayNumber:Int) -> String {
+    func day(dayNumber:Int) -> String {
         switch(dayNumber) {
         case 1: return "Sun"
         case 2: return "Mon"
@@ -49,21 +49,21 @@ class URLBuildingSupport {
         }
     }
     
-    func getURLForCurrentDate(_ token:String) -> String {
+    func getURLForCurrentDate(token:String) -> String {
         let URLBaseRequestString = "https://intranet.tam.ch/klw/rest/mobile-timetable/auth/"
         
         //The resource-string for the data with filters
-        let date = Date()
-        let calendar = Calendar.current
-        let components = (calendar as NSCalendar).components([.day,.month,.year,.weekday,.hour,.minute,.second], from: date)
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day,.Month,.Year,.Weekday,.Hour,.Minute,.Second], fromDate: date)
         
-        let dayVarShort:String = day(components.day!)
-        let dayVarDate:String = String(describing: components.day)
-        let monthVarShort:String = month(components.month!)
-        let yearVar:String = String(describing: components.year)
-        let hourVar:String = String(describing: components.hour)
-        let minuteVar:String = String(describing: components.minute)
-        let secondVar:String = String(describing: components.second)
+        let dayVarShort:String = day(components.day)
+        let dayVarDate:String = String(components.day)
+        let monthVarShort:String = month(components.month)
+        let yearVar:String = String(components.year)
+        let hourVar:String = String(components.hour)
+        let minuteVar:String = String(components.minute)
+        let secondVar:String = String(components.second)
         let timeZoneVar:String = "GMT"
         
         

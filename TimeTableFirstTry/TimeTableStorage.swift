@@ -10,21 +10,21 @@ import Foundation
 import WebKit
 import CoreData
 
-open class TimeTableStorage {
-    let userDefaults = UserDefaults.standard
+public class TimeTableStorage {
+    let userDefaults = NSUserDefaults.standardUserDefaults()
     
     var tableData:NSArray!
-    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    func storeTimeTableData(_ data : AnyObject) {
+    func storeTimeTableData(data : AnyObject) {
         
         eraseAllData()
         let userData:NSDictionary = (data as! [String:AnyObject])["user"] as! NSDictionary
         let firstname:String = userData["firstname"] as! String
         let lastname:String = userData["lastname"] as! String
         
-        userDefaults.set(firstname, forKey: "userfirstname")
-        userDefaults.set(lastname, forKey: "userlastname")
+        userDefaults.setObject(firstname, forKey: "userfirstname")
+        userDefaults.setObject(lastname, forKey: "userlastname")
         
 
         let weeks:NSArray = (data as! [String:AnyObject])["timetable"] as! NSArray
@@ -45,8 +45,8 @@ open class TimeTableStorage {
                 while lessonItr != lessonCount {
                     let lesson:NSDictionary = lessons[lessonItr] as! NSDictionary
                     if let moc = self.managedObjectContext {
-                        var acronymString:String = String(describing: lesson["acronym"]!)
-                        var locationString:String = String(describing: lesson["location"]!)
+                        var acronymString:String = String(lesson["acronym"]!)
+                        var locationString:String = String(lesson["location"]!)
                         
                         if acronymString == "<null>" {
                             acronymString = ""
@@ -55,17 +55,8 @@ open class TimeTableStorage {
                         if locationString == "<null>" {
                             locationString = ""
                         }
-
                         
-                        let startTimeVar:String = String(lesson["start"]!)
-                        let startTimeVarCut:String = startTimeVar.substringToIndex(startTimeVar.startIndex.advancedBy(19))
-                        let endTimeVar:String = String(lesson["start"]!)
-                        let endTimeVarCut:String = endTimeVar.substringToIndex(endTimeVar.startIndex.advancedBy(19))
-                        
-                        let titleVar:String = String(lesson["title"]!)
-                        let titleVarCut:String = titleVar.stringByReplacingOccurrencesOfString("-<br>", withString: "")
-                        
-                        TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["class"]!), StartTime: startTimeVarCut, EndTime: endTimeVarCut, Location: locationString, Subject: titleVarCut, Teacher: acronymString, Day: String(day["date"]!), Event: String(lesson["eventType"]!), ID: Int64(lesson["id"]! as! Int))
+                        TimeTableData.createInManagedObjectContext(ManagedObjectContext: moc, ClassName: String(lesson["class"]!), StartTime: String(lesson["start"]!), EndTime: String(lesson["end"]!), Location: locationString, Subject: String(lesson["title"]!), Teacher: acronymString, Day: String(day["date"]!), Event: String(lesson["eventType"]!), ID: Int64(lesson["id"]! as! Int))
                     }
                     //print(lesson)
                     lessonItr += 1
@@ -79,11 +70,11 @@ open class TimeTableStorage {
         do {
             try managedObjectContext?.save()
             print("Saved")
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "newData"), object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("newData", object: nil)
         } catch let error {
             print(error)
         }
-        userDefaults.set(false, forKey: "isSaving")
+        userDefaults.setBool(false, forKey: "isSaving")
     }
     
     /*func getTimeTableDataWithDay(requestedDay: String) -> [TimeTableData]{
@@ -100,31 +91,27 @@ open class TimeTableStorage {
         }
     }*/
     
-    func getTimeTableDataWithStarttime(_ requestedTime: String) -> [TimeTableData] {
+    func getTimeTableDataWithStarttime(requestedTime: String) -> [TimeTableData] {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
         fetchRequest.returnsObjectsAsFaults = false
         let predicateForTime = NSPredicate(format: "%K = %@", "startTime", requestedTime)
         fetchRequest.predicate = predicateForTime
         
-        if let fetchResults = try! managedObjectContext?.fetch(fetchRequest) as? [TimeTableData] {
+        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
             let lessonWithTime = fetchResults
-//            if requestedTime.containsString("2016-10-24") {
-//                print(requestedTime)
-//                print(lessonWithTime)
-//            }
             return lessonWithTime
         } else {
             return []
         }
     }
     
-    func getTimeTableDataWithID(_ requestedID :Int) -> [TimeTableData] {
+    func getTimeTableDataWithID(requestedID :Int) -> [TimeTableData] {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
         fetchRequest.returnsObjectsAsFaults = false
-        let predicateForID = NSPredicate(format: "%K = %@","id",NSNumber(value: requestedID as Int))
+        let predicateForID = NSPredicate(format: "%K = %@","id",NSNumber(long: requestedID))
         fetchRequest.predicate = predicateForID
         
-        if let fetchResults = try! managedObjectContext?.fetch(fetchRequest) as? [TimeTableData] {
+        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
             let lessonWithID = fetchResults
             return lessonWithID
         } else {
@@ -132,13 +119,13 @@ open class TimeTableStorage {
         }
     }
     
-    func getTimeTableDataWithTimeString(_ requestedStartTime :String) -> [TimeTableData] {
+    func getTimeTableDataWithTimeString(requestedStartTime :String) -> [TimeTableData] {
         let fetchRequest = NSFetchRequest(entityName: "TimeTableData")
         fetchRequest.returnsObjectsAsFaults = false
         let predicateForID = NSPredicate(format: "%K = %@","startTime",requestedStartTime)
         fetchRequest.predicate = predicateForID
         
-        if let fetchResults = try! managedObjectContext?.fetch(fetchRequest) as? [TimeTableData] {
+        if let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [TimeTableData] {
             let lessonWithID = fetchResults
             return lessonWithID
         } else {
@@ -164,7 +151,7 @@ open class TimeTableStorage {
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchDeleteRequest)
         
         do {
-            try managedObjectContext?.execute(deleteRequest)
+            try managedObjectContext?.executeRequest(deleteRequest)
         } catch let error {
             print(error)
         }

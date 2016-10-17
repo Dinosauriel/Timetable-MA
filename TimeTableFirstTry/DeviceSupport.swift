@@ -14,12 +14,12 @@ class DeviceSupport {
     Returns heigth of Display regardless of the current orientation
     */
     func getAbsoluteDisplayHeight() -> CGFloat {
-        let orientation = UIApplication.shared.statusBarOrientation
+        let orientation = UIApplication.sharedApplication().statusBarOrientation
 
-        if orientation == .portrait || orientation == .portraitUpsideDown {
-            return UIScreen.main.bounds.height
+        if orientation == .Portrait || orientation == .PortraitUpsideDown {
+            return UIScreen.mainScreen().bounds.height
         } else {
-            return UIScreen.main.bounds.width
+            return UIScreen.mainScreen().bounds.width
         }
         
     }
@@ -28,12 +28,12 @@ class DeviceSupport {
     Returns heigth of Display regardless of the current orientation
     */
     func getAbsoluteDisplayWidth() -> CGFloat {
-        let orientation = UIApplication.shared.statusBarOrientation
+        let orientation = UIApplication.sharedApplication().statusBarOrientation
         
-        if orientation == .portrait || orientation == .portraitUpsideDown {
-            return UIScreen.main.bounds.width
+        if orientation == .Portrait || orientation == .PortraitUpsideDown {
+            return UIScreen.mainScreen().bounds.width
         } else {
-            return UIScreen.main.bounds.height
+            return UIScreen.mainScreen().bounds.height
         }
 
     }

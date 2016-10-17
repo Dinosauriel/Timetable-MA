@@ -21,7 +21,7 @@ class DayCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.dayLabel.font = UIFont.systemFont(ofSize: 13)
+        self.dayLabel.font = UIFont.systemFontOfSize(13)
     }
     
 }

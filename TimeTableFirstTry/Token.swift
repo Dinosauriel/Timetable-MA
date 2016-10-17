@@ -13,8 +13,8 @@ class Token: NSManagedObject {
     
     @NSManaged var tokenVar: String!
     
-    class func createInManagedObjectContext(_ moc: NSManagedObjectContext, tokenVar: String) -> Token {
-        let newItem = NSEntityDescription.insertNewObject(forEntityName: "Token", into: moc) as! Token
+    class func createInManagedObjectContext(moc: NSManagedObjectContext, tokenVar: String) -> Token {
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Token", inManagedObjectContext: moc) as! Token
         newItem.tokenVar = tokenVar
         
         return newItem

@@ -36,9 +36,9 @@ class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource
     
     func declarePageViewAppearance() {
         let appearance = UIPageControl.appearance()
-        appearance.pageIndicatorTintColor = UIColor.lightGray
-        appearance.currentPageIndicatorTintColor = UIColor.gray
-        appearance.backgroundColor = UIColor.white
+        appearance.pageIndicatorTintColor = UIColor.lightGrayColor()
+        appearance.currentPageIndicatorTintColor = UIColor.grayColor()
+        appearance.backgroundColor = UIColor.whiteColor()
     }
     
     /**
@@ -46,28 +46,28 @@ class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource
     */
     func defineFirstPage() {
         
-        let newViewController = storyboard!.instantiateViewController(withIdentifier: pageIdentifiers[currentPage]) as UIViewController
+        let newViewController = storyboard!.instantiateViewControllerWithIdentifier(pageIdentifiers[currentPage]) as UIViewController
         let startingViewControllers: [UIViewController] = [newViewController]
 
-        self.setViewControllers(startingViewControllers, direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)
+        self.setViewControllers(startingViewControllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
     }
     
     //MARK: UIPageViewControllerDelegate
     /**
     Only Portrait is supported
     */
-    func pageViewControllerSupportedInterfaceOrientations(_ pageViewController: UIPageViewController) -> UIInterfaceOrientationMask {
-        return .portrait
+    func pageViewControllerSupportedInterfaceOrientations(pageViewController: UIPageViewController) -> UIInterfaceOrientationMask {
+        return .Portrait
     }
     
     /**
     Adapting currentPage upon transition
     */
-    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+    func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
         let pendingIdentifier = pendingViewControllers[0].restorationIdentifier
         if pageIdentifiers.contains(pendingIdentifier!) {
             //print("page before: \(currentPage)")
-            let pendingPosition = pageIdentifiers.index(of: pendingIdentifier!)
+            let pendingPosition = pageIdentifiers.indexOf(pendingIdentifier!)
             currentPage = pendingPosition!
             //print("page after: \(currentPage)")
         } else {
@@ -79,9 +79,9 @@ class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource
     /**
     Get previous viewController from storyboard based on pageIdentifiers
     */
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         if currentPage > 0 {
-            let beforeViewController = storyboard?.instantiateViewController(withIdentifier: pageIdentifiers[currentPage - 1])
+            let beforeViewController = storyboard?.instantiateViewControllerWithIdentifier(pageIdentifiers[currentPage - 1])
             return beforeViewController
         } else {
             return nil
@@ -91,9 +91,9 @@ class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource
     /**
     Get next viewController from storyboard based on pageIdentifiers
     */
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         if currentPage < (pageIdentifiers.count - 1) {
-            let afterViewController = storyboard?.instantiateViewController(withIdentifier: pageIdentifiers[currentPage + 1])
+            let afterViewController = storyboard?.instantiateViewControllerWithIdentifier(pageIdentifiers[currentPage + 1])
             return afterViewController
         } else {
             return nil
@@ -105,14 +105,14 @@ class FLPageViewController: UIPageViewController, UIPageViewControllerDataSource
     /**
     Returns number of points in pageIndicator
     */
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
         return pageIdentifiers.count
     }
     
     /**
     Returns starting point of pageIndicator
     */
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 0
     }
 }
