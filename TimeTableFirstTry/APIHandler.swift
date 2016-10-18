@@ -77,8 +77,8 @@ class APIHandler {
         let timeTableStorage:TimeTableStorage = TimeTableStorage()
         let keys = dataDict.allKeys
         
-        if true {//keys.contains({$0 as! String == "code"}) {
-            let code = 401//dataDict["code"] as! Int
+        if keys.contains({$0 as! String == "code"}) {
+            let code = dataDict["code"] as! Int
             switch Int(code) {
                 //If the response was a code 401 we have to request a new token
             case 401: print("Not authenticated"); userDefaults.setBool(false, forKey: "RetrievedNewToken"); NSNotificationCenter.defaultCenter().postNotificationName("showLoginScreen", object: self)
