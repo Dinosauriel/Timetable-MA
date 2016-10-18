@@ -71,6 +71,7 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     */
     override func viewDidLoad() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TTCollectionViewController.checkToken), name: "newData", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TTCollectionViewController.goToLoginFromExternalClass), name: "showLoginScreen", object: nil)
         adaptLayout()
         super.viewDidLoad()
         assignCurrentLesson()
@@ -145,6 +146,12 @@ class TTCollectionViewController: UIViewController, UICollectionViewDataSource, 
     */
     func goToLogin() {
         self.performSegueWithIdentifier(loginSegueIdentifier, sender: nil)
+    }
+    /**
+     This function is called when the segue has to be performed because of a call of non-UI class
+     */
+    func goToLoginFromExternalClass() {
+        self.performSelectorOnMainThread(#selector(self.goToLogin), withObject: self, waitUntilDone: false)
     }
     
 

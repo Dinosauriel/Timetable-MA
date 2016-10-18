@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //let sharedDefaults = NSUserDefaults(suiteName: "group.lee.labf.timetable")
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
         //sharedDefaults?.setObject("Robocraft", forKey: "token")
         
         //MARK: DETECTING FIRST LAUNCH
